@@ -268,7 +268,7 @@ export default function PandaOfferApp() {
 
                   {/* Trip.com 广告 */}
                   <a 
-                    href="这里替换成Trip发给你的专属追踪链接" 
+                    href="https://www.trip.com/?Allianceid=7919136&SID=297504901&trip_sub1=A01&trip_sub3=D13597019" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors border border-slate-700 hover:border-blue-500/50 group"
