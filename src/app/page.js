@@ -1,12 +1,20 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import { Search, Lock, CheckCircle, GraduationCap, MapPin, DollarSign, ArrowRight, ArrowLeft, ShieldCheck, MessageSquare, BookOpen, Coffee, PlayCircle, Globe2, Calculator, Plane, Wifi, Smartphone, TrendingUp } from 'lucide-react';
-import { createClient } from '@supabase/supabase-js';
 
-// 初始化 Supabase
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// ⚠️ 注意：由于右侧在线预览环境的限制，我暂时将 Supabase 的真实引入注释掉了以保证预览正常运行。
+// ⚠️ 当你在本地 VS Code 中运行代码时，请【取消下面这行代码的注释】（删掉前面的双斜杠）：
+// import { createClient } from '@supabase/supabase-js';
+
+// 初始化 Supabase 
+const supabaseUrl = (typeof process !== 'undefined' && process.env && process.env.NEXT_PUBLIC_SUPABASE_URL) || '';
+const supabaseAnonKey = (typeof process !== 'undefined' && process.env && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) || '';
+
+// ⚠️ 当你在本地 VS Code 中运行代码时，请【取消下面这行真实代码的注释】：
+// const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
+
+// ⚠️ 并且【删除】下面这行用于在线预览的模拟代码：
+const supabase = { from: () => ({ insert: async () => ({ error: null }) }) };
 
 export default function PandaOfferApp() {
   const [step, setStep] = useState('home'); 
@@ -34,22 +42,28 @@ export default function PandaOfferApp() {
   };
 
   const handleUnlock = async (e) => {
-  e.preventDefault();
-  if (email.includes('@')) {
-    // 这一步是把邮箱写进数据库的 leads 表！
-    const { data, error } = await supabase
-      .from('leads')
-      .insert([ { email: email } ]);
+    e.preventDefault();
+    if (email.includes('@')) {
+      
+      // 如果 supabase 没有正确连接，给个提示
+      if (!supabase) {
+        alert("Database not connected. Please check your .env.local file.");
+        return;
+      }
 
-    if (error) {
-      alert('Oops, something went wrong!');
-      console.error(error);
-    } else {
-      setStep('unlocked'); // 成功后，显示解锁画面
+      // 这一步是把邮箱写进数据库的 leads 表！
+      const { data, error } = await supabase
+        .from('leads')
+        .insert([ { email: email } ]);
+
+      if (error) {
+        alert('Oops, something went wrong!');
+        console.error(error);
+      } else {
+        setStep('unlocked'); // 成功后，显示解锁画面
+      }
     }
-  }
-};
-
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
@@ -65,10 +79,17 @@ export default function PandaOfferApp() {
           <a href="#" className="text-sm font-medium text-slate-600 hover:text-emerald-600 hidden md:block">Universities</a>
           <a href="#discover" className="text-sm font-medium text-slate-600 hover:text-emerald-600 hidden md:block">Life in China</a>
           <a href="#" className="text-sm font-medium text-slate-600 hover:text-emerald-600 hidden md:block">Scholarships</a>
-          <button className="bg-[#5865F2] hover:bg-[#4752C4] text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors">
+          
+          {/* 更新：顶部导航栏的 Discord 链接 */}
+          <a 
+            href="https://discord.gg/7bU9kb23 " 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-[#5865F2] hover:bg-[#4752C4] text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors cursor-pointer"
+          >
             <MessageSquare size={16} />
             <span className="hidden sm:inline">Join Discord</span>
-          </button>
+          </a>
         </div>
       </nav>
 
@@ -201,8 +222,13 @@ export default function PandaOfferApp() {
                   </div>
                 </div>
 
-                {/* 原生联盟广告 */}
-                <div className="flex items-center justify-between bg-blue-50/50 p-4 rounded-xl border border-blue-100 group cursor-pointer hover:bg-blue-50 transition-colors">
+                {/* 原生联盟广告 (Wise) */}
+                <a 
+                  href="这里替换成Wise的联盟链接" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between bg-blue-50/50 p-4 rounded-xl border border-blue-100 group cursor-pointer hover:bg-blue-50 transition-colors"
+                >
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">W</div>
                     <div>
@@ -211,7 +237,7 @@ export default function PandaOfferApp() {
                     </div>
                   </div>
                   <ArrowRight size={18} className="text-blue-500 group-hover:translate-x-1 transition-transform" />
-                </div>
+                </a>
               </div>
 
               {/* 学生必备省钱包 / 高佣金联盟区 */}
@@ -223,7 +249,13 @@ export default function PandaOfferApp() {
                 <p className="text-sm text-slate-400 mb-6">Essential tools for surviving in China with exclusive discounts.</p>
                 
                 <div className="space-y-4">
-                  <a href="#" className="flex items-center p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors border border-slate-700 hover:border-emerald-500/50 group">
+                  {/* ExpressVPN 广告 */}
+                  <a 
+                    href="这里替换成ExpressVPN的联盟链接" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors border border-slate-700 hover:border-emerald-500/50 group"
+                  >
                     <div className="p-2 bg-slate-700 rounded-lg group-hover:bg-emerald-500/20 mr-3">
                       <Wifi size={20} className="text-slate-300 group-hover:text-emerald-400" />
                     </div>
@@ -234,7 +266,13 @@ export default function PandaOfferApp() {
                     <span className="text-xs font-bold bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">Get</span>
                   </a>
 
-                  <a href="#" className="flex items-center p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors border border-slate-700 hover:border-blue-500/50 group">
+                  {/* Trip.com 广告 */}
+                  <a 
+                    href="这里替换成Trip发给你的专属追踪链接" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors border border-slate-700 hover:border-blue-500/50 group"
+                  >
                     <div className="p-2 bg-slate-700 rounded-lg group-hover:bg-blue-500/20 mr-3">
                       <Plane size={20} className="text-slate-300 group-hover:text-blue-400" />
                     </div>
@@ -245,7 +283,13 @@ export default function PandaOfferApp() {
                     <span className="text-xs font-bold bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Book</span>
                   </a>
 
-                  <a href="#" className="flex items-center p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors border border-slate-700 hover:border-orange-500/50 group">
+                  {/* eSIM 广告 */}
+                  <a 
+                    href="这里替换成eSIM的联盟链接" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors border border-slate-700 hover:border-orange-500/50 group"
+                  >
                     <div className="p-2 bg-slate-700 rounded-lg group-hover:bg-orange-500/20 mr-3">
                       <Smartphone size={20} className="text-slate-300 group-hover:text-orange-400" />
                     </div>
@@ -352,9 +396,16 @@ export default function PandaOfferApp() {
                     <button className="bg-white text-slate-900 font-bold px-8 py-3 rounded-xl hover:bg-slate-100 transition-colors">
                       Watch Student Vlogs
                     </button>
-                    <button className="bg-slate-800 border border-slate-700 text-white font-bold px-8 py-3 rounded-xl hover:bg-slate-700 transition-colors flex items-center justify-center gap-2">
+
+                    {/* 更新：社区模块的 Discord 链接 */}
+                    <a 
+                      href="这里粘贴你刚刚复制的Discord链接" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="bg-slate-800 border border-slate-700 text-white font-bold px-8 py-3 rounded-xl hover:bg-slate-700 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                    >
                       <MessageSquare size={18} /> Ask on Discord
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -438,7 +489,7 @@ export default function PandaOfferApp() {
         {(step === 'results' || step === 'unlocked') && (
           <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             
-            {/* 新增：返回主页按钮 */}
+            {/* 返回主页按钮 */}
             <div className="flex justify-start">
               <button 
                 onClick={() => setStep('home')}
@@ -516,7 +567,7 @@ export default function PandaOfferApp() {
                           onChange={(e) => setEmail(e.target.value)}
                         />
                         
-                        {/* 新增：高转化率的合规选项 (Required Checkbox) */}
+                        {/* 高转化率的合规选项 (Required Checkbox) */}
                         <label className="flex items-start gap-2 text-left cursor-pointer group pb-2">
                           <input 
                             type="checkbox" 
@@ -607,9 +658,16 @@ export default function PandaOfferApp() {
                   <MessageSquare size={32} className="mb-3 opacity-90" />
                   <h4 className="font-bold text-lg mb-1">Have doubts? Ask real students.</h4>
                   <p className="text-sm text-blue-100 mb-4">Join our Discord to talk to students currently studying at ZJU.</p>
-                  <button className="bg-white text-[#5865F2] font-bold py-2 px-6 rounded-lg hover:bg-slate-50 transition-colors w-full">
+                  
+                  {/* 更新：解锁后结果页底部的 Discord 链接 */}
+                  <a 
+                    href="这里粘贴你刚刚复制的Discord链接" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-white text-[#5865F2] font-bold py-2 px-6 rounded-lg hover:bg-slate-50 transition-colors w-full flex items-center justify-center cursor-pointer"
+                  >
                     Join Community (Free)
-                  </button>
+                  </a>
                 </div>
                 <div className="bg-slate-900 text-white p-6 rounded-2xl shadow-md flex flex-col justify-center items-center text-center">
                   <ShieldCheck size={32} className="mb-3 text-emerald-400" />
