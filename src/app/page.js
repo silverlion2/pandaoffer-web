@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import { Search, Lock, CheckCircle, GraduationCap, MapPin, DollarSign, ArrowRight, ArrowLeft, ShieldCheck, MessageSquare, BookOpen, Coffee, PlayCircle, Globe2, Calculator, Plane, Wifi, Smartphone, TrendingUp } from 'lucide-react';
 
