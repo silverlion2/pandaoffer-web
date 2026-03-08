@@ -1,6 +1,12 @@
 "use client"
 import React, { useState } from 'react';
 import { Search, Lock, CheckCircle, GraduationCap, MapPin, DollarSign, ArrowRight, ArrowLeft, ShieldCheck, MessageSquare, BookOpen, Coffee, PlayCircle, Globe2, Calculator, Plane, Wifi, Smartphone, TrendingUp } from 'lucide-react';
+import { createClient } from '@supabase/supabase-js';
+
+// 初始化 Supabase
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function PandaOfferApp() {
   const [step, setStep] = useState('home'); 
@@ -27,12 +33,23 @@ export default function PandaOfferApp() {
     }, 2000); 
   };
 
-  const handleUnlock = (e) => {
-    e.preventDefault();
-    if (email.includes('@')) {
-      setStep('unlocked');
+  const handleUnlock = async (e) => {
+  e.preventDefault();
+  if (email.includes('@')) {
+    // 这一步是把邮箱写进数据库的 leads 表！
+    const { data, error } = await supabase
+      .from('leads')
+      .insert([ { email: email } ]);
+
+    if (error) {
+      alert('Oops, something went wrong!');
+      console.error(error);
+    } else {
+      setStep('unlocked'); // 成功后，显示解锁画面
     }
-  };
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
