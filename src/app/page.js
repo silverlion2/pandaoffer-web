@@ -1,20 +1,16 @@
 "use client";
 import React, { useState } from 'react';
 import { Search, Lock, CheckCircle, GraduationCap, MapPin, DollarSign, ArrowRight, ArrowLeft, ShieldCheck, MessageSquare, BookOpen, Coffee, PlayCircle, Globe2, Calculator, Plane, Wifi, Smartphone, TrendingUp } from 'lucide-react';
-
-// ⚠️ 注意：由于右侧在线预览环境的限制，我暂时将 Supabase 的真实引入注释掉了以保证预览正常运行。
-// ⚠️ 当你在本地 VS Code 中运行代码时，请【取消下面这行代码的注释】（删掉前面的双斜杠）：
-// import { createClient } from '@supabase/supabase-js';
+// 真正的 Next.js 极速跳转组件，线上部署必备！
+import Link from 'next/link';
+import { createClient } from '@supabase/supabase-js';
 
 // 初始化 Supabase 
-const supabaseUrl = (typeof process !== 'undefined' && process.env && process.env.NEXT_PUBLIC_SUPABASE_URL) || '';
-const supabaseAnonKey = (typeof process !== 'undefined' && process.env && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) || '';
-
-// ⚠️ 当你在本地 VS Code 中运行代码时，请【取消下面这行真实代码的注释】：
-// const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
-
-// ⚠️ 并且【删除】下面这行用于在线预览的模拟代码：
-const supabase = { from: () => ({ insert: async () => ({ error: null }) }) };
+// (这段代码直接读取 .env.local 里的配置，安全且不会把密钥暴露在前端代码里)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+// 如果连上了数据库就创建 client，没连上就留空，防止网站崩溃
+const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 export default function PandaOfferApp() {
   const [step, setStep] = useState('home'); 
@@ -45,19 +41,19 @@ export default function PandaOfferApp() {
     e.preventDefault();
     if (email.includes('@')) {
       
-      // 如果 supabase 没有正确连接，给个提示
+      // 容错处理：如果你还没配好 .env.local，点解锁时会弹窗提醒，但不会崩溃
       if (!supabase) {
-        alert("Database not connected. Please check your .env.local file.");
+        alert("Database not connected. Please check your Supabase keys in .env.local.");
         return;
       }
 
-      // 这一步是把邮箱写进数据库的 leads 表！
+      // 将邮箱数据发送到 Supabase 的 leads 表
       const { data, error } = await supabase
         .from('leads')
         .insert([ { email: email } ]);
 
       if (error) {
-        alert('Oops, something went wrong!');
+        alert('Oops, something went wrong saving your email!');
         console.error(error);
       } else {
         setStep('unlocked'); // 成功后，显示解锁画面
@@ -77,10 +73,15 @@ export default function PandaOfferApp() {
         </div>
         <div className="flex items-center gap-6">
           <a href="#" className="text-sm font-medium text-slate-600 hover:text-emerald-600 hidden md:block">Universities</a>
-          <a href="#discover" className="text-sm font-medium text-slate-600 hover:text-emerald-600 hidden md:block">Life in China</a>
+          
+          {/* 使用 Link 组件实现无缝跳转至博客 */}
+          <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-emerald-600 hidden md:block">
+            Blog & Guides
+          </Link>
+          
           <a href="#" className="text-sm font-medium text-slate-600 hover:text-emerald-600 hidden md:block">Scholarships</a>
           
-          {/* 更新：顶部导航栏的 Discord 链接 */}
+          {/*  【需要你单独更新 1/7】：顶部导航栏的 Discord 链接 */}
           <a 
             href="https://discord.gg/7bU9kb23 " 
             target="_blank" 
@@ -222,7 +223,7 @@ export default function PandaOfferApp() {
                   </div>
                 </div>
 
-                {/* 原生联盟广告 (Wise) */}
+                {/* 🛑 【需要你单独更新 2/7】：原生联盟广告 (Wise) */}
                 <a 
                   href="这里替换成Wise的联盟链接" 
                   target="_blank" 
@@ -249,7 +250,7 @@ export default function PandaOfferApp() {
                 <p className="text-sm text-slate-400 mb-6">Essential tools for surviving in China with exclusive discounts.</p>
                 
                 <div className="space-y-4">
-                  {/* ExpressVPN 广告 */}
+                  {/* 🛑 【需要你单独更新 3/7】：ExpressVPN 广告 */}
                   <a 
                     href="这里替换成ExpressVPN的联盟链接" 
                     target="_blank" 
@@ -266,9 +267,9 @@ export default function PandaOfferApp() {
                     <span className="text-xs font-bold bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">Get</span>
                   </a>
 
-                  {/* Trip.com 广告 */}
+                  {/*  【需要你单独更新 4/7】：Trip.com 广告 */}
                   <a 
-                    href="https://www.trip.com/?Allianceid=7919136&SID=297504901&trip_sub1=A01&trip_sub3=D13597019" 
+                    href="https://www.trip.com/?Allianceid=7919136&SID=297504901&trip_sub1=A01&trip_sub3=D13597019 " 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center p-3 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors border border-slate-700 hover:border-blue-500/50 group"
@@ -283,7 +284,7 @@ export default function PandaOfferApp() {
                     <span className="text-xs font-bold bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Book</span>
                   </a>
 
-                  {/* eSIM 广告 */}
+                  {/* 🛑 【需要你单独更新 5/7】：eSIM 广告 */}
                   <a 
                     href="这里替换成eSIM的联盟链接" 
                     target="_blank" 
@@ -322,13 +323,17 @@ export default function PandaOfferApp() {
                   <h2 className="text-3xl font-extrabold text-slate-900">Discover China</h2>
                   <p className="text-slate-500 mt-2">Everything you need to know before you pack your bags.</p>
                 </div>
-                <button className="text-emerald-600 font-bold hover:underline hidden md:block">View all guides &rarr;</button>
+                
+                {/* 真正的无缝跳转链接 */}
+                <Link href="/blog" className="text-emerald-600 font-bold hover:underline hidden md:block">
+                  View all guides &rarr;
+                </Link>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
                 {/* 类别 1: 留学干货 101 */}
-                <div className="group cursor-pointer">
+                <Link href="/blog/csc-scholarship-guide-2026" className="group cursor-pointer block">
                   <div className="h-48 bg-slate-200 rounded-2xl mb-4 overflow-hidden relative">
                     <div className="absolute inset-0 bg-gradient-to-tr from-blue-900 to-slate-800 flex items-center justify-center transition-transform group-hover:scale-105">
                        <BookOpen size={48} className="text-white opacity-50" />
@@ -343,10 +348,10 @@ export default function PandaOfferApp() {
                   <p className="text-sm text-slate-500 line-clamp-2">
                     Step-by-step tutorial on how to apply for the Chinese Government Scholarship, covering tuition, accommodation, and monthly stipends.
                   </p>
-                </div>
+                </Link>
 
                 {/* 类别 2: 生活方式与文化 */}
-                <div className="group cursor-pointer">
+                <Link href="/blog" className="group cursor-pointer block">
                   <div className="h-48 bg-slate-200 rounded-2xl mb-4 overflow-hidden relative">
                     <div className="absolute inset-0 bg-gradient-to-tr from-orange-500 to-pink-500 flex items-center justify-center transition-transform group-hover:scale-105">
                        <Coffee size={48} className="text-white opacity-50" />
@@ -361,10 +366,10 @@ export default function PandaOfferApp() {
                   <p className="text-sm text-slate-500 line-clamp-2">
                     China is virtually cashless. Here is how international students can link their foreign credit cards to pay for everything from high-speed trains to street food.
                   </p>
-                </div>
+                </Link>
 
                 {/* 类别 3: 城市对比 */}
-                <div className="group cursor-pointer">
+                <Link href="/blog" className="group cursor-pointer block">
                   <div className="h-48 bg-slate-200 rounded-2xl mb-4 overflow-hidden relative">
                     <div className="absolute inset-0 bg-gradient-to-tr from-emerald-600 to-teal-900 flex items-center justify-center transition-transform group-hover:scale-105">
                        <Globe2 size={48} className="text-white opacity-50" />
@@ -379,7 +384,7 @@ export default function PandaOfferApp() {
                   <p className="text-sm text-slate-500 line-clamp-2">
                     Comparing the cultural heart of China with the Silicon Valley of the East. Cost of living, tech vibes, and university options explained.
                   </p>
-                </div>
+                </Link>
 
               </div>
 
@@ -397,9 +402,9 @@ export default function PandaOfferApp() {
                       Watch Student Vlogs
                     </button>
 
-                    {/* 更新：社区模块的 Discord 链接 */}
+                    {/*  【需要你单独更新 6/7】：中部的 Discord 链接 */}
                     <a 
-                      href="这里粘贴你刚刚复制的Discord链接" 
+                      href="https://discord.gg/7bU9kb23 " 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="bg-slate-800 border border-slate-700 text-white font-bold px-8 py-3 rounded-xl hover:bg-slate-700 transition-colors flex items-center justify-center gap-2 cursor-pointer"
@@ -659,9 +664,9 @@ export default function PandaOfferApp() {
                   <h4 className="font-bold text-lg mb-1">Have doubts? Ask real students.</h4>
                   <p className="text-sm text-blue-100 mb-4">Join our Discord to talk to students currently studying at ZJU.</p>
                   
-                  {/* 更新：解锁后结果页底部的 Discord 链接 */}
+                  {/*  【需要你单独更新 7/7】：解锁后结果页底部的 Discord 链接 */}
                   <a 
-                    href="这里粘贴你刚刚复制的Discord链接" 
+                    href="https://discord.gg/7bU9kb23 " 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="bg-white text-[#5865F2] font-bold py-2 px-6 rounded-lg hover:bg-slate-50 transition-colors w-full flex items-center justify-center cursor-pointer"
