@@ -1,27 +1,17 @@
-"use client";
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { postsDB } from '@/data/blog';
 
 export default function BlogHome() {
-  // 这里的 slug 必须和你在 [slug]/page.js 数据库里写的键名一模一样！
-  const posts = [
-    { 
-      title: "The Ultimate CSC Scholarship Guide 2026", 
-      category: "Study 101",
-      slug: "csc-scholarship-guide-2026"
-    },
-    { 
-      title: "Top Medical Universities in China Recognized by WHO & NMC", 
-      category: "Admission",
-      slug: "mbbs-in-china-who-recognized"
-    }
-  ];
+  const posts = Object.entries(postsDB).map(([slug, post]) => ({
+    ...post,
+    slug
+  }));
 
   return (
-    <div className="min-h-screen bg-slate-50 p-8 font-sans">
-      <div className="max-w-4xl mx-auto">
-        {/* 返回主页的链接 */}
+    <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
+      <div className="flex-1 max-w-4xl mx-auto p-8 w-full">
         <Link href="/" className="inline-flex items-center gap-2 text-emerald-600 font-bold mb-8 hover:underline">
           <ArrowLeft size={16} /> Back to PandaOffer
         </Link>
@@ -31,7 +21,6 @@ export default function BlogHome() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {posts.map((post, idx) => (
-            // 这里的 Link 组件会自动拼接出对应的文章网址
             <Link 
               href={`/blog/${post.slug}`} 
               key={idx} 

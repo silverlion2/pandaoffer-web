@@ -1,8 +1,23 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-inter: "Inter", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+}
+
+@keyframes slideUp {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-24px); }
+  50%, 70% { transform: translateY(-48px); }
+  75%, 95% { transform: translateY(-72px); }
+  100% { transform: translateY(-72px); }
 }
 
 @theme inline {
