@@ -169,6 +169,30 @@ export default function UnlockResults({ step, setStep, formData }) {
                       <CheckCircle className="text-emerald-500" size={18} />
                     </div>
                   )}
+                  {formData.nationality === 'USA' && (
+                    <div className="flex justify-between items-center pt-2 border-t border-slate-100">
+                      <span className="font-medium">ECFMG / USMLE Eligible</span>
+                      <CheckCircle className="text-emerald-500" size={18} />
+                    </div>
+                  )}
+                  {formData.nationality === 'Saudi Arabia' && (
+                    <div className="flex justify-between items-center pt-2 border-t border-slate-100">
+                      <span className="font-medium">SCFHS / SMLE Eligible</span>
+                      <CheckCircle className="text-emerald-500" size={18} />
+                    </div>
+                  )}
+                  {['Netherlands', 'Germany', 'Albania'].includes(formData.nationality) && (
+                    <div className="flex justify-between items-center pt-2 border-t border-slate-100">
+                      <span className="font-medium">European Medical Framework Recognized</span>
+                      <CheckCircle className="text-emerald-500" size={18} />
+                    </div>
+                  )}
+                  {formData.nationality === 'Taiwan' && (
+                    <div className="flex justify-between items-center pt-2 border-t border-slate-100">
+                      <span className="font-medium">Taiwan MOE Recognized</span>
+                      <CheckCircle className="text-emerald-500" size={18} />
+                    </div>
+                  )}
                 </div>
               </div>
 

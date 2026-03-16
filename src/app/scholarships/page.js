@@ -150,6 +150,45 @@ export default function ScholarshipsPage() {
                 <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> Usually partial tuition waivers</li>
               </ul>
             </div>
+
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 relative overflow-hidden">
+               <div className="absolute top-0 right-0 bg-rose-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                Most Lucrative
+              </div>
+              <h3 className="text-xl font-bold mb-3">MOFCOM Scholarship</h3>
+              <p className="text-slate-600 text-sm mb-6 pb-6 border-b border-slate-200">
+                Sponsored by the Ministry of Commerce for applicants from developing countries. Very high stipend (3600 RMB master's) + one-time settlement.
+              </p>
+              <ul className="space-y-3 text-sm font-medium text-slate-700 mb-6">
+                <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> High competition</li>
+                <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> ~April deadline via Embassy</li>
+                <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> Full coverage + Highest Stipend</li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+              <h3 className="text-xl font-bold mb-3">Belt and Road Initiative</h3>
+              <p className="text-slate-600 text-sm mb-6 pb-6 border-b border-slate-200">
+                Targeted at students from countries participating in the BRI. Typically tied to provincial or university-level funds and quotas.
+              </p>
+              <ul className="space-y-3 text-sm font-medium text-slate-700 mb-6">
+                <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> Specific country list</li>
+                <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> Varies greatly by province</li>
+                <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> High acceptance for STEM</li>
+              </ul>
+            </div>
+            
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+              <h3 className="text-xl font-bold mb-3">CIS (Confucius Institute)</h3>
+              <p className="text-slate-600 text-sm mb-6 pb-6 border-b border-slate-200">
+                The International Chinese Language Teachers Scholarship. For students specifically going to study Chinese language, literature, or teaching.
+              </p>
+              <ul className="space-y-3 text-sm font-medium text-slate-700 mb-6">
+                <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> HSK/HSKK required</li>
+                <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> Apply via local Confucius Inst</li>
+                <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> Full coverage + Stipend</li>
+              </ul>
+            </div>
           </div>
         </section>
 

@@ -30,6 +30,12 @@ export default function AiMatcherForm({ onSubmit, defaultValues }) {
               <option value="India">India</option>
               <option value="Pakistan">Pakistan</option>
               <option value="Nigeria">Nigeria</option>
+              <option value="USA">USA</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="Albania">Albania</option>
+              <option value="Germany">Germany</option>
+              <option value="Saudi Arabia">Saudi Arabia</option>
+              <option value="Taiwan">Taiwan</option>
               <option value="Other">Other</option>
             </select>
             {errors.nationality && <p className="text-xs text-red-500">{errors.nationality.message}</p>}

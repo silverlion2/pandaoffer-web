@@ -222,6 +222,106 @@ export default function UniversitiesPage() {
                 </div>
               </div>
 
+              {/* Peking University */}
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
+                <div className="h-48 bg-slate-200 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-red-900 to-rose-600"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
+                    <h3 className="text-2xl font-bold">Peking University</h3>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex items-center text-slate-500 text-sm font-medium mb-4 gap-4">
+                    <span className="flex items-center gap-1"><MapPin size={16} /> Beijing</span>
+                    <span>QS Rank: #17</span>
+                  </div>
+                  <p className="text-slate-600 text-sm mb-6 flex-grow">
+                    Often called the "Harvard of China" alongside Tsinghua, PKU is China's premier comprehensive university, famed for brilliant humanities, pure sciences, and medicine.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Peking Sci & Med</span>
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Social Sciences</span>
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Mathematics</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Nanjing University */}
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
+                <div className="h-48 bg-slate-200 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-fuchsia-900 to-purple-600"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
+                    <h3 className="text-2xl font-bold">Nanjing University</h3>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex items-center text-slate-500 text-sm font-medium mb-4 gap-4">
+                    <span className="flex items-center gap-1"><MapPin size={16} /> Nanjing</span>
+                    <span>QS Rank: #141</span>
+                  </div>
+                  <p className="text-slate-600 text-sm mb-6 flex-grow">
+                    One of the oldest and most prestigious universities in China, renowned for deep, rigorous academic research and avoiding commercialization.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Physics</span>
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Astronomy</span>
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Chinese Literature</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* USTC */}
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
+                <div className="h-48 bg-slate-200 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-sky-900 to-indigo-600"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
+                    <h3 className="text-2xl font-bold">USTC</h3>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex items-center text-slate-500 text-sm font-medium mb-4 gap-4">
+                    <span className="flex items-center gap-1"><MapPin size={16} /> Hefei</span>
+                    <span>QS Rank: #137</span>
+                  </div>
+                  <p className="text-slate-600 text-sm mb-6 flex-grow">
+                    The University of Science and Technology of China is the Caltech of China, known for producing top-tier researchers and absolute dominance in pure sciences.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Quantum Physics</span>
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Chemistry</span>
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Materials Science</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Xi'an Jiaotong University */}
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
+                <div className="h-48 bg-slate-200 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-amber-800 to-orange-600"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
+                    <h3 className="text-2xl font-bold">Xi'an Jiaotong</h3>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex items-center text-slate-500 text-sm font-medium mb-4 gap-4">
+                    <span className="flex items-center gap-1"><MapPin size={16} /> Xi'an</span>
+                    <span>QS Rank: #291</span>
+                  </div>
+                  <p className="text-slate-600 text-sm mb-6 flex-grow">
+                    A powerhouse of engineering and technology in western China, offering excellent English-taught programs and deep industry connections.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Electrical Eng</span>
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Management</span>
+                    <span className="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg">Energy Systems</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>

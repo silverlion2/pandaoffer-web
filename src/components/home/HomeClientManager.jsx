@@ -6,9 +6,6 @@ import UnlockResults from './UnlockResults';
 
 export default function HomeClientManager({ 
   heroHeader, 
-  budgetCalculator, 
-  documentWizard,
-  roiCalculator,
   toolsMenu,
   affiliates, 
   discoverChina, 
@@ -48,16 +45,15 @@ export default function HomeClientManager({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-12 border-t border-slate-200">
-            {budgetCalculator}
-            {affiliates}
+            <div className="lg:col-span-2">
+              {toolsMenu}
+            </div>
+            <div className="lg:col-span-1">
+              {affiliates}
+            </div>
           </div>
 
-          {roiCalculator}
-
           {discoverChina}
-
-          {documentWizard}
-          {toolsMenu}
 
           {premiumServices}
           {faqSection}
