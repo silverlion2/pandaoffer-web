@@ -1,5 +1,6 @@
 ---
 title: 'How to Write a Winning CSC Study Plan (With Template)'
+description: 'Learn how to write a CSC Scholarship study plan that wins — structure, template, word count tips, and the most common mistakes that get applications rejected.'
 category: 'Study 101'
 date: '2026-03-08'
 author: 'PandaOffer Team'

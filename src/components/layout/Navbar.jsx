@@ -25,7 +25,7 @@ export default function Navbar() {
     <nav className="bg-white border-b border-slate-200 sticky top-0 z-50 relative">
       <div className="px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+          <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)} aria-label="PandaOffer — Home">
             <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
               P
             </div>

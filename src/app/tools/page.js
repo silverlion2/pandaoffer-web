@@ -11,6 +11,15 @@ import AiMatcherForm from '@/components/home/AiMatcherForm';
 export const metadata = {
   title: 'Tools & Calculators | PandaOffer',
   description: 'Free interactive tools for international students planning to study in China. Calculators, timelines, and document wizards.',
+  openGraph: {
+    title: 'Tools & Calculators | PandaOffer',
+    description: 'Free interactive tools for international students planning to study in China. Calculators, timelines, and document wizards.',
+    url: 'https://www.pandaoffer.top/tools',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.pandaoffer.top/tools',
+  },
 };
 
 export default function ToolsPage() {

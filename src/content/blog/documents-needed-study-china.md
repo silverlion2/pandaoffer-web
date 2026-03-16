@@ -1,5 +1,6 @@
 ---
 title: 'Complete Checklist: Documents Needed to Study in China (2026)'
+description: 'The definitive document checklist for studying in China in 2026 — from university application to visa to arrival. Covers CSC scholarships, MBBS, and country-specific requirements.'
 category: 'Study 101'
 date: '2026-03-07'
 author: 'PandaOffer Team'

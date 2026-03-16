@@ -1,5 +1,6 @@
 ---
 title: 'Understanding China University Tiers: C9, 985, 211, and Double First-Class Explained'
+description: 'Learn about China''s university classification system — C9 League, Project 985, Project 211, and Double First-Class — and what each tier means for your education and career.'
 category: 'Study 101'
 date: '2026-03-14'
 author: 'PandaOffer Team'

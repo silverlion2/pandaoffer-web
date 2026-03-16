@@ -24,14 +24,26 @@ export default function PandaOfferApp() {
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "PandaOffer",
-              "url": "https://www.pandaoffer.top/"
+              "url": "https://www.pandaoffer.top/",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.pandaoffer.top/blog?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
             },
             {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "PandaOffer",
               "url": "https://www.pandaoffer.top/",
-              "logo": "https://www.pandaoffer.top/og-image.jpg"
+              "logo": "https://www.pandaoffer.top/og-image.jpg",
+              "description": "AI-driven university matching and CSC Scholarship guidance for international students studying in China.",
+              "sameAs": ["https://discord.gg/7bU9kb23"],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "hello@pandaoffer.top",
+                "contactType": "customer service"
+              }
             }
           ])
         }}

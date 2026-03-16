@@ -1,5 +1,6 @@
 ---
 title: 'Your First 30 Days in China: The Ultimate Survival Checklist'
+description: 'Week-by-week survival checklist for your first month in China — airport arrival, banking, SIM cards, residence permits, and settling into campus life.'
 category: 'Lifestyle'
 date: '2026-03-09'
 author: 'PandaOffer Team'

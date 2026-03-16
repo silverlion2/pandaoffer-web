@@ -3,6 +3,20 @@ import Link from 'next/link';
 import { getSortedPostsData } from '@/lib/markdown';
 import Navbar from '@/components/layout/Navbar';
 
+export const metadata = {
+  title: 'Blog & Guides — Study in China Tips & Scholarships',
+  description: 'Expert guides on CSC Scholarships, MBBS in China, student visas, cost of living, and survival tips for international students planning to study in China.',
+  openGraph: {
+    title: 'Blog & Guides — Study in China Tips & Scholarships',
+    description: 'Expert guides on CSC Scholarships, MBBS in China, student visas, cost of living, and survival tips for international students planning to study in China.',
+    url: 'https://www.pandaoffer.top/blog',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.pandaoffer.top/blog',
+  },
+};
+
 export default function BlogHome() {
   const posts = getSortedPostsData();
 

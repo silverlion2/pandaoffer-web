@@ -1,5 +1,6 @@
 ---
 title: 'Beijing vs. Hangzhou: Where Should You Study in China?'
+description: 'A detailed comparison of Beijing and Hangzhou for international students — universities, cost of living, lifestyle, weather, and career opportunities side by side.'
 category: 'City Guides'
 date: '2026-03-13'
 author: 'PandaOffer Team'

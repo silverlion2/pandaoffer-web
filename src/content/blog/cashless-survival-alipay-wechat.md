@@ -1,5 +1,6 @@
 ---
 title: 'Cashless Survival: How to Set Up Alipay & WeChat Pay as an International Student'
+description: 'Step-by-step guide to setting up Alipay and WeChat Pay in China with a foreign bank card — transaction limits, fees, and tips for new international students.'
 category: 'Lifestyle'
 date: '2026-03-12'
 author: 'PandaOffer Team'

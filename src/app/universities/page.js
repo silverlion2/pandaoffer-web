@@ -7,6 +7,15 @@ import { Building2, Globe2, BookOpen, GraduationCap, ArrowRight, ExternalLink, M
 export const metadata = {
   title: 'Top Chinese Universities | PandaOffer',
   description: 'Explore the best universities in China for international students. Comprehensive guide to C9, 985, 211 and Double First-Class institutions.',
+  openGraph: {
+    title: 'Top Chinese Universities | PandaOffer',
+    description: 'Explore the best universities in China for international students. Comprehensive guide to C9, 985, 211 and Double First-Class institutions.',
+    url: 'https://www.pandaoffer.top/universities',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.pandaoffer.top/universities',
+  },
 };
 
 export default function UniversitiesPage() {
@@ -15,6 +24,20 @@ export default function UniversitiesPage() {
       <Navbar />
 
       <main className="flex-grow">
+        {/* BreadcrumbList Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pandaoffer.top" },
+                { "@type": "ListItem", "position": 2, "name": "Universities", "item": "https://www.pandaoffer.top/universities" }
+              ]
+            })
+          }}
+        />
         {/* Hero Section */}
         <section className="bg-slate-900 text-white py-20 px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>

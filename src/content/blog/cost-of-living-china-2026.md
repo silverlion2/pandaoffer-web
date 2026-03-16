@@ -1,5 +1,6 @@
 ---
 title: 'Cost of Living in China 2026: A City-by-City Breakdown for Students'
+description: 'Detailed 2026 cost of living breakdown for international students in China — rent, food, transport, and monthly budgets across Tier 1, 2, and 3 cities.'
 category: 'Lifestyle'
 date: '2026-03-15'
 author: 'PandaOffer Team'

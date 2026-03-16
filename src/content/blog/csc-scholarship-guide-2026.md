@@ -1,5 +1,6 @@
 ---
 title: 'The Ultimate CSC Scholarship Guide 2026: Everything You Need to Know'
+description: 'Complete guide to the Chinese Government Scholarship (CSC) 2026 — eligibility, application steps, required documents, deadlines, and common mistakes to avoid.'
 category: 'Study 101'
 date: '2026-03-10'
 author: 'PandaOffer Team'

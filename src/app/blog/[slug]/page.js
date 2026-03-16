@@ -19,13 +19,14 @@ export async function generateMetadata({ params }) {
     if (!post) return { title: 'Post Not Found | PandaOffer' };
     
     const title = `${post.title} | PandaOffer Blog`;
-    // We can't easily strip HTML here without an extra package, so a simple summary could be from frontmatter 
-    // or just a default string. Let's provide a basic one.
-    const description = `Read ${post.title} on PandaOffer Blog`;
+    const description = post.description || `Read ${post.title} — expert advice for international students studying in China.`;
 
     return {
       title,
       description,
+      alternates: {
+        canonical: `https://www.pandaoffer.top/blog/${slug}`,
+      },
       openGraph: {
         title,
         description,

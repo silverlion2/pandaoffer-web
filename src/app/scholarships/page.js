@@ -7,6 +7,15 @@ import { Award, Briefcase, Globe2, BookOpen, CheckCircle2, ChevronRight, Calcula
 export const metadata = {
   title: 'Fully Funded Scholarships in China | PandaOffer',
   description: 'Complete guide to the CSC Scholarship, Provincial Scholarships, and University grants in China for international students in 2026.',
+  openGraph: {
+    title: 'Fully Funded Scholarships in China | PandaOffer',
+    description: 'Complete guide to the CSC Scholarship, Provincial Scholarships, and University grants in China for international students in 2026.',
+    url: 'https://www.pandaoffer.top/scholarships',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.pandaoffer.top/scholarships',
+  },
 };
 
 export default function ScholarshipsPage() {
@@ -15,6 +24,20 @@ export default function ScholarshipsPage() {
       <Navbar />
 
       <main className="flex-grow">
+        {/* BreadcrumbList Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pandaoffer.top" },
+                { "@type": "ListItem", "position": 2, "name": "Scholarships", "item": "https://www.pandaoffer.top/scholarships" }
+              ]
+            })
+          }}
+        />
         {/* Hero Section */}
         <section className="bg-slate-50 py-20 px-6 border-b border-slate-200">
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

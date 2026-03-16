@@ -1,5 +1,6 @@
 ---
 title: 'Top Medical Universities in China Recognized by WHO & NMC (2026 Updated List)'
+description: 'Updated 2026 list of WHO and NMC recognized medical universities in China for international MBBS students — rankings, tuition fees, and how to verify recognition status.'
 category: 'Admission'
 date: '2026-03-11'
 author: 'Dr. Panda'

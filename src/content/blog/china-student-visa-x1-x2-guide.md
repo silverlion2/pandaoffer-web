@@ -1,5 +1,6 @@
 ---
 title: 'China Student Visa (X1/X2): Everything You Need to Know'
+description: 'Complete guide to China X1 and X2 student visas — required documents, application steps, fees, residence permit process, and common mistakes to avoid.'
 category: 'Study 101'
 date: '2026-03-16'
 author: 'PandaOffer Team'

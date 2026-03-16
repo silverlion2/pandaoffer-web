@@ -7,10 +7,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const outfit = Outfit({ subsets: ["latin"], variable: '--font-outfit' });
 
-// 这是你网站的全局 SEO 元数据（显示在浏览器标签页和 Google 搜索结果中）
-// 这是你网站的全局 SEO 元数据（显示在浏览器标签页和 Google 搜索结果中）
+// Global SEO metadata (displayed in browser tabs and Google search results)
 export const metadata = {
   metadataBase: new URL('https://www.pandaoffer.top'),
+  verification: {
+    google: 'zLREZ7AR-fIkNCQu19gJE9hmMZZEAqMEedboCeo1zyE',
+  },
   title: {
     default: "PandaOffer | Your Ultimate Guide to Studying in China",
     template: "%s | PandaOffer"
