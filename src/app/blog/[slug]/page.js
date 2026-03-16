@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { getPostData, getAllPostSlugs } from '@/lib/markdown';
+import Navbar from '@/components/layout/Navbar';
 
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs();
@@ -12,7 +13,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   try {
-    const post = await getPostData(params.slug);
+    const { slug } = await params;
+    const post = await getPostData(slug);
     
     if (!post) return { title: 'Post Not Found | PandaOffer' };
     
@@ -27,7 +29,7 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title,
         description,
-        url: `https://www.pandaoffer.top/blog/${params.slug}`,
+        url: `https://www.pandaoffer.top/blog/${slug}`,
         type: 'article',
         publishedTime: post.date,
         authors: [post.author],
@@ -53,7 +55,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPost({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   let post;
   
   try {
@@ -72,6 +74,7 @@ export default async function BlogPost({ params }) {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
+      <Navbar />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -155,7 +158,7 @@ export default async function BlogPost({ params }) {
           </div>
         </header>
 
-        <div className="prose prose-lg prose-emerald max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:text-slate-800 prose-h2:mt-10 prose-h2:mb-4 prose-p:text-slate-600 prose-p:leading-relaxed prose-a:text-emerald-600 hover:prose-a:text-emerald-700 prose-strong:text-slate-900" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+        <div className="prose prose-lg prose-emerald max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:text-slate-800 prose-h2:mt-10 prose-h2:mb-4 prose-p:text-slate-600 prose-p:leading-loose prose-a:text-emerald-600 hover:prose-a:text-emerald-700 prose-strong:text-slate-900" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
         <div className="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500 rounded-full blur-[100px] opacity-20 -mr-20 -mt-20"></div>

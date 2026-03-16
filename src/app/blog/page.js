@@ -1,17 +1,15 @@
 import React from 'react';
-import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { getSortedPostsData } from '@/lib/markdown';
+import Navbar from '@/components/layout/Navbar';
 
 export default function BlogHome() {
   const posts = getSortedPostsData();
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
-      <div className="flex-1 max-w-4xl mx-auto p-8 w-full">
-        <Link href="/" className="inline-flex items-center gap-2 text-emerald-600 font-bold mb-8 hover:underline">
-          <ArrowLeft size={16} /> Back to PandaOffer
-        </Link>
+      <Navbar />
+      <div className="flex-1 max-w-4xl mx-auto p-8 w-full mt-4">
         
         <h1 className="text-4xl font-extrabold text-slate-900 mb-2">PandaOffer Blog</h1>
         <p className="text-slate-500 mb-10">Expert guides, scholarship tips, and living survival hacks in China.</p>

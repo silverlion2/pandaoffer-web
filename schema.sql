@@ -16,6 +16,12 @@ BEGIN
     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'purchase_status') THEN
         CREATE TYPE public.purchase_status AS ENUM ('pending', 'completed', 'refunded', 'consumed');
     END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'cost_tier') THEN
+        CREATE TYPE public.cost_tier AS ENUM ('tier_1', 'tier_2', 'tier_3');
+    END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'language_instruction') THEN
+        CREATE TYPE public.language_instruction AS ENUM ('English', 'Chinese', 'Bilingual');
+    END IF;
 END$$;
 
 -- 2. Authentication & Users
@@ -116,12 +122,26 @@ CREATE TABLE IF NOT EXISTS public.feedbacks (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
--- 6. Dynamic Content (Universities & Programs)
-CREATE TABLE IF NOT EXISTS public.universities (
+-- 6. Dynamic Content (Cities, Universities & Programs)
+CREATE TABLE IF NOT EXISTS public.cities (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
-  country TEXT NOT NULL,
+  province TEXT NOT NULL,
+  cost_of_living_tier public.cost_tier NOT NULL,
+  monthly_living_cost_usd NUMERIC,
+  climate TEXT,
+  expat_friendliness INTEGER CHECK (expat_friendliness >= 1 AND expat_friendliness <= 5),
+  description TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS public.universities (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  city_id UUID REFERENCES public.cities(id) ON DELETE SET NULL,
+  name TEXT NOT NULL,
   ranking INTEGER,
+  international_student_pct NUMERIC,
+  campus_quality INTEGER CHECK (campus_quality >= 1 AND campus_quality <= 5),
   description TEXT,
   logo_url TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
@@ -132,8 +152,12 @@ CREATE TABLE IF NOT EXISTS public.programs (
   university_id UUID REFERENCES public.universities(id) ON DELETE CASCADE NOT NULL,
   title TEXT NOT NULL,
   degree_level TEXT NOT NULL,
+  language_of_instruction public.language_instruction NOT NULL,
   tuition_fee NUMERIC,
   duration_years NUMERIC,
+  admission_requirements JSONB,
+  scholarships_available BOOLEAN DEFAULT false,
+  career_prospects TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
@@ -146,6 +170,7 @@ ALTER TABLE public.purchases ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.user_profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.feedbacks ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.cities ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.universities ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.programs ENABLE ROW LEVEL SECURITY;
 
@@ -230,7 +255,20 @@ CREATE POLICY "Admins can update feedbacks" ON public.feedbacks FOR UPDATE USING
 DROP POLICY IF EXISTS "Admins can delete feedbacks" ON public.feedbacks;
 CREATE POLICY "Admins can delete feedbacks" ON public.feedbacks FOR DELETE USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
 
--- universities & programs: anyone can read, admins modify
+-- cities: anyone can read, admins modify
+DROP POLICY IF EXISTS "Anyone can view cities" ON public.cities;
+CREATE POLICY "Anyone can view cities" ON public.cities FOR SELECT USING (true);
+
+DROP POLICY IF EXISTS "Admins can insert cities" ON public.cities;
+CREATE POLICY "Admins can insert cities" ON public.cities FOR INSERT WITH CHECK (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
+
+DROP POLICY IF EXISTS "Admins can update cities" ON public.cities;
+CREATE POLICY "Admins can update cities" ON public.cities FOR UPDATE USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
+
+DROP POLICY IF EXISTS "Admins can delete cities" ON public.cities;
+CREATE POLICY "Admins can delete cities" ON public.cities FOR DELETE USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
+
+-- universities: anyone can read, admins modify
 DROP POLICY IF EXISTS "Anyone can view universities" ON public.universities;
 CREATE POLICY "Anyone can view universities" ON public.universities FOR SELECT USING (true);
 
@@ -243,6 +281,7 @@ CREATE POLICY "Admins can update universities" ON public.universities FOR UPDATE
 DROP POLICY IF EXISTS "Admins can delete universities" ON public.universities;
 CREATE POLICY "Admins can delete universities" ON public.universities FOR DELETE USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
 
+-- programs: anyone can read, admins modify
 DROP POLICY IF EXISTS "Anyone can view programs" ON public.programs;
 CREATE POLICY "Anyone can view programs" ON public.programs FOR SELECT USING (true);
 
