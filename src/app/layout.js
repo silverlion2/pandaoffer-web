@@ -61,6 +61,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="zLREZ7AR-fIkNCQu19gJE9hmMZZEAqMEedboCeo1zyE" />
+      </head>
       <body className={`${inter.variable} ${outfit.variable} font-sans`}>
         
         {/* 这里是你网站的所有页面内容 */}
