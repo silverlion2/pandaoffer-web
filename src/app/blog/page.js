@@ -1,13 +1,10 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { postsDB } from '@/data/blog';
+import { getSortedPostsData } from '@/lib/markdown';
 
 export default function BlogHome() {
-  const posts = Object.entries(postsDB).map(([slug, post]) => ({
-    ...post,
-    slug
-  }));
+  const posts = getSortedPostsData();
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 font-sans">

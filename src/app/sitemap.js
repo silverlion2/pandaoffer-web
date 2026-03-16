@@ -1,7 +1,8 @@
-import { postsDB } from '@/data/blog';
+import { getSortedPostsData } from '@/lib/markdown';
 
 export default function sitemap() {
   const baseUrl = 'https://www.pandaoffer.top';
+  const posts = getSortedPostsData();
 
   // Static routes
   const staticRoutes = [
@@ -20,10 +21,10 @@ export default function sitemap() {
   ];
 
   // Dynamic routes (Blog Posts)
-  const blogRoutes = Object.keys(postsDB).map((slug) => {
+  const blogRoutes = posts.map((post) => {
     return {
-      url: `${baseUrl}/blog/${slug}`,
-      lastModified: new Date(postsDB[slug].date),
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
       changeFrequency: 'monthly',
       priority: 0.8,
     };

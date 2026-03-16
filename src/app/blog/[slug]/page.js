@@ -1,48 +1,64 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { postsDB } from '@/data/blog';
+import { getPostData, getAllPostSlugs } from '@/lib/markdown';
 
-export async function generateMetadata({ params }) {
-  const post = postsDB[params.slug];
-  if (!post) return { title: 'Post Not Found | PandaOffer' };
-  
-  const title = `${post.title} | PandaOffer Blog`;
-  const description = post.content.replace(/<[^>]*>?/gm, '').substring(0, 150) + '...';
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      url: `https://www.pandaoffer.top/blog/${params.slug}`,
-      type: 'article',
-      publishedTime: post.date,
-      authors: [post.author],
-      images: [
-        {
-          url: '/og-image.jpg', // Ideally replace with post-specific image if added later
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: ['/og-image.jpg'],
-    },
-  };
+export async function generateStaticParams() {
+  const slugs = getAllPostSlugs();
+  return slugs.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
-export default function BlogPost({ params }) {
-  const { slug } = params;
-  const post = postsDB[slug];
+export async function generateMetadata({ params }) {
+  try {
+    const post = await getPostData(params.slug);
+    
+    if (!post) return { title: 'Post Not Found | PandaOffer' };
+    
+    const title = `${post.title} | PandaOffer Blog`;
+    // We can't easily strip HTML here without an extra package, so a simple summary could be from frontmatter 
+    // or just a default string. Let's provide a basic one.
+    const description = `Read ${post.title} on PandaOffer Blog`;
 
-  if (!post) {
+    return {
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        url: `https://www.pandaoffer.top/blog/${params.slug}`,
+        type: 'article',
+        publishedTime: post.date,
+        authors: [post.author],
+        images: [
+          {
+            url: '/og-image.jpg',
+            width: 1200,
+            height: 630,
+            alt: title,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description,
+        images: ['/og-image.jpg'],
+      },
+    };
+  } catch (error) {
+    return { title: 'Post Not Found | PandaOffer' };
+  }
+}
+
+export default async function BlogPost({ params }) {
+  const { slug } = params;
+  let post;
+  
+  try {
+    post = await getPostData(slug);
+  } catch (error) {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-8 text-center">
         <h1 className="text-3xl font-bold text-slate-800 mb-4">Article not found 🐼</h1>
@@ -56,7 +72,6 @@ export default function BlogPost({ params }) {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
-      {/* JSON-LD Structured Data for Article & Breadcrumbs */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -105,7 +120,6 @@ export default function BlogPost({ params }) {
       
       <article className="max-w-3xl mx-auto px-6 py-16">
         
-        {/* Breadcrumb Navigation UI */}
         <nav aria-label="Breadcrumb" className="mb-10 text-sm font-medium text-slate-500">
           <ol className="flex items-center gap-2">
             <li>
@@ -132,19 +146,16 @@ export default function BlogPost({ params }) {
           <div className="flex items-center gap-4 mt-6 text-slate-500 font-medium">
             <span className="flex items-center gap-2">
               <div className="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center text-slate-600 text-sm font-bold">
-                {post.author[0]}
+                {post.author ? post.author[0] : 'U'}
               </div>
-              By {post.author}
+              By {post.author || 'Unknown'}
             </span>
             <span>•</span>
             <span>{post.date}</span>
           </div>
         </header>
 
-        <div 
-          className="prose-headings:font-bold prose-h2:text-2xl prose-h2:text-slate-800 prose-h2:mt-10 prose-h2:mb-4 prose-p:text-lg prose-p:text-slate-600 prose-p:leading-relaxed prose-p:mb-6 prose-a:text-emerald-600 prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6 prose-li:text-lg prose-li:text-slate-600 prose-li:mb-2 prose-strong:text-slate-900"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        <div className="prose prose-lg prose-emerald max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:text-slate-800 prose-h2:mt-10 prose-h2:mb-4 prose-p:text-slate-600 prose-p:leading-relaxed prose-a:text-emerald-600 hover:prose-a:text-emerald-700 prose-strong:text-slate-900" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
         <div className="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500 rounded-full blur-[100px] opacity-20 -mr-20 -mt-20"></div>
