@@ -7,6 +7,9 @@ import UnlockResults from './UnlockResults';
 export default function HomeClientManager({ 
   heroHeader, 
   budgetCalculator, 
+  documentWizard,
+  roiCalculator,
+  toolsMenu,
   affiliates, 
   discoverChina, 
   socialProof, 
@@ -49,7 +52,13 @@ export default function HomeClientManager({
             {affiliates}
           </div>
 
+          {roiCalculator}
+
           {discoverChina}
+
+          {documentWizard}
+          {toolsMenu}
+
           {premiumServices}
           {faqSection}
         </div>

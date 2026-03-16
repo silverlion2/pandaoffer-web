@@ -1,4 +1,5 @@
 import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import HomeClientManager from '@/components/home/HomeClientManager';
 import HeroHeader from '@/components/home/HeroHeader';
 import BudgetCalculator from '@/components/home/BudgetCalculator';
@@ -7,6 +8,9 @@ import DiscoverChina from '@/components/home/DiscoverChina';
 import SocialProof from '@/components/home/SocialProof';
 import PremiumServices from '@/components/home/PremiumServices';
 import FAQSection from '@/components/home/FAQSection';
+import DocumentWizard from '@/components/tools/DocumentWizard';
+import ROICalculator from '@/components/tools/ROICalculator';
+import ToolsMenu from '@/components/tools/ToolsMenu';
 
 export default function PandaOfferApp() {
   return (
@@ -38,6 +42,9 @@ export default function PandaOfferApp() {
         <HomeClientManager 
           heroHeader={<HeroHeader />}
           budgetCalculator={<BudgetCalculator />}
+          documentWizard={<DocumentWizard />}
+          roiCalculator={<ROICalculator />}
+          toolsMenu={<ToolsMenu />}
           affiliates={<AffiliatesList />}
           discoverChina={<DiscoverChina />}
           socialProof={<SocialProof />}
@@ -45,6 +52,8 @@ export default function PandaOfferApp() {
           faqSection={<FAQSection />}
         />
       </main>
+
+      <Footer />
     </div>
   );
 }

@@ -38,7 +38,7 @@ export default function DiscoverChina() {
           </p>
         </Link>
 
-        <Link href="/blog" className="group cursor-pointer block">
+        <Link href="/blog/cashless-survival-alipay-wechat" className="group cursor-pointer block">
           <div className="h-48 bg-slate-200 rounded-2xl mb-4 overflow-hidden relative">
             <div className="absolute inset-0 bg-gradient-to-tr from-orange-500 to-pink-500 flex items-center justify-center transition-transform group-hover:scale-105">
                <Coffee size={48} className="text-white opacity-50" />
@@ -55,7 +55,7 @@ export default function DiscoverChina() {
           </p>
         </Link>
 
-        <Link href="/blog" className="group cursor-pointer block">
+        <Link href="/blog/beijing-vs-hangzhou-where-to-study" className="group cursor-pointer block">
           <div className="h-48 bg-slate-200 rounded-2xl mb-4 overflow-hidden relative">
             <div className="absolute inset-0 bg-gradient-to-tr from-emerald-600 to-teal-900 flex items-center justify-center transition-transform group-hover:scale-105">
                <Globe2 size={48} className="text-white opacity-50" />

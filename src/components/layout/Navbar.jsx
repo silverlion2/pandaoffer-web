@@ -18,6 +18,9 @@ export default function Navbar() {
           <span className="text-sm font-medium text-slate-400">Universities</span>
           <span className="bg-emerald-50 border border-emerald-100 text-emerald-600 text-[9px] font-bold px-1.5 py-0.5 rounded-sm uppercase tracking-wider">Soon</span>
         </div>
+        <Link href="/tools" className="text-sm font-bold text-emerald-600 hover:text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg transition-colors">
+          Tools <span className="hidden md:inline">& Calculators</span>
+        </Link>
         <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-emerald-600 hidden md:block">
           Blog & Guides
         </Link>

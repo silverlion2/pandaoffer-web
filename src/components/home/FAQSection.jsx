@@ -22,7 +22,27 @@ const faqs = [
   },
   {
     question: "Do I need to know Chinese to study in China?",
-    answer: "No, many universities offer English-taught MBBS, Engineering, and Business programs. However, learning basic Mandarin is highly recommended for daily life and clinical rotations during your later years of study."
+    answer: "No, many universities offer English-taught MBBS, Engineering, and Business programs. However, learning basic Mandarin is highly recommended for daily life and clinical rotations during your later years of study. Note: MBBS students must achieve HSK Level 4 to receive their degree certificate."
+  },
+  {
+    question: "How much does it cost to study and live in China?",
+    answer: "Tuition fees range from ¥20,000–60,000/year ($2,800–8,300) depending on the program and university. Living costs are ¥2,500–5,000/month ($350–700) in most cities. Total annual cost is typically $5,000–15,000 — far lower than the US, UK, or Australia. CSC scholars pay zero tuition and receive a monthly stipend."
+  },
+  {
+    question: "What is the student visa process for China?",
+    answer: "You need an X1 visa (programs over 180 days) or X2 visa (under 180 days). Required documents include your passport, Admission Notice, JW201/JW202 form, physical exam, and visa application. Processing takes about 4 working days. X1 holders must apply for a Residence Permit within 30 days of arriving in China."
+  },
+  {
+    question: "Is there an age limit for studying in China?",
+    answer: "Yes. For undergraduate programs, applicants should be under 25. For Master's programs, under 35. For PhD programs, under 40. These limits apply primarily to CSC Scholarship applicants — some self-funded programs have more flexible age requirements."
+  },
+  {
+    question: "Can I work part-time while studying in China?",
+    answer: "Chinese regulations are strict on student employment. You generally cannot work off-campus with a student visa. However, many universities offer paid research assistant or teaching assistant positions. Some students also do online freelance work. Always check your visa conditions to avoid violations."
+  },
+  {
+    question: "What can I do after graduating in China?",
+    answer: "You have several options: return home with a globally recognized degree, stay in China on a work visa (major cities offer post-graduation work permits for qualified graduates), continue to a higher degree, or leverage your China experience for international careers. Many CSC alumni become bridges between their home countries and China."
   }
 ];
 
