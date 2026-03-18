@@ -1,8 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
-import { FileText, TrendingDown, Calendar, Scale, Calculator, Sparkles, ArrowRight } from 'lucide-react';
+import { FileText, TrendingDown, Calendar, Scale, Calculator, Sparkles, ArrowRight, Brain } from 'lucide-react';
 
 const TOOLS = [
+  {
+    id: 'advisor',
+    title: '🧠 AI Study Advisor',
+    desc: 'Expert answers powered by hundreds of real sources — not generic AI.',
+    icon: <Brain size={28} className="text-violet-500" />,
+    bg: 'bg-violet-50',
+    border: 'border-violet-100',
+    link: '/tools#advisor',
+    badge: 'BETA'
+  },
   {
     id: 'docs',
     title: 'Document Wizard',
@@ -88,7 +98,12 @@ export default function ToolsMenu({ currentToolId }) {
             <div className="mb-4 bg-white w-12 h-12 rounded-xl shadow-sm flex items-center justify-center">
               {tool.icon}
             </div>
-            <h3 className="font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">{tool.title}</h3>
+            <h3 className="font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors flex items-center gap-1.5">
+              {tool.title}
+              {tool.badge && (
+                <span className="text-[9px] font-bold bg-violet-100 text-violet-600 px-1.5 py-0.5 rounded-full uppercase tracking-wider">{tool.badge}</span>
+              )}
+            </h3>
             <p className="text-xs text-slate-500 leading-relaxed">{tool.desc}</p>
           </Link>
         ))}
