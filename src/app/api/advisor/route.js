@@ -1,19 +1,24 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-);
-
-const DEEPSEEK_KEY = process.env.DEEPSEEK_KEY;
 const DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions';
+
+let _supabase = null;
+function getSupabase() {
+  if (!_supabase) {
+    _supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    );
+  }
+  return _supabase;
+}
 
 // ============================================================
 // SEARCH — category-first with keyword fallback
 // ============================================================
 
 async function searchByCategory(category) {
-  const { data, error } = await supabase
+  const { data, error } = await getSupabase()
     .from('laihua_knowledge')
     .select('content, category, source_name, source_type')
     .eq('category', category)
@@ -28,7 +33,7 @@ async function searchByKeywords(query) {
   if (keywords.length === 0) return [];
 
   const orConditions = keywords.map(k => `content.ilike.%${k}%`).join(',');
-  const { data, error } = await supabase
+  const { data, error } = await getSupabase()
     .from('laihua_knowledge')
     .select('content, category, source_name, source_type')
     .or(orConditions)
@@ -54,6 +59,7 @@ function detectCategory(query) {
 // ============================================================
 
 async function askDeepseek(query, ragChunks) {
+  const DEEPSEEK_KEY = process.env.DEEPSEEK_KEY;
   if (!DEEPSEEK_KEY) {
     console.error('No DEEPSEEK_KEY set');
     return null;
