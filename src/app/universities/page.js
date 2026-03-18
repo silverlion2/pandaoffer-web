@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import SaveUniversityButton from '@/components/tools/SaveUniversityButton';
 import { Building2, Globe2, BookOpen, GraduationCap, ArrowRight, ExternalLink, MapPin } from 'lucide-react';
 
 export const metadata = {
@@ -126,6 +127,7 @@ export default function UniversitiesPage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
                 <div className="h-48 bg-slate-200 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-blue-900 to-sky-600"></div>
+                  <SaveUniversityButton universityName="Zhejiang University" />
                   <div className="absolute bottom-4 left-4 text-white">
                     <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
                     <h3 className="text-2xl font-bold">Zhejiang University</h3>
@@ -151,6 +153,7 @@ export default function UniversitiesPage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
                 <div className="h-48 bg-slate-200 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-purple-900 to-fuchsia-600"></div>
+                  <SaveUniversityButton universityName="Tsinghua University" />
                   <div className="absolute bottom-4 left-4 text-white">
                     <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
                     <h3 className="text-2xl font-bold">Tsinghua University</h3>
@@ -176,6 +179,7 @@ export default function UniversitiesPage() {
                <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
                 <div className="h-48 bg-slate-200 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-rose-900 to-orange-500"></div>
+                  <SaveUniversityButton universityName="Shanghai Jiao Tong" />
                   <div className="absolute bottom-4 left-4 text-white">
                     <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
                     <h3 className="text-2xl font-bold">Shanghai Jiao Tong</h3>
@@ -201,6 +205,7 @@ export default function UniversitiesPage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
                 <div className="h-48 bg-slate-200 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-teal-900 to-emerald-500"></div>
+                  <SaveUniversityButton universityName="Fudan University" />
                   <div className="absolute bottom-4 left-4 text-white">
                     <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
                     <h3 className="text-2xl font-bold">Fudan University</h3>
@@ -226,6 +231,7 @@ export default function UniversitiesPage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
                 <div className="h-48 bg-slate-200 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-red-900 to-rose-600"></div>
+                  <SaveUniversityButton universityName="Peking University" />
                   <div className="absolute bottom-4 left-4 text-white">
                     <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
                     <h3 className="text-2xl font-bold">Peking University</h3>
@@ -251,6 +257,7 @@ export default function UniversitiesPage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
                 <div className="h-48 bg-slate-200 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-fuchsia-900 to-purple-600"></div>
+                  <SaveUniversityButton universityName="Nanjing University" />
                   <div className="absolute bottom-4 left-4 text-white">
                     <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
                     <h3 className="text-2xl font-bold">Nanjing University</h3>
@@ -276,6 +283,7 @@ export default function UniversitiesPage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
                 <div className="h-48 bg-slate-200 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-sky-900 to-indigo-600"></div>
+                  <SaveUniversityButton universityName="USTC" />
                   <div className="absolute bottom-4 left-4 text-white">
                     <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
                     <h3 className="text-2xl font-bold">USTC</h3>
@@ -301,6 +309,7 @@ export default function UniversitiesPage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
                 <div className="h-48 bg-slate-200 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-amber-800 to-orange-600"></div>
+                  <SaveUniversityButton universityName="Xi'an Jiaotong" />
                   <div className="absolute bottom-4 left-4 text-white">
                     <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">C9 League</span>
                     <h3 className="text-2xl font-bold">Xi'an Jiaotong</h3>

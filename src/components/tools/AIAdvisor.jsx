@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Brain, Send, Sparkles, BookOpen, X, Loader2, GraduationCap, CheckCircle, XCircle } from 'lucide-react';
+import { Brain, Send, Sparkles, BookOpen, X, Loader2, GraduationCap, CheckCircle, XCircle, Save } from 'lucide-react';
+import { useAuth } from '@/components/providers/AuthProvider';
+import { createClient } from '@/lib/supabase/client';
+import { toast } from 'sonner';
 
 const SUGGESTED_QUESTIONS = [
   "What scholarships can I apply for as a Master's student?",
@@ -25,8 +28,11 @@ export default function AIAdvisor() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [showComparison, setShowComparison] = useState(false);
+  const [savedMessages, setSavedMessages] = useState(new Set());
   const chatEndRef = useRef(null);
   const inputRef = useRef(null);
+  const { user } = useAuth();
+  const supabase = createClient();
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -63,6 +69,40 @@ export default function AIAdvisor() {
       }]);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleSaveQA = async (msgIndex) => {
+    if (!user) {
+      toast.error('Sign in to save Q&A.', {
+        action: { label: 'Sign In', onClick: () => window.location.href = '/auth/login' },
+      });
+      return;
+    }
+    if (!user.email_confirmed_at) {
+      toast.error('Verify your email to save Q&A.');
+      return;
+    }
+    const assistantMsg = messages[msgIndex];
+    // Find the user message right before this assistant message
+    let question = 'Unknown question';
+    for (let i = msgIndex - 1; i >= 0; i--) {
+      if (messages[i].role === 'user') {
+        question = messages[i].content;
+        break;
+      }
+    }
+    try {
+      await supabase.from('saved_chats').insert({
+        user_id: user.id,
+        question,
+        answer: assistantMsg.content,
+        sources: assistantMsg.sources || [],
+      });
+      setSavedMessages(prev => new Set([...prev, msgIndex]));
+      toast.success('Q&A saved to your history!');
+    } catch {
+      toast.error('Failed to save.');
     }
   };
 
@@ -182,6 +222,21 @@ export default function AIAdvisor() {
                         ))}
                       </div>
                     </div>
+                  )}
+                  {msg.role === 'assistant' && (
+                    <button
+                      onClick={() => handleSaveQA(i)}
+                      disabled={savedMessages.has(i)}
+                      className={`mt-2 flex items-center gap-1 text-xs px-2 py-1 rounded-lg transition-colors ${
+                        savedMessages.has(i)
+                          ? 'bg-emerald-100 text-emerald-600'
+                          : 'bg-slate-200/50 text-slate-500 hover:bg-emerald-50 hover:text-emerald-600'
+                      }`}
+                      title={savedMessages.has(i) ? 'Saved!' : 'Save this Q&A'}
+                    >
+                      <Save size={12} />
+                      {savedMessages.has(i) ? 'Saved' : 'Save'}
+                    </button>
                   )}
                 </div>
               </div>
