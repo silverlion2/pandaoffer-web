@@ -19,13 +19,33 @@ export default function HomeClientManager({
     major: '',
     gpa: { scale: 'percentage', value: '' },
   });
+  const [matchResults, setMatchResults] = useState(null);
+  const [matchError, setMatchError] = useState(null);
 
-  const handleMatch = (data) => {
+  const handleMatch = async (data) => {
     setFormData(data);
+    setMatchError(null);
     setStep('analyzing');
-    setTimeout(() => {
+
+    try {
+      const res = await fetch('/api/matcher', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error('Matching failed');
+
+      const result = await res.json();
+      if (result.error) throw new Error(result.error);
+
+      setMatchResults(result);
       setStep('results');
-    }, 4000); 
+    } catch (err) {
+      console.error('Matcher error:', err);
+      setMatchError(err.message);
+      setStep('results');
+    }
   };
 
   return (
@@ -36,7 +56,7 @@ export default function HomeClientManager({
             {heroHeader}
             <AiMatcherForm onSubmit={handleMatch} defaultValues={formData} />
             <p className="text-xs text-center text-slate-400 mt-4">
-              100% Free. Powered by Real Admission Data & AI.
+              100% Free. Powered by Real Admission Data &amp; AI.
             </p>
           </div>
 
@@ -80,7 +100,9 @@ export default function HomeClientManager({
         <UnlockResults 
           step={step} 
           setStep={setStep} 
-          formData={formData} 
+          formData={formData}
+          matchResults={matchResults}
+          matchError={matchError}
         />
       )}
     </div>
