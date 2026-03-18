@@ -238,56 +238,22 @@ export default function ScholarshipsPage() {
           </div>
         </section>
 
-        {/* Premium Services Grid Integration */}
+        {/* CTA to Pricing */}
         <section id="premium" className="py-20 px-6 max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold mb-4">Want to guarantee your spot?</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              The CSC scholarship is hyper-competitive. If you want professional help with your study plan, professor outreach, and document review, our experts can help.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-             <div className="border border-slate-200 rounded-3xl p-8 bg-white hover:border-emerald-300 transition-colors shadow-sm">
-                <div className="text-emerald-600 font-bold mb-4 uppercase tracking-wider text-sm">Strategy Call</div>
-                <div className="flex items-baseline gap-1 mb-6">
-                  <span className="text-4xl font-extrabold">$49</span>
-                  <span className="text-slate-500 font-medium">/ 45 mins</span>
-                </div>
-                <p className="text-slate-600 mb-8 border-b border-slate-100 pb-8">
-                  Get absolute clarity on your profile, target universities, and application timeline.
-                </p>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-start gap-3 text-slate-700 font-medium"><CheckCircle2 className="text-emerald-500 shrink-0" size={20} /> Profile evaluation & university matching</li>
-                  <li className="flex items-start gap-3 text-slate-700 font-medium"><CheckCircle2 className="text-emerald-500 shrink-0" size={20} /> Document checklist review</li>
-                  <li className="flex items-start gap-3 text-slate-700 font-medium"><CheckCircle2 className="text-emerald-500 shrink-0" size={20} /> Actionable step-by-step plan</li>
-                </ul>
-                <button className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-colors">
-                  Book Call
-                </button>
-              </div>
-
-              <div className="border-2 border-emerald-500 rounded-3xl p-8 bg-emerald-50/30 relative shadow-xl">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-emerald-500 text-white font-bold px-4 py-1 rounded-full text-sm">
-                  Most Popular
-                </div>
-                <div className="text-emerald-600 font-bold mb-4 uppercase tracking-wider text-sm">CSC Pro Service</div>
-                <div className="flex items-baseline gap-1 mb-6">
-                  <span className="text-4xl font-extrabold">$299</span>
-                </div>
-                <p className="text-slate-600 mb-8 border-b border-slate-200 pb-8">
-                  Complete optimization of your application package to maximize your chances.
-                </p>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-start gap-3 text-slate-700 font-medium"><CheckCircle2 className="text-emerald-500 shrink-0" size={20} /> Study Plan written by experts</li>
-                  <li className="flex items-start gap-3 text-slate-700 font-medium"><CheckCircle2 className="text-emerald-500 shrink-0" size={20} /> 2 custom Recommendation Letters</li>
-                  <li className="flex items-start gap-3 text-slate-700 font-medium"><CheckCircle2 className="text-emerald-500 shrink-0" size={20} /> Professor outreach templates</li>
-                  <li className="flex items-start gap-3 text-slate-700 font-medium"><CheckCircle2 className="text-emerald-500 shrink-0" size={20} /> Unlimited email support</li>
-                </ul>
-                <button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-                  Get Started
-                </button>
-              </div>
+          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-10 md:p-14 text-center relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500 rounded-full blur-[120px] opacity-10"></div>
+            <div className="relative z-10">
+              <h2 className="text-3xl font-extrabold text-white mb-4">Want expert help with your application?</h2>
+              <p className="text-slate-400 max-w-xl mx-auto mb-8 leading-relaxed">
+                The CSC scholarship is hyper-competitive. Our former admission officers can review your study plan, handle professor outreach, and optimize your entire package.
+              </p>
+              <Link
+                href="/pricing"
+                className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-lg"
+              >
+                View Plans &amp; Pricing <ChevronRight size={18} />
+              </Link>
+            </div>
           </div>
         </section>
 

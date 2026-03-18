@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
+import { HelpCircle } from 'lucide-react';
 import AiMatcherForm from './AiMatcherForm';
 import UnlockResults from './UnlockResults';
 
@@ -10,8 +12,7 @@ export default function HomeClientManager({
   affiliates, 
   discoverChina, 
   socialProof, 
-  premiumServices,
-  faqSection
+  premiumServices
 }) {
   const [step, setStep] = useState('home'); 
   const [formData, setFormData] = useState({
@@ -76,7 +77,16 @@ export default function HomeClientManager({
           {discoverChina}
 
           {premiumServices}
-          {faqSection}
+
+          <div className="text-center py-8">
+            <Link
+              href="/faq"
+              className="inline-flex items-center gap-2 text-slate-500 hover:text-emerald-600 font-medium transition-colors"
+            >
+              <HelpCircle size={18} />
+              Have questions? Read our FAQ
+            </Link>
+          </div>
         </div>
       )}
 

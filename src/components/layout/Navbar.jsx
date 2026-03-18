@@ -29,6 +29,7 @@ export default function Navbar() {
     { name: 'Tools & Calculators', href: '/tools' },
     { name: 'Blog & Guides', href: '/blog' },
     { name: 'Scholarships', href: '/scholarships' },
+    { name: 'Pricing', href: '/pricing' },
   ];
 
   const accountLinks = [

@@ -34,12 +34,15 @@ export default function AIAdvisor() {
   const [showComparison, setShowComparison] = useState(false);
   const [savedMessages, setSavedMessages] = useState(new Set());
   const chatEndRef = useRef(null);
+  const chatContainerRef = useRef(null);
   const inputRef = useRef(null);
   const { user } = useAuth();
   const supabase = createClient();
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
   }, [messages]);
 
   const handleSubmit = async (e, customQuery = null) => {
@@ -176,7 +179,7 @@ export default function AIAdvisor() {
       )}
 
       {/* Chat Area */}
-      <div className="px-8 py-6" style={{ minHeight: isEmpty ? '360px' : '400px', maxHeight: '500px', overflowY: 'auto' }}>
+      <div ref={chatContainerRef} className="px-8 py-6" style={{ minHeight: isEmpty ? '360px' : '400px', maxHeight: '500px', overflowY: 'auto' }}>
         
         {isEmpty ? (
           <div className="flex flex-col items-center justify-center h-full text-center py-8">

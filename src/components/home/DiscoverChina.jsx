@@ -4,11 +4,6 @@ import { BookOpen, Coffee, Globe2 } from 'lucide-react';
 export default function DiscoverChina() {
   return (
     <div id="discover" className="pt-8 border-t border-slate-200 mt-12">
-      <div className="w-full bg-slate-100 h-24 flex flex-col items-center justify-center text-slate-400 text-sm rounded-xl mb-12 border border-slate-200 border-dashed relative group overflow-hidden">
-        <span className="font-bold text-slate-500">Sponsored Advertisement Area</span>
-        <span className="text-xs">e.g., Alipay, Trip.com, VPN Services, Student Insurances</span>
-        <div className="absolute top-2 right-2 bg-slate-200 text-[10px] px-2 py-0.5 rounded text-slate-500 uppercase">Ad</div>
-      </div>
 
       <div className="flex justify-between items-end mb-8">
         <div>

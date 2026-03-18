@@ -6,7 +6,7 @@ import AffiliatesList from '@/components/home/AffiliatesList';
 import DiscoverChina from '@/components/home/DiscoverChina';
 import SocialProof from '@/components/home/SocialProof';
 import PremiumServices from '@/components/home/PremiumServices';
-import FAQSection from '@/components/home/FAQSection';
+
 import ToolsMenu from '@/components/tools/ToolsMenu';
 
 export default function PandaOfferApp() {
@@ -55,7 +55,7 @@ export default function PandaOfferApp() {
           discoverChina={<DiscoverChina />}
           socialProof={<SocialProof />}
           premiumServices={<PremiumServices />}
-          faqSection={<FAQSection />}
+
         />
       </main>
 

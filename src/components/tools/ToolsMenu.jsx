@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { FileText, TrendingDown, Calendar, Scale, Calculator, Sparkles, ArrowRight, Brain } from 'lucide-react';
+import { FileText, TrendingDown, Calendar, Scale, Calculator, ArrowRight, Brain } from 'lucide-react';
 
 const TOOLS = [
   {
@@ -10,7 +10,7 @@ const TOOLS = [
     icon: <Brain size={28} className="text-violet-500" />,
     bg: 'bg-violet-50',
     border: 'border-violet-100',
-    link: '/tools#advisor',
+    link: '/tools/advisor',
     badge: 'BETA'
   },
   {
@@ -20,7 +20,7 @@ const TOOLS = [
     icon: <FileText size={28} className="text-blue-500" />,
     bg: 'bg-blue-50',
     border: 'border-blue-100',
-    link: '/tools#docs'
+    link: '/tools/documents'
   },
   {
     id: 'roi',
@@ -29,7 +29,7 @@ const TOOLS = [
     icon: <TrendingDown size={28} className="text-emerald-500" />,
     bg: 'bg-emerald-50',
     border: 'border-emerald-100',
-    link: '/tools#roi'
+    link: '/tools/roi'
   },
   {
     id: 'timeline',
@@ -38,7 +38,7 @@ const TOOLS = [
     icon: <Calendar size={28} className="text-indigo-500" />,
     bg: 'bg-indigo-50',
     border: 'border-indigo-100',
-    link: '/tools#timeline'
+    link: '/tools/timeline'
   },
   {
     id: 'city',
@@ -47,7 +47,7 @@ const TOOLS = [
     icon: <Scale size={28} className="text-rose-500" />,
     bg: 'bg-rose-50',
     border: 'border-rose-100',
-    link: '/tools#city'
+    link: '/tools/city'
   },
   {
     id: 'budget',
@@ -56,17 +56,8 @@ const TOOLS = [
     icon: <Calculator size={28} className="text-emerald-500" />,
     bg: 'bg-emerald-50',
     border: 'border-emerald-100',
-    link: '/tools#budget'
+    link: '/tools/budget'
   },
-  {
-    id: 'matcher',
-    title: 'AI Program Matcher',
-    desc: 'Find the best scholarships and universities for your profile.',
-    icon: <Sparkles size={28} className="text-violet-500" />,
-    bg: 'bg-violet-50',
-    border: 'border-violet-100',
-    link: '/tools#matcher'
-  }
 ];
 
 export default function ToolsMenu({ currentToolId }) {
