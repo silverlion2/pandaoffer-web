@@ -1,80 +1,188 @@
 "use client";
 
 import React, { useState } from 'react';
-import { MapPin, Home, Coffee, Thermometer, Users, Scale, AlertTriangle } from 'lucide-react';
+import { MapPin, Home, Coffee, Thermometer, Users, Scale, AlertTriangle, GraduationCap, Lightbulb } from 'lucide-react';
 
 const CITY_DATA = {
   shanghai: {
     id: 'shanghai',
     name: 'Shanghai',
     tier: 'Tier 1',
-    rentDorm: '$150 - $250',
-    rentApt: '$600 - $1,200+',
+    population: '26M+',
+    rentDorm: '¥1,500 - ¥3,000',
+    rentApt: '¥4,000 - ¥8,000+',
+    monthlyBudget: '¥4,000 - ¥8,000',
     foodCost: '$$$',
     weather: 'Hot Summers, Cold/Damp Winters (No Central Heating)',
-    expatVibe: 'Massive, diverse, very western-friendly.',
-    topUnis: 'Fudan, SJTU, Tongji',
+    expatVibe: 'Most international city in China. Massive, diverse, very western-friendly.',
+    topUnis: 'Fudan (10246), SJTU (10248), Tongji (10247)',
+    insiderTip: 'SJTU Minhang campus is 1hr from city center. Fudan Handan campus is downtown. Choose wisely!',
     color: 'emerald'
   },
   beijing: {
     id: 'beijing',
     name: 'Beijing',
     tier: 'Tier 1',
-    rentDorm: '$120 - $200',
-    rentApt: '$550 - $1,000+',
+    population: '22M+',
+    rentDorm: '¥1,200 - ¥2,400',
+    rentApt: '¥3,500 - ¥6,000+',
+    monthlyBudget: '¥3,500 - ¥7,000',
     foodCost: '$$$',
     weather: 'Hot Summers, Freezing/Dry Winters (Central Heating)',
-    expatVibe: 'Large, academic, political hub.',
-    topUnis: 'Tsinghua, Peking, RUC',
+    expatVibe: 'Academic & political capital. Wudaokou = "Center of the Universe" for students.',
+    topUnis: 'Tsinghua (10003), Peking (10001), RUC (10002), BLCU (10032), Beihang (10006)',
+    insiderTip: 'Haidian district has 5+ top universities within walking distance. Best student district in Asia.',
     color: 'rose'
   },
   guangzhou: {
     id: 'guangzhou',
     name: 'Guangzhou',
     tier: 'Tier 1',
-    rentDorm: '$100 - $180',
-    rentApt: '$400 - $800+',
+    population: '18M+',
+    rentDorm: '¥1,000 - ¥1,800',
+    rentApt: '¥2,500 - ¥5,000+',
+    monthlyBudget: '¥3,000 - ¥5,500',
     foodCost: '$$',
     weather: 'Long Hot/Humid Summers, Mild Winters',
-    expatVibe: 'Huge international trading hub, diverse.',
-    topUnis: 'Sun Yat-sen, SCUT',
+    expatVibe: 'International trade hub. Large African & SE Asian communities. Best Cantonese food.',
+    topUnis: 'Sun Yat-sen/SYSU (10558), SCUT',
+    insiderTip: 'SYSU has campuses in 3 cities (Guangzhou, Zhuhai, Shenzhen). Confirm which one your program is on!',
     color: 'amber'
   },
   chengdu: {
     id: 'chengdu',
     name: 'Chengdu',
     tier: 'Tier 2',
-    rentDorm: '$80 - $150',
-    rentApt: '$250 - $500',
+    population: '21M+',
+    rentDorm: '¥800 - ¥1,500',
+    rentApt: '¥1,500 - ¥3,500',
+    monthlyBudget: '¥2,500 - ¥4,000',
     foodCost: '$',
     weather: 'Cloudy, Mild/Humid (No Central Heating)',
-    expatVibe: 'Relaxed, food-focused, growing expat scene.',
+    expatVibe: 'Relaxed, food-loving, growing expat & startup scene. "Chinese Austin."',
     topUnis: 'Sichuan Univ, UESTC',
+    insiderTip: 'Best food city in China. Incredible nightlife. But overcast 300+ days/year — bring vitamin D.',
     color: 'blue'
   },
   wuhan: {
     id: 'wuhan',
     name: 'Wuhan',
     tier: 'Tier 2',
-    rentDorm: '$70 - $130',
-    rentApt: '$200 - $450',
+    population: '13M+',
+    rentDorm: '¥600 - ¥1,200',
+    rentApt: '¥1,500 - ¥3,500',
+    monthlyBudget: '¥2,000 - ¥3,500',
     foodCost: '$',
-    weather: 'Extreme Heat Summers, Cold Winters (No Central Heating)',
-    expatVibe: 'Student city, massive university population.',
-    topUnis: 'Wuhan Univ, HUST',
+    weather: 'Extreme Heat Summers (40°C+), Cold Winters (No Central Heating)',
+    expatVibe: 'China\'s biggest student city — 82 universities, 1M+ students.',
+    topUnis: 'Wuhan Univ (10486), HUST (10487)',
+    insiderTip: 'WU campus = most beautiful in China (cherry blossoms in March). HUST = "forest university." Both 985.',
     color: 'purple'
   },
   xian: {
     id: 'xian',
     name: "Xi'an",
     tier: 'Tier 2',
-    rentDorm: '$60 - $120',
-    rentApt: '$200 - $400',
+    population: '13M+',
+    rentDorm: '¥500 - ¥1,000',
+    rentApt: '¥1,200 - ¥2,800',
+    monthlyBudget: '¥2,000 - ¥3,500',
     foodCost: '$',
     weather: 'Hot Summers, Cold Winters (Central Heating)',
-    expatVibe: 'Historical, cultural, smaller but tight expat group.',
-    topUnis: "Xi'an Jiaotong, NPU",
+    expatVibe: 'Ancient capital, Silk Road heritage. Best halal food in China (Muslim Quarter).',
+    topUnis: "Xi'an Jiaotong/XJTU (10698), NPU",
+    insiderTip: "XJTU's Innovation Harbor campus has cutting-edge labs but is 30min from city. Best for energy engineering.",
     color: 'orange'
+  },
+  hangzhou: {
+    id: 'hangzhou',
+    name: 'Hangzhou',
+    tier: 'Tier 1.5',
+    population: '12M+',
+    rentDorm: '¥1,000 - ¥1,800',
+    rentApt: '¥2,500 - ¥5,000',
+    monthlyBudget: '¥3,000 - ¥5,000',
+    foodCost: '$$',
+    weather: 'Hot/Humid Summers, Cold/Wet Winters (No Central Heating)',
+    expatVibe: 'China\'s Silicon Valley. Alibaba HQ. West Lake weekends. Best quality of life among C9 cities.',
+    topUnis: 'Zhejiang Univ/ZJU (10335)',
+    insiderTip: 'ZJU has 5 campuses — Zijingang is main for intl students. Easiest C9 admission with strong academics.',
+    color: 'teal'
+  },
+  nanjing: {
+    id: 'nanjing',
+    name: 'Nanjing',
+    tier: 'Tier 2',
+    population: '9.5M+',
+    rentDorm: '¥700 - ¥1,300',
+    rentApt: '¥1,800 - ¥3,500',
+    monthlyBudget: '¥2,500 - ¥4,000',
+    foodCost: '$$',
+    weather: 'Hot Summers, Cold Winters (No Central Heating)',
+    expatVibe: 'Former capital of China. Deep cultural identity. Academic and literary tradition.',
+    topUnis: 'Nanjing Univ (10284), Southeast Univ',
+    insiderTip: 'Most underrated C9 school. Astronomy #1 in China. Lower competition than Beijing/Shanghai schools.',
+    color: 'indigo'
+  },
+  harbin: {
+    id: 'harbin',
+    name: 'Harbin',
+    tier: 'Tier 2',
+    population: '10M+',
+    rentDorm: '¥400 - ¥800',
+    rentApt: '¥1,000 - ¥2,000',
+    monthlyBudget: '¥1,500 - ¥2,500',
+    foodCost: '$',
+    weather: 'Extreme Cold Winters (-20 to -35°C!), Pleasant Summers (Central Heating)',
+    expatVibe: 'Russian-influenced architecture. Few foreigners = full immersion. Ice Festival in Jan = bucket list.',
+    topUnis: 'HIT (10213)',
+    insiderTip: 'HIT Shenzhen campus hack: same degree, warm weather, tech scene. Ask about it during application!',
+    color: 'sky'
+  },
+  shenzhen: {
+    id: 'shenzhen',
+    name: 'Shenzhen',
+    tier: 'Tier 1',
+    population: '17M+',
+    rentDorm: '¥1,200 - ¥2,500',
+    rentApt: '¥3,000 - ¥6,000+',
+    monthlyBudget: '¥4,500 - ¥8,000',
+    foodCost: '$$$',
+    weather: 'Subtropical, Warm Year-Round, Typhoon Risk',
+    expatVibe: 'China\'s youngest city. Tech innovation capital (Huawei, Tencent, DJI). Close to Hong Kong.',
+    topUnis: 'SUSTech, Shenzhen Univ, Tsinghua Shenzhen, HIT Shenzhen',
+    insiderTip: 'Best for CS/tech students and startup culture. Hong Kong weekend trips. No "old China" feeling here.',
+    color: 'cyan'
+  },
+  kunming: {
+    id: 'kunming',
+    name: 'Kunming',
+    tier: 'Tier 3',
+    population: '8.5M+',
+    rentDorm: '¥400 - ¥800',
+    rentApt: '¥1,000 - ¥2,200',
+    monthlyBudget: '¥2,000 - ¥3,500',
+    foodCost: '$',
+    weather: 'Spring-Like Year-Round (15-25°C) — Best Climate in China',
+    expatVibe: 'Gateway to SE Asia. Stunning nature. Diverse ethnic cultures. Extremely relaxed pace.',
+    topUnis: 'Yunnan Univ, Kunming Medical Univ',
+    insiderTip: 'Perfect weather, perfect budget. Dali & Lijiang weekend trips. Best for gap year & language programs.',
+    color: 'lime'
+  },
+  dalian: {
+    id: 'dalian',
+    name: 'Dalian',
+    tier: 'Tier 2',
+    population: '7M+',
+    rentDorm: '¥500 - ¥1,000',
+    rentApt: '¥1,500 - ¥3,000',
+    monthlyBudget: '¥2,500 - ¥4,000',
+    foodCost: '$$',
+    weather: 'Cool Summers (Best in NE China), Cold but Manageable Winters (Central Heating)',
+    expatVibe: 'Coastal gem. Japanese/Korean cultural influence. Clean air, seafood, growing IT sector.',
+    topUnis: 'Dalian Univ of Tech/DUT, Dongbei Univ of Finance',
+    insiderTip: 'Best climate in Northeast China. Finance students should consider Dongbei — top finance school.',
+    color: 'slate'
   }
 };
 
@@ -92,7 +200,13 @@ export default function CityComparator() {
       amber: 'bg-amber-50 text-amber-800 border-amber-200',
       blue: 'bg-blue-50 text-blue-800 border-blue-200',
       purple: 'bg-purple-50 text-purple-800 border-purple-200',
-      orange: 'bg-orange-50 text-orange-800 border-orange-200'
+      orange: 'bg-orange-50 text-orange-800 border-orange-200',
+      teal: 'bg-teal-50 text-teal-800 border-teal-200',
+      indigo: 'bg-indigo-50 text-indigo-800 border-indigo-200',
+      sky: 'bg-sky-50 text-sky-800 border-sky-200',
+      cyan: 'bg-cyan-50 text-cyan-800 border-cyan-200',
+      lime: 'bg-lime-50 text-lime-800 border-lime-200',
+      slate: 'bg-slate-100 text-slate-800 border-slate-300',
     };
     return map[color] || map.blue;
   };
@@ -203,6 +317,34 @@ export default function CityComparator() {
           </div>
           <div className="order-3 text-center md:text-left font-medium text-slate-700 text-sm">
             {c2.expatVibe}
+          </div>
+        </div>
+
+        {/* Row 5: Top Universities */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 items-center bg-slate-50 rounded-2xl p-4 md:p-6 border border-slate-100">
+          <div className="order-2 md:order-1 text-center md:text-right font-medium text-slate-700 text-sm">
+            {c1.topUnis}
+          </div>
+          <div className="order-1 md:order-2 flex flex-col items-center justify-center text-slate-400 mb-4 md:mb-0">
+            <GraduationCap size={24} className="mb-1 text-violet-400" />
+            <span className="text-xs font-bold uppercase tracking-widest">Universities</span>
+          </div>
+          <div className="order-3 text-center md:text-left font-medium text-slate-700 text-sm">
+            {c2.topUnis}
+          </div>
+        </div>
+
+        {/* Row 6: Insider Tip */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 items-center bg-violet-50 rounded-2xl p-4 md:p-6 border border-violet-100">
+          <div className="order-2 md:order-1 text-center md:text-right font-medium text-violet-800 text-sm italic">
+            &ldquo;{c1.insiderTip}&rdquo;
+          </div>
+          <div className="order-1 md:order-2 flex flex-col items-center justify-center text-violet-400 mb-4 md:mb-0">
+            <Lightbulb size={24} className="mb-1 text-violet-500" />
+            <span className="text-xs font-bold uppercase tracking-widest">Insider Tip</span>
+          </div>
+          <div className="order-3 text-center md:text-left font-medium text-violet-800 text-sm italic">
+            &ldquo;{c2.insiderTip}&rdquo;
           </div>
         </div>
 
