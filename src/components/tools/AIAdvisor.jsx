@@ -83,10 +83,6 @@ export default function AIAdvisor() {
       });
       return;
     }
-    if (!user.email_confirmed_at) {
-      toast.error('Verify your email to save Q&A.');
-      return;
-    }
     const assistantMsg = messages[msgIndex];
     // Find the user message right before this assistant message
     let question = 'Unknown question';

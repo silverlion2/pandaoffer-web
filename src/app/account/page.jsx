@@ -123,7 +123,6 @@ export default function AccountProfilePage() {
 
   if (authLoading) return null;
 
-  const isVerified = user?.email_confirmed_at != null;
   const memberSince = user?.created_at 
     ? new Date(user.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
     : '';
@@ -142,13 +141,6 @@ export default function AccountProfilePage() {
           <div className="flex items-center gap-3">
             <Mail size={16} className="text-slate-400" />
             <span className="text-sm text-slate-700">{user?.email}</span>
-            <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-              isVerified 
-                ? 'bg-emerald-100 text-emerald-700' 
-                : 'bg-amber-100 text-amber-700'
-            }`}>
-              {isVerified ? 'Verified' : 'Unverified'}
-            </span>
           </div>
           <div className="flex items-center gap-3">
             <Shield size={16} className="text-slate-400" />

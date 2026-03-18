@@ -37,12 +37,6 @@ export default function SaveUniversityButton({ universityName }) {
       return;
     }
 
-    const isVerified = user?.email_confirmed_at != null;
-    if (!isVerified) {
-      toast.error('Verify your email to save universities.');
-      return;
-    }
-
     setLoading(true);
     try {
       if (saved) {

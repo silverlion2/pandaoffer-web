@@ -29,7 +29,7 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
 
   // Auto-save match results for verified logged-in users (once)
   useEffect(() => {
-    if (user && user.email_confirmed_at && matchResults && !hasSavedRef.current) {
+    if (user && matchResults && !hasSavedRef.current) {
       hasSavedRef.current = true;
       supabase.from('match_history').insert({
         user_id: user.id,

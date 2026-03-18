@@ -29,24 +29,9 @@ export default function AccountLayout({ children }) {
     );
   }
 
-  const isVerified = user?.email_confirmed_at != null;
-
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 flex flex-col">
       <Navbar />
-
-      {/* Email Verification Banner */}
-      {user && !isVerified && (
-        <div className="bg-amber-50 border-b border-amber-200 px-6 py-3">
-          <div className="max-w-5xl mx-auto flex items-center gap-3">
-            <AlertCircle size={18} className="text-amber-600 shrink-0" />
-            <p className="text-sm text-amber-800">
-              <strong>Verify your email</strong> to save universities, chat history, and match results.
-              Check your inbox for a verification link.
-            </p>
-          </div>
-        </div>
-      )}
 
       <div className="max-w-5xl mx-auto px-4 py-8 flex-1 w-full">
         <div className="flex flex-col md:flex-row gap-8">
