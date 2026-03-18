@@ -5,42 +5,52 @@ const DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions';
 let _supabase = null;
 function getSupabase() {
   if (!_supabase) {
-    _supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-    );
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    if (!url || !key) {
+      console.error('Missing SUPABASE env vars:', { url: !!url, key: !!key });
+      return null;
+    }
+    _supabase = createClient(url, key);
   }
   return _supabase;
 }
 
 // ============================================================
-// SEARCH — category-first with keyword fallback
+// SEARCH
 // ============================================================
 
 async function searchByCategory(category) {
-  const { data, error } = await getSupabase()
-    .from('laihua_knowledge')
-    .select('content, category, source_name, source_type')
-    .eq('category', category)
-    .order('created_at', { ascending: false })
-    .limit(8);
-  if (error) { console.error('Supabase category error:', error.message); return []; }
-  return data || [];
+  const sb = getSupabase();
+  if (!sb) return [];
+  try {
+    const { data, error } = await sb
+      .from('laihua_knowledge')
+      .select('content, category, source_name, source_type')
+      .eq('category', category)
+      .order('created_at', { ascending: false })
+      .limit(6);
+    if (error) { console.error('Category search error:', error.message); return []; }
+    return data || [];
+  } catch (e) { console.error('Category search exception:', e.message); return []; }
 }
 
 async function searchByKeywords(query) {
+  const sb = getSupabase();
+  if (!sb) return [];
   const keywords = query.toLowerCase().split(/\s+/).filter(w => w.length > 2);
   if (keywords.length === 0) return [];
-
-  const orConditions = keywords.map(k => `content.ilike.%${k}%`).join(',');
-  const { data, error } = await getSupabase()
-    .from('laihua_knowledge')
-    .select('content, category, source_name, source_type')
-    .or(orConditions)
-    .order('created_at', { ascending: false })
-    .limit(8);
-  if (error) { console.error('Supabase keyword search error:', error); return []; }
-  return data || [];
+  try {
+    const orConditions = keywords.map(k => `content.ilike.%${k}%`).join(',');
+    const { data, error } = await sb
+      .from('laihua_knowledge')
+      .select('content, category, source_name, source_type')
+      .or(orConditions)
+      .order('created_at', { ascending: false })
+      .limit(6);
+    if (error) { console.error('Keyword search error:', error.message); return []; }
+    return data || [];
+  } catch (e) { console.error('Keyword search exception:', e.message); return []; }
 }
 
 function detectCategory(query) {
@@ -50,50 +60,38 @@ function detectCategory(query) {
   if (q.match(/cost|budget|living|rent|food|money|cheap|expensive|afford/)) return 'costs';
   if (q.match(/hsk|language|chinese|mandarin|test|exam|level/)) return 'language';
   if (q.match(/city|beijing|shanghai|chengdu|wuhan|guangzhou|xi'an|where.*live/)) return 'cities';
-  if (q.match(/university|universities|tsinghua|peking|fudan|program|degree|rank/)) return 'universities';
+  if (q.match(/university|universities|tsinghua|peking|fudan|program|degree|rank|computer science|engineering/)) return 'universities';
   return null;
 }
 
 // ============================================================
-// DEEPSEEK LLM — compose natural answer from RAG chunks
+// DEEPSEEK LLM
 // ============================================================
 
-async function askDeepseek(query, ragChunks) {
+const SYSTEM_PROMPT = `You are the Panda Offer AI Study Advisor — an expert on 来华留学 (international students studying in China).
+
+RULES:
+- Be warm, helpful, and conversational — like a friendly senior student who has been through it all.
+- Use bullet points and clear structure for readability.
+- Keep answers concise (150-300 words max).
+- Use both English and Chinese terms where helpful (e.g., "CSC (中国政府奖学金)").
+- If provided with knowledge sources, base your answer primarily on them.
+- If no sources are provided, use your general knowledge about studying in China but mention that this is general advice.
+- End with a brief encouraging note.`;
+
+async function askDeepseek(query, ragContext = '') {
   const DEEPSEEK_KEY = process.env.DEEPSEEK_KEY;
   if (!DEEPSEEK_KEY) {
-    console.error('No DEEPSEEK_KEY set');
+    console.error('No DEEPSEEK_KEY');
     return null;
   }
 
-  // Build context from RAG chunks — only seed/relevant content
-  const context = ragChunks
-    .filter(r => r.source_type === 'seed' || r.content.toLowerCase().includes(query.toLowerCase().split(' ')[0]))
-    .slice(0, 5)
-    .map((r, i) => `[Source ${i + 1}: ${r.source_name} | ${r.category}]\n${r.content}`)
-    .join('\n\n---\n\n');
-
-  if (!context.trim()) return null;
-
-  const systemPrompt = `You are the Panda Offer AI Study Advisor — an expert on 来华留学 (international students studying in China).
-
-RULES:
-- Answer ONLY based on the knowledge sources provided below. Do NOT make up information.
-- Be warm, helpful, and conversational — like a friendly senior student who has been through it all.
-- Use bullet points and clear structure for readability.
-- If the sources don't fully cover the question, say what you know and suggest where to learn more.
-- Keep answers concise (150-300 words max).
-- Use both English terms and Chinese terms where helpful (e.g., "CSC (中国政府奖学金)").
-- End with a brief encouraging note.`;
-
-  const userPrompt = `Based on these knowledge sources:
-
-${context}
-
----
-
-User question: "${query}"
-
-Please provide a helpful, well-structured answer.`;
+  let userPrompt;
+  if (ragContext) {
+    userPrompt = `Based on our knowledge base:\n\n${ragContext}\n\n---\n\nUser question: "${query}"\n\nProvide a helpful answer based on the sources above.`;
+  } else {
+    userPrompt = `User question: "${query}"\n\nProvide a helpful answer about studying in China. Note: our specialized knowledge base didn't have specific results for this query, so use your general expertise.`;
+  }
 
   try {
     const res = await fetch(DEEPSEEK_URL, {
@@ -105,7 +103,7 @@ Please provide a helpful, well-structured answer.`;
       body: JSON.stringify({
         model: 'deepseek-chat',
         messages: [
-          { role: 'system', content: systemPrompt },
+          { role: 'system', content: SYSTEM_PROMPT },
           { role: 'user', content: userPrompt },
         ],
         temperature: 0.7,
@@ -114,37 +112,17 @@ Please provide a helpful, well-structured answer.`;
     });
 
     if (!res.ok) {
-      console.error('Deepseek error:', res.status, await res.text());
+      const errText = await res.text();
+      console.error('Deepseek API error:', res.status, errText);
       return null;
     }
 
     const data = await res.json();
     return data.choices?.[0]?.message?.content || null;
   } catch (err) {
-    console.error('Deepseek fetch error:', err);
+    console.error('Deepseek fetch error:', err.message);
     return null;
   }
-}
-
-// ============================================================
-// FALLBACK — clean bullet-point answer without LLM
-// ============================================================
-
-function composeFallbackAnswer(query, results) {
-  if (!results || results.length === 0) {
-    return "I don't have specific information about that yet. Try asking about scholarships, visas, costs, universities, HSK requirements, or student cities in China.";
-  }
-
-  const lines = results
-    .filter(r => r.source_type === 'seed')
-    .slice(0, 3)
-    .flatMap(r => r.content.split(/[.!?\n]+/).filter(l => l.trim().length > 20 && l.trim().length < 200))
-    .slice(0, 8)
-    .map(l => `• ${l.trim()}`);
-
-  return lines.length > 0 
-    ? lines.join('\n') 
-    : "I found some related information but couldn't compose a clear answer. Try being more specific.";
 }
 
 // ============================================================
@@ -159,41 +137,57 @@ export async function POST(request) {
       return Response.json({ error: 'Query is required' }, { status: 400 });
     }
 
-    const detectedCategory = category || detectCategory(query);
+    console.log(`[advisor] Query: "${query}"`);
 
-    // Strategy: category search first (returns all chunks in category), keyword fallback
+    const detectedCategory = category || detectCategory(query);
     let results = [];
     
+    // Try category search first
     if (detectedCategory) {
       results = await searchByCategory(detectedCategory);
+      console.log(`[advisor] Category "${detectedCategory}": ${results.length} results`);
     }
     
-    // If no category match or too few results, search by keywords
+    // Keyword fallback
     if (results.length < 2) {
-      const keywordResults = await searchByKeywords(query);
-      const existingContent = new Set(results.map(r => r.content.substring(0, 50)));
-      for (const r of keywordResults) {
-        if (!existingContent.has(r.content.substring(0, 50))) {
-          results.push(r);
-        }
+      const kwResults = await searchByKeywords(query);
+      console.log(`[advisor] Keyword fallback: ${kwResults.length} results`);
+      const seen = new Set(results.map(r => r.content.substring(0, 50)));
+      for (const r of kwResults) {
+        if (!seen.has(r.content.substring(0, 50))) results.push(r);
       }
     }
 
-    // Get sources for citation
+    // Build RAG context from results
+    const ragContext = results
+      .filter(r => r.source_type === 'seed')
+      .slice(0, 5)
+      .map((r, i) => `[Source ${i + 1}: ${r.source_name} | ${r.category}]\n${r.content}`)
+      .join('\n\n---\n\n');
+
     const sources = [...new Set(
       results.filter(r => r.source_type === 'seed').map(r => r.source_name)
     )];
 
-    // Try Deepseek LLM first, fallback to local compose
-    let answer = await askDeepseek(query, results);
+    // Always ask Deepseek — with RAG context if available, without if not
+    let answer = await askDeepseek(query, ragContext);
     
     if (!answer) {
-      answer = composeFallbackAnswer(query, results);
+      // If Deepseek also fails, give a helpful fallback
+      answer = results.length > 0
+        ? results.slice(0, 3).map(r => `• ${r.content.substring(0, 200)}`).join('\n\n')
+        : "Our AI advisor is temporarily unavailable. Please try again shortly, or explore our other tools like the Document Wizard, ROI Calculator, or City Comparator for help with your study-in-China journey!";
     }
+
+    console.log(`[advisor] Answer length: ${answer.length}, sources: ${sources.length}`);
 
     return Response.json({ answer, sources, resultCount: results.length });
   } catch (err) {
     console.error('Advisor API error:', err);
-    return Response.json({ error: 'Internal server error' }, { status: 500 });
+    return Response.json({ 
+      answer: "Something went wrong. Please try again!",
+      sources: [], 
+      resultCount: 0 
+    });
   }
 }
