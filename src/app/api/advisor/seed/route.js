@@ -246,12 +246,17 @@ Tips for HSK preparation:
 ];
 
 export async function GET(request) {
-  const { searchParams } = new URL(request.url);
-  const secret = searchParams.get('secret');
-  
-  if (secret !== process.env.DEEPSEEK_KEY) {
-    return Response.json({ error: 'Add ?secret=YOUR_DEEPSEEK_KEY' }, { status: 401 });
-  }
+  try {
+    const { searchParams } = new URL(request.url);
+    const secret = searchParams.get('secret');
+    
+    if (secret !== process.env.DEEPSEEK_KEY) {
+      return Response.json({ error: 'Add ?secret=YOUR_DEEPSEEK_KEY' }, { status: 401 });
+    }
+
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      return Response.json({ error: 'Missing Supabase env vars', vars: { url: !!process.env.NEXT_PUBLIC_SUPABASE_URL, key: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY }}, { status: 500 });
+    }
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -296,12 +301,14 @@ export async function GET(request) {
     }
   }
 
-  return Response.json({
-    message: `Seeded ${inserted} new, ${skipped} already existed, of ${SEED_CHUNKS.length} total`,
-    inserted,
-    skipped,
-    total: SEED_CHUNKS.length,
-    errors: errors.length > 0 ? errors : 'none',
-  });
+    return Response.json({
+      message: `Seeded ${inserted} new, ${skipped} already existed, of ${SEED_CHUNKS.length} total`,
+      inserted,
+      skipped,
+      total: SEED_CHUNKS.length,
+      errors: errors.length > 0 ? errors : 'none',
+    });
+  } catch (err) {
+    return Response.json({ error: err.message, stack: err.stack?.split('\n').slice(0, 3) }, { status: 500 });
+  }
 }
-
