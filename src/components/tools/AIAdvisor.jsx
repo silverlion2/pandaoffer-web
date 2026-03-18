@@ -53,6 +53,7 @@ export default function AIAdvisor() {
         role: 'assistant',
         content: data.answer || 'Sorry, I could not find relevant information.',
         sources: data.sources || [],
+        followups: data.followups || [],
       }]);
     } catch (err) {
       setMessages(prev => [...prev, {
@@ -194,6 +195,24 @@ export default function AIAdvisor() {
               </div>
             )}
             <div ref={chatEndRef} />
+          </div>
+        )}
+
+        {/* Follow-up Suggestions */}
+        {!loading && messages.length > 0 && messages[messages.length - 1]?.followups?.length > 0 && (
+          <div className="px-8 pb-2">
+            <p className="text-xs text-slate-500 mb-2 flex items-center gap-1"><Sparkles size={10} /> Related questions</p>
+            <div className="flex flex-wrap gap-2">
+              {messages[messages.length - 1].followups.map((q, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleSubmit(null, q)}
+                  className="text-xs px-3 py-1.5 rounded-full border border-violet-200 bg-violet-50 hover:bg-violet-100 text-violet-700 hover:text-violet-900 transition-all"
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
           </div>
         )}
       </div>

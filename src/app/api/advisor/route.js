@@ -68,7 +68,7 @@ function detectCategory(query) {
 // DEEPSEEK LLM
 // ============================================================
 
-const SYSTEM_PROMPT = `You are the Panda Offer AI Study Advisor — an expert on 来华留学 (international students studying in China).
+const SYSTEM_PROMPT = `You are the Panda Offer AI Study Advisor — an expert on studying in China (来华留学).
 
 RULES:
 - Be warm, helpful, and conversational — like a friendly senior student who has been through it all.
@@ -77,7 +77,8 @@ RULES:
 - Use both English and Chinese terms where helpful (e.g., "CSC (中国政府奖学金)").
 - If provided with knowledge sources, base your answer primarily on them.
 - If no sources are provided, use your general knowledge about studying in China but mention that this is general advice.
-- End with a brief encouraging note.`;
+- End with a brief encouraging note.
+- IMPORTANT: After your answer, add a line "---FOLLOWUPS---" followed by exactly 3 short follow-up questions the user might want to ask next, one per line. These should be natural continuations of the conversation.`;
 
 async function askDeepseek(query, ragContext = '') {
   const DEEPSEEK_KEY = process.env.DEEPSEEK_KEY;
@@ -170,18 +171,26 @@ export async function POST(request) {
     )];
 
     // Always ask Deepseek — with RAG context if available, without if not
-    let answer = await askDeepseek(query, ragContext);
+    let rawAnswer = await askDeepseek(query, ragContext);
+    let followups = [];
+    let answer;
     
-    if (!answer) {
-      // If Deepseek also fails, give a helpful fallback
+    if (!rawAnswer) {
       answer = results.length > 0
         ? results.slice(0, 3).map(r => `• ${r.content.substring(0, 200)}`).join('\n\n')
         : "Our AI advisor is temporarily unavailable. Please try again shortly, or explore our other tools like the Document Wizard, ROI Calculator, or City Comparator for help with your study-in-China journey!";
+    } else {
+      // Parse follow-ups from answer
+      const parts = rawAnswer.split('---FOLLOWUPS---');
+      answer = parts[0].trim();
+      if (parts[1]) {
+        followups = parts[1].trim().split('\n').map(l => l.replace(/^\d+\.\s*/, '').replace(/^-\s*/, '').trim()).filter(l => l.length > 5).slice(0, 3);
+      }
     }
 
-    console.log(`[advisor] Answer length: ${answer.length}, sources: ${sources.length}`);
+    console.log(`[advisor] Answer length: ${answer.length}, sources: ${sources.length}, followups: ${followups.length}`);
 
-    return Response.json({ answer, sources, resultCount: results.length });
+    return Response.json({ answer, sources, followups, resultCount: results.length });
   } catch (err) {
     console.error('Advisor API error:', err);
     return Response.json({ 

@@ -860,7 +860,420 @@ Not everyone gets a scholarship, and that's OK — China is still very affordabl
 - Learn phrases: 我吃素 (wǒ chī sù = I'm vegetarian), 不要肉 (bùyào ròu = no meat)
 **Allergies**: Nut allergies are less well-understood in China. Learn to say your allergy in Chinese. Carry translated allergy cards
 **Western food**: Available in all Tier 1/2 cities. McDonald's, KFC, Pizza Hut are everywhere. International grocery stores in expat areas carry imported foods`, category: 'general', source_name: 'dietary_needs.md' },
+
+  // ══════════════════════════════════════════════════════════
+  // BATCH 5 — University Profiles (Insider / 内幕)
+  // ══════════════════════════════════════════════════════════
+
+  // ── Tsinghua Profile ──
+  { content: `# Tsinghua University — Insider Profile
+**CSC Agency Number**: 10003 (Type B)
+**Application fee**: 600 RMB (~$85)
+**English programs**: 30+ Master's/PhD programs across 49 schools
+**Key programs**: Global MBA, Mechanical Engineering, Int'l Construction, Public Health, Schwarzman Scholars (Global Affairs)
+**Undergraduate English**: Very limited — Zhishan College (Politics/Economics/Sociology), Zijing College (Science & Engineering)
+**Insider tips**:
+- Applying in Round 1 (Sept–Nov) is significantly better than Round 2 — many spots already filled
+- Professor acceptance letter is not officially "required" but practically essential for PhD admission
+- Tsinghua has internal quotas per country — smaller countries have less competition
+- The interview is increasingly important — prepare specific questions about the lab/department you're applying to
+- Schwarzman Scholars is at TSINGHUA (not Peking) — fully funded, ~150 spots, extremely competitive (3% acceptance rate)`, category: 'universities', source_name: 'tsinghua_insider.md' },
+
+  { content: `# Tsinghua University — What They Don't Tell You
+**Campus vibe (氛围)**: Intense academic pressure. Students study extremely hard. The stereotype "清华苦" (Tsinghua is tough) is real. Expect long library hours and competitive classmates.
+**International student reality**: You're in a bubble. International students take separate classes from Chinese students in many programs. Making Chinese friends requires active effort.
+**Hidden costs**: Tsinghua's dorms are dated. International student dorms cost 80–150 RMB/day. Many students move off-campus after Year 1 — apartments near Wudaokou are 3,500–6,000 RMB/month.
+**Wudaokou (五道口) district**: The legendary student neighborhood. Nicknamed "宇宙中心" (Center of the Universe). Packed with cheap restaurants, bars, and other international students.
+**Real talk**: Tsinghua's prestige opens every door in China. But the coursework is genuinely demanding, especially in engineering/CS. Don't come unprepared.`, category: 'universities', source_name: 'tsinghua_insider.md' },
+
+  // ── Peking University Profile ──
+  { content: `# Peking University (PKU) — Insider Profile
+**CSC Agency Number**: 10001 (Type B)
+**Application fee**: 800 RMB (~$112)
+**Known for**: Humanities, law, social sciences, medicine, economics — China's #1 for liberal arts
+**Key English programs**: Yenching Academy (China Studies, fully funded), International MBA, Public Policy, Law
+**Insider tips**:
+- Yenching Academy is PKU's answer to Schwarzman — 1-year Master's, fully funded, highly prestigious, ~125 scholars per year
+- PKU is more liberal and free-thinking than Tsinghua (known as 北大自由 — PKU freedom). More debate, more political discussion
+- Humanities and social science professors at PKU are often the most influential thinkers in China
+- The campus (燕园 Yanyuan) is stunningly beautiful — traditional Chinese gardens, Weiming Lake
+- PKU Health Science Center is a separate campus in Haidian — if studying medicine, you'll be there, not the main campus`, category: 'universities', source_name: 'pku_insider.md' },
+
+  { content: `# Peking University — Forum Insights & Real Experience
+**Student vibe**: More relaxed than Tsinghua, but don't confuse "relaxed" with "easy." PKU students are brilliant and opinionated. Class discussions can get intense.
+**The 未名湖 (Weiming Lake) culture**: Students gather here to study, chat, and debate. It's the heart of campus social life.
+**Application trick**: PKU has a "pre-admission" system for some programs. If a professor wants you, they can push your application through faster. Always email professors BEFORE applying.
+**Housing reality**: PKU dorms for international students are better than Tsinghua's but still basic. Shaoyuan (勺园) is the main international dorm — convenient but noisy.
+**Career edge**: PKU graduates dominate Chinese government, media, law, and academia. If you want to work in these fields in China, PKU's network is unmatched.`, category: 'universities', source_name: 'pku_insider.md' },
+
+  // ── Zhejiang University Profile ──
+  { content: `# Zhejiang University (ZJU) — Insider Profile
+**CSC Agency Number**: 10335 (Type B)
+**Location**: Hangzhou — arguably the best city in China for quality of life
+**Known for**: Engineering, CS, agriculture, medicine — strongest all-rounder among C9
+**Application fee**: 800 RMB
+**Insider tips**:
+- ZJU has FIVE campuses (紫金港 Zijingang is the main one for international students). Make sure you know which campus your program is on
+- Dual application required for CSC: submit on BOTH campuschina.com AND ZJU's own system
+- Provisional acceptance letter from a supervisor "strongly recommended" = practically required. Email professors in October–November
+- GRE scores are "optional" but submitting them gives a significant advantage
+- Video interview is standard — prepare your research proposal presentation
+- ZJU's scholarship acceptance rate is higher than Tsinghua/PKU — less competition, same quality`, category: 'universities', source_name: 'zju_insider.md' },
+
+  { content: `# Zhejiang University — The Hidden Gem
+**Campus vibe**: ZJU feels like a tech campus mixed with a park. Zijingang campus is modern, spacious, and green. Less pressure-cooker than Tsinghua.
+**Hangzhou advantage**: West Lake weekends, Alibaba internships, tech startup scene. Best food city among C9 universities.
+**Under-the-table reality**: ZJU aggressively recruits international students to boost global rankings. This means slightly easier admission AND more scholarship money available compared to Tsinghua/PKU.
+**Lab culture**: Engineering and CS labs are well-funded. Many professors have industry connections (Alibaba, NetEase, Hikvision — all headquartered in Hangzhou).
+**Alumni network**: ZJU has the largest alumni network of any Chinese university by number. The 浙大系 (ZJU faction) dominates Chinese tech industry.`, category: 'universities', source_name: 'zju_insider.md' },
+
+  // ── Fudan University Profile ──
+  { content: `# Fudan University — Insider Profile
+**CSC Agency Number**: 10246 (Type B)
+**Location**: Shanghai — China's most international city
+**Application fee**: 800 RMB
+**Known for**: Economics, journalism, social sciences, medicine, international relations
+**Key English programs**: MBA, International Politics, Economics
+**Insider tips**:
+- Fudan's Phase 1 CSC deadline is mid-December — much earlier than most universities. Miss it and your chances drop dramatically
+- Shanghai Government Scholarship is a separate option with less competition than CSC
+- Fudan's journalism school (新闻学院) is #1 in China — if you want to understand Chinese media, this is the place
+- The Handan campus (邯郸校区) is in the heart of Shanghai, walking distance to restaurants and nightlife
+- Fudan + SJTU students have a famous rivalry — like Harvard vs MIT. Don't mix them up in your application essay`, category: 'universities', source_name: 'fudan_insider.md' },
+
+  // ── SJTU Profile ──
+  { content: `# Shanghai Jiao Tong University (SJTU) — Insider Profile
+**CSC Agency Number**: 10248 (Type B)
+**Application fee**: 800 RMB (non-refundable)
+**Location**: Shanghai (Minhang campus is far from city center — 1 hour by metro)
+**Known for**: Engineering, mechanical, naval architecture, medicine, business (Antai College)
+**Insider tips**:
+- SJTU's Minhang campus feels like a small city — self-contained with everything you need, but isolated from Shanghai's nightlife
+- Supervisor acceptance letter is COMPULSORY for many PhD programs — not optional like other universities
+- SJTU specific language requirements: IELTS 6.0, TOEFL 85, GRE 320+ for some Master's programs
+- Antai College MBA is one of Asia's best — FT Global MBA top 50
+- SJTU's medical school (home of Ruijin Hospital) is a national powerhouse — if you want clinical medicine experience in China, this is a top choice
+- The "双录取" (dual admission) system: some programs admit you provisionally with 1 year of Chinese language prep first`, category: 'universities', source_name: 'sjtu_insider.md' },
+
+  // ── More C9 Schools ──
+  { content: `# Nanjing University — Insider Profile
+**CSC Agency Number**: 10284
+**Known for**: Astronomy (#1 in China), chemistry, Chinese literature, geology, physics
+**Insider tips**:
+- Nanjing University is arguably the most underrated C9 school — world-class academics, less competitive admission than Beijing/Shanghai schools
+- The Xianlin campus (仙林校区) is new, modern, but far from city center. Gulou campus (鼓楼校区) is downtown — ask which one your program is on
+- Chinese language and culture programs are excellent here — many students come specifically for Mandarin
+- The city of Nanjing is historically significant (former capital) and has a strong sense of cultural identity
+- Lower living costs than Beijing/Shanghai with similar academic quality
+- Nanjing's 南大精神 (Nanda spirit) emphasizes depth over breadth — expect rigorous academic standards`, category: 'universities', source_name: 'nanjing_insider.md' },
+
+  { content: `# USTC (University of Science and Technology of China) — Insider Profile
+**CSC Agency Number**: 10358
+**Location**: Hefei, Anhui province — a Tier 2 city
+**Known for**: Physics, math, quantum computing, pure sciences — China's "MIT"
+**Insider tips**:
+- USTC is in Hefei, not a glamorous city, but the academic intensity is unmatched. Students here are laser-focused on research
+- Extremely strong in fundamental sciences — if you want a pure research career in physics or math, USTC rivals any Ivy League school
+- The student body is unusually young — USTC's famous 少年班 (Young Gifted Program) admits students as young as 14
+- Living costs are very low (Hefei is cheap) — your CSC stipend goes much further here than in Beijing/Shanghai
+- Fewer international students = more integration opportunities with Chinese students but less English support
+- If you're serious about academic research (not industry), USTC is the hidden best choice in China`, category: 'universities', source_name: 'ustc_insider.md' },
+
+  { content: `# Xi'an Jiaotong University (XJTU) — Insider Profile
+**CSC Agency Number**: 10698
+**Known for**: Engineering, energy, power systems, management science, biomedical engineering
+**City**: Xi'an — ancient capital, Silk Road starting point
+**Insider tips**:
+- XJTU's Innovation Harbor (创新港) is a massive new campus — state-of-the-art facilities, but 30 min from the main city
+- Strong in energy engineering — if you want to study power systems, electrical engineering, or nuclear energy, XJTU is top 3 in China
+- The Xi'an location means very affordable living + incredible history + amazing food (回民街 Muslim Quarter)
+- Less competitive admission than coastal C9 schools but similarly strong academics
+- XJTU has a "西迁精神" (Westward Migration Spirit) — the school relocated from Shanghai to Xi'an in the 1950s. There's a strong sense of sacrifice and dedication in the culture`, category: 'universities', source_name: 'xjtu_insider.md' },
+
+  { content: `# Harbin Institute of Technology (HIT) — Insider Profile
+**CSC Agency Number**: 10213
+**Known for**: Aerospace, robotics, civil engineering, materials science — China's "space university"
+**City**: Harbin — extreme cold but unique experience
+**Insider tips**:
+- HIT is one of China's key defense universities — some programs and labs are restricted for international students
+- If you want to study aerospace, satellite technology, or robotics in China, HIT is THE choice
+- The cold is real (-20 to -30°C in winter) but dorms have excellent heating (Northeast China has central heating, unlike the south)
+- Very few international students = genuine immersion. You'll likely be one of the only foreigners in your department
+- HIT's Shenzhen campus (哈工大深圳) offers the same degree with Shenzhen's warm weather and tech scene — an insider hack
+- Harbin ice festival in January is a bucket-list experience you get for free as a student there`, category: 'universities', source_name: 'hit_insider.md' },
+
+  // ── Key 985 Universities ──
+  { content: `# Tongji University — Insider Profile
+**Location**: Shanghai
+**CSC Agency Number**: 10247
+**Known for**: Architecture (#1 in China), urban planning, civil engineering, automotive engineering, German language
+**Insider tips**:
+- Tongji was originally founded by Germans — strong German engineering tradition. Many programs have exchange agreements with TU Munich, RWTH Aachen
+- Architecture and planning students: Tongji's campus itself is an architectural showcase — the buildings are study material
+- Strong automotive connections — VW, BMW, and Mercedes all have research partnerships
+- Less international prestige than Fudan/SJTU but more respected than both within China's architecture and engineering industry
+- Yangpu campus location is convenient — good food scene, metro accessible, affordable compared to Fudan's Handan area`, category: 'universities', source_name: 'tongji_insider.md' },
+
+  { content: `# Wuhan University — Insider Profile
+**CSC Agency Number**: 10486
+**Known for**: Law, biology, water resources, remote sensing, Chinese literature
+**Insider tips**:
+- Wuhan University's campus is considered the MOST BEAUTIFUL in China — especially during cherry blossom season (March). 100,000+ visitors come just for the flowers
+- The law school (法学院) is top 3 in China — many Supreme Court judges are WU alumni
+- Wuhan has 82 universities (most in any Chinese city) — the student community is massive
+- Extremely hot summers (40°C+) and cold winters — Wuhan is one of China's "four furnace cities"
+- WU's international student program is growing fast — more scholarship slots available than comparable 985 schools
+- Hot dry noodles (热干面) for breakfast every morning — you'll either love it or hate it, but it's the city's identity food`, category: 'universities', source_name: 'wuhan_uni_insider.md' },
+
+  { content: `# HUST (Huazhong University of Science and Technology) — Insider Profile
+**Location**: Wuhan
+**CSC Agency Number**: 10487
+**Known for**: Electrical engineering, computer science, optoelectronics, mechanical engineering, medicine
+**Insider tips**:
+- HUST's optical engineering (光电) program is #1 in China — produces more optics PhDs than any other university worldwide
+- The campus is in a forest — literally. HUST is known as "forest university" (森林大学). Beautiful but humid
+- HUST + WU rivalry in Wuhan is fierce — choose carefully and don't confuse them
+- Strong CS program with direct industry pipeline to Huawei (headquartered nearby)
+- HUST's Tongji Medical College (同济医学院) is among China's best — confusingly, it's NOT related to Tongji University in Shanghai
+- The HUST campus is massive — 7,000+ acres. Get a bike or electric scooter`, category: 'universities', source_name: 'hust_insider.md' },
+
+  { content: `# Sun Yat-sen University (SYSU) — Insider Profile
+**Location**: Guangzhou + Zhuhai + Shenzhen (three cities!)
+**CSC Agency Number**: 10558
+**Known for**: Medicine, business, Chinese philosophy, public health, marine sciences
+**Insider tips**:
+- SYSU has campuses in THREE cities — make sure you know which one your program is on. Guangzhou South campus is the main one
+- Named after Sun Yat-sen (孙中山), the founder of modern China — the university has deep historical significance
+- The Guangzhou campus area (中大北门) has incredible Cantonese food — dim sum, BBQ, congee at 3am
+- SYSU's medical school is one of the oldest in China — associated hospitals are among the best in South China
+- Strong for students from Southeast Asia and Africa — large and active international communities from these regions
+- Proximity to Hong Kong and Macao is a unique advantage — easy weekend trips`, category: 'universities', source_name: 'sysu_insider.md' },
+
+  { content: `# Beihang University (BUAA) — Insider Profile
+**Location**: Beijing, Haidian district (near Tsinghua/PKU)
+**CSC Agency Number**: 10006
+**Known for**: Aerospace, flight control, computer science, software engineering, cybersecurity
+**Insider tips**:
+- Beihang = Beijing University of Aeronautics and Astronautics. China's #1 for aerospace after HIT
+- Located in the same Haidian university district as Tsinghua/PKU — you get access to the same neighborhood (Wudaokou/Zhongguancun) at a lower admission bar
+- Some CS/cybersecurity programs are restricted or have extra background checks for international students due to defense connections
+- Beihang's software engineering is ranked #1 in China in some years — graduates go straight to Baidu, ByteDance, and Alibaba
+- Campus is small but well-organized. The student community is tight-knit
+- If you want aerospace/CS but can't get into Tsinghua, Beihang is the smart alternative`, category: 'universities', source_name: 'beihang_insider.md' },
+
+  { content: `# Renmin University (RUC) — Insider Profile
+**Location**: Beijing, Haidian district
+**CSC Agency Number**: 10002
+**Known for**: Economics, finance, law, journalism, public administration — the "Party School"
+**Insider tips**:
+- Renmin (人大) is THE university for Chinese government and Communist Party connections. More government officials graduated from here than any other university
+- If you want to understand Chinese politics from the inside, this is the place
+- The economics and finance programs are top 3 in China — many central bank and regulatory officials are RUC alumni
+- International students in political science and IR programs get unique access to Chinese political thinking
+- Campus is small but in a prime Haidian location — walkable to Zhongguancun tech hub
+- RUC's journalism school rivals Fudan's — and its graduates dominate Chinese state media`, category: 'universities', source_name: 'ruc_insider.md' },
+
+  { content: `# BLCU (Beijing Language and Culture University) — Insider Profile
+**Location**: Beijing, Wudaokou area
+**CSC Agency Number**: 10032
+**Known for**: Chinese language education — THE place to learn Mandarin in China
+**Insider tips**:
+- BLCU is nicknamed "小联合国" (Little United Nations) — 60%+ of students are international. The most diverse campus in China
+- If your goal is learning Chinese quickly, BLCU's intensive programs are unmatched. Many diplomats and translators studied here
+- The campus is small but the social scene is incredible — students from 180+ countries
+- Downside: you might end up speaking English more than Chinese because everyone else is international too
+- BLCU is NOT a research powerhouse. If you want a strong academic degree (not language), consider somewhere else
+- The Confucius Institute Scholarship often covers BLCU programs — a great way to study Chinese for free
+- Wudaokou location = next door to Tsinghua and PKU. You can attend lectures at both as a BLCU student (unofficially)`, category: 'universities', source_name: 'blcu_insider.md' },
+
+  // ══════════════════════════════════════════════════════════
+  // INSIDER / 内幕 / Under-the-Table Knowledge
+  // ══════════════════════════════════════════════════════════
+
+  { content: `# CSC Scholarship — What They Don't Tell You (内幕)
+**Embassy quotas are real**: Each country gets an unofficial quota of CSC slots. Pakistan, Bangladesh, and Thailand have the most applicants = most competitive. Countries in Eastern Europe, Central Asia, and South America often have unfilled quotas = easier to get.
+**Professor connections matter MORE than your GPA**: A professor who wants you can push your application through. The official application is almost a formality if a Chinese professor has already agreed to supervise you.
+**Type A vs Type B politics**: Type A (embassy route) is more political — embassy officers may have preferences based on government relations. Type B (university route) is more meritocratic.
+**Reapplication advantage**: If you were rejected once, mentioning that you reapplied shows persistence. Many successful scholars got in on their 2nd or 3rd try.
+**The "research proposal" weight**: For PhD applications, your research proposal is 40-50% of the decision. Make it specific — generic proposals get rejected immediately.`, category: 'scholarships', source_name: 'csc_insider.md' },
+
+  { content: `# The Email Game — How to Contact Chinese Professors (内幕)
+**This is the most important thing nobody tells you**: Your chances of CSC scholarship approval go from ~15% to ~70% if you have a professor's acceptance letter.
+**How to email professors**:
+1. Find professors on the university website — look at their recent publications, not just their title
+2. Read 2-3 of their recent papers. Reference specific papers in your email
+3. Subject line: "Prospective PhD/Master's Student — [Your Name] — [Research Area]"
+4. Keep the email SHORT (200-300 words). Attach your CV. Mention specific papers of theirs
+5. Send to 10-15 professors. Expect 2-3 replies. Don't be discouraged by silence
+**Timing**: Email in September-November for the next year's intake. Too early = forgotten. Too late = no spots left.
+**Response reality**: Chinese professors are busy. If no reply in 2 weeks, send ONE follow-up. After that, move on.
+**WeChat trick**: If a professor replies positively, ask for their WeChat. Communication moves 10x faster on WeChat than email in China.`, category: 'scholarships', source_name: 'professor_email_insider.md' },
+
+  { content: `# Agency Scams and Red Flags (内幕)
+**Things agencies won't tell you**:
+- Most agencies charge 10,000-30,000 RMB ($1,500-$4,200) for something you can do yourself for free
+- Some agencies have "guaranteed admission" claims — IMPOSSIBLE. No agency controls university admissions
+- Some agencies submit applications to lower-ranked universities where they have kickback arrangements, not the best university for YOU
+- A few agencies reuse the same study plan template for multiple students — universities notice this and reject
+**Red flags to watch for**:
+- "100% success rate" — impossible. Even the best applicants get rejected sometimes
+- Pressure to pay upfront with no refund policy
+- Won't tell you which specific university they're applying to
+- Promise CSC scholarship "guarantee" — no one can guarantee this
+**When agencies ARE worth it**: If you don't speak Chinese AND don't speak English well, AND need translation + notarization help. Otherwise, save your money.
+**Free resources**: campuschina.com, university international admissions offices (email them directly), CSC official website, YouTube tutorials`, category: 'scholarships', source_name: 'agency_scams.md' },
+
+  { content: `# Dorm Assignment Politics — What Actually Happens (内幕)
+**The dirty truth about international student dorms**:
+- Room quality varies HUGELY within the same dorm building. Corner rooms, higher floors, and rooms with private bathrooms are better
+- Some universities let you choose your room during orientation — arrive early and go to the dorm office first thing
+- Roommate assignment is usually random by nationality — universities try to pair students from different countries
+- If you're unhappy with your room, you CAN request a change — but timing matters. Do it in the first 2 weeks before everything is settled
+- Some dorms are reserved for scholarship vs self-funded students — scholarship students sometimes get better rooms
+**Off-campus housing trick**: After Year 1, many students move to off-campus apartments. The university officially requires you to live on-campus, but enforcement varies. Ask older students what's actually enforced
+**The midnight electricity story**: Many dorms cut electricity at 11PM-midnight. This policy is widely hated and inconsistently enforced. International student dorms often have 24-hour power while Chinese student dorms don't`, category: 'general', source_name: 'dorm_insider.md' },
+
+  { content: `# Grade Inflation and Academic Reality (内幕)
+**What forums say about grades for international students**:
+- In some universities, international students receive slightly easier grading than Chinese students — especially in Chinese-taught courses where language is a barrier
+- This is changing. Top universities (Tsinghua, PKU, ZJU) are cracking down on easy grading for international students amid public criticism
+- Chinese students sometimes resent preferential treatment of international students — be aware of this dynamic
+- For Chinese-taught programs: if your Chinese isn't HSK 5+, the first semester will be extremely hard. Many students fail courses and need to retake them
+- For English-taught programs: quality varies ENORMOUSLY. Some are genuinely world-class; others are poorly organized with adjunct faculty
+**GPA matters for scholarship renewal**: Maintain at least 2.5-3.0 GPA or risk losing your scholarship. This is enforced strictly.
+**Thesis defense culture**: Your 导师 (supervisor) will usually ensure you pass your defense — it's a loss of face for them if you fail. But you still need to do real work.`, category: 'general', source_name: 'academic_insider.md' },
+
+  { content: `# Real vs. Advertised Student Life (内幕)
+**What the brochures don't show**:
+- University promotional videos show the newest buildings and happiest students. Reality: some facilities are old, Wi-Fi can be unreliable, and bureaucracy is frustrating
+- "English-friendly campus" in brochures ≠ staff who actually speak English. The international student office usually does, but campus clinics, banks, and canteen staff often don't
+- WeChat groups are where REAL information flows. Official university emails/notices are often late or incomplete. Join student WeChat groups immediately
+- Student organizations for international students exist but can be poorly organized. The best events are usually organized informally by students themselves
+- Library resources are excellent for Chinese-language research but English-language book collections vary widely
+**Social reality**: International students tend to cluster by nationality. It takes deliberate effort to break out of your national group and make Chinese friends or friends from other countries`, category: 'general', source_name: 'reality_check.md' },
+
+  { content: `# Stipend Reality — What CSC Money Actually Buys (内幕)
+**Real monthly budget breakdown for CSC scholars (2025 rates)**:
+- Master's stipend: 3,000 RMB/month (~$420)
+- PhD stipend: 3,500 RMB/month (~$490)
+**What it actually covers (Tier 1 city)**:
+- Campus food: 600-900 RMB/month (if you eat at canteens exclusively)
+- Phone/internet: 50-100 RMB
+- Transport: 100-200 RMB
+- Personal items/entertainment: 500-1,000 RMB
+- Remaining for savings/extras: 800-1,500 RMB
+**Reality**: The stipend is enough for a comfortable student life IF you eat on campus and don't have expensive habits. It's NOT enough for restaurants, travel, or shopping regularly.
+**Supplementing income**: Many scholars tutor English (100-300 RMB/hour), do translation work, or freelance online. Technically needs a work permit since 2022, but enforcement for small-scale tutoring is minimal.
+**The "real" vs advertised stipend**: Some professors add lab stipends (500-2,000 RMB/month) for productive researchers. This is negotiated privately and varies by lab.`, category: 'costs', source_name: 'stipend_reality.md' },
+
+  { content: `# Hidden Scholarship Politics (内幕)
+**Things that actually affect your scholarship chances**:
+- **Diplomatic relations**: Countries with strong China relations get more CSC slots. Pakistan, Russia, Thailand, Kenya = advantaged
+- **Return rate**: CSC tracks whether scholars return home after graduating. If your country's return rate is low, future applicants may face more scrutiny
+- **University quotas**: Each university has a fixed number of CSC Type B scholarships. Popular programs may have 200 applicants for 10 slots
+- **Provincial scholarships are hidden gems**: Beijing, Shanghai, Jiangsu, Zhejiang, and Guangdong all offer their own scholarships with MUCH less competition than CSC
+- **University merit scholarships**: Available after Year 1 based on GPA. Almost nobody knows about these — ask your international student office
+- **Confucius Institute connections**: If you studied at a Confucius Institute before applying, this genuinely helps your application — they track this
+- **Double-dipping trick**: Apply for BOTH CSC (Type A through embassy AND Type B through university) AND provincial/university scholarships simultaneously. You can only accept one, but it maximizes your chances`, category: 'scholarships', source_name: 'scholarship_politics.md' },
+
+  { content: `# Forum and Reddit Insights — What Students Actually Say
+**Common Reddit/forum complaints about studying in China**:
+- Bureaucracy is maddening. Simple tasks (bank account, SIM card, residence permit) can take full days with multiple office visits
+- "International Student Office hours" are limited — often only 9-11:30AM and 2-4PM. Don't show up outside these times
+- Some English-taught PhD programs have nearly zero English-speaking faculty outside the main supervisor
+- Group projects with Chinese students can be challenging due to different work styles and communication norms
+**Common Reddit/forum praise**:
+- Safety is incredible. Walking alone at night? Taking the subway at 11PM? Completely normal and safe
+- Food delivery culture is life-changing. 美团 and 饿了么 deliver anything to your dorm in 20-30 minutes for very little money
+- High-speed rail makes travel amazing. You can visit a new city every weekend for under 200 RMB
+- The sense of community among international students is strong — you'll make friends from countries you've never thought about before
+**Most common advice from 3rd/4th-year students**: "Learn Chinese. Seriously. Your experience in China is 10x better if you speak Chinese."`, category: 'general', source_name: 'forum_insights.md' },
+
+  { content: `# WeChat Groups — The Real Information Network (内幕)
+**The single most important thing to do when you arrive**: Join the right WeChat groups
+**Essential groups**:
+1. **Your university's international student group** — ask at orientation or scan QR code on posters
+2. **Your country's student group** (e.g., "Nigerians in Beijing", "Pakistani Students Wuhan") — find through Facebook or WhatsApp before arriving
+3. **Housing group** — students post available rooms and roommate searches
+4. **Buy/Sell group** — students leaving sell furniture, appliances, bikes cheaply
+5. **City expat group** — broader community, event announcements, tips
+**WeChat group dynamics (内幕)**:
+- Groups have unofficial leaders who know everything — identify them and be friendly
+- Don't spam groups with repeated questions — search group chat history first
+- Red envelopes (红包) in group chats are a trust-building ritual — participate even with small amounts (1-5 RMB)
+- Some groups are managed by agencies trying to sell services — be cautious of "helpful" strangers pushing paid services`, category: 'general', source_name: 'wechat_insider.md' },
+
+  { content: `# Visa Insider Knowledge — What the Embassy Won't Tell You
+**Tricks from experienced students**:
+- Apply for your visa at a less busy embassy/consulate if possible. Smaller consulates (e.g., Houston instead of DC, Edinburgh instead of London) often process faster
+- Some countries' embassies are strict about additional documents; others barely look at them. Ask previous applicants from your country
+- Health check results from your home country are sometimes rejected in China — especially in Beijing and Shanghai. Budget time and money for a redo
+- The 30-day deadline for Residence Permit is STRICTLY enforced. Start the process on Day 1, not Day 25. The Exit-Entry Administration office can have 3-4 hour wait times
+- Multiple entry vs single entry residence permit: make sure you get MULTIPLE ENTRY if you plan to travel outside China during holidays
+- Taiwan, Hong Kong, and Macao count as leaving mainland China — you need re-entry permission
+**Overstay consequences**: Even 1 day overstay = 500 RMB/day fine, potential detention, and a permanent mark on your record. Set calendar reminders for all visa deadlines`, category: 'visa', source_name: 'visa_insider.md' },
+
+  { content: `# The Unwritten Rules (潜规则) for International Students
+1. **Gift culture with professors**: Bringing small gifts (from your home country) when you first meet your supervisor is expected and appreciated. Not a bribe — a cultural courtesy
+2. **Saying "no" indirectly**: Chinese people rarely say "no" directly. "It's not convenient" (不方便), "let me think about it" (我考虑一下), or "it's a bit difficult" (有点困难) usually means no
+3. **Drinking culture**: Academic dinners with professors may involve heavy drinking (白酒 baijiu). You CAN decline politely — say you can't drink for health/religious reasons. But participating builds relationships faster
+4. **The enrollment number game**: Some universities admit more international students than they can properly support — because the Chinese government rewards universities based on international enrollment numbers. This can lead to overcrowded international programs
+5. **Holiday office closures**: During Spring Festival (Jan/Feb) and National Week (Oct), literally EVERYTHING closes for 1-2 weeks. No office appointments, no visa processing, no bank services. Plan ahead
+6. **Academic publishing pressure**: Your supervisor may list you as co-author on papers you didn't significantly contribute to — and expect the same from you. This is normal in Chinese academia`, category: 'general', source_name: 'unwritten_rules.md' },
+
+  { content: `# CEIBS (China Europe International Business School) — Insider Profile
+**Location**: Shanghai
+**Type**: Independent business school (not under a university)
+**Known for**: Asia's #1 MBA by FT rankings. Global MBA, EMBA, Executive Education
+**Insider tips**:
+- CEIBS is NOT affiliated with any university — it's a joint venture between EU and Chinese government
+- Tuition is expensive (300,000+ RMB for MBA) but return on investment is among the highest globally
+- Average CEIBS MBA graduate salary: $120,000+ within 3 years of graduation
+- Strong for anyone wanting a career at multinationals with China operations, or Western companies doing business with China
+- The network is unmatched in China's business world — CEIBS alumni run many of China's top companies
+- Not CSC eligible — you must be self-funded or use employer sponsorship`, category: 'universities', source_name: 'ceibs_insider.md' },
+
+  { content: `# University-Specific Application Deadlines — The Insider Calendar
+Universities SAY they have deadlines but the real timeline matters more:
+**September-October**: Email professors. This is PRIME TIME. Professors are back from summer, labs aren't full yet
+**November**: First round applications open at most C9 schools. Apply NOW for best chances
+**December**: Fudan Phase 1 CSC deadline. Other universities' early bird deadlines
+**January-February**: Main CSC/scholarship deadline period. Spring Festival break = everything pauses for 2-4 weeks. Embassy submissions
+**March**: BLCU and language programs openings. Late applications at some universities still possible
+**April-May**: Results start coming in. Waitlists exist but universities won't tell you
+**June-July**: Final results. JW201/202 forms issued. Visa application begins
+**Insider trick**: If you're waitlisted or rejected, call/email the international office in June. Some accepted students don't confirm → spots open up. Persistence pays off.`, category: 'scholarships', source_name: 'deadline_insider.md' },
+
+  { content: `# What Chinese Students Think About International Students (内幕)
+**The honest truth from Chinese student forums (知乎 Zhihu)**:
+- Some Chinese students resent the perceived preferential treatment: better dorms, easier grading, separate classes
+- BUT most Chinese students are genuinely curious and friendly toward international students who make an effort
+- Speaking even basic Chinese earns massive respect. Saying "你好" and "谢谢" properly is a great start
+- Chinese students who approach international students usually want language exchange — this is genuine, not transactional
+- Group dinner invitations are sincere. Refusing repeatedly without reason can be seen as unfriendly
+- Social media matters: adding classmates on WeChat and occasionally posting in Chinese shows you're engaged
+**The best way to earn respect**: Take your studies seriously, learn Chinese, participate in class, and don't isolate yourself in the international student bubble. Chinese students will notice and respond positively.`, category: 'general', source_name: 'chinese_student_views.md' },
+
+  { content: `# Country-Specific Insider Tips
+**Pakistan**: CSC is extremely competitive (largest applicant pool). Apply for university-specific scholarships as backup. Strong embassy support. Many successful scholars from Pakistan — connect with the alumni network
+**Africa (Nigeria, Kenya, Ghana, Ethiopia)**: Growing number of CSC slots. MBBS programs are very popular. Certain universities actively recruit African students. Join country-specific WhatsApp groups before arriving
+**Central Asia (Kazakhstan, Uzbekistan, Kyrgyzstan)**: Belt & Road Scholarship is your best bet. Less competition than CSC. Strong government support for studying in China
+**Southeast Asia (Vietnam, Thailand, Indonesia)**: Some provinces (Guangxi, Yunnan, Fujian) offer specific scholarships for ASEAN students. Language proximity (if studying Mandarin) is an advantage
+**Middle East/North Africa**: Halal food availability varies by city. Xi'an and Lanzhou have the best options. Some Gulf countries have bilateral scholarship agreements with China
+**South America**: Very few applicants = high acceptance rates for CSC. Language barrier can be challenging — fewer Spanish/Portuguese-speaking Chinese students
+**Europe/North America**: Different motivation expected. Emphasize China-specific research interests, not "it's cheap." Schwarzman/Yenching programs are designed for this demographic`, category: 'scholarships', source_name: 'country_tips.md' },
+
+  { content: `# Post-2024 Policy Changes Every Student Should Know
+**What changed recently that most guides haven't updated**:
+- **Alipay/WeChat Pay for foreigners** (2024): International Visa/Mastercard can now be linked directly. No more Chinese bank account needed for basic payments. Game changer for new arrivals
+- **144-hour transit visa free** (expanded 2024): Many countries now get 144-hour visa-free transit in China. Useful for visiting friends before your student visa starts
+- **Part-time work legalized** (2022): Still being implemented. Some universities are slow to update their policies. Ask about the current process at YOUR university specifically
+- **Post-graduation work permit relaxation**: Master's/PhD graduates from Chinese universities can now apply for work permits directly — no 2-year experience requirement
+- **Digital Yuan**: Some campuses are testing digital RMB. Not widespread yet but worth knowing about
+- **Online classes**: Post-COVID, some programs still offer hybrid options. Check if your program requires full in-person attendance
+- **Health code**: COVID health codes are no longer required, but some remnants of the system remain in university registration processes`, category: 'general', source_name: 'policy_updates.md' },
 ];
+
 
 
 
