@@ -55,6 +55,19 @@ export default function TermsOfService() {
             <p className="mb-4">
               PandaOffer shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, including but not limited to rejection of university applications or visa denials.
             </p>
+
+            <h2 className="text-xl font-bold text-slate-900 mt-8 mb-4">7. Payments & Billing</h2>
+            <p className="mb-4">
+              All payments for PandaOffer premium services are processed securely by <strong>Paddle</strong>, our Merchant of Record. Paddle handles all billing, payment processing, tax compliance, and receipt issuance on our behalf. By making a purchase, you agree to Paddle&apos;s terms and conditions in addition to ours.
+            </p>
+            <p className="mb-4">
+              We accept major credit cards, debit cards, PayPal, and other payment methods supported by Paddle. All prices are listed in USD and are inclusive of applicable taxes where required by law. For details on refunds, please see our <a href="/refund" className="text-emerald-600 hover:text-emerald-700 underline">Refund Policy</a>.
+            </p>
+
+            <h2 className="text-xl font-bold text-slate-900 mt-8 mb-4">8. Contact Us</h2>
+            <p className="mb-4">
+              If you have any questions about these Terms of Service, please contact us at <a href="mailto:hello@pandaoffer.top" className="text-emerald-600 hover:text-emerald-700 underline">hello@pandaoffer.top</a>.
+            </p>
           </div>
         </div>
       </div>

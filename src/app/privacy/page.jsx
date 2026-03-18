@@ -59,6 +59,16 @@ export default function PrivacyPolicy() {
             <p className="mb-4">
               You have the right to request access to, correction of, or deletion of your personal data held by us. To exercise these rights or ask any questions about this Privacy Policy, please contact us.
             </p>
+
+            <h2 className="text-xl font-bold text-slate-900 mt-8 mb-4">6. Payment Data</h2>
+            <p className="mb-4">
+              Payments for our premium services are processed by <strong>Paddle</strong>, who acts as our Merchant of Record. PandaOffer does not collect, store, or have access to your credit card numbers, bank account details, or other sensitive payment information. All payment data is handled securely by Paddle in accordance with PCI DSS standards. For more information, please refer to <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Paddle&apos;s Privacy Policy</a>.
+            </p>
+
+            <h2 className="text-xl font-bold text-slate-900 mt-8 mb-4">7. Contact Us</h2>
+            <p className="mb-4">
+              If you have any questions about this Privacy Policy or how your data is handled, please contact us at <a href="mailto:hello@pandaoffer.top" className="text-emerald-600 hover:text-emerald-700 underline">hello@pandaoffer.top</a>.
+            </p>
           </div>
         </div>
       </div>
