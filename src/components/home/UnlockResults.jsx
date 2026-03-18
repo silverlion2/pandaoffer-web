@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import { ArrowLeft, ArrowRight, CheckCircle, GraduationCap, MapPin, DollarSign, Lock, ShieldCheck, MessageSquare, AlertTriangle, Sparkles } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { ArrowLeft, ArrowRight, CheckCircle, GraduationCap, MapPin, DollarSign, Lock, ShieldCheck, MessageSquare, AlertTriangle, Sparkles, LogIn } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { unlockSchema } from '@/lib/schema';
@@ -9,11 +9,39 @@ import { submitLead } from '@/app/actions/leads';
 import { toast } from 'sonner';
 import { siteConfig } from '@/config/site';
 import Link from 'next/link';
+import { useAuth } from '@/components/providers/AuthProvider';
+import { createClient } from '@/lib/supabase/client';
 
 export default function UnlockResults({ step, setStep, formData, matchResults, matchError }) {
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
     resolver: zodResolver(unlockSchema)
   });
+  const { user } = useAuth();
+  const supabase = createClient();
+  const hasSavedRef = useRef(false);
+
+  // Auto-unlock for logged-in users and save match results
+  useEffect(() => {
+    if (user && matchResults && step !== 'unlocked') {
+      setStep('unlocked');
+    }
+  }, [user, matchResults, step]);
+
+  // Auto-save match results for verified logged-in users (once)
+  useEffect(() => {
+    if (user && user.email_confirmed_at && matchResults && !hasSavedRef.current) {
+      hasSavedRef.current = true;
+      supabase.from('match_history').insert({
+        user_id: user.id,
+        form_data: formData,
+        results: matchResults,
+      }).then(({ error }) => {
+        if (!error) {
+          toast.success('Match results saved to your history!', { duration: 3000 });
+        }
+      });
+    }
+  }, [user, matchResults]);
 
   const onUnlock = async (data) => {
     try {
@@ -130,43 +158,63 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
             {!isUnlocked && (
               <div className="absolute inset-0 z-10 backdrop-blur-md bg-white/60 flex flex-col items-center justify-center p-6 text-center border-t border-slate-100">
                 <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-md w-full animate-in zoom-in-95">
-                  <Lock className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-2">Unlock the Full Report</h3>
-                  <p className="text-sm text-slate-500 mb-6">
-                    Enter your email to reveal insider tips, CSC scholarship probability, and your other 2 matching universities.
-                  </p>
-                  <form onSubmit={handleSubmit(onUnlock)} className="space-y-3">
-                    <div>
-                      <input 
-                        type="email" 
-                        placeholder="Your email address" 
-                        {...register('email')}
-                        className={`w-full p-3 bg-slate-50 border ${errors.email ? 'border-red-500' : 'border-slate-200'} rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none`}
-                      />
-                      {errors.email && <p className="text-xs text-red-500 text-left mt-1">{errors.email.message}</p>}
-                    </div>
-                    
-                    <label className="flex items-start gap-2 text-left cursor-pointer group pb-2 relative">
-                      <input 
-                        type="checkbox" 
-                        {...register('agreeTerms')}
-                        className="mt-0.5 w-4 h-4 rounded border-slate-300 text-emerald-500 focus:ring-emerald-500 cursor-pointer" 
-                      />
-                      <span className="text-[11px] text-slate-500 leading-tight">
-                        I agree to the <Link href="/terms" target="_blank" className="text-emerald-600 hover:underline">Terms of Service</Link> & <Link href="/privacy" target="_blank" className="text-emerald-600 hover:underline">Privacy Policy</Link>.
-                      </span>
-                    </label>
-                    {errors.agreeTerms && <p className="text-xs text-red-500 text-left">{errors.agreeTerms.message}</p>}
+                  {/* Logged-out: show sign-in prompt first, then email gate as fallback */}
+                  {!user ? (
+                    <>
+                      <Lock className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
+                      <h3 className="text-xl font-bold mb-2">Unlock the Full Report</h3>
+                      <p className="text-sm text-slate-500 mb-4">
+                        Sign in to instantly unlock your full report, save your match results, and access all features.
+                      </p>
+                      <Link
+                        href="/auth/login?redirect=/"
+                        className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-all shadow-lg hover:shadow-emerald-500/20 hover:-translate-y-0.5 flex items-center justify-center gap-2 mb-4"
+                      >
+                        <LogIn size={16} />
+                        Sign In to Unlock
+                      </Link>
+                      <div className="relative">
+                        <div className="absolute inset-0 flex items-center">
+                          <div className="w-full border-t border-slate-200"></div>
+                        </div>
+                        <div className="relative flex justify-center text-xs">
+                          <span className="bg-white px-2 text-slate-400">or unlock with email</span>
+                        </div>
+                      </div>
+                      <form onSubmit={handleSubmit(onUnlock)} className="space-y-3 mt-4">
+                        <div>
+                          <input 
+                            type="email" 
+                            placeholder="Your email address" 
+                            {...register('email')}
+                            className={`w-full p-3 bg-slate-50 border ${errors.email ? 'border-red-500' : 'border-slate-200'} rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none`}
+                          />
+                          {errors.email && <p className="text-xs text-red-500 text-left mt-1">{errors.email.message}</p>}
+                        </div>
+                        
+                        <label className="flex items-start gap-2 text-left cursor-pointer group pb-2 relative">
+                          <input 
+                            type="checkbox" 
+                            {...register('agreeTerms')}
+                            className="mt-0.5 w-4 h-4 rounded border-slate-300 text-emerald-500 focus:ring-emerald-500 cursor-pointer" 
+                          />
+                          <span className="text-[11px] text-slate-500 leading-tight">
+                            I agree to the <Link href="/terms" target="_blank" className="text-emerald-600 hover:underline">Terms of Service</Link> & <Link href="/privacy" target="_blank" className="text-emerald-600 hover:underline">Privacy Policy</Link>.
+                          </span>
+                        </label>
+                        {errors.agreeTerms && <p className="text-xs text-red-500 text-left">{errors.agreeTerms.message}</p>}
 
-                    <button 
-                      type="submit" 
-                      disabled={isSubmitting}
-                      className="w-full bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 text-white font-bold py-3 rounded-lg transition-all shadow-lg hover:shadow-emerald-500/20 hover:-translate-y-0.5"
-                    >
-                      {isSubmitting ? "Unlocking Data..." : "Reveal Hidden Data"}
-                    </button>
-                  </form>
-                  <p className="text-xs text-slate-400 mt-4">Bank-level encryption. No spam ever.</p>
+                        <button 
+                          type="submit" 
+                          disabled={isSubmitting}
+                          className="w-full bg-slate-100 hover:bg-slate-200 disabled:opacity-50 text-slate-700 font-bold py-3 rounded-lg transition-all"
+                        >
+                          {isSubmitting ? "Unlocking Data..." : "Reveal with Email Only"}
+                        </button>
+                      </form>
+                      <p className="text-xs text-slate-400 mt-4">Bank-level encryption. No spam ever.</p>
+                    </>
+                  ) : null}
                 </div>
               </div>
             )}
@@ -289,10 +337,35 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
             <ShieldCheck size={32} className="mb-3 text-emerald-400" />
             <h3 className="font-bold text-lg mb-1">Want guaranteed admission?</h3>
             <p className="text-sm text-slate-400 mb-4">Book a 1v1 strategy call with our admission experts.</p>
-            <button className="bg-emerald-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-emerald-600 transition-colors w-full">
-              Book Strategy Call ($49)
-            </button>
+            <a
+              href={siteConfig.links.discord}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-emerald-600 transition-colors w-full flex items-center justify-center gap-2"
+            >
+              <MessageSquare size={16} />
+              Contact via Discord
+            </a>
           </div>
+        </div>
+      )}
+
+      {/* Sign-in prompt for unlocked but not logged-in users */}
+      {isUnlocked && !user && (
+        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-center gap-4">
+          <div className="bg-emerald-100 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+            <LogIn size={20} className="text-emerald-600" />
+          </div>
+          <div className="flex-1">
+            <p className="text-sm font-semibold text-emerald-900">Want to save these results?</p>
+            <p className="text-xs text-emerald-700">Create an account to save your match history, bookmark universities, and more.</p>
+          </div>
+          <Link
+            href="/auth/login"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm px-4 py-2 rounded-lg transition-colors shrink-0"
+          >
+            Sign Up Free
+          </Link>
         </div>
       )}
 

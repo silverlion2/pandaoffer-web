@@ -1,6 +1,6 @@
 ---
 title: 'Chengdu vs Hangzhou vs Wuhan: Best Tier 2 Student Cities Compared'
-description: 'An in-depth comparison of China's top student-friendly cities — cost of living, food, nightlife, weather, and university quality for international students.'
+description: "An in-depth comparison of China's top student-friendly cities — cost of living, food, nightlife, weather, and university quality for international students."
 category: 'Compare'
 date: '2026-03-17'
 author: 'PandaOffer Team'
