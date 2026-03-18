@@ -23,35 +23,35 @@ export default function DocumentWizard() {
         id: 'passport',
         category: 'Essential',
         title: 'Passport Information Page',
-        desc: 'Clear scanned copy of your valid passport (must be valid for at least 6 months beyond intended stay).',
+        desc: 'Clear scanned copy of your valid passport (must be valid for at least 6 months beyond intended stay). Tip: Some universities also require a full-page scan showing all blank pages.',
         required: true,
       },
       {
         id: 'photo',
         category: 'Essential',
         title: 'Passport-Sized Photo',
-        desc: 'Recent bareheaded photo with white background (usually 2 inches).',
+        desc: 'Recent bareheaded photo with white background (usually 2 inches / 48mm × 33mm). Most passport photo shops in China cost ¥15-30 — much cheaper than doing it at home.',
         required: true,
       },
       {
         id: 'medical',
         category: 'Medical & Legal',
         title: 'Foreigner Physical Examination Form',
-        desc: 'Completed medical exam signed by a doctor (valid for 6 months). Needs official hospital stamps.',
+        desc: 'Completed medical exam signed by a doctor (valid for 6 months). Must include blood tests, chest X-ray, ECG, and general physical. Cost: ¥400-700 at designated Chinese hospitals. Even if you complete this at home, China requires their own re-exam on arrival.',
         required: true,
       },
       {
         id: 'police',
         category: 'Medical & Legal',
         title: 'Non-Criminal Record Certificate',
-        desc: 'Police clearance certificate issued within the last 6 months.',
+        desc: 'Police clearance certificate issued within the last 6 months. Processing time varies by country (1-8 weeks). Some countries require apostille/authentication by the Chinese embassy.',
         required: true,
       },
       {
         id: 'financial',
         category: 'Financial',
         title: 'Bank Statement / Sponsorship Letter',
-        desc: 'Proof of funds (typically $2,500 - $5,000 equivalent) to cover initial tuition and living expenses.',
+        desc: 'Proof of funds (typically $2,500-5,000 equivalent). For self-funded students, show a 6-month bank statement with consistent balance. For sponsored students, a notarized sponsorship letter + sponsor\'s bank statement.',
         required: true,
       },
     ];
@@ -62,14 +62,14 @@ export default function DocumentWizard() {
           id: 'diploma_hs',
           category: 'Academic',
           title: 'High School Diploma',
-          desc: 'Notarized copy of your highest graduation certificate.',
+          desc: 'Notarized copy of your highest graduation certificate. Must be translated to English or Chinese by a certified translator. Apostille may be required depending on your country.',
           required: true,
         },
         {
           id: 'transcript_hs',
           category: 'Academic',
           title: 'High School Transcripts',
-          desc: 'Official academic transcripts, notarized if not originally in English or Chinese.',
+          desc: 'Official academic transcripts for all semesters, notarized if not originally in English or Chinese. GPA should be clearly visible. Some universities require a minimum of 80% or GPA 3.0/4.0 for competitive programs.',
           required: true,
         }
       );
@@ -93,14 +93,14 @@ export default function DocumentWizard() {
           id: 'study_plan',
           category: 'Academic',
           title: 'Study Plan / Personal Statement',
-          desc: 'Not less than 800 words detailing your academic background and research goals in China.',
+          desc: 'Must be 800-1,500 words detailing your academic background, why you chose this university/program, research goals in China, and career plans after graduation. This is the most important document — generic plans are the #1 reason for rejection.',
           required: true,
         },
         {
           id: 'recommendation',
           category: 'Academic',
           title: 'Two Recommendation Letters',
-          desc: 'Written and signed by professors or associate professors in your field.',
+          desc: 'Written and signed by professors or associate professors in your academic field. Must be on university letterhead with contact information. Letters from family friends or unrelated professionals carry zero weight.',
           required: true,
         }
       );
@@ -124,7 +124,7 @@ export default function DocumentWizard() {
           id: 'research_proposal',
           category: 'Academic',
           title: 'Detailed Research Proposal',
-          desc: 'In-depth proposal (often 1000-1500+ words) outlining intended doctoral research.',
+          desc: 'In-depth proposal (1,000-2,000+ words) outlining intended doctoral research: background, methodology, expected contributions, and timeline. Align closely with your prospective supervisor\'s research area.',
           required: true,
         },
         {
@@ -138,7 +138,7 @@ export default function DocumentWizard() {
           id: 'acceptance_letter',
           category: 'Academic',
           title: 'Supervisor Acceptance Letter (Optional but highly recommended)',
-          desc: 'Conditional acceptance from a intended PhD supervisor.',
+          desc: 'Conditional acceptance from an intended PhD supervisor. While optional, having this letter dramatically increases your chances (from ~30% to ~70% per student forum data). Contact professors 3-6 months before applying.',
           required: false,
         }
       );
@@ -159,7 +159,7 @@ export default function DocumentWizard() {
         id: 'english_prof',
         category: 'Language',
         title: 'English Proficiency Certificate',
-        desc: 'IELTS (usually 6.0+), TOEFL (usually 80+), or Duolingo. Requirement varies by university.',
+        desc: 'IELTS (usually 6.0+), TOEFL (usually 80+), or Duolingo (110+). Some universities accept a certificate from your previous English-medium institution instead. Always check your specific program\'s requirements.',
         required: true,
       });
     }
@@ -168,7 +168,7 @@ export default function DocumentWizard() {
       id: 'hsk',
       category: 'Language',
       title: 'HSK Certificate (For Chinese-Taught Programs)',
-      desc: 'Usually HSK 4 for Bachelor\'s, HSK 5 for Master\'s/PhD. (Exclude if applying for English-taught).',
+      desc: 'Bachelor\'s: HSK 4 (score 180+). Master\'s/PhD: HSK 5 (score 180+). Some medical programs require HSK 6. English-taught programs: HSK not required but HSK 3+ helps with daily life. One semester = roughly one HSK level.',
       required: false,
     });
 
@@ -327,7 +327,7 @@ export default function DocumentWizard() {
         <div>
           <p className="text-sm font-bold text-amber-900 mb-1">Crucial Notarization Requirement</p>
           <p className="text-sm text-amber-800/80">
-            For academic documents (diplomas and transcripts) and police clearances, universities require official physical notarization by a local notary public, and sometimes authentication by the Chinese Embassy in your country.
+            Academic documents (diplomas/transcripts) and police clearances must be officially notarized by a local notary public. Some countries also require <strong>apostille</strong> or authentication by the Chinese Embassy. Processing takes 2-4 weeks — start early. In some African and South Asian countries, documents must go through the Ministry of Foreign Affairs first.
           </p>
         </div>
       </div>

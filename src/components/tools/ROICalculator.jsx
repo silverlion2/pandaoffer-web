@@ -5,7 +5,8 @@ import { TrendingDown, Lightbulb, Wallet, Calculator, Building2 } from 'lucide-r
 
 const DURATION_OPTIONS = [
   { id: 4, label: '4-Year Bachelor' },
-  { id: 2, label: '2-Year Master' },
+  { id: 2, label: '2-3 Year Master' },
+  { id: 3, label: '3-4 Year PhD' },
 ];
 
 const LIFESTYLE_OPTIONS = [
@@ -16,16 +17,19 @@ const LIFESTYLE_OPTIONS = [
 
 const SCHOLARSHIP_OPTIONS = [
   { id: 'none', label: 'No Scholarship (Self-Funded)', tuitionDiscount: 0, livingStipend: 0 },
-  { id: 'partial', label: 'Partial (Free Tuition)', tuitionDiscount: 1, livingStipend: 0 },
-  { id: 'full', label: 'Full CSC (Tuition + Stipend)', tuitionDiscount: 1, livingStipend: 3000 }, // 3000 RMB/month ~ $420
+  { id: 'partial', label: 'Partial (Free Tuition Only)', tuitionDiscount: 1, livingStipend: 0 },
+  { id: 'provincial', label: 'Provincial (Tuition + Dorm)', tuitionDiscount: 1, livingStipend: 1000 }, // ~¥1000/mo housing allowance
+  { id: 'full', label: 'Full CSC (Tuition + Stipend)', tuitionDiscount: 1, livingStipend: 3000 }, // Master's ¥3000/mo, PhD ¥3500/mo
 ];
 
-// Base Annual Costs in USD
+// Base Annual Costs in USD (sourced from RAG: vlog_budget_hacks, cost_of_living, scholarship data)
+// China living = ¥30,000-48,000/yr (~$4,200-6,700) from student vlogger consensus
 const BASE_COSTS = {
-  china: { tuition: 4000, living: 5000 },
-  usa: { tuition: 35000, living: 18000 },
-  uk: { tuition: 22000, living: 15000 },
-  aus: { tuition: 25000, living: 16000 }
+  china: { tuition: 3500, living: 5400 },   // Avg tuition ¥20-30K; living ¥2,500-4,000/mo from vloggers
+  usa: { tuition: 38000, living: 18000 },
+  uk: { tuition: 24000, living: 16000 },
+  aus: { tuition: 27000, living: 17000 },
+  canada: { tuition: 22000, living: 14000 },
 };
 
 export default function ROICalculator() {
@@ -44,18 +48,20 @@ export default function ROICalculator() {
     const chinaAnnualTotal = Math.max(0, chinaAnnualTuition + chinaAnnualLiving - chinaStipendAnnual);
     const chinaTotal = chinaAnnualTotal * duration;
 
-    // USA, UK, AUS Cost Calculations (assuming no scholarship for simplicity, or just average international)
+    // USA, UK, AUS, Canada Cost Calculations (no scholarship for comparison)
     const usaTotal = (BASE_COSTS.usa.tuition + BASE_COSTS.usa.living * lifeMult) * duration;
     const ukTotal = (BASE_COSTS.uk.tuition + BASE_COSTS.uk.living * lifeMult) * duration;
     const ausTotal = (BASE_COSTS.aus.tuition + BASE_COSTS.aus.living * lifeMult) * duration;
+    const canadaTotal = (BASE_COSTS.canada.tuition + BASE_COSTS.canada.living * lifeMult) * duration;
 
-    const maxTotal = Math.max(usaTotal, ukTotal, ausTotal, chinaTotal);
+    const maxTotal = Math.max(usaTotal, ukTotal, ausTotal, canadaTotal, chinaTotal);
 
     return {
       china: { total: chinaTotal, height: `${(chinaTotal / maxTotal) * 100}%` },
       usa: { total: usaTotal, height: `${(usaTotal / maxTotal) * 100}%` },
       uk: { total: ukTotal, height: `${(ukTotal / maxTotal) * 100}%` },
       aus: { total: ausTotal, height: `${(ausTotal / maxTotal) * 100}%` },
+      canada: { total: canadaTotal, height: `${(canadaTotal / maxTotal) * 100}%` },
       savings: usaTotal - chinaTotal
     };
   }, [duration, lifestyle, scholarship]);
@@ -166,6 +172,16 @@ export default function ROICalculator() {
             <span className="mt-3 font-bold text-slate-700 text-sm md:text-base">AUS</span>
           </div>
 
+          {/* Bar Canada */}
+          <div className="w-16 md:w-24 group relative flex flex-col items-center justify-end h-full">
+            <span className="absolute -top-8 font-bold text-slate-600 group-hover:-translate-y-1 transition-transform">{formatCurrency(calcData.canada.total)}</span>
+            <div 
+              className="w-full bg-slate-200 rounded-t-xl transition-all duration-700 ease-elastic hover:bg-slate-300"
+              style={{ height: calcData.canada.height }}
+            ></div>
+            <span className="mt-3 font-bold text-slate-700 text-sm md:text-base">CAN</span>
+          </div>
+
           {/* Bar China */}
           <div className="w-20 md:w-32 group relative flex flex-col items-center justify-end h-full">
             <span className="absolute -top-10 bg-emerald-100 text-emerald-800 px-3 py-1 rounded-lg text-sm font-bold shadow-sm whitespace-nowrap z-10 group-hover:-translate-y-1 transition-transform">
@@ -189,7 +205,7 @@ export default function ROICalculator() {
       <div className="mt-10 p-5 bg-blue-50/50 rounded-xl border border-blue-100 flex items-start gap-3">
         <Lightbulb size={24} className="text-blue-500 shrink-0 mt-0.5" />
         <p className="text-sm text-blue-900/80 leading-relaxed">
-          <strong className="text-blue-900">Did you know?</strong> China is the only major study destination where international students frequently receive massive tuition and living stipends. In the US, UK, and Australia, international students are heavily relied upon for full tuition revenue, making full scholarships exceedingly rare.
+          <strong className="text-blue-900">Did you know?</strong> China has 274 CSC-eligible universities offering fully funded scholarships covering tuition, dorm, monthly stipend (¥2,500–3,500/mo), and medical insurance. Student vloggers report comfortable monthly budgets of ¥2,500 in Tier 2 cities and ¥4,000 in Tier 1 — making China the highest ROI study destination globally.
         </p>
       </div>
 

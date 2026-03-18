@@ -8,11 +8,15 @@ import { toast } from 'sonner';
 
 const SUGGESTED_QUESTIONS = [
   "What scholarships can I apply for as a Master's student?",
-  "How much does it cost to live in Beijing?",
-  "What is the visa process for studying in China?",
-  "Best universities for computer science?",
-  "What HSK level do I need for Tsinghua?",
-  "What are the cheapest cities to study in?",
+  "How much does it really cost to live in Beijing per month?",
+  "What's the visa process for studying in China in 2026?",
+  "Best universities for computer science with CSC scholarship?",
+  "What HSK level do I need for Tsinghua or Zhejiang University?",
+  "Cheapest cities to study in China with good 985 universities?",
+  "What apps do I need to survive in China? (WeChat, Alipay, VPN)",
+  "How do I find a supervisor and get a pre-acceptance letter?",
+  "What's campus life really like? Dorms, canteens, clubs?",
+  "CSC Type A vs Type B - which track should I choose?",
 ];
 
 const COMPARISON_TABLE = [
