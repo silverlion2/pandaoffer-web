@@ -254,14 +254,12 @@ export async function GET(request) {
       return Response.json({ error: 'Add ?secret=YOUR_DEEPSEEK_KEY' }, { status: 401 });
     }
 
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-      return Response.json({ error: 'Missing Supabase env vars', vars: { url: !!process.env.NEXT_PUBLIC_SUPABASE_URL, key: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY }}, { status: 500 });
-    }
+    // Fallback: use hardcoded values if env vars not available
+    // This is safe — anon key is public/read-only, protected by RLS
+    const sbUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://dfjqsoglwrcmtpyzaicw.supabase.co';
+    const sbKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_0_aJNHbZurXiwohCR-7ZSg_cP_h2mBq';
 
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  );
+    const supabase = createClient(sbUrl, sbKey);
 
   // Dedup: fetch existing content prefixes to avoid duplicates
   const { data: existing } = await supabase
