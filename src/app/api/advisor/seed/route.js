@@ -660,7 +660,208 @@ Week 2:
 - [ ] Join international student association
 - [ ] Stock up on essentials from Taobao
 Pro tip: Upper-year students from your country are your best resource — find them!`, category: 'general', source_name: 'arrival_checklist.md' },
+
+  // ── Batch 4: More cities ──
+  { content: `# Shenzhen — The Innovation Capital
+- Population: 17+ million. China's youngest major city, tech innovation hub
+- Universities: Southern University of Science and Technology (SUSTech), Shenzhen University, Tsinghua Shenzhen
+- Climate: Subtropical, warm year-round, typhoon risk. Very humid summers
+- Cost: High — 4,500–8,000 RMB/month (similar to Guangzhou)
+- Pros: China's Silicon Valley (Huawei, Tencent, DJI headquarters), modern city, close to Hong Kong, great for tech internships
+- Cons: Young city with less cultural heritage, very hot, competitive job market
+- Best for: Tech/CS students, startup enthusiasts, those wanting Hong Kong access`, category: 'cities', source_name: 'city_shenzhen.md' },
+
+  { content: `# Kunming — The Spring City
+- Population: 8.5+ million. Capital of Yunnan province, gateway to Southeast Asia
+- Universities: Yunnan University, Kunming Medical University
+- Climate: The BEST in China — spring-like year-round (15–25°C). Never too hot, never too cold
+- Cost: Very affordable — 2,000–3,500 RMB/month
+- Pros: Perfect weather, stunning nature (Stone Forest, Dali, Lijiang nearby), diverse ethnic cultures, very affordable, relaxed pace
+- Cons: Fewer top-tier universities, limited job market, less international community
+- Best for: Nature lovers, budget students, gap year programs, Chinese language study`, category: 'cities', source_name: 'city_kunming.md' },
+
+  { content: `# Dalian — The Coastal Gem
+- Population: 7+ million. Northeast port city on the Yellow Sea
+- Universities: Dalian University of Technology (DUT), Dongbei University of Finance
+- Climate: Moderate for Northeast China. Cool summers (perfect!), cold but manageable winters
+- Cost: Affordable — 2,500–4,000 RMB/month
+- Pros: Beautiful coastline, clean air, seafood, best climate in Northeast China, Japanese/Korean cultural influence, growing IT sector
+- Cons: Smaller international community, limited nightlife, cold winters
+- Best for: Finance students, those wanting coastal living, Japanese/Korean language learners`, category: 'cities', source_name: 'city_dalian.md' },
+
+  // ── University Rankings Explained ──
+  { content: `# Understanding Chinese University Rankings
+**985 Project** (39 universities): China's top-tier research universities. Think "Ivy League equivalent." ALL C9 schools are 985.
+**211 Project** (116 universities): Second tier — still excellent, nationally recognized. All 985 universities are also 211.
+**Double First-Class** (2017 reform): Replaced 985/211 officially. 147 universities designated as "world-class" or having "first-class disciplines."
+**What matters for international students**:
+- 985/C9 = most competitive, best scholarships, highest prestige
+- 211 = great education, good career prospects, easier admission
+- Regular universities = most accessible, still quality education
+- Ranking within China matters more than global rankings for local job market
+- Employers check if your university is 985/211 — it's a common filter`, category: 'universities', source_name: 'ranking_systems.md' },
+
+  // ── Social & Cultural ──
+  { content: `# Chinese Social Etiquette for International Students
+**Gift giving**: Bring small gifts from your home country. Avoid clocks (bad luck), green hats (implies infidelity), white/black wrapping (funeral colors)
+**Dining etiquette**: The person who invites usually pays. Don't flip the fish. Don't stick chopsticks upright in rice (funeral gesture). Toast with "干杯" (gānbēi = cheers)
+**Addressing people**: Use title + surname (王老师 Wáng Lǎoshī). Never call professors by first name
+**Face culture (面子)**: Don't publicly criticize or embarrass anyone. Praise in public, correct in private
+**Personal questions**: Questions about age, salary, marital status are normal — not considered rude in China
+**Relationship building**: Sharing meals is the #1 way to build relationships. Accept invitations when possible`, category: 'general', source_name: 'social_etiquette.md' },
+
+  { content: `# Dorm Life Tips for International Students
+- International student dorms are separate from Chinese student dorms (usually better equipped)
+- Typical room: bed, desk, wardrobe, bathroom (shared or private), AC, Wi-Fi
+- Quiet hours: Most dorms have 11PM/midnight curfew for noise. Some lock doors at midnight
+- Electricity: Many dorms shut off power at midnight — bring a power bank
+- Visitors: Chinese dorms rarely allow opposite-gender visitors. International dorms may be more relaxed
+- Laundry: Shared machines on each floor. 3–5 RMB per load. Some dorms have dryers
+- Cooking: Most dorms don't allow cooking in rooms (fire safety). Use canteens or microwave areas
+- Roommates: You may be paired with someone from a different country — embrace the cultural exchange`, category: 'general', source_name: 'dorm_life.md' },
+
+  // ── Travel During Breaks ──
+  { content: `# Best Travel Destinations During School Breaks
+**Spring Festival (Jan-Feb, 4-6 weeks)**: Southeast Asia is popular (cheap flights from China). Vietnam, Thailand, Cambodia. Or explore China's south (Hainan, Guangxi)
+**National Day (Oct 1-7)**: Avoid domestic tourist spots (PACKED). Go off-beaten-path or stay on campus and explore your city without crowds
+**Summer Break (Jul-Aug)**: Perfect for longer trips. Tibet, Xinjiang, Inner Mongolia for adventure. Or visit home
+**Weekend Trips from Major Cities**:
+- Beijing: Great Wall sections (Jinshanling > Badaling), Chengde, Tianjin
+- Shanghai: Suzhou, Hangzhou, Huangshan (Yellow Mountain)
+- Chengdu: Jiuzhaigou, Le Shan Buddha, Emei Mountain
+Budget tip: Student cards get 50% off at most scenic spots. High-speed rail is cheapest for 2-4 hour trips`, category: 'general', source_name: 'travel_breaks.md' },
+
+  // ── Scholarship Renewal ──
+  { content: `# Keeping Your Scholarship — Annual Review
+CSC and most scholarships require annual evaluations:
+- **Academic performance**: Maintain GPA above minimum (usually 2.5–3.0). Failing courses = risk of losing scholarship
+- **Attendance**: Missing more than 10% of classes without valid reason = warning. Missing 20%+ = scholarship termination
+- **Behavior**: No criminal record, no visa violations, no academic dishonesty
+- **Annual review**: Submit academic transcript and evaluation form each year
+- **Chinese language progress**: Some scholarships require HSK improvement
+- **Tips**: Attend all classes, participate actively, maintain good relationship with advisor (导师)
+- **If scholarship is revoked**: You can appeal, but prevention is better. Take academics seriously from day 1`, category: 'scholarships', source_name: 'scholarship_renewal.md' },
+
+  // ── Research in China ──
+  { content: `# Doing Research as an International Student in China
+- China's research output is now #1 globally by volume — excellent labs and funding
+- Key research areas: AI, quantum computing, materials science, biotech, renewable energy, space tech
+- **Finding a supervisor**: Email professors directly with your CV and research interests. Read their recent papers first
+- **Lab culture**: More hierarchical than Western labs. Address your supervisor as 导师 (dǎoshī)
+- **Funding**: CSC covers living expenses. Additional research grants available through NSFC (National Natural Science Foundation)
+- **Collaboration**: Great opportunity to co-publish with Chinese researchers — counts for both your records
+- **Intellectual property**: Discuss IP ownership with supervisor early. University policies vary
+- **Conference travel**: Many labs fund domestic conference attendance. International conferences require advance planning`, category: 'universities', source_name: 'research_china.md' },
+
+  // ── Graduation Requirements ──
+  { content: `# Graduation Requirements for International Students
+**Bachelor's degree**: Complete all required courses, pass all exams, submit and defend graduation thesis/project
+**Master's degree**: Complete coursework, publish 1–2 papers (university-dependent), submit and defend thesis
+**PhD**: Complete coursework, publish 2–4 papers in SCI/SSCI journals, submit and defend dissertation
+**Common requirements for all degrees**:
+- Meet minimum credit requirements
+- Pass Chinese language proficiency test (for Chinese-taught programs)
+- Complete graduation thesis defense (答辩 dàbiàn)
+- Clear all library fines and administrative holds
+- Return dormitory key and check out
+**Timeline**: Thesis defense usually in May-June. Graduation ceremony in June-July`, category: 'universities', source_name: 'graduation_requirements.md' },
+
+  // ── Alumni & Networking ──
+  { content: `# Building Your Professional Network in China
+- **University alumni networks**: Chinese universities have strong 校友 (xiàoyǒu) networks. Join your university's international alumni WeChat group
+- **LinkedIn alternative**: Use 脉脉 (Maimai) — China's professional networking platform
+- **Career fairs**: Universities host annual career fairs in October-November and March-April. Attend even as a freshman
+- **Industry events**: Attend meetups on EventBrite, AllEvents, or through WeChat groups for your industry
+- **Guanxi (关系)**: The Chinese concept of relationships/connections. Invest in relationships early — they compound over time
+- **Your classmates ARE your network**: Chinese classmates from top universities often become leaders in their fields
+- **WeChat groups**: Join industry-specific groups. Ask alumni and professors for introductions`, category: 'general', source_name: 'networking_tips.md' },
+
+  // ── Self-Funded Study ──
+  { content: `# Self-Funded Study in China — Guide for Students Without Scholarships
+Not everyone gets a scholarship, and that's OK — China is still very affordable:
+- **Tuition**: 15,000–45,000 RMB/year ($2,000-$6,000) — fraction of Western university costs
+- **Living**: 2,000–5,000 RMB/month depending on city — very manageable
+- **Total annual cost**: $5,000–$15,000 for tuition + living — less than most Western countries
+- **Partial scholarships**: Many universities offer tuition waivers or stipends even without full scholarship
+- **How to reduce costs**: Live on campus, eat at canteens, use public transport, shop on Taobao/Pinduoduo
+- **Work while studying**: Legal since 2022 — earn 2,000–5,000 RMB/month tutoring English
+- **Semester-by-semester payment**: Most universities allow tuition payment per semester, not upfront
+- **Still apply for scholarships**: You can apply for university merit scholarships after Year 1 based on GPA`, category: 'costs', source_name: 'self_funded_guide.md' },
+
+  // ── Agency vs Self-Apply ──
+  { content: `# Agency vs Self-Application — Which Is Better?
+**Using an agency (中介)**:
+- Cost: 5,000–30,000 RMB ($700–$4,200) — some charge even more
+- Pros: Handle paperwork, translations, professor connections, reduce stress
+- Cons: Expensive, some agencies are unreliable/scams, less control over your application
+**Self-application (推荐)**:
+- Cost: Free (minus document notarization/translation fees, ~500–2,000 RMB)
+- Pros: Full control, impress interview panels by showing initiative, save money
+- Cons: More time-consuming, need to research universities and contact professors yourself
+**Verdict**: For CSC scholarships, self-application is recommended — the process is well-documented on campuschina.org and success rates are similar. For university-specific scholarships, agencies can help if you don't speak Chinese. NEVER pay an agency that guarantees admission — that's a scam.`, category: 'scholarships', source_name: 'agency_vs_self.md' },
+
+  // ── Summer/Short Programs ──
+  { content: `# Summer and Short-Term Programs in China
+**Summer schools (2-8 weeks)**:
+- Many top universities offer summer programs for international students
+- Topics: Chinese language, culture, business, STEM, traditional arts
+- Cost: Often free or heavily subsidized (including accommodation)
+- Great way to test if China is right for you before committing to a full degree
+**Language intensive programs**:
+- 1-semester to 1-year Chinese language programs
+- X2 visa (≤180 days) for shorter programs
+- Universities like BLCU, Fudan, and Peking offer excellent programs
+- Expect to gain 1-2 HSK levels in an intensive semester
+**Confucius Institute 4-week program**: Fully funded short-term scholarship for Chinese language and culture. Apply at cis.chinese.cn`, category: 'universities', source_name: 'summer_programs.md' },
+
+  // ── PhD Specifics ──
+  { content: `# Pursuing a PhD in China — What to Know
+- **Duration**: 3–4 years (some programs extend to 5-6 years in practice)
+- **Stipend**: CSC provides 3,500 RMB/month (~$490). Some supervisors provide additional lab stipends (500–2,000 RMB/month)
+- **Publication requirements**: Most programs require 2–4 papers in SCI/SSCI journals before graduation
+- **Supervisor selection**: THE most important decision. Your 导师 determines your research direction, funding, and career prospects
+- **Research funding**: China invests heavily in research. Labs are well-equipped at top universities
+- **Teaching**: May be required to TA courses as part of your PhD duties
+- **Candidacy**: Expected to pass qualifying exams (usually Year 1-2), then focus on research
+- **Job prospects**: PhD holders are eligible for immediate work permits in China. Academic positions, research institutes, and industry R&D all recruit international PhD graduates`, category: 'universities', source_name: 'phd_guide.md' },
+
+  // ── Master's Programs ──
+  { content: `# Master's Programs in China — Overview
+- **Duration**: 2–3 years depending on program and university
+- **Types**: Academic master's (学术硕士) focuses on research; Professional master's (专业硕士) focuses on practice
+- **English-taught**: Most top universities offer MBA, MTCSOL, Engineering, CS, and International Relations in English
+- **Thesis vs non-thesis**: Academic programs require thesis + defense. Professional programs may substitute with a capstone project
+- **Admission**: Bachelor's degree required. GPA 3.0+ recommended for top universities
+- **Cost**: 20,000–45,000 RMB/year without scholarship. CSC covers everything for scholarship students
+- **Popular programs**: MBA (CEIBS, Tsinghua, Peking), CS/AI (Tsinghua, SJTU), International Relations (Peking, Fudan)
+- **Career advantage**: Master's graduates get immediate work permit eligibility in China — no 2-year experience requirement`, category: 'universities', source_name: 'masters_guide.md' },
+
+  // ── Communication with Family ──
+  { content: `# Staying Connected with Family from China
+**Video calls**: WhatsApp/FaceTime/Zoom work with VPN. WeChat video call works without VPN — have family download WeChat
+**VPN essentials**: ExpressVPN, Astrill, and Clash/V2Ray are most reliable in China. Buy BEFORE arriving — harder to download once inside China
+**Time zone management**: China is UTC+8. Examples: +13 hours ahead of New York, +8 of London, +3 of Dubai, same as Singapore/Perth
+**Communication tips**:
+- Set a regular weekly call schedule with family
+- Send photos via WeChat Moments — visible to contacts (like Instagram stories)
+- Consider getting a dual-SIM phone — one Chinese SIM + one home country SIM
+- Chinese sim with 5-20GB data: 30-100 RMB/month. More than enough for daily use
+- International roaming from home SIM: usually expensive — use for emergencies only`, category: 'general', source_name: 'family_communication.md' },
+
+  // ── Dietary Needs ──
+  { content: `# Managing Dietary Restrictions in China
+**Halal (清真 qīngzhēn)**:
+- Halal restaurants are available in ALL major cities. Look for 清真 sign (green/white Arabic-style sign)
+- Most major universities have halal canteens
+- Cities with large Muslim communities (Xi'an, Lanzhou, Kunming) have the best options
+**Vegetarian/Vegan (素食 sùshí)**:
+- Harder than you'd expect — many "vegetable" dishes use meat-based stock or oyster sauce
+- Buddhist restaurants (素餐厅) are fully vegetarian and surprisingly delicious
+- Learn phrases: 我吃素 (wǒ chī sù = I'm vegetarian), 不要肉 (bùyào ròu = no meat)
+**Allergies**: Nut allergies are less well-understood in China. Learn to say your allergy in Chinese. Carry translated allergy cards
+**Western food**: Available in all Tier 1/2 cities. McDonald's, KFC, Pizza Hut are everywhere. International grocery stores in expat areas carry imported foods`, category: 'general', source_name: 'dietary_needs.md' },
 ];
+
 
 
 export async function GET(request) {

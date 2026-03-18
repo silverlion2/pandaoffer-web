@@ -92,7 +92,7 @@ export default function AIAdvisor() {
           </button>
         </div>
         <p className="text-sm text-violet-100/90 leading-relaxed">
-          Not just another chatbot. Our AI has analyzed <strong>hundreds of podcasts, forums, and official sources</strong> specifically about 来华留学 — knowledge that ChatGPT and other LLMs simply don&apos;t have.
+          Not just another chatbot. Our AI has analyzed <strong>hundreds of podcasts, forums, and official sources</strong> specifically about studying in China — knowledge that ChatGPT and other LLMs simply don&apos;t have.
         </p>
       </div>
 
@@ -167,7 +167,7 @@ export default function AIAdvisor() {
                     ? 'bg-violet-600 text-white rounded-br-md' 
                     : 'bg-slate-100 text-slate-800 rounded-bl-md'
                 }`}>
-                  <p className="text-sm whitespace-pre-wrap leading-relaxed">{msg.content}</p>
+                  <p className="text-sm whitespace-pre-wrap leading-relaxed" dangerouslySetInnerHTML={{ __html: msg.content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br/>') }} />
                   {msg.sources && msg.sources.length > 0 && (
                     <div className="mt-3 pt-2 border-t border-slate-200/50">
                       <p className="text-xs text-slate-500 flex items-center gap-1 mb-1">
