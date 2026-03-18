@@ -5,8 +5,17 @@ import Footer from '@/components/layout/Footer';
 import { CheckCircle, Sparkles, ArrowRight, Shield } from 'lucide-react';
 
 export const metadata = {
-  title: 'Pricing',
+  title: 'Pricing — Study in China Services | PandaOffer',
   description: 'Explore PandaOffer pricing plans — from 1v1 strategy calls to full done-for-you university application packages for studying in China.',
+  openGraph: {
+    title: 'Pricing — Study in China Services | PandaOffer',
+    description: 'Explore PandaOffer pricing plans — from 1v1 strategy calls to full done-for-you university application packages for studying in China.',
+    url: 'https://www.pandaoffer.top/pricing',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.pandaoffer.top/pricing',
+  },
 };
 
 const tiers = [

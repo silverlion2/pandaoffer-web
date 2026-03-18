@@ -5,6 +5,15 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Refund Policy',
   description: 'PandaOffer refund policy — learn about our money-back guarantee, eligibility, and how to request a refund.',
+  openGraph: {
+    title: 'Refund Policy | PandaOffer',
+    description: 'PandaOffer refund policy — learn about our money-back guarantee, eligibility, and how to request a refund.',
+    url: 'https://www.pandaoffer.top/refund',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.pandaoffer.top/refund',
+  },
 };
 
 export default function RefundPolicy() {

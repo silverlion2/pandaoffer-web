@@ -5,6 +5,15 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Privacy Policy | PandaOffer',
   description: 'Learn how PandaOffer protects your privacy and handles your data.',
+  openGraph: {
+    title: 'Privacy Policy | PandaOffer',
+    description: 'Learn how PandaOffer protects your privacy and handles your data.',
+    url: 'https://www.pandaoffer.top/privacy',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.pandaoffer.top/privacy',
+  },
 };
 
 export default function PrivacyPolicy() {

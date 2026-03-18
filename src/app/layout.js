@@ -1,6 +1,7 @@
 import { Inter, Outfit } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Toaster } from 'sonner';
+import AuthProvider from '@/components/providers/AuthProvider';
 import "./globals.css";
 
 // 引入 Next.js 默认的优化字体
@@ -17,14 +18,17 @@ export const metadata = {
     default: "PandaOffer | Your Ultimate Guide to Studying in China",
     template: "%s | PandaOffer"
   },
-  description: "Zero BS. Just Your Best Fit in China. Get instant, AI-driven insights on university matching, WHO/NMC certification, and CSC Scholarship probability.",
-  keywords: ["Study in China", "Chinese Universities", "MBBS in China", "CSC Scholarship", "China Admissions", "Study Abroad", "PandaOffer"],
+  description: "Your ultimate guide to studying in China. Get instant, AI-driven insights on university matching, WHO/NMC certification, CSC Scholarship probability, and MBBS programs for international students.",
+  keywords: ["Study in China", "Chinese Universities", "MBBS in China", "CSC Scholarship", "China Admissions", "Study Abroad", "PandaOffer", "Study in China 2026", "Chinese Government Scholarship", "Universities in China for international students"],
   authors: [{ name: "PandaOffer Team" }],
   creator: "PandaOffer",
   publisher: "PandaOffer",
+  alternates: {
+    canonical: 'https://www.pandaoffer.top',
+  },
   openGraph: {
     title: "PandaOffer | Your Ultimate Guide to Studying in China",
-    description: "Zero BS. Just Your Best Fit in China. Get instant, AI-driven insights on university matching, WHO/NMC certification, and CSC Scholarship probability.",
+    description: "Your ultimate guide to studying in China. AI-driven university matching, WHO/NMC certification, and CSC Scholarship guidance for international students.",
     url: "https://www.pandaoffer.top",
     siteName: "PandaOffer",
     images: [
@@ -41,7 +45,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "PandaOffer | Your Ultimate Guide to Studying in China",
-    description: "Zero BS. Just Your Best Fit in China. Get instant, AI-driven insights on university matching, WHO/NMC certification, and CSC Scholarship probability.",
+    description: "Your ultimate guide to studying in China. AI-driven university matching, WHO/NMC certification, and CSC Scholarship guidance for international students.",
     images: ["/og-image.jpg"],
     creator: "@pandaoffer",
   },
@@ -65,9 +69,10 @@ export default function RootLayout({ children }) {
         <meta name="google-site-verification" content="zLREZ7AR-fIkNCQu19gJE9hmMZZEAqMEedboCeo1zyE" />
       </head>
       <body className={`${inter.variable} ${outfit.variable} font-sans`}>
-        
+        <AuthProvider>
         {/* 这里是你网站的所有页面内容 */}
         {children}
+        </AuthProvider>
         
         <Toaster position="bottom-right" richColors />
         

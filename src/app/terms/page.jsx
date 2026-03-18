@@ -5,6 +5,15 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Terms of Service | PandaOffer',
   description: 'Terms and conditions for using the PandaOffer service.',
+  openGraph: {
+    title: 'Terms of Service | PandaOffer',
+    description: 'Terms and conditions for using the PandaOffer service.',
+    url: 'https://www.pandaoffer.top/terms',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.pandaoffer.top/terms',
+  },
 };
 
 export default function TermsOfService() {
