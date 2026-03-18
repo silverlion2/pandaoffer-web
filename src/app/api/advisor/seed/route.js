@@ -258,10 +258,27 @@ export async function GET(request) {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   );
 
+  // Dedup: fetch existing content prefixes to avoid duplicates
+  const { data: existing } = await supabase
+    .from('laihua_knowledge')
+    .select('content')
+    .limit(500);
+  
+  const existingPrefixes = new Set(
+    (existing || []).map(r => r.content.substring(0, 80))
+  );
+
   let inserted = 0;
+  let skipped = 0;
   let errors = [];
 
   for (const chunk of SEED_CHUNKS) {
+    // Skip if already exists
+    if (existingPrefixes.has(chunk.content.substring(0, 80))) {
+      skipped++;
+      continue;
+    }
+
     const { error } = await supabase.rpc('insert_laihua_knowledge', {
       p_content: chunk.content,
       p_embedding: new Array(384).fill(0),
@@ -273,16 +290,18 @@ export async function GET(request) {
     });
 
     if (error) {
-      errors.push(\`\${chunk.source_name}: \${error.message}\`);
+      errors.push(`${chunk.source_name}: ${error.message}`);
     } else {
       inserted++;
     }
   }
 
   return Response.json({
-    message: \`Seeded \${inserted}/\${SEED_CHUNKS.length} chunks\`,
+    message: `Seeded ${inserted} new, ${skipped} already existed, of ${SEED_CHUNKS.length} total`,
     inserted,
+    skipped,
     total: SEED_CHUNKS.length,
     errors: errors.length > 0 ? errors : 'none',
   });
 }
+
