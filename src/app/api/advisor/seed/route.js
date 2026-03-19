@@ -2120,6 +2120,416 @@ DAILY LIFE:
 - Staring: Common, especially outside tier-1 cities. Not hostile — just curiosity about foreigners
 
 What helps most: Having Chinese friends who explain WHY things work differently, not just THAT they're different.`, category: 'general', source_name: 'culture_survival.md' },
+
+  // ===== VIDEO-SOURCED KNOWLEDGE (50+ YouTube vlogs) =====
+
+  // Budget & Cost Reality from Vloggers
+  { content: `Detailed Monthly Budget Breakdown (from 50+ student vloggers, 2024-2025):
+TIER 1 CITIES (Beijing, Shanghai):
+- Dorm: ¥800-1,500/month (single room with AC, Wi-Fi, shared kitchen)
+- Campus canteen: ¥12-25 per meal × 3 = ¥36-75/day = ¥1,080-2,250/month
+- Food delivery (Meituan): ¥15-35 per order, students average 2-3 orders/week
+- Transport: ¥200-400/month (metro + occasional DiDi)
+- Phone plan: ¥39-80/month (student packages often include unlimited campus Wi-Fi)
+- Groceries (Hema/多点): ¥300-500/month if cooking occasionally
+- Electricity: ¥150-300/month, Water: ¥30-50, Gas: ¥20-40
+- Drinking water: ¥50/month (tap water is NOT drinkable — buy bottled/filtered)
+- TOTAL BUDGET: ¥2,500-4,000/month comfortable | ¥1,800-2,500 bare minimum
+
+TIER 2 CITIES (Chengdu, Wuhan, Nanjing, Hangzhou):
+- Everything 20-40% cheaper than Tier 1
+- Canteen meals: ¥8-15 per meal
+- Dorm: ¥400-800/month
+- TOTAL BUDGET: ¥1,500-2,500/month comfortable | ¥1,200-1,800 minimum
+
+Vlogger consensus: CSC stipend of ¥3,000 (Master's) is enough for comfortable life in Tier 2 cities but tight in Beijing/Shanghai.`, category: 'costs', source_name: 'vlog_budget_detailed_2025.md' },
+
+  { content: `Canteen Food Guide — What Vloggers Actually Eat:
+- Most Chinese universities have 2-5 canteen buildings, each with multiple floors
+- Each floor has different food stalls — Chinese regional cuisines, noodles, rice bowls, BBQ, hotpot, dumplings
+- Some canteens have separate floors for international food: Japanese, Korean, Western, halal
+- Average meal cost: ¥8-15 in Tier 2 cities, ¥12-25 in Tier 1
+- Payment: Student card (load via app), WeChat Pay, or Alipay QR codes
+- Unlimited rice and free soup refills at most canteens
+- Peak hours: 11:30-12:30 (lunch), 17:30-18:30 (dinner) — expect 10-15 min queues
+- Many canteens have apps for pre-ordering — skip the line!
+- Breakfast: ¥3-8 (steamed buns 包子, soy milk 豆浆, fried dough 油条, congee 粥)
+- Late night: Some canteens have night snack windows (夜宵) open until 10-11pm
+Fudan vlogger quote: "I eat at 4 different canteens depending on my mood. Each one has like 30+ options. I've been here 2 years and still haven't tried everything."`, category: 'general', source_name: 'vlog_canteen_detailed.md' },
+
+  { content: `Halal Food in Chinese Universities — Muslim Student Guide:
+- Most large universities (especially in Beijing, Xi'an, and Guangzhou) have dedicated halal canteen sections (清真食堂)
+- Halal stalls are usually on a separate floor or clearly marked section of the canteen
+- Xi'an has the BEST halal food scene — 回民街 (Muslim Quarter) is legendary
+- Cities with significant Muslim populations (Xi'an, Lanzhou, Yinchuan, Urumqi) have abundant halal options
+- Halal food delivery: Search "清真" on Meituan or Ele.me for dedicated halal restaurants
+- Beijing: Several universities near Niujie (牛街) mosque area have excellent halal restaurants nearby
+- South Asian students: Indian restaurants exist in most Tier 1 cities but are pricier (¥50-80/meal)
+- Vlogger tip from Pakistani student at Wuhan University: "The halal canteen here costs ¥10-15 per meal. Quality is good. I never go hungry."
+- Important: Ask about halal certification (清真认证) — some restaurants put the label but aren't certified`, category: 'general', source_name: 'vlog_halal_food.md' },
+
+  // Social Life & Dating from Vloggers
+  { content: `Dating in China — International Student Reality (from vlogs):
+DATING APPS:
+- Tantan (探探): China's Tinder. Most popular for casual dating. Swipe-based
+- Bumble: Popular among English-speakers. Women make the first move. Good for meeting educated Chinese who speak English
+- Momo (陌陌): Older app, more social/random. Used for meetups and chatting
+- Soul (Soul): Newer, personality-based matching. Popular with younger Chinese
+- WeChat: NOT a dating app but people add each other constantly. Often how dates continue after matching elsewhere
+
+CULTURAL NOTES:
+- Chinese dating culture involves MUCH more texting than Western dating. Daily "good morning" texts expected
+- Meeting someone's parents = very serious. Don't agree to meet family unless you mean it
+- Men typically expected to pay on dates. Splitting is becoming more common among younger generation
+- "Are you serious about this?" comes up earlier than in Western dating culture
+- Long-distance relationships between China and home country are extremely common for international students
+
+MAKING FRIENDS (easier than dating):
+- Language exchange (语言交换) is the #1 way to make Chinese friends. It's socially acceptable and structured
+- University clubs: Join 3-4 in your first week. Basketball, badminton, and hiking clubs are most social
+- KTV (karaoke): The Chinese bonding activity. One night of KTV = one month of classroom socializing
+- Shared meals (聚餐): Always say yes to group dinner invitations in your first semester`, category: 'general', source_name: 'vlog_dating_social.md' },
+
+  // Train Travel from Vloggers
+  { content: `Student Train Travel in China — Updated 2025 Policies:
+STUDENT DISCOUNTS (recent policy update):
+- Chinese railway now offers student tickets at 75% of execution fare (up to 60% off published price)
+- 4 single-trip discounts per academic year (Oct 1 - Sep 30)
+- No longer restricted to winter/summer breaks — can use anytime!
+- Extended to first-class seats and high-speed sleeper berths (previously only second-class)
+- Book via 12306 app → "Student Reservation" special section
+- IMPORTANT for international students: Discount eligibility varies. Some railway staff say international students don't qualify. Carry student card and be prepared for inconsistency
+
+TRAIN TYPES:
+- G-train (高铁): Fastest. 300+ km/h. Beijing-Shanghai in 4.5 hours. ¥553 second-class
+- D-train (动车): Fast. 200-250 km/h. Slightly cheaper than G-train
+- Z/T/K-train: Slower conventional trains. Much cheaper. Have sleeper berths for overnight travel
+- Overnight sleeper trains: GREAT budget hack — saves a hotel night. Soft sleeper ¥200-400 for most routes
+
+BOOKING TIPS:
+- Book 15 days in advance when tickets release (especially for holidays)
+- Download 12306 app or use Trip.com (English interface)
+- Passport number required for booking — have it ready
+- During Golden Week (Oct 1-7) and Spring Festival: Book the SECOND tickets go on sale or you'll miss out`, category: 'general', source_name: 'vlog_train_travel_2025.md' },
+
+  // Dorm Life Reality from Vloggers  
+  { content: `Dorm Room Hacks — What Vloggers Wish They Knew:
+WHAT TO BUY ON DAY 1 (from Taobao, arrives next day):
+- Bed curtain/privacy curtain (床帘): ¥30-50. Essential for shared rooms. Creates personal space
+- Clip-on desk lamp: ¥50-80. Dorm ceiling lights are too bright and can't be dimmed
+- Shower shoes/flip-flops: ¥10-20. Shared bathrooms need these
+- Laundry basket + drying rack: ¥30-40. Sunshine drying on balcony is common
+- Extension cord with USB ports: ¥30-50. Dorm rooms usually have only 1-2 outlets
+- Electric kettle: ¥50-80 (check if allowed — some dorms have auto-breaker systems that detect them)
+- Mini clip fan: ¥30-60 (for non-AC dorms or when AC timer turns off at night)
+
+DORM RULES TO KNOW:
+- Curfew: Many dorms lock doors at 11pm-midnight. After that, you need security to let you in
+- Guests: Usually no opposite-gender visitors allowed in rooms. Meeting areas on ground floor only
+- Hot pots/cooking: Officially banned in MOST dorms (fire hazard). Students sneak them in anyway
+- Laundry machines: Shared, coin/app operated. SET A TIMER — someone WILL move your clothes
+- Internet: University Wi-Fi usually good on campus. Some dorms have ethernet ports for faster connection
+- Noise: Quiet hours typically 10pm-7am but enforcement varies wildly by building`, category: 'general', source_name: 'vlog_dorm_hacks.md' },
+
+  // Weekend Destinations from Vloggers
+  { content: `Best Weekend Trips from Major University Cities (vlogger favorites):
+FROM BEIJING (2-4 hour trips):
+- Great Wall (Mutianyu section) — less crowded than Badaling. ¥45 entry. Take bus 916 from Dongzhimen
+- Tianjin — 30 min by G-train (¥55). Italian Quarter, food street, ocean park
+- Chengde — 2 hours. Summer palace, mountain resort. ¥120 entry
+
+FROM SHANGHAI (1-3 hour trips):
+- Hangzhou — 1 hour by G-train (¥73). West Lake is FREE. Longjing tea village
+- Suzhou — 30 min by G-train (¥40). Classical gardens, canals. "Venice of the East"
+- Nanjing — 1.5 hours by G-train (¥135). Ming Palace ruins, Purple Mountain
+
+FROM CHENGDU:
+- Leshan Giant Buddha — 2 hours by train. ¥80 entry. Incredible
+- Mount Emei — 3 hours. Buddhist mountain, stunning sunrise
+- Jiuzhaigou — 8-10 hours by bus but WORTH IT. Natural wonderland
+
+FROM GUANGZHOU:
+- Shenzhen — 30 min by train. Tech city, great shopping in Huaqiangbei
+- Hong Kong — 1.5 hours by high-speed rail. Need separate visa!
+- Foshan — 30 min. Ancestral Temple, martial arts culture
+
+Vlogger tip: Use Golden Week for less popular destinations. Avoid Great Wall, West Lake during holidays — impossibly crowded.`, category: 'cities', source_name: 'vlog_weekend_trips.md' },
+
+  // Safety from Vloggers
+  { content: `Safety in China — What International Students Need to Know:
+GENERAL SAFETY (vlogger consensus: China is VERY safe):
+- Violent crime is extremely rare. Most cities are safe to walk alone at night
+- Petty theft exists but is much less common than in Western countries
+- Most common safety issue: Scams targeting foreigners (tea house scam, "art student" scam)
+- Traffic: This is the REAL danger. Drivers don't always yield to pedestrians. Electric scooters run red lights constantly
+- Air quality: Beijing and northern cities have occasional smog days. Download AQI app to check. Wear N95 mask on bad days (AQI > 150)
+
+SCAMS TO AVOID:
+- "Do you speak English?" followed by invitation to tea house or art gallery = SCAM. Walk away
+- Taxi drivers offering "flat rate" instead of meter — always insist on meter (打表)
+- Fake monks asking for donations near tourist sites
+- WeChat "money blessing" scams from strangers
+
+WOMEN'S SAFETY (from female vloggers):
+- China is generally considered one of the safest countries for women travelers
+- Solo female students report feeling safe walking home from library at 11pm
+- However: Drink spiking at clubs EXISTS. Same precautions as anywhere
+- Avoid unlicensed "black taxis" (黑车) — use DiDi app for tracked, accountable rides
+- Emergency number: 110 (police), 120 (ambulance), 119 (fire)`, category: 'general', source_name: 'vlog_safety_china.md' },
+
+  // Fitness & Sports from Vloggers
+  { content: `Gym & Fitness Options for Students in China:
+CAMPUS OPTIONS (usually free or very cheap):
+- University sports fields: Running tracks, basketball courts, football pitches — usually free with student ID
+- Campus gym: ¥10-30/visit or ¥200-500/semester at university-run facilities
+- Swimming pool: Some universities have on-campus pools. ¥10-20/swim
+- Morning exercise culture: Many Chinese people exercise at 6-7am in parks. Tai chi, dancing, badminton
+
+OFF-CAMPUS GYM:
+- Chain gyms: Super Monkey (超级猩猩) — pay-per-class, no membership. ¥69-99/class
+- Local gyms: ¥150-300/month for basic membership in Tier 2 cities
+- Annual memberships: ¥2,000-5,000/year depending on city and quality
+
+POPULAR SPORTS FOR SOCIALIZING:
+- Basketball: By FAR the most popular social sport. Courts are everywhere and always active
+- Badminton: Second most popular. ¥20-40/hour for court rental
+- Table tennis: Available on almost every campus for free
+- Hiking: Growing community, especially in cities near mountains (Chengdu, Hangzhou, Kunming)
+- Running clubs: Many universities have organized running groups
+
+Vlogger tip: Join a sports club in your first week. It's the #1 fastest way to build a friend group AND practice Chinese.`, category: 'general', source_name: 'vlog_fitness_sports.md' },
+
+  // Homesickness & Mental Health
+  { content: `Dealing with Homesickness in China — Honest Advice from Vloggers:
+THE STAGES (almost everyone goes through this):
+1. Honeymoon (Week 1-4): Everything is exciting. You love the food, the novelty, the adventure
+2. Frustration (Month 2-3): Language barrier hits hard. Miss family food. Small things annoy you
+3. Adjustment (Month 3-6): You find your routine, your people, your favorite spots
+4. Acceptance (Month 6+): China starts feeling like a second home. You surprise yourself
+
+WHAT ACTUALLY HELPS (from real students):
+- Video call family on a SCHEDULE (not constantly — that makes it worse)
+- Cook your home country's food. Taobao has international ingredients (Indian spices, African seasoning, etc.)
+- Find students from your country — but don't ONLY hang out with them
+- Exercise regularly — gym, running, sports. Physical activity is proven to reduce homesickness
+- Get a Chinese hobby: Chinese cooking class, calligraphy, tea ceremony. Immersion fights isolation
+- Document your experience: Start a vlog, write a journal, take photos. Gives purpose to new experiences
+- Use campus psychological counseling if available (increasingly offered at Chinese universities)
+
+WHAT MAKES IT WORSE:
+- Isolating in your dorm room
+- Comparing China to home constantly
+- Refusing to try new foods or experiences
+- Only using English and avoiding Chinese
+
+Vlogger truth: Month 2-3 is the hardest. It gets better. Almost every vlogger says "I'm so glad I pushed through."`, category: 'general', source_name: 'vlog_homesickness.md' },
+
+  // Apartment Hunting from Vloggers
+  { content: `Off-Campus Apartment Hunting — Vlogger Guide:
+WHEN TO MOVE OUT (consensus):
+- Stay in dorm for Year 1 to build social network and learn the system
+- Year 2+ is when most students consider off-campus apartments
+
+WHERE TO SEARCH:
+- 自如 (Ziroom): Most professional platform. Verified listings, online payments, maintenance included
+- 贝壳找房 (Beike): Large inventory. Agent-assisted. Expect 1 month rent as agent fee
+- 链家 (Lianjia): Premium listings, more expensive but higher quality
+- 豆瓣租房 (Douban): Community postings, sometimes cheaper, less regulated
+- WeChat groups: Ask university's international student office — they often have housing WeChat groups
+
+COSTS (off-campus, near university):
+- Shanghai: ¥2,800-5,000/month (studio) or ¥1,500-2,500 (shared room)
+- Beijing: ¥2,500-4,500/month (studio) or ¥1,500-2,500 (shared)
+- Chengdu/Wuhan: ¥1,200-2,500/month (studio) or ¥800-1,500 (shared)
+
+CRITICAL REQUIREMENTS:
+- Must register at local police station within 24 hours of moving (临时住宿登记)
+- Landlord must accompany you or provide authorization letter
+- Failure to register = fine of ¥500+ per day of violation
+- Keep registration slip — needed for Residence Permit renewal
+
+Vlogger warning: NEVER pay more than 1 month deposit + 1 month rent upfront. "Pay 3 months in advance" deals are often scams.`, category: 'costs', source_name: 'vlog_apartment_hunting.md' },
+
+  // Language Learning from Vloggers
+  { content: `Chinese Language Learning — What Actually Works (from vloggers who went from 0 to HSK 5):
+FASTEST METHODS (ranked by vlogger consensus):
+1. Language exchange partner (语言交换) — Meet 2-3x/week with a Chinese student. Trade English for Chinese. FREE
+2. Dating a Chinese person — Controversial but honest. Immersion through relationship is powerful
+3. Living with Chinese roommates — Forces daily Chinese use for basic needs
+4. Part-time tutoring — Teach English while learning Chinese. ¥100-200/hour for teaching, ¥50-80/hour for tutoring
+5. Classes + immersion combo — University Chinese classes alone are NOT enough. Must practice outside class
+
+APPS THAT ACTUALLY HELP:
+- Pleco (dictionary): The GOAT. Install immediately. Free base version is enough
+- Anki (flashcards): SRS system for memorizing characters. 30 min/day = huge progress
+- HelloChinese: Gamified learning, good for HSK 1-3
+- Skritter: Character writing practice with stroke order feedback
+- WeChat reading mode: Change phone language to Chinese for constant micro-exposure
+
+TIMELINE EXPECTATIONS:
+- 0 to HSK 3 (comfortable basic conversation): 6-12 months with regular study
+- 0 to HSK 4 (university Chinese-taught classes): 12-18 months
+- 0 to HSK 5 (professional level): 18-24 months
+- 0 to HSK 6 (near-native reading): 24-36 months
+
+Vlogger consensus: "I learned more Chinese in 1 month of daily language exchange than in 3 months of classroom study."`, category: 'language', source_name: 'vlog_language_reality.md' },
+
+  // Part-time Work from Vloggers
+  { content: `Part-Time Work Options for International Students in China:
+LEGAL STATUS (CRITICAL):
+- International students on X1 visa are NOT allowed to work without a separate work permit
+- Some universities offer on-campus opportunities that may be permissible
+- Teaching English ILLEGALLY is common but risky — fines, visa cancellation, or deportation if caught
+- Some cities (Shanghai, Beijing) have started pilot programs for part-time student work permits
+
+COMMON INCOME SOURCES (what vloggers actually do):
+1. English tutoring: ¥150-300/hour for private lessons. Most popular side income
+2. Translation work: ¥0.1-0.5 per Chinese character. Freelance via WeChat groups
+3. Content creation: YouTube/Bilibili vlogs about China life. Some vloggers earn ¥1,000-10,000/month
+4. Campus jobs: Library assistant, orientation guide, event interpreter. ¥50-100/hour
+5. Online freelancing: Design, programming, writing. Done remotely, harder to detect
+6. Modeling/acting: Surprisingly common for foreigners. ¥500-3,000 per gig for commercial shoots
+
+SCHOLARSHIP WARNING:
+- CSC scholarship renewal requires minimum GPA. Don't let work tank your grades
+- University can revoke scholarships if caught working illegally
+- Time is better spent on networking and language learning than making ¥2,000/month
+
+Vlogger advice: "Focus on building skills and connections, not making pocket money. The real ROI is in your degree and Chinese language ability."`, category: 'general', source_name: 'vlog_parttime_income.md' },
+
+  // Grocery & Daily Shopping from Vloggers
+  { content: `Daily Shopping & Grocery Guide (from student vloggers):
+SUPERMARKETS:
+- 盒马 (Hema/Freshippo): Alibaba's premium grocery. Same-day delivery within 3km. Great produce, imported goods
+- 永辉超市 (Yonghui): Mid-range chain. Good prices, wide selection
+- 大润发 (RT-Mart): Walmart-equivalent. Bulk buying, affordable
+- Sam's Club / Costco: Available in major cities. Membership required. Bulk deals
+- 便利店 (convenience stores): 7-Eleven, FamilyMart, Lawson — open 24/7, surprisingly good prepared food
+
+ONLINE GROCERY (game-changer):
+- 多点 (Duodian): Partner app for supermarkets. Same-day delivery
+- 叮咚买菜 (Dingdong Maicai): 29-min delivery. Excellent fresh produce
+- 美团买菜 (Meituan Grocery): Cheapest option. Group-buying discounts
+
+INTERNATIONAL INGREDIENTS:
+- Taobao searches: "Indian spices" (印度香料), "African food" (非洲食品), "halal meat" (清真肉)
+- Import grocery stores exist in Tier 1 cities — expensive but authentic
+- Muslim/halal butchers: Available in most cities, especially near mosques
+
+PRICES COMPARISON:
+- Rice (5kg): ¥25-40
+- Eggs (30 pack): ¥15-25
+- Chicken breast (500g): ¥15-25
+- Vegetables (500g): ¥3-8
+- Fruits (varies wildly by season): ¥5-15/500g
+- Imported cheese: ¥30-80 (expensive!)
+- Coca-Cola (500ml): ¥3-5`, category: 'costs', source_name: 'vlog_grocery_shopping.md' },
+
+  // Seasons & Festivals from Vloggers
+  { content: `Chinese Festivals & Holidays — Student Experience:
+SPRING FESTIVAL (春节, Jan/Feb) — Chinese New Year:
+- University closes for 3-4 weeks. Most restaurants and shops close too
+- Many international students travel home or travel within China/SE Asia
+- If staying on campus: Prepare groceries in advance. It can feel lonely
+- Red envelopes (红包): You might receive WeChat red packets from Chinese friends. Lucky!
+- Amazing fireworks across the entire country. Best experienced in smaller cities
+
+NATIONAL DAY GOLDEN WEEK (Oct 1-7):
+- 7-day national holiday. EVERYONE travels. Train tickets sell out instantly
+- Tourist attractions are INSANELY crowded — expect 2-3 hour waits at popular spots
+- Vlogger tip: Travel to less popular destinations or stay on campus and explore your empty city
+- Great time for budget travel if you book 2-3 weeks early
+
+MID-AUTUMN FESTIVAL (中秋节, Sep/Oct):
+- Mooncakes everywhere. Try different flavors — some are amazing, some are... interesting
+- Universities often host international student celebrations with free food and activities
+
+DRAGON BOAT FESTIVAL (端午节, Jun):
+- 粽子 (zongzi, sticky rice wraps) — delicious. Learn to make them with Chinese friends
+- Dragon boat races in cities with rivers
+
+ACADEMIC CALENDAR:
+- Fall semester: September - January
+- Spring semester: March - July
+- Final exams: Usually mid-January and early July
+- Chinese universities take attendance VERY seriously — absences affect grades AND scholarship status`, category: 'general', source_name: 'vlog_festivals_holidays.md' },
+
+  // Technology & Apps from Vloggers
+  { content: `Essential Apps Every International Student Needs (2025 Updated):
+COMMUNICATION:
+- WeChat (微信): THE most important app. Messaging, payments, groups, mini-programs. Your entire China life runs on this
+- QQ: Older but still used for academic groups and file sharing
+- DingTalk (钉钉): Some universities use this for class management
+- Zoom equivalent: Tencent Meeting (腾讯会议) or DingTalk for online classes
+
+DAILY LIFE:
+- Alipay (支付宝): Payments, utilities, investment, insurance — complete financial ecosystem
+- Meituan (美团): Food delivery, hotel booking, movie tickets, everything
+- DiDi (滴滴): Ride-hailing (China's Uber). English interface available
+- Amap/高德地图: THE map app. Don't use Google Maps — it's inaccurate in China
+- Baidu Maps (百度地图): Alternative map app with transit directions
+
+SHOPPING:
+- Taobao (淘宝): Everything marketplace. 1-3 day delivery
+- JD.com (京东): Electronics, guaranteed authentic. Same-day delivery in big cities
+- Pinduoduo (拼多多): Ultra-cheap group buying. Great for daily essentials
+
+TRANSPORT:
+- 12306: Official train ticket booking. Link passport for student discounts
+- Trip.com (携程): Flights, hotels, trains — English interface
+- Metro apps: Each city has its own subway app or use Alipay transit mini-program
+
+ACADEMIC:
+- WPS Office (金山文档): Free alternative to Microsoft Office. Popular in Chinese universities
+- CNKI (知网): Chinese academic paper database. Your university should provide free access
+- Zhihu (知乎): China's Quora. Great for research topics and understanding Chinese perspectives`, category: 'general', source_name: 'vlog_essential_apps_2025.md' },
+
+  // Photography & Content Creation from Vloggers
+  { content: `Best Photo Spots & Content Creation Tips for Students in China:
+TOP INSTAGRAMMABLE SPOTS (vlogger picks):
+- Beijing: Forbidden City golden hour, 798 Art District, Sanlitun at night
+- Shanghai: The Bund at sunset, Tianzifang alleys, Yu Garden, Jing'an Temple
+- Hangzhou: West Lake at dawn, Longjing tea terraces, Hupao Spring
+- Chengdu: Kuanzhai Alley, Wuhou Temple red wall, panda base
+- Xi'an: City wall cycling, Bell Tower at night, Muslim Quarter food shots
+
+CONTENT CREATION ADVICE:
+- Bilibili (B站) is China's YouTube. Growing your audience HERE opens Chinese brand deals
+- Douyin (抖音) = Chinese TikTok. Shorter, more viral. Algorithm is aggressive but effective
+- 小红书 (Xiaohongshu/RED) = China's Instagram. Best for lifestyle/food/travel content
+- WeChat Official Account: More like a blog. Great for long-form content
+- NEVER film inside military bases, government buildings, or near sensitive facilities
+- Ask permission before filming people up close. Chinese people are generally cool with it but be respectful
+
+MAKING MONEY FROM CONTENT:
+- Bilibili monetization starts at 1,000 followers + 10 videos
+- Brand collaborations: Foreign food/lifestyle creators are IN DEMAND. ¥500-5,000 per sponsored post
+- Teaching your language on Douyin: Some vloggers get 100K+ followers teaching English/French/Arabic
+Vlogger wisdom: "Start posting from day 1. Future you will be grateful you documented this experience."`, category: 'general', source_name: 'vlog_content_spots.md' },
+
+  // Graduation & Leaving China from Vloggers
+  { content: `Leaving China After Graduation — What Vloggers Say:
+LOGISTICS:
+- Close your bank account: Withdraw all funds or transfer internationally (fees apply). Bank of China → home bank costs ¥100-200 per transfer
+- Cancel your phone plan: Visit the carrier store with your passport. Refund any remaining balance
+- Ship belongings: International shipping via SF Express (顺丰) or China Post. Expect ¥50-200/kg depending on destination
+- Sell items you can't ship: WeChat "campus marketplace" groups, Xianyu (闲鱼) app for secondhand sales
+- Visa: Exit within your Residence Permit validity. Overstaying = ¥500/day fine + possible ban
+
+EMOTIONAL SIDE (vlogger honesty):
+- "Reverse culture shock is REAL. Going home felt stranger than arriving in China"
+- "I missed Chinese food more than I expected. Especially campus canteen 🥲"
+- "My Chinese friends became lifelong connections. We still video call regularly"
+- "The person who left China is VERY different from the person who arrived"
+- "If I could do it again, I would have said yes to more spontaneous adventures"
+
+CAREER IMPACT:
+- Chinese language ability = massive career differentiator in virtually every industry
+- Connections (关系 guānxi) built during university can open doors for years
+- Many graduates return to China for work within 2-3 years
+- CSC alumni network is global and active — leverage it
+
+Vlogger message: "Don't let comfort prevent you from having the experience of a lifetime."`, category: 'general', source_name: 'vlog_leaving_china.md' },
 ];
 
 
