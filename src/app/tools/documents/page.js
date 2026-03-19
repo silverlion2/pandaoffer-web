@@ -6,11 +6,11 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata = {
-  title: 'Document Wizard | PandaOffer Tools',
-  description: 'Generate a 100% accurate document checklist for your study abroad application based on your degree level.',
+  title: 'Document Generator & Templates | PandaOffer Tools',
+  description: 'Free document tools for studying in China — application checklist, CSC study plan generator, statement of purpose builder, recommendation letter template, and application tracker.',
   openGraph: {
-    title: 'Document Wizard | PandaOffer Tools',
-    description: 'Generate a 100% accurate document checklist for your study abroad application based on your degree level.',
+    title: 'Document Generator & Templates | PandaOffer Tools',
+    description: 'Free document tools for studying in China — application checklist, CSC study plan generator, statement of purpose builder, recommendation letter template, and application tracker.',
     url: 'https://www.pandaoffer.top/tools/documents',
     type: 'website',
   },

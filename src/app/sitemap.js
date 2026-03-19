@@ -1,4 +1,5 @@
 import { getSortedPostsData } from '@/lib/markdown';
+import { universities } from '@/data/universities';
 
 export default function sitemap() {
   const baseUrl = 'https://www.pandaoffer.top';
@@ -114,5 +115,14 @@ export default function sitemap() {
     };
   });
 
-  return [...staticRoutes, ...blogRoutes];
+  // Dynamic routes (University Detail Pages)
+  const universityRoutes = universities.map((uni) => ({
+    url: `${baseUrl}/universities/${uni.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...blogRoutes, ...universityRoutes];
 }
+

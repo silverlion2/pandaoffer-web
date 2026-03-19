@@ -161,6 +161,34 @@ CREATE TABLE IF NOT EXISTS public.programs (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
+-- 6b. Match History (used by account/history page)
+CREATE TABLE IF NOT EXISTS public.match_history (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES public.users(id) ON DELETE CASCADE NOT NULL,
+  form_data JSONB NOT NULL DEFAULT '{}'::jsonb,
+  results JSONB NOT NULL DEFAULT '{}'::jsonb,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- 6c. Saved Chats (used by account/history page — AI Advisor Q&A)
+CREATE TABLE IF NOT EXISTS public.saved_chats (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES public.users(id) ON DELETE CASCADE NOT NULL,
+  question TEXT NOT NULL,
+  answer TEXT NOT NULL,
+  sources JSONB DEFAULT '[]'::jsonb,
+  saved_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- 6d. Saved Universities (used by SaveUniversityButton & account/saved page)
+CREATE TABLE IF NOT EXISTS public.saved_universities (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES public.users(id) ON DELETE CASCADE NOT NULL,
+  university_name TEXT NOT NULL,
+  saved_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+  UNIQUE(user_id, university_name)
+);
+
 -- 7. Row Level Security (RLS) Policies
 
 -- Enable RLS on all tables
@@ -173,6 +201,9 @@ ALTER TABLE public.feedbacks ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.cities ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.universities ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.programs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.match_history ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.saved_chats ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.saved_universities ENABLE ROW LEVEL SECURITY;
 
 -- users: users read/update own, admins read/update all
 DROP POLICY IF EXISTS "Users can view own data" ON public.users;
@@ -293,3 +324,42 @@ CREATE POLICY "Admins can update programs" ON public.programs FOR UPDATE USING (
 
 DROP POLICY IF EXISTS "Admins can delete programs" ON public.programs;
 CREATE POLICY "Admins can delete programs" ON public.programs FOR DELETE USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
+
+-- match_history: users CRUD own, admins read all
+DROP POLICY IF EXISTS "Users can view own match history" ON public.match_history;
+CREATE POLICY "Users can view own match history" ON public.match_history FOR SELECT USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can insert own match history" ON public.match_history;
+CREATE POLICY "Users can insert own match history" ON public.match_history FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can delete own match history" ON public.match_history;
+CREATE POLICY "Users can delete own match history" ON public.match_history FOR DELETE USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Admins can view all match history" ON public.match_history;
+CREATE POLICY "Admins can view all match history" ON public.match_history FOR SELECT USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
+
+-- saved_chats: users CRUD own, admins read all
+DROP POLICY IF EXISTS "Users can view own saved chats" ON public.saved_chats;
+CREATE POLICY "Users can view own saved chats" ON public.saved_chats FOR SELECT USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can insert own saved chats" ON public.saved_chats;
+CREATE POLICY "Users can insert own saved chats" ON public.saved_chats FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can delete own saved chats" ON public.saved_chats;
+CREATE POLICY "Users can delete own saved chats" ON public.saved_chats FOR DELETE USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Admins can view all saved chats" ON public.saved_chats;
+CREATE POLICY "Admins can view all saved chats" ON public.saved_chats FOR SELECT USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
+
+-- saved_universities: users CRUD own, admins read all
+DROP POLICY IF EXISTS "Users can view own saved universities" ON public.saved_universities;
+CREATE POLICY "Users can view own saved universities" ON public.saved_universities FOR SELECT USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can insert own saved universities" ON public.saved_universities;
+CREATE POLICY "Users can insert own saved universities" ON public.saved_universities FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can delete own saved universities" ON public.saved_universities;
+CREATE POLICY "Users can delete own saved universities" ON public.saved_universities FOR DELETE USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Admins can view all saved universities" ON public.saved_universities;
+CREATE POLICY "Admins can view all saved universities" ON public.saved_universities FOR SELECT USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));

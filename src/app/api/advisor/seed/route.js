@@ -1797,6 +1797,329 @@ What textbooks don't teach but vloggers swear by:
 - **打包/Dǎbāo**: "Pack it to go" — at restaurants when you can't finish
 - **救命/Jiùmìng**: "Help/Save me" — hopefully never needed but important to know
 Vlogger tip: Learn these 10 phrases in week 1 and you'll survive 80% of daily situations.`, category: 'language', source_name: 'vlog_essential_phrases.md' },
+
+  // ===== Banking & Payment Setup =====
+  { content: `Banking in China — How to Set Up:
+- Recommended banks: Bank of China (中国银行) or ICBC (工商银行) — both have English service at main branches
+- Required to open account: passport, university enrollment certificate, Chinese phone number
+- Process: Visit a branch near campus, bring your student ID, expect 1-2 hours for setup
+- You'll get a debit card + mobile banking app. Link this card to WeChat Pay and Alipay immediately
+- International credit cards now work with Alipay "Tour Pass" for visitors, but students MUST get a local bank card
+- Cash is rarely needed — even street food vendors use QR codes. After 1 week you'll forget what cash looks like
+Pro tip: Open your bank account in the first 3 days. Without it, you can't set up mobile payments, and without mobile payments, daily life is extremely inconvenient.`, category: 'costs', source_name: 'banking_setup.md' },
+
+  { content: `Mobile Payment in China — Essential Setup:
+- WeChat Pay (微信支付): Link your Bank of China card → used for everything from groceries to rent to splitting dinner bills
+- Alipay (支付宝): Alternative to WeChat Pay, also widely used. Better for online shopping (Taobao integration)
+- Both apps support: QR code payments, money transfers, utility bills, food delivery, transit passes, hospital registration
+- International cards: Visa/Mastercard can now be linked directly to Alipay and WeChat Pay (2024 policy update)
+- Monthly phone bill: ¥30-100/month for data + calls. China Mobile has best coverage, China Unicom often cheapest for data
+- Digital lifestyle: Meituan (美团) for food delivery, DiDi (滴滴) for taxis, Taobao/JD for shopping, 12306 for train tickets
+Warning: Some services ONLY accept mobile payment — no cash, no card. Get set up ASAP after arrival.`, category: 'costs', source_name: 'mobile_payments_guide.md' },
+
+  // ===== Healthcare & Insurance =====
+  { content: `Healthcare in China for International Students:
+- CSC scholarship students: Medical insurance included (Ping An or similar provider)
+- Self-funded students: Must buy insurance — costs ¥600-800/year. University will help arrange this
+- University clinic (校医院): First stop for any health issue. Free or very cheap (¥5-20 per visit). Basic medications available
+- Public hospital (公立医院): Affordable but long waits. Use 好大夫 (Good Doctor) app or 挂号 (guahao) app to book appointments
+- International clinic: Expensive (¥500+ per visit) but English-speaking doctors available in Tier 1 cities
+- Pharmacy (药房): Many OTC medicines available cheaply. Staff can recommend treatments for common issues
+- Emergency: Call 120 for ambulance. University clinic can help translate and coordinate with hospitals
+- Mental health: Growing awareness but still limited. International student offices can often provide referrals
+Vlogger advice: Download 好大夫 (Good Doctor) app for online consultations — great for non-emergency questions when you don't want to navigate a Chinese hospital alone.`, category: 'general', source_name: 'healthcare_guide.md' },
+
+  // ===== CSC Interview Preparation =====
+  { content: `CSC Scholarship Interview Preparation — Top 10 Questions:
+1. Why do you want to study in China? (Show genuine interest in Chinese culture, not just "free scholarship")
+2. Why did you choose this specific university and program? (Mention professors, labs, rankings)
+3. What is your research plan or study plan? (Be specific — methodology, timeline, expected outcomes)
+4. How will this degree help your career back home? (Connect to bilateral relations between China and your country)
+5. What do you know about Chinese culture? (Mention specific aspects — food, festivals, philosophy)
+6. Have you studied Chinese? What is your HSK level? (If no Chinese, emphasize your plan to learn)
+7. How will you handle cultural differences? (Show adaptability and openness)
+8. What are your strengths and weaknesses? (Be honest but strategic)
+9. Where do you see yourself in 5 years? (Show how China experience fits your career trajectory)
+10. Do you have any publications or research experience? (Highlight academic achievements)
+Interview tips: Dress business casual, prepare a 2-minute elevator pitch, bring printed study plan and CV, know your supervisor's research.`, category: 'scholarships', source_name: 'csc_interview_prep.md' },
+
+  { content: `CSC Interview Red Flags to Avoid:
+- Don't say you chose China just because the scholarship is free — this is the #1 interview killer
+- Don't show zero knowledge about Chinese culture or the university you applied to
+- Don't badmouth your home country's education system — be diplomatic
+- Don't be vague about your research plan — specificity shows preparation and seriousness
+- Don't appear uninterested or give one-word answers — engagement matters
+- Don't say "any university is fine" — show you've researched your target
+- Embassy interviews (Type A) tend to be more formal and shorter; university interviews are more academic and detailed
+- Express your intention to contribute to bilateral relations between China and your home country — interviewers love this
+Success rate tip: Students who mention specific professors, labs, or research projects at their target university have a significantly higher acceptance rate.`, category: 'scholarships', source_name: 'csc_interview_red_flags.md' },
+
+  // ===== HSK Exam Details =====
+  { content: `HSK Levels Explained (汉语水平考试):
+| Level | Vocabulary | Ability | CEFR Equivalent |
+| HSK 1 | 150 words | Basic greetings, numbers, simple phrases | A1 Beginner |
+| HSK 2 | 300 words | Simple daily conversations | A2 Elementary |
+| HSK 3 | 600 words | Daily life, travel, work basics | B1 Intermediate |
+| HSK 4 | 1,200 words | Discuss various topics fluently | B2 Upper-Intermediate |
+| HSK 5 | 2,500 words | Read newspapers, write essays | C1 Advanced |
+| HSK 6 | 5,000+ words | Comprehend complex written/spoken Chinese | C2 Proficient |
+University requirements: Bachelor's = HSK 4 (score 180+), Master's = HSK 5 (score 180+), PhD = HSK 5-6, Medicine = HSK 5+
+English-taught programs: No HSK needed, but having HSK 3+ helps daily life enormously
+One semester of Chinese study ≈ one HSK level. Start before you arrive!`, category: 'language', source_name: 'hsk_levels_guide.md' },
+
+  { content: `Taking the HSK Test — Practical Guide:
+- Registration: www.chinesetest.cn (official site)
+- Test centers: Available in 150+ countries worldwide
+- Test dates: 6-12 times per year (varies by location)
+- Cost: $30-80 USD depending on country and level
+- Results: Available 2-3 weeks after test on chinesetest.cn
+- Certificate validity: 2 years from test date
+- Test format: HSK 1-2 (listening + reading, 35-50 min), HSK 3-4 (+ writing, 90-105 min), HSK 5-6 (+ writing, 120-140 min)
+- Pass score: HSK 1-2 need 120/200, HSK 3-6 need 180/300
+- HSK vs HSKK: HSK = written test, HSKK = oral test (speaking only). Some programs require both
+- New HSK 3.0 (levels 7-8-9): Introduced 2021, being phased in gradually. Not yet widely required
+Pro tip: Use Outline email (not Gmail) for CSC portal registration — Gmail has verification issues with campuschina.org.`, category: 'language', source_name: 'hsk_test_guide.md' },
+
+  { content: `Best Resources to Learn Chinese Before Arriving:
+FREE resources:
+- HSK Online (hsk.academy) — free practice tests for all levels
+- Pleco app — the BEST Chinese dictionary, period. Free base version, worth every penny for paid add-ons
+- HelloChinese app — gamified learning, great for beginners
+- YouTube channels: MandarinCorner, ChinesePod, Learn Chinese with Litao
+- Bilibili (China's YouTube) — watching Chinese content with subtitles is incredibly effective
+PAID resources:
+- Skritter ($15/mo) — character writing practice with stroke order
+- ChinesePod ($29/mo) — structured audio lessons
+- italki ($10-25/hour) — 1-on-1 tutors, affordable and flexible
+- HSK Standard Course textbooks (北京语言大学出版社) — official prep books, widely available on Amazon
+Language success tip: Start learning 3-6 months before arrival. Even HSK 1-2 makes your first weeks SO much easier and shows Chinese people you respect their culture.`, category: 'language', source_name: 'chinese_learning_resources.md' },
+
+  // ===== University Application Tips by Tier =====
+  { content: `University Application Strategy by Tier:
+TIER 1 (C9/985 Universities — Tsinghua, PKU, Zhejiang, Fudan, SJTU, etc.):
+- Highly competitive. Need GPA 3.5+ or equivalent (85%+)
+- Strong, specific research proposal is CRITICAL — generic ones get instantly rejected
+- Professor acceptance/pre-admission letter is almost mandatory for Master's/PhD
+- Publication record significantly helps for PhD applications
+- Apply to 2-3 C9 universities simultaneously through CSC Type B
+
+TIER 2 (211 Universities — Wuhan, UESTC, Beijing Normal, etc.):
+- Competitive but very achievable. GPA 3.0+ (75%+) usually sufficient
+- Good study plan and solid recommendation letters matter most
+- Provincial scholarships are hidden gems here — less competition than CSC
+- Many have excellent English-taught programs with smaller class sizes
+
+TIER 3 (Regular Universities):
+- Accessible and actively recruit international students
+- Great option for language programs and bachelor's degrees
+- University-specific scholarships often have very high acceptance rates
+- Don't underestimate these — some have world-class programs in niche fields
+Strategy: Apply BOTH CSC and university/provincial scholarships to maximize your chances.`, category: 'universities', source_name: 'application_strategy.md' },
+
+  { content: `CSC Agency Numbers — Top Universities:
+When applying for CSC scholarship, you MUST enter the correct 5-digit agency number. Common ones:
+- Tsinghua University: 10003
+- Peking University: 10001
+- Zhejiang University: 10335
+- Fudan University: 10246
+- Shanghai Jiao Tong University: 10248
+- Nanjing University: 10284
+- USTC (Hefei): 10358
+- Harbin Institute of Technology: 10213
+- Xi'an Jiaotong University: 10698
+- Wuhan University: 10486
+- Sun Yat-sen University: 10558
+- Sichuan University: 10610
+- Tongji University: 10247
+- BLCU (Beijing Language): 10032
+- Beijing Normal University: 10027
+Find all codes at: campuschina.org → "Search Programs" → University profile
+Important: Wrong agency number = application goes to wrong university = automatic rejection. Double-check!`, category: 'universities', source_name: 'csc_agency_numbers.md' },
+
+  // ===== Accommodation Deep Dive =====
+  { content: `University Dormitory vs Off-Campus Apartment:
+DORM (Recommended for Year 1):
+- Single room: ¥800-1,500/month (Tier 1), ¥400-800/month (Tier 2/3)
+- Shared room (2 person): ¥400-800/month
+- Includes: furniture, AC, shared bathroom (sometimes private), Wi-Fi
+- Pros: on campus, safe, social, university support, no landlord hassles
+- Cons: curfew (some dorms close 11pm-6am), smaller space, older facilities in some universities
+- International student dorms are usually nicer than Chinese student dorms
+
+OFF-CAMPUS APARTMENT (Year 2+):
+- Studio/1BR near campus: ¥2,000-4,000/month (Tier 1), ¥1,200-2,500 (Tier 2)
+- Shared apartment: ¥1,500-2,500/month (Tier 1)
+- Platforms: 自如 (Ziroom), 贝壳找房 (Beike), 链家 (Lianjia), 豆瓣租房
+- Tip: ALWAYS bring a Chinese-speaking friend when apartment hunting
+- REQUIRED: Must register at local police station within 24 hours of moving — every time you change address`, category: 'costs', source_name: 'accommodation_guide.md' },
+
+  // ===== Transport Deep Dive =====
+  { content: `Transport in China — Complete Guide:
+WITHIN CITIES:
+- Metro/Subway: ¥3-8 per ride, fast and clean. Major cities have extensive networks (Shanghai has 20+ lines)
+- Bus: ¥1-2 per ride, covers areas metro doesn't reach
+- DiDi (滴滴): China's Uber. ¥15-40 for typical city ride. English interface available
+- Shared bikes: Meituan/Hello Bike, ¥1.5-3 per ride, perfect for short distances
+- Tip: Get a transit card (交通卡) or use Alipay mini-program for contactless payment
+
+BETWEEN CITIES:
+- High-speed rail (高铁): Best option. Beijing-Shanghai ¥553 (4.5 hours), amazing experience
+- Book on: 12306.cn or Trip.com app (English available)
+- Domestic flights: Often cheaper than train. Spring Airlines, China Southern. ¥300-600 for many routes
+- Long-distance bus: Cheapest option but slower. Good for short routes not covered by rail
+
+MONEY-SAVING TIPS:
+- Student card gets 50% off most scenic spots and some museum admissions
+- Shared bike monthly plans: ¥10-15/month unlimited rides
+- Metro monthly pass available in most cities for commuters`, category: 'general', source_name: 'transport_complete.md' },
+
+  // ===== Food & Shopping =====
+  { content: `Food Delivery & Online Shopping in China:
+FOOD DELIVERY (Essential):
+- Meituan (美团): Largest platform. Meals delivered in 20-40 min. Average order ¥15-35
+- Ele.me (饿了么): Alibaba-owned alternative. Similar prices and coverage
+- New user hack: New Meituan accounts get ¥20+ in first-time coupons
+- Campus canteen apps: Many universities have their own ordering app — skip the lunch rush line
+
+ONLINE SHOPPING:
+- Taobao (淘宝): China's Amazon. Literally everything. Deliveries arrive 1-3 days. Free shipping on most items
+- JD.com (京东): Better for electronics, guaranteed authentic. Same-day delivery in major cities
+- Pinduoduo (拼多多): Ultra-cheap group buying platform. Quality varies but unbeatable prices
+- 多点 or 盒马 (Hema): Grocery delivery, same-day. Fresh produce, imported goods available
+
+WARNING: Taobao addiction is real. Set a monthly budget or you'll blow through your entire stipend. The convenience is dangerous.
+Pro tip: Download all delivery apps in your first week. Compare prices — they often have different promotions.`, category: 'costs', source_name: 'food_shopping_guide.md' },
+
+  // ===== Scholarship Comparison =====
+  { content: `Scholarship Comparison — Which One Should You Apply For?
+| Scholarship | Coverage | Monthly Stipend | Competition | Best For |
+| CSC Type A (Embassy) | Full: tuition + housing + stipend + insurance | ¥2,500-3,500 | Moderate (depends on country quota) | Students from countries with bilateral agreements |
+| CSC Type B (University) | Full: same as Type A | ¥2,500-3,500 | High | Strong academic candidates targeting top universities |
+| Confucius Institute | Full: tuition + housing + stipend + insurance | ¥2,500 | Moderate | Chinese language/culture students with HSK |
+| Provincial (Beijing/Shanghai/Zhejiang) | Partial to Full | Varies | Lower competition | Budget-conscious students, specific city preference |
+| University Scholarship | Varies widely | Varies | Moderate | Students targeting specific university |
+
+Strategy: Apply for MULTIPLE scholarships simultaneously. CSC Type A + Type B + Provincial = maximum chances.
+Hidden gem: Provincial scholarships have MUCH less competition than CSC. Beijing, Shanghai, Zhejiang, Jiangsu, and Guangdong all offer them.
+Key deadlines: CSC opens Jan-Mar. Confucius Institute Mar-May. Provincial varies — check with university directly.`, category: 'scholarships', source_name: 'scholarship_comparison_deep.md' },
+
+  // ===== Post-Graduation Options =====
+  { content: `After Graduation — Working and Staying in China:
+WORK PERMIT OPTIONS:
+- Graduates from Chinese universities can apply for work permits if they find employment
+- Major cities (Shanghai, Beijing, Shenzhen, Guangzhou) have special policies for foreign graduates of local universities
+- STEM graduates are particularly in demand
+- Teaching English: Always available as a backup. Legal with proper work permit (Z visa)
+
+JOB SEARCH RESOURCES:
+- LinkedIn China (领英): Used by international companies
+- 前程无忧 (51job.com): Largest Chinese job site
+- Boss直聘: Popular for startup/tech jobs
+- University career fairs: Best resource — companies actively seek bilingual graduates
+
+STAYING IN CHINA:
+- Work visa (Z visa): Employer sponsors you. Need bachelor's degree + 2 years experience (waived for some top university graduates)
+- Shanghai/Beijing: Special talent policies exempt top university graduates from experience requirement
+- Business visa (M visa): If starting your own company
+- Tips: Build connections (关系 guānxi), do internships during study, learn industry-specific Chinese
+
+RETURNING HOME:
+- Chinese university degrees are recognized in most countries
+- CSC scholars may have a 2-year return-home clause — check your agreement
+- The China experience + Mandarin skills = HUGE career advantage in your home country`, category: 'general', source_name: 'post_graduation_options.md' },
+
+  // ===== Practical Arrival Checklist =====
+  { content: `First 30 Days in China — Essential Checklist:
+WEEK 1 (Survival):
+□ Get Chinese SIM card (China Mobile or China Unicom at airport or campus shop)
+□ Download WeChat and add classmates/university contacts
+□ Register at local police station within 24 hours (university usually helps)
+□ Get your student ID card
+□ Open bank account (Bank of China branch near campus)
+□ Set up WeChat Pay and Alipay linked to bank card
+□ Download VPN (should have done before arriving — harder to download behind firewall)
+
+WEEK 2 (Setup):
+□ Get campus canteen card loaded
+□ Buy bedding/essentials from Taobao or nearby supermarket
+□ Set up DiDi for taxi rides
+□ Download Amap (高德地图) — NOT Google Maps. It actually works in China
+□ Join university WeChat groups for your department
+□ Apply for Residence Permit (if X1 visa — 30-day deadline!)
+
+WEEK 3-4 (Integration):
+□ Join 3-4 student clubs or sports teams
+□ Find a language exchange partner (语言交换)
+□ Explore your neighborhood — find your go-to restaurants, convenience store, fruit shop
+□ Set up online shopping (Taobao, JD, Meituan)
+□ Start basic Chinese phrases if you haven't already
+Pack light tip: Everything is cheap in China — you'll buy what you need for much less than bringing it from home.`, category: 'general', source_name: 'arrival_checklist_complete.md' },
+
+  // ===== VPN & Internet =====
+  { content: `VPN and Internet in China — Student Survival Guide:
+WHAT'S BLOCKED: Google (all services including Gmail, Drive, Maps), YouTube, Instagram, WhatsApp, Facebook, Twitter/X, Snapchat, Telegram, most Western news sites
+WHAT WORKS: WeChat (messaging), Baidu (search), Bilibili (video), Douyin (TikTok China), Taobao (shopping), Amap (maps)
+
+VPN OPTIONS (legal gray area for personal use):
+- Set up BEFORE coming to China — downloading VPN apps is difficult once behind the firewall
+- Popular options students use: ExpressVPN, Astrill, Surfshark, NordVPN
+- Cost: $5-13/month depending on plan length
+- University network: Some academic VPNs provided by university for research purposes
+- Speed varies: Some days perfect, some days slow. Have 2 VPN providers as backup
+
+CHINESE ALTERNATIVES:
+- Baidu = Google Search (decent for Chinese content)
+- Bilibili = YouTube (massive video library, great for learning Chinese)
+- WeChat = WhatsApp + Facebook + Venmo combined
+- 小红书 (Xiaohongshu/RED) = Instagram
+- Douyin = TikTok (original Chinese version, way more content)
+
+Critical tip: Download ALL VPN apps, get your accounts set up, and test them BEFORE your flight. Don't wait until you land.`, category: 'general', source_name: 'vpn_internet_guide.md' },
+
+  // ===== Weather & Climate =====
+  { content: `Weather & What to Pack for China by City:
+NORTH CHINA (Beijing, Harbin, Dalian):
+- Winters: BRUTAL. -10 to -30°C (Harbin). Need serious winter coat, thermal underwear, heated blanket
+- But: Indoor heating is EXCELLENT. Buildings are warm. It's the commute that's cold
+- Summers: Hot (35°C+) and humid in Beijing
+- Pack: Heavy winter coat, thermals, light summer clothes
+
+CENTRAL CHINA (Wuhan, Nanjing, Hangzhou, Shanghai):
+- "Furnace cities" — Wuhan and Nanjing hit 40°C in summer
+- Winters: Cold (0-5°C) but NO central heating south of the Yangtze River. This surprises everyone
+- Pack: Portable heater (buy in China for ¥100-200), dehumidifier, layers
+
+SOUTH CHINA (Guangzhou, Shenzhen, Kunming, Xiamen):
+- Warm year-round. Guangzhou never really gets cold
+- Kunming: "Spring City" — perfect 15-25°C year-round, best climate in China
+- Pack: Light clothes, rain jacket (monsoon season June-September)
+
+WEST CHINA (Chengdu, Xi'an):
+- Chengdu: Mild but cloudy/foggy 300 days a year. Rarely sees sun
+- Xi'an: Cold dry winters, hot dry summers. Continental climate
+Important: DON'T pack too much. Everything is cheap in China. Taobao delivers in 1-2 days.`, category: 'cities', source_name: 'weather_packing_guide.md' },
+
+  // ===== Culture Tips =====
+  { content: `Cultural Survival Tips for International Students in China:
+FACE (面子 miànzi) — The Most Important Concept:
+- Never publicly embarrass anyone, especially professors or officials
+- Avoid direct confrontation — use indirect communication
+- Saving face applies to YOU too — Chinese people will often go out of their way to not embarrass you
+
+SOCIAL NORMS:
+- Personal questions (salary, age, relationship status, weight) are NORMAL in China. Don't be offended
+- "Have you eaten?" (你吃了吗?) is a greeting, not a dinner invitation
+- Group dinners: Shared dishes, rotating lazy susan. Don't just eat your favorite dish — try everything
+- Drinking culture: Expect toasts (干杯 gānbēi). It's OK to say you don't drink (我不喝酒) — most people respect it
+- Gift giving: Never give clocks (送钟 = funeral), white flowers, or sets of 4 (sounds like "death")
+
+DAILY LIFE:
+- Bargaining: Expected at markets, NOT in shops or malls
+- Queue culture: Improving rapidly but still looser than Western standards in some areas
+- Noise levels: Generally louder than West. Morning exercise music at 6am is normal near parks
+- Staring: Common, especially outside tier-1 cities. Not hostile — just curiosity about foreigners
+
+What helps most: Having Chinese friends who explain WHY things work differently, not just THAT they're different.`, category: 'general', source_name: 'culture_survival.md' },
 ];
 
 

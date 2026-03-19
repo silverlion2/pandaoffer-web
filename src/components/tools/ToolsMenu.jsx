@@ -15,8 +15,8 @@ const TOOLS = [
   },
   {
     id: 'docs',
-    title: 'Document Wizard',
-    desc: 'Generate a 100% accurate document checklist based on your degree.',
+    title: 'Document Generator',
+    desc: 'Study plans, SOPs, rec letters, and application tracking tools.',
     icon: <FileText size={28} className="text-blue-500" />,
     bg: 'bg-blue-50',
     border: 'border-blue-100',

@@ -1,12 +1,9 @@
-import { Inter, Outfit } from "next/font/google";
+import '@fontsource-variable/inter';
+import '@fontsource-variable/outfit';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Toaster } from 'sonner';
 import AuthProvider from '@/components/providers/AuthProvider';
 import "./globals.css";
-
-// 引入 Next.js 默认的优化字体
-const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
-const outfit = Outfit({ subsets: ["latin"], variable: '--font-outfit' });
 
 // Global SEO metadata (displayed in browser tabs and Google search results)
 export const metadata = {
@@ -68,7 +65,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="google-site-verification" content="zLREZ7AR-fIkNCQu19gJE9hmMZZEAqMEedboCeo1zyE" />
       </head>
-      <body className={`${inter.variable} ${outfit.variable} font-sans`}>
+      <body className="font-sans">
         <AuthProvider>
         {/* 这里是你网站的所有页面内容 */}
         {children}
