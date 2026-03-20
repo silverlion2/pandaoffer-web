@@ -3031,23 +3031,29 @@ export async function GET(request) {
 
     const supabase = createClient(sbUrl, sbKey);
 
-  // Dedup: fetch existing content prefixes to avoid duplicates
-  const { data: existing } = await supabase
-    .from('laihua_knowledge')
-    .select('content')
-    .limit(500);
+  // Dedup: fetch existing source_names to avoid duplicates
+  // Using source_name is more precise than content prefix matching
+  const forceReseed = searchParams.get('force') === 'true';
   
-  const existingPrefixes = new Set(
-    (existing || []).map(r => r.content.substring(0, 80))
-  );
+  let existingSourceNames = new Set();
+  if (!forceReseed) {
+    const { data: existing } = await supabase
+      .from('laihua_knowledge')
+      .select('source_name')
+      .limit(1000);
+    
+    existingSourceNames = new Set(
+      (existing || []).map(r => r.source_name).filter(Boolean)
+    );
+  }
 
   let inserted = 0;
   let skipped = 0;
   let errors = [];
 
   for (const chunk of SEED_CHUNKS) {
-    // Skip if already exists
-    if (existingPrefixes.has(chunk.content.substring(0, 80))) {
+    // Skip if source_name already exists (unless force mode)
+    if (!forceReseed && existingSourceNames.has(chunk.source_name)) {
       skipped++;
       continue;
     }
