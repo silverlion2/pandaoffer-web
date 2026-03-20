@@ -2530,6 +2530,486 @@ CAREER IMPACT:
 - CSC alumni network is global and active — leverage it
 
 Vlogger message: "Don't let comfort prevent you from having the experience of a lifetime."`, category: 'general', source_name: 'vlog_leaving_china.md' },
+
+  // ===== INSIDER KNOWLEDGE — WHAT NO GENERIC AI KNOWS =====
+
+  // K Visa — Brand New Policy (Oct 2025)
+  { content: `NEW: K Visa for STEM Talent (Effective October 1, 2025):
+China introduced the K Visa — a brand-new visa category targeting young, high-end STEM talent. This is a game-changer:
+
+KEY FEATURES:
+- NO confirmed job offer required for recent graduates from recognized international universities
+- Multiple entries allowed — more flexible than Z visa
+- Longer stays permitted — designed for academic, cultural, and entrepreneurial activities
+- Specifically targets: AI, quantum computing, biotech, clean energy, advanced manufacturing
+- Positions China as a competitor to US H-1B visa for global tech talent
+
+WHO QUALIFIES:
+- Recent graduates (within 2 years) from top international universities
+- STEM degree holders with demonstrated research or innovation potential
+- Those willing to engage in research, academia, or tech entrepreneurship in China
+
+WHAT THIS MEANS FOR STUDENTS:
+- Study in China on X1 visa → Graduate → Apply for K Visa → Stay and work in STEM without the traditional Z visa hassle
+- Especially valuable for PhD graduates in AI, biotech, advanced materials
+- Combined with Shanghai/Beijing talent policies = very attractive post-graduation path
+
+This is BRAND NEW information. Most students, agencies, and even some universities don't know about this yet.`, category: 'visa', source_name: 'k_visa_2025_policy.md' },
+
+  // Professor Email Strategy — Insider Playbook
+  { content: `How to Email Chinese Professors for Acceptance Letters — The Insider Playbook:
+This is the #1 factor that separates successful CSC applicants from rejected ones. A professor acceptance letter can boost your chances by up to 70%.
+
+TIMING (critical):
+- Start emailing: September-December (for next year's CSC cycle)
+- Best send time: Monday-Thursday, 8:00-11:00 AM China Standard Time (UTC+8)
+- Avoid: Weekends, late nights, during Chinese holidays (Spring Festival, National Day)
+- Follow up: If no reply in 5-7 days, send ONE polite reminder. After 2 attempts, move to another professor
+
+SUBJECT LINE FORMULA (proven to get opened):
+"Prospective CSC Scholarship Student Seeking Supervision – [Your Name], [Your Field]"
+or
+"Request for Supervision: [Specific Research Topic] – [Your Nationality] Applicant"
+
+EMAIL STRUCTURE (what professors actually read):
+1. Dear Professor [SURNAME] (Chinese names: surname FIRST, e.g., Prof. Wang, not Prof. Xiaoming)
+2. One sentence: Who you are (nationality, current degree, university)
+3. One sentence: WHY this specific professor (mention a SPECIFIC paper or project)
+4. One paragraph: Your research interest and how it aligns with their work
+5. One sentence: Request for acceptance/pre-admission letter
+6. Attachments: CV, transcripts, research proposal (ALL in PDF format)
+
+PRO TIPS:
+- Attach a DRAFT acceptance letter template to save the professor time — many appreciate this
+- Apply to 5-10 professors simultaneously at different universities
+- Chinese professors on WeChat often respond faster than email — if their WeChat is public, add them AFTER initial email contact
+- Google Scholar is your best tool — search their recent papers and cite specific findings in your email
+- Some professors' assistants manage their email. Address them respectfully too`, category: 'scholarships', source_name: 'professor_email_playbook.md' },
+
+  // Agent Scam Prevention — Critical Knowledge
+  { content: `Study-in-China Agent Scams — How to Protect Yourself:
+CSC officially acknowledged deceptive agency practices in August 2020. This is critical knowledge for every applicant.
+
+RED FLAGS — RUN if you see these:
+🚩 "100% guaranteed scholarship" — NO ONE can guarantee a CSC scholarship. It's merit-based
+🚩 Upfront fees to "secure" a scholarship — CSC itself charges ZERO application fees
+🚩 Agent charges $4,500-7,000 USD for "scholarship placement" — this is predatory pricing for something you can do for free
+🚩 "File opening fee" + "management fee" + "service fee" that keeps growing — classic drip-pricing scam
+🚩 Asks you to pay university tuition/dorm fees to the AGENT'S bank account — always pay directly to university
+🚩 Can't tell you exactly which universities their "students" attend — likely fabricated
+🚩 Provides admission letters before you've even applied — could be forged documents
+
+LEGITIMATE CHANNELS (FREE):
+- CSC Official Portal: www.csc.edu.cn/laihua or www.campuschina.org
+- Direct application to Chinese universities via their international admissions offices
+- Chinese Embassy education section in your country (for Type A bilateral)
+- PandaOffer.top — free AI advisor with RAG knowledge base
+
+IF YOU ALREADY PAID AN AGENT:
+- Request full refund in writing. Document everything
+- Report to: CSC official complaints, your country's consumer protection agency
+- WARNING: If the agent provided forged documents, YOUR application could be permanently blacklisted
+
+The application is 100% free to do yourself. Every document, every form, every submission — all free through official channels.`, category: 'scholarships', source_name: 'agent_scam_prevention.md' },
+
+  // University Acceptance Rates — Data No LLM Has
+  { content: `University Acceptance Rates for International Students (Data Compiled 2024-2025):
+CSC overall scholarship success rate: approximately 20% (competitive but achievable)
+
+ACCEPTANCE RATES BY UNIVERSITY (for international student admissions, not just CSC):
+| University | Acceptance Rate | Notes |
+| Nanjing University | ~90% | Very welcoming to intl students |
+| USTC (Hefei) | ~85% | Strong for science, less competitive for intl |
+| Central South University | ~80% | Excellent medical programs |
+| Northwestern Polytechnical | ~80% | Aerospace, engineering |
+| South China Normal | ~80% | Education, Chinese language |
+| Wuhan University | ~80% | Beautiful campus, diverse programs |
+| Xi'an Jiaotong University | ~55% | C9 but more accessible than Beijing/Shanghai |
+| Harbin Institute of Tech | ~50% | Top engineering, cold city = fewer applicants |
+| Zhengzhou University | ~50% | Good value, developing international programs |
+| Tongji University | ~43% | Architecture, engineering, competitive |
+| Tsinghua University | ~36% | Most competitive C9 |
+| Fudan University | ~32% | Very competitive, especially business |
+| Peking University | ~20-25% | Ultra-competitive, strong humanities |
+
+STRATEGY: Apply to 2-3 "reach" universities (C9, 30-40% rate) + 2-3 "safe" universities (50-90% rate)
+Hidden insight: Universities in smaller cities (Hefei, Changsha, Xi'an) have MUCH higher acceptance rates than Beijing/Shanghai peers of similar ranking`, category: 'universities', source_name: 'acceptance_rates_data.md' },
+
+  // Country-Specific Document Authentication
+  { content: `Document Authentication by Country — Step-by-Step (2025 Updated):
+
+INDIA (4-step process — start 6-8 weeks early):
+1. Get documents notarized by a local Notary Public
+2. State authentication: HRD Department or Sub-Divisional Magistrate (SDM)
+3. MEA attestation: Ministry of External Affairs of India
+4. Chinese Embassy legalization: Based on your consular district
+   - Maharashtra/Karnataka → Chinese Consulate Mumbai
+   - West Bengal/Odisha/Chhattisgarh/Jharkhand/Bihar → Chinese Consulate Kolkata
+   - All other states → Chinese Embassy New Delhi
+⚠️ India REJECTED China's Hague Apostille accession — full consular legalization still required!
+
+PAKISTAN (changing in 2025!):
+- China & Pakistan are BOTH Hague Apostille Convention members (since Nov 7, 2023)
+- Pakistan currently transitioning to apostille-only system
+- ⚠️ Chinese Embassy in Pakistan will STOP consular legalization from July 21, 2025
+- After July 2025: Get apostille from Pakistan's designated authority → done! No embassy needed
+- Before July 2025: Still need Ministry of Foreign Affairs attestation + Embassy legalization
+- Submit via: Gerry's Visa Application Service Center (Islamabad, Karachi, or Lahore)
+
+NIGERIA (3-step process):
+1. Notarize documents with a local notary public
+2. Ministry of Foreign Affairs authentication
+3. Chinese Embassy/Consulate legalization (via China Visa Application Center in Lagos)
+- Additional: Academic docs need Ministry of Education authentication
+
+ETHIOPIA:
+- Follow local authentication procedures through Ministry of Education/Foreign Affairs
+- Submit to Chinese Embassy in Addis Ababa
+- Fewer specific requirements documented — contact embassy directly for current checklist
+
+BANGLADESH:
+- CSC Type A Embassy agency number: 0501
+- Submit through Chinese Embassy in Dhaka
+- Follow standard authentication: notarize → Ministry of Foreign Affairs → Chinese Embassy`, category: 'visa', source_name: 'country_authentication_guide.md' },
+
+  // Dietary Survival — Chinese Phrases
+  { content: `Dietary Survival Guide — Essential Chinese Phrases for Vegetarian/Vegan/Halal Students:
+
+HALAL (清真 qīngzhēn):
+- "我只吃清真食物" (Wǒ zhǐ chī qīngzhēn shíwù) = "I only eat halal food"
+- Look for: 清真 sign on restaurants and canteen sections (green/white, crescent moon)
+- Search on Meituan/Ele.me: Type "清真" to filter halal restaurants
+- Cities with best halal food: Xi'an > Beijing (Niujie) > Guangzhou (Xiaobei) > Lanzhou > Yinchuan
+- University halal canteens: Separate kitchen, dedicated utensils, visible certification
+- ⚠️ Warning: Some restaurants display 清真 sign but aren't properly certified. Ask about 清真认证 (certification)
+
+VEGETARIAN (素食 sùshí):
+- "我是吃素的" (Wǒ shì chīsù de) = "I am vegetarian"
+- "我不吃肉" (Wǒ bù chī ròu) = "I don't eat meat" (but ròu sometimes means just pork to Chinese people)
+- Be specific: "不要鸡肉，不要鱼，不要猪肉" (No chicken, no fish, no pork)
+- ⚠️ Hidden meat alert: Many "vegetable" dishes use meat broth or small meat pieces for flavor. Say "不要肉汤" (no meat broth)
+
+STRICT VEGAN (纯素 chún sù):
+- "我是纯素的" = "I am strict vegan"
+- "不要奶制品，不要鸡蛋，不要蜂蜜" = "No dairy, no eggs, no honey"
+- Look for: Buddhist temple restaurants (寺庙素食) — 100% vegan, very cheap (¥10-20/meal)
+- Package labels: "全素" or "纯素" = vegan. But check for 蜂蜜 (honey) — sometimes included
+
+TOP VEGAN-FRIENDLY CHINESE DISHES:
+- 地三鲜 (dì sān xiān): Eggplant, potato, green pepper stir-fry
+- 素浇面 (sù jiāo miàn): Vegetarian noodles (ask for vegan broth)
+- 豆腐 (dòufu): Tofu in countless preparations
+- 凉拌黄瓜 (liáng bàn huángguā): Smashed cucumber salad
+- 拔丝地瓜 (bá sī dìguā): Candied sweet potato
+- 罗汉斋 (luó hàn zhāi): Buddha's Delight — classic Buddhist vegan dish
+Survival tip: Download Google Translate camera mode. Point at any menu and it'll translate instantly.`, category: 'general', source_name: 'dietary_survival_phrases.md' },
+
+  // CSC Annual Review — What Current Scholars Need to Know
+  { content: `CSC Scholarship Annual Review — Keep Your Funding (Most Students Don't Know This):
+Your CSC scholarship is NOT guaranteed for the full duration. It's reviewed ANNUALLY, and they CAN revoke it.
+
+WHAT THEY EVALUATE:
+1. Academic performance: Must maintain minimum GPA (varies by university, typically 2.7-3.0+)
+2. Attendance: Chinese universities track attendance meticulously. Missing classes = red flag
+3. Moral conduct: No disciplinary issues, no legal problems
+4. Learning attitude: Participation in academic activities, research progress
+5. Activity participation: Join university events, cultural exchanges, international student activities
+6. Chinese language progress: For Chinese-taught programs, HSK improvement expected
+
+TIMELINE:
+- Annual review typically happens March-May for the upcoming academic year
+- University international office sends notification — check email and WeChat!
+- You submit: Self-evaluation form, academic transcript, attendance record
+- Professor/supervisor provides evaluation
+- Results announced before summer break
+
+WHAT GETS YOU KICKED OFF:
+❌ GPA below minimum threshold (usually bottom 10% of cohort)
+❌ More than 10% unexplained absences in any course
+❌ Disciplinary violation or criminal record
+❌ Failure to submit annual review documents on time
+❌ Fraudulent documents discovered at any point (instant permanent ban)
+
+PRO TIPS:
+- Attend EVERY class in your first semester. Build a reputation as a serious student
+- Participate in at least 2-3 university cultural exchange events per semester
+- Keep good relations with your supervisor — their evaluation carries the most weight
+- If struggling academically, talk to your international student office BEFORE the review — they can arrange support`, category: 'scholarships', source_name: 'csc_annual_review.md' },
+
+  // Post-COVID China Updates
+  { content: `China in 2025-2026 — What's Different Now (Updated Reality):
+VISA & ENTRY:
+- All COVID-era restrictions fully lifted. Normal visa processing restored
+- New online visa application system launched (Sep 30, 2025) by Chinese Embassy in US — streamlined process
+- Transit visa-free policy expanded: 144 hours in 54 Chinese cities for citizens of 54 countries
+- K Visa introduced (Oct 2025) for STEM talent — no job offer required for recent graduates
+
+CAMPUS LIFE CHANGES:
+- Most universities fully back to in-person classes. Online options reduced
+- International student enrollment recovering but still below 2019 pre-pandemic peak
+- Some universities offering more scholarships to attract international students back
+- Digital infrastructure improved: more English-language apps, better campus Wi-Fi
+- Health QR codes and mandatory testing: COMPLETELY gone. No health declarations needed
+
+COST CHANGES (post-pandemic):
+- Tuition largely unchanged at major universities
+- Rent in some cities slightly decreased due to economic slowdown
+- Food delivery costs remained stable (Meituan/Ele.me prices similar to 2019)
+- Flight prices: Many more direct routes restored. Competition driving prices down
+
+EMPLOYMENT LANDSCAPE:
+- China's youth unemployment has been elevated — more competition for post-graduation jobs
+- BUT: International graduates with Chinese + English bilingual skills remain in HIGH demand
+- Tech sector layoffs at big companies but startups and new energy sectors hiring
+- Special talent policies in Shanghai/Beijing/Shenzhen still actively recruiting foreign STEM graduates
+- K Visa makes post-graduation path much smoother for STEM graduates
+
+WHAT THIS MEANS FOR YOU: Now is actually a GREAT time to study in China — less competition for scholarships, universities actively recruiting, and new visa policies making it easier to stay after graduation.`, category: 'general', source_name: 'china_2025_update.md' },
+
+  // CSC Application Portal Technical Issues
+  { content: `CSC Application Portal — Technical Issues Nobody Warns You About:
+The campuschina.org application system has KNOWN quirks that trip up applicants every year:
+
+BROWSER ISSUES:
+- The portal works BEST on Internet Explorer or Microsoft Edge. Chrome/Firefox may have form submission errors
+- Some applicants report the system timing out during document upload — save frequently!
+- Clear your browser cache before starting. Old session data can corrupt your application
+
+DOCUMENT UPLOAD:
+- All documents MUST be in PDF format. JPG/PNG will be rejected or display incorrectly
+- File size limit: Usually 2-5 MB per document. Compress PDFs if needed
+- Naming convention: Use simple filenames (no Chinese characters, no special symbols)
+- Upload ALL pages of multi-page documents as a single PDF, not separate files
+
+EMAIL VERIFICATION:
+- Gmail verification emails often get blocked or delayed — use Outlook, Yahoo, or a local email provider
+- Some applicants NEVER receive the verification email from campuschina.org when using Gmail
+- Pro tip: Register with Outlook.com email to avoid this entirely
+
+AGENCY NUMBER MISTAKES:
+- The 5-digit agency number MUST match your target university exactly
+- Wrong agency number = your application goes to the wrong institution = automatic rejection
+- For Type A (Embassy): Use YOUR COUNTRY's dispatching agency number, NOT the university's
+- For Type B (University): Use the university's agency number from their CSC listing
+- Double-check at: campuschina.org → "Search Programs" → select your university
+
+DEADLINE TRAPS:
+- The CSC portal time zone is Beijing Time (UTC+8). A "March 31 deadline" means 11:59 PM Beijing time
+- Some universities have EARLIER internal deadlines than the CSC portal deadline — check with university directly
+- System gets VERY slow in the last 48 hours before deadline. Submit at least 3 days early`, category: 'scholarships', source_name: 'csc_portal_technical.md' },
+
+  // WeChat Ecosystem — Deep Guide
+  { content: `WeChat Mastery — The App That Runs Your Entire China Life:
+WeChat (微信) isn't just messaging. It's your wallet, social network, food delivery, ride-hailing, utility payments, and academic collaboration tool combined.
+
+SETTING UP (Critical First Steps):
+1. Download WeChat BEFORE arriving in China (available on App Store/Google Play)
+2. Register with your phone number (any country works)
+3. You may need an existing WeChat user to verify your account — ask a Chinese friend or senior student
+4. Set up WeChat Pay: Add bank card → verify identity → start paying everywhere
+5. Profile tip: Use a real photo, set a proper display name. Your WeChat profile IS your identity in China
+
+MINI PROGRAMS (小程序) — The Hidden Power:
+- Transit: Scan QR codes to ride subway/bus in any city (no physical transit card needed)
+- Food: Meituan mini-program for food delivery without installing separate app
+- Shopping: Pinduoduo, JD mini-programs built into WeChat
+- Government: Many government services accessible via WeChat (utility bills, residence registration)
+- University: Some universities have their own WeChat mini-programs for class schedules, grades, library booking
+
+ESSENTIAL GROUPS TO JOIN (First Week):
+- Your department/class WeChat group (professor will share QR code)
+- International student association group
+- City-specific expat group (search "foreigners in [city]" on WeChat)
+- Country-specific student group (e.g., "Nigerians in Wuhan")
+- Second-hand marketplace group (for buying cheap furniture from departing students)
+
+WECHAT ETIQUETTE:
+- Reply to messages relatively quickly — leaving someone "on read" is considered rude
+- Use voice messages sparingly with professors — they prefer text
+- Red packets (红包): Digital cash gifts. Send small amounts (¥1-10) in group chats for good luck
+- Moments (朋友圈): Like Instagram stories. Post occasionally — pure lurking is noticed and seen as cold
+- Never delete a professor from your contacts. Ever.`, category: 'general', source_name: 'wechat_deep_guide.md' },
+
+  // Supervisor Relationship — Academic Culture
+  { content: `Managing Your Supervisor Relationship in China — The Unwritten Rules:
+The student-supervisor relationship in Chinese academia is VERY different from Western universities. Understanding this is crucial for your degree.
+
+HIERARCHY & RESPECT:
+- Address as "老师" (lǎoshī, teacher) or "教授" (jiàoshòu, professor) — NEVER by first name
+- Stand when your professor enters the room (especially in the first meeting)
+- In group meetings, wait for senior members to speak first
+- Your supervisor's word is essentially law regarding your research direction. Disagreement must be very diplomatic
+
+COMMUNICATION:
+- Weekly or bi-weekly meetings are common. Come prepared with progress updates
+- Send a WeChat message before each meeting outlining what you'll discuss
+- If you miss a meeting, apologize IMMEDIATELY and reschedule
+- Response time: Reply to supervisor messages within hours, not days
+- Important requests: via email. Quick questions: via WeChat
+
+THE "LAB CULTURE":
+- Many supervisors expect you to be in the lab/office 8-10 hours/day, including some weekends
+- "Self-study time" is expected to be spent in the lab, not at home
+- Group meals and team activities organized by the supervisor are NOT optional
+- Helping senior students with their projects is expected — this is how you learn
+
+PUBLICATION & GRADUATION:
+- Most Master's programs require 1-2 publications before graduation
+- PhD typically requires 2-4 publications, often in Chinese academic journals
+- Your supervisor is always listed as corresponding author
+- Some supervisors require you to submit papers in BOTH Chinese and English
+- Graduation timeline can be extended if publications are insufficient
+
+WHAT GETS SUPERVISORS UPSET:
+- Missing meetings without notice
+- Submitting poor-quality work without effort
+- Going over their head to the department (loss of face — 面子)
+- Not acknowledging them in publications
+- Changing research direction without discussion
+
+SECRET WEAPON: Bring your supervisor tea (好茶) or their favorite snack occasionally. Small gifts showing cultural awareness build enormous goodwill.`, category: 'general', source_name: 'supervisor_relationship.md' },
+
+  // Emergency & Legal Knowledge
+  { content: `Emergency Situations & Legal Knowledge for International Students:
+WHAT TO DO IF:
+
+LOST PASSPORT:
+1. Immediately go to the nearest police station (派出所) and file a report (报案)
+2. Get a police report certificate (报案证明) — you NEED this
+3. Contact your country's embassy to get an emergency travel document or replacement passport
+4. Go to the Exit-Entry Administration Bureau to update your Residence Permit
+5. Notify your university's international student office — they can help coordinate
+Timeline: Expect 2-4 weeks for a new passport. Keep digital copies of all documents on your phone
+
+OVERSTAYED VISA/RESIDENCE PERMIT:
+- Fine: ¥500 per day of overstay, up to ¥10,000
+- Detention possible for serious overstays (30+ days)
+- May be banned from entering China for 1-5 years depending on severity
+- Prevention: Set a phone reminder 60 days before your permit expires. Start renewal at least 30 days out
+
+ARRESTED OR DETAINED:
+- You have the RIGHT to contact your embassy. Insist on this immediately
+- Do NOT sign anything you don't understand — request a translator
+- University international office MUST be informed — they have a legal obligation to assist
+- Common detention reasons: working without permit, expired visa, public disturbance
+
+ACADEMIC FRAUD:
+- Caught plagiarizing: Ranges from course failure to expulsion. Universities check via CNKI (知网)
+- Forged documents in CSC application: Permanent ban from studying in China. No second chances
+- Buying papers or thesis: Increasingly detected. Both buyer and seller face consequences
+
+EMERGENCY NUMBERS:
+- 110: Police
+- 120: Ambulance
+- 119: Fire
+- 12345: Government service hotline (complaints, questions, assistance)
+- Your embassy's emergency number: Save this in your phone on day 1
+
+INSURANCE CLAIMS:
+- CSC insurance: Ping An (平安保险). Report within 24 hours of incident
+- Hospital receipts: Keep EVERY receipt. Chinese insurance requires original paper receipts
+- Pre-authorization: For expensive treatments, call insurance company BEFORE treatment if possible`, category: 'general', source_name: 'emergency_legal_guide.md' },
+
+  // Scholarship Renewal Hacks
+  { content: `CSC Scholarship Renewal — Insider Strategies from Successful Scholars:
+Your scholarship isn't a one-time win. You renew it EVERY year. Here's what successful scholars do differently:
+
+THE EVALUATION CRITERIA (weighted differently at each university):
+1. Academic Performance (40-50%): GPA, course grades, research progress
+2. Supervisor Evaluation (20-30%): The single most important factor after grades
+3. Attendance Record (10%): Both classes and university events
+4. Cultural Activity Participation (5-10%): Join events, volunteer, represent your country
+5. Chinese Language Progress (5-10%): Show improvement in HSK scores
+
+MAXIMIZING EACH FACTOR:
+✅ GPA: Focus on first semester courses. Establish a strong baseline early
+✅ Supervisor: Weekly progress reports. Stay visible in the lab. Help with group projects
+✅ Attendance: 100% attendance in first semester. Build goodwill for when you occasionally need flexibility
+✅ Cultural events: Participate in International Culture Festival, Chinese Bridge competitions, university sports day
+✅ Language: Take the next HSK level each year. Even incremental progress counts
+
+STRATEGIC MOVES:
+- Publish early: Even a conference paper shows research productivity
+- Join your supervisor's grant applications as a team member
+- Represent your university at academic conferences (supervisor often covers costs)
+- Volunteer as a teaching assistant for undergraduate courses
+- Join student government or international student association board
+
+IF YOUR RENEWAL IS AT RISK:
+- Talk to your international student office IMMEDIATELY — they have discretion
+- A strong letter from your supervisor can override marginal GPA
+- Show evidence of improvement trajectory, not just absolute numbers
+- Some universities allow appeal — prepare a detailed improvement plan
+
+LITTLE-KNOWN FACT: About 5-10% of CSC scholars lose funding annually. The most common reason is poor attendance, NOT poor grades.`, category: 'scholarships', source_name: 'scholarship_renewal_hacks.md' },
+
+  // Hidden Scholarship Opportunities
+  { content: `Hidden Scholarship Opportunities Most Students Never Find:
+
+BEYOND CSC — OTHER FUNDING SOURCES:
+1. Confucius Institute Scholarship: For Chinese language/culture students. Need HSK 3+ for one semester, HSK 5+ for Master's. Apply via the nearest Confucius Institute in your country
+2. Provincial Scholarships (hidden gems with LOW competition):
+   - Beijing Government Scholarship (BGS)
+   - Shanghai Government Scholarship
+   - Zhejiang Province Scholarship
+   - Jiangsu Jasmine Scholarship
+   - Guangdong Government Scholarship
+   - Sichuan Province Scholarship
+   These cover partial to full tuition. Apply directly through the provincial education department
+
+3. University-Specific Scholarships:
+   - Tsinghua Scholarship for New Students (merit-based, competitive)
+   - PKU President's Fellowship
+   - Zhejiang University International Scholarship
+   - Many 211 universities offer their own financial aid packages
+   Apply: Directly on the university application portal. Often separate from CSC
+
+4. Belt & Road Scholarship: For students from Belt & Road Initiative countries (65+ countries). Growing rapidly
+
+5. MOFCOM (Ministry of Commerce) Scholarship: For students from developing countries. Covers master's and PhD
+
+6. CAS-TWAS President's Fellowship: For PhD students in natural sciences at Chinese Academy of Sciences institutes
+
+STACKING STRATEGY:
+- Apply CSC Type A + CSC Type B + Provincial + University scholarship simultaneously
+- You can ONLY accept ONE, but applying to all maximizes your chances
+- If CSC rejected, provincial or university scholarship may still come through
+- Timeline: CSC results (May-Jun), Provincial (Jun-Aug), University (Mar-Jul)
+
+Common mistake: Students apply ONLY for CSC and ignore everything else. Provincial scholarships have acceptance rates of 50-70% in some regions!`, category: 'scholarships', source_name: 'hidden_scholarships.md' },
+
+  // New Visa Application System (2025)
+  { content: `China's New Online Visa Application System (Launched September 30, 2025):
+China launched a new online visa application system, initially through the Chinese Embassy in the US, with plans to expand globally.
+
+WHAT CHANGED:
+- Previously: Paper application forms + in-person submission at embassy/consulate
+- Now: Complete the application form online, upload documents digitally, then submit at visa center
+- Faster processing: Streamlined verification reduces typical processing from 7 to 4-5 business days
+- Better tracking: Online status tracking of your application
+
+HOW TO USE:
+1. Visit the COVA system (cova.mfa.gov.cn) to create an account
+2. Select visa type (X1 for study > 180 days, X2 for ≤ 180 days)
+3. Fill in application form online
+4. Upload supporting documents (admission letter, JW201/JW202, passport scan, photo)
+5. Schedule appointment at your nearest visa application center
+6. Bring printed application + original documents for verification
+7. Pay visa fee + collect passport with visa sticker
+
+COUNTRY-SPECIFIC SUBMISSION CENTERS:
+- India: Chinese Visa Application Service Center (Delhi, Mumbai, Kolkata)
+- Pakistan: Gerry's Visa Application Service Center (Islamabad, Karachi, Lahore)
+- Nigeria: China Visa Application Center (Lagos)
+- Bangladesh: Chinese Embassy in Dhaka
+- Ethiopia: Chinese Embassy in Addis Ababa
+
+FEES (country-specific):
+- US citizens: ~$140 USD (most expensive due to reciprocal pricing)
+- Most other countries: $30-60 USD
+- Some developing nations: Reduced or waived fees for scholarship students
+
+Pro tip: Submit your visa application at least 6-8 weeks before departure. Express processing (2-3 days) available at higher cost in some countries.`, category: 'visa', source_name: 'new_visa_system_2025.md' },
 ];
 
 
