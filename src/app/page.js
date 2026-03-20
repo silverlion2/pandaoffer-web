@@ -32,9 +32,10 @@ export default function PandaOfferApp() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "PandaOffer",
+              "alternateName": ["Panda Offer", "pandaoffer.top", "PandaOffer.top"],
               "url": "https://www.pandaoffer.top/",
               "logo": "https://www.pandaoffer.top/og-image.jpg",
-              "description": "AI-driven university matching and CSC Scholarship guidance for international students studying in China.",
+              "description": "PandaOffer (Panda Offer) is an AI-powered platform helping international students study in China — university matching, CSC Scholarship guidance, and MBBS program recommendations.",
               "sameAs": ["https://discord.gg/7bU9kb23"],
               "contactPoint": {
                 "@type": "ContactPoint",

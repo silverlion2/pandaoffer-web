@@ -12,11 +12,11 @@ export const metadata = {
     google: 'zLREZ7AR-fIkNCQu19gJE9hmMZZEAqMEedboCeo1zyE',
   },
   title: {
-    default: "PandaOffer | Your Ultimate Guide to Studying in China",
+    default: "PandaOffer (Panda Offer) | AI-Powered Study in China Guide",
     template: "%s | PandaOffer"
   },
-  description: "Your ultimate guide to studying in China. Get instant, AI-driven insights on university matching, WHO/NMC certification, CSC Scholarship probability, and MBBS programs for international students.",
-  keywords: ["Study in China", "Chinese Universities", "MBBS in China", "CSC Scholarship", "China Admissions", "Study Abroad", "PandaOffer", "Study in China 2026", "Chinese Government Scholarship", "Universities in China for international students"],
+  description: "PandaOffer (Panda Offer) — your ultimate guide to studying in China. AI-driven university matching, CSC Scholarship probability calculator, WHO/NMC-recognized MBBS programs, and expert guidance for international students.",
+  keywords: ["PandaOffer", "Panda Offer", "pandaoffer.top", "Study in China", "Study in China 2026", "CSC Scholarship", "CSC Scholarship 2026", "MBBS in China", "Chinese Universities", "China Admissions", "Study Abroad China", "Chinese Government Scholarship", "Universities in China for international students", "C9 League universities", "985 universities China"],
   authors: [{ name: "PandaOffer Team" }],
   creator: "PandaOffer",
   publisher: "PandaOffer",
@@ -24,8 +24,8 @@ export const metadata = {
     canonical: 'https://www.pandaoffer.top',
   },
   openGraph: {
-    title: "PandaOffer | Your Ultimate Guide to Studying in China",
-    description: "Your ultimate guide to studying in China. AI-driven university matching, WHO/NMC certification, and CSC Scholarship guidance for international students.",
+    title: "PandaOffer (Panda Offer) | AI-Powered Study in China Guide",
+    description: "PandaOffer (Panda Offer) — AI-driven university matching, CSC Scholarship calculator, and expert guidance for international students studying in China.",
     url: "https://www.pandaoffer.top",
     siteName: "PandaOffer",
     images: [
@@ -41,8 +41,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PandaOffer | Your Ultimate Guide to Studying in China",
-    description: "Your ultimate guide to studying in China. AI-driven university matching, WHO/NMC certification, and CSC Scholarship guidance for international students.",
+    title: "PandaOffer (Panda Offer) | AI-Powered Study in China Guide",
+    description: "PandaOffer (Panda Offer) — AI-driven university matching, CSC Scholarship calculator, and expert guidance for international students studying in China.",
     images: ["/og-image.jpg"],
     creator: "@pandaoffer",
   },
