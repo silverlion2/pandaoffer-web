@@ -159,17 +159,34 @@ export default async function BlogPost({ params }) {
           </div>
         </header>
 
+        {/* Inline AI Advisor Callout */}
+        <div className="mb-10 bg-indigo-50 border border-indigo-100 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 shadow-sm">
+          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+            <span className="text-2xl">🧠</span>
+          </div>
+          <div className="flex-1 text-center sm:text-left">
+            <h4 className="font-bold text-slate-900 text-lg mb-1">Got specific questions?</h4>
+            <p className="text-slate-600 text-sm">Ask our AI Study Advisor directly. Safe, instant answers based on 500+ official university sources.</p>
+          </div>
+          <div className="flex-shrink-0 w-full sm:w-auto mt-2 sm:mt-0">
+            <Link href="/tools/advisor" className="block text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg text-sm">
+              Ask AI Advisor &rarr;
+            </Link>
+          </div>
+        </div>
+
         <div className="prose prose-lg prose-emerald max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:text-slate-800 prose-h2:mt-10 prose-h2:mb-4 prose-p:text-slate-600 prose-p:leading-loose prose-a:text-emerald-600 hover:prose-a:text-emerald-700 prose-strong:text-slate-900" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
+        {/* Bottom CTA to AI Advisor */}
         <div className="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500 rounded-full blur-[100px] opacity-20 -mr-20 -mt-20"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500 rounded-full blur-[100px] opacity-20 -mr-20 -mt-20"></div>
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Want to know your exact admission chances?</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">Don't search for answers in the dark.</h3>
             <p className="text-slate-400 mb-8 max-w-xl mx-auto text-lg">
-              Use our free AI calculator to cross-reference your GPA with 50+ top Chinese universities in 2 seconds. No BS, just data.
+              Get instant, verified answers to all your study abroad questions. Our AI Study Advisor is trained on the latest admission policies, scholarship rules, and visa regulations.
             </p>
-            <Link href="/" className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg">
-              Try AI Matching for Free &rarr;
+            <Link href="/tools/advisor" className="inline-block bg-violet-600 hover:bg-violet-700 border border-violet-500 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg">
+              Chat with AI Advisor for Free &rarr;
             </Link>
           </div>
         </div>

@@ -4,6 +4,7 @@ description: 'Updated 2026 list of WHO and NMC recognized medical universities i
 category: 'Admission'
 date: '2026-03-11'
 author: 'Dr. Panda'
+tags: ["MBBS","Medicine","WHO Recognized"]
 ---
 
 ## Why Study MBBS in China?

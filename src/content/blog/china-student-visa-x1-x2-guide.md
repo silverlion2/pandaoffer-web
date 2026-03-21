@@ -4,6 +4,7 @@ description: 'Complete guide to China X1 and X2 student visas — required docum
 category: 'Study 101'
 date: '2026-03-16'
 author: 'PandaOffer Team'
+tags: ["Visa","Documents","X1 Visa"]
 ---
 
 ## Two Visa Types: X1 and X2

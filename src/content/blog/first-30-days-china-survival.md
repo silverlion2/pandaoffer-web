@@ -4,6 +4,7 @@ description: 'Week-by-week survival checklist for your first month in China — 
 category: 'Lifestyle'
 date: '2026-03-09'
 author: 'PandaOffer Team'
+tags: ["Arrival","Checklist","Survival"]
 ---
 
 ## Day 1–3: Arrival & Registration

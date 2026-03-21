@@ -4,6 +4,7 @@ description: 'Learn about China''s university classification system — C9 Leagu
 category: 'Study 101'
 date: '2026-03-14'
 author: 'PandaOffer Team'
+tags: ["Universities","Rankings","C9 League"]
 ---
 
 ## Why University Tiers Matter

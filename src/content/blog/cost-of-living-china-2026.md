@@ -4,6 +4,7 @@ description: 'Detailed 2026 cost of living breakdown for international students 
 category: 'Lifestyle'
 date: '2026-03-15'
 author: 'PandaOffer Team'
+tags: ["Cost of Living","Budget","Finances"]
 ---
 
 ## How Much Does It Really Cost to Live in China?

@@ -4,6 +4,7 @@ description: "Everything Bangladeshi students need to know about studying in Chi
 category: "Country Guide"
 date: "2026-03-19"
 author: "PandaOffer Team"
+tags: ["Country Guide","Bangladesh","Visa"]
 ---
 
 ## Why Bangladeshi Students Choose China

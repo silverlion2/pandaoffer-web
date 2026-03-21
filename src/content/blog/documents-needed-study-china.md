@@ -4,6 +4,7 @@ description: 'The definitive document checklist for studying in China in 2026 â€
 category: 'Study 101'
 date: '2026-03-07'
 author: 'PandaOffer Team'
+tags: ["Documents","Application","Checklist"]
 ---
 
 ## The Ultimate Document Checklist

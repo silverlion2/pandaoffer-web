@@ -4,6 +4,7 @@ description: "An in-depth comparison of China's top student-friendly cities — 
 category: 'Compare'
 date: '2026-03-17'
 author: 'PandaOffer Team'
+tags: ["Cities","Cost of Living","Compare"]
 ---
 
 ## Why These Three Cities?

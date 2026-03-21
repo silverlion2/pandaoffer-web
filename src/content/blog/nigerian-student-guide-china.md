@@ -4,6 +4,7 @@ description: "Everything Nigerian students need to know about studying in China 
 category: "Country Guide"
 date: "2026-03-19"
 author: "PandaOffer Team"
+tags: ["Country Guide","Nigeria","Visa"]
 ---
 
 ## Why Nigeria → China is Booming

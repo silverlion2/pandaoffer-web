@@ -4,6 +4,7 @@ description: 'Learn how to write a CSC Scholarship study plan that wins — stru
 category: 'Study 101'
 date: '2026-03-08'
 author: 'PandaOffer Team'
+tags: ["CSC Scholarship","Study Plan","Application"]
 ---
 
 ## Why Your Study Plan Can Make or Break Your CSC Application

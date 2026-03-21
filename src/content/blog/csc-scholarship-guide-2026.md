@@ -4,6 +4,7 @@ description: 'Complete guide to the Chinese Government Scholarship (CSC) 2026 â€
 category: 'Study 101'
 date: '2026-03-10'
 author: 'PandaOffer Team'
+tags: ["CSC Scholarship","Funding","Application"]
 ---
 
 ## What is the CSC Scholarship?

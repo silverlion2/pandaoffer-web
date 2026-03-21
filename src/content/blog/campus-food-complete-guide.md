@@ -4,6 +4,7 @@ description: 'Everything international students need to know about eating in Chi
 category: 'Lifestyle'
 date: '2026-03-19'
 author: 'PandaOffer Team'
+tags: ["Food","Campus Life","Budget"]
 ---
 
 ## University Canteens: Your Lifeline

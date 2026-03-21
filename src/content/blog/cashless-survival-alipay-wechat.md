@@ -4,6 +4,7 @@ description: 'Step-by-step guide to setting up Alipay and WeChat Pay in China wi
 category: 'Lifestyle'
 date: '2026-03-12'
 author: 'PandaOffer Team'
+tags: ["Finance","Apps","Alipay","WeChat"]
 ---
 
 ## China Is Virtually Cashless — Here's How to Survive

@@ -4,6 +4,7 @@ description: 'A detailed comparison of Beijing and Hangzhou for international st
 category: 'City Guides'
 date: '2026-03-13'
 author: 'PandaOffer Team'
+tags: ["Cities","Cost of Living","Beijing","Hangzhou"]
 ---
 
 ## The Cultural Capital vs. The Silicon Valley of the East

@@ -4,6 +4,7 @@ description: 'How to build real friendships with Chinese students, navigate dati
 category: 'Lifestyle'
 date: '2026-03-15'
 author: 'PandaOffer Team'
+tags: ["Social Life","Culture","Campus Life"]
 ---
 
 ## The #1 Question Every Student Asks

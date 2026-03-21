@@ -4,6 +4,7 @@ description: 'Set up WeChat Pay, navigate the Great Firewall, choose the right V
 category: 'Lifestyle'
 date: '2026-03-18'
 author: 'PandaOffer Team'
+tags: ["Apps","Internet","VPN","WeChat"]
 ---
 
 ## The Great Firewall: What You Need to Know

@@ -4,6 +4,7 @@ description: 'The 5 stages of culture shock every international student experien
 category: 'Lifestyle'
 date: '2026-03-16'
 author: 'PandaOffer Team'
+tags: ["Mental Health","Culture","Campus Life"]
 ---
 
 ## The 5 Stages of Culture Shock

@@ -4,6 +4,7 @@ description: "Complete guide for Pakistani students planning to study in China â
 category: "Country Guide"
 date: "2026-03-19"
 author: "PandaOffer Team"
+tags: ["Country Guide","Pakistan","Visa"]
 ---
 
 ## Pakistan â†’ China: A Special Relationship

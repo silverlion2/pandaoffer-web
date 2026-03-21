@@ -4,6 +4,7 @@ description: "Complete guide for Indian students studying in China — NMC-recog
 category: "Country Guide"
 date: "2026-03-19"
 author: "PandaOffer Team"
+tags: []
 ---
 
 ## India → China: The Education Pathway
