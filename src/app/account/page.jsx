@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/components/providers/AuthProvider';
 import { createClient } from '@/lib/supabase/client';
 import { toast } from 'sonner';
-import { Save, Loader2, Mail, Shield, Calendar, KeyRound, Trash2 } from 'lucide-react';
+import { Save, Loader2, Mail, Shield, Calendar, KeyRound, Trash2, Users, Construction, Copy } from 'lucide-react';
 
 const NATIONALITIES = [
   'Afghan', 'Albanian', 'Algerian', 'American', 'Angolan', 'Argentine', 'Armenian', 'Australian',
@@ -263,6 +263,55 @@ export default function AccountProfilePage() {
             {resetLoading ? <Loader2 size={14} className="animate-spin" /> : <KeyRound size={14} />}
             Reset Password
           </button>
+        </div>
+      </div>
+
+      {/* Affiliate & Referrals Section (Under Construction) */}
+      <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl border border-indigo-100 shadow-sm p-6 space-y-4 relative overflow-hidden">
+        {/* Under Construction Overlay Badge */}
+        <div className="absolute top-4 right-4 flex items-center gap-1.5 text-amber-700 bg-amber-100 border border-amber-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm z-10">
+          <Construction size={14} />
+          Under Construction
+        </div>
+
+        <div className="relative z-10">
+          <h2 className="text-sm font-bold text-indigo-900 uppercase tracking-wide flex items-center gap-2 mb-2">
+            <Users size={16} />
+            Affiliate Program
+          </h2>
+          <h3 className="text-xl font-bold text-slate-900 font-heading mb-2">Refer Family & Friends</h3>
+          <p className="text-sm text-slate-600 max-w-2xl mb-6">
+            Help your visiting parents or relatives access premium Medical Tourism experiences in China (VIP physicals, dentistry, TCM). Earn generous commissions for every successful referral.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white/60 p-4 rounded-xl border border-indigo-100">
+            <div className="flex-1 w-full">
+              <label className="block text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">Your Unique Referral Link</label>
+              <div className="flex relative">
+                <input 
+                  type="text" 
+                  readOnly 
+                  value="https://pandaoffer.top/ref/generating..." 
+                  className="w-full bg-slate-100 border border-slate-200 text-slate-400 text-sm px-4 py-2.5 rounded-l-lg outline-none cursor-not-allowed"
+                />
+                <button disabled className="bg-indigo-100 text-indigo-400 font-bold px-4 py-2.5 rounded-r-lg text-sm border border-l-0 border-indigo-200 cursor-not-allowed flex items-center gap-2">
+                  <Copy size={16} />
+                  Copy
+                </button>
+              </div>
+            </div>
+            
+            <div className="flex flex-row gap-4 sm:border-l sm:border-indigo-200 sm:pl-6">
+              <div>
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Referrals</p>
+                <p className="text-2xl font-bold text-indigo-900 mt-1">0</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Earnings</p>
+                <p className="text-2xl font-bold text-indigo-900 mt-1">¥0</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

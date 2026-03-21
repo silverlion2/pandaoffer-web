@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { HelpCircle } from 'lucide-react';
 import AiMatcherForm from './AiMatcherForm';
 import UnlockResults from './UnlockResults';
+import MedicalTourismBanner from './MedicalTourismBanner';
 
 export default function HomeClientManager({ 
   heroHeader, 
@@ -73,6 +74,8 @@ export default function HomeClientManager({
               {affiliates}
             </div>
           </div>
+
+          <MedicalTourismBanner />
 
           {discoverChina}
 
