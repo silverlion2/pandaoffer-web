@@ -221,6 +221,40 @@ export default async function UniversityDetailPage({ params }) {
             </div>
           </section>
 
+          {/* Internal Linking Engine: Related Universities */}
+          <section className="pt-8 border-t border-slate-200">
+            <h2 className="text-2xl font-extrabold text-slate-900 mb-6 font-heading flex items-center gap-2">
+              <Building2 size={22} className="text-emerald-500" /> Similar Universities You Might Like
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {universities
+                .filter(u => u.slug !== slug)
+                .map(u => {
+                  let score = 0;
+                  if (u.tier === uni.tier) score += 5;
+                  if (u.city === uni.city) score += 3;
+                  if (u.province === uni.province) score += 1;
+                  return { ...u, score };
+                })
+                .sort((a, b) => b.score - a.score || a.qsRank - b.qsRank)
+                .slice(0, 3)
+                .map(relatedUni => (
+                  <Link key={relatedUni.slug} href={`/universities/${relatedUni.slug}`} className="group block bg-white border border-slate-200 rounded-2xl p-5 hover:border-emerald-500 transition-all hover:shadow-lg hover:-translate-y-1">
+                    <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md mb-3 inline-block">
+                      QS #{relatedUni.qsRank}
+                    </span>
+                    <h3 className="font-bold text-slate-900 leading-snug group-hover:text-emerald-600 transition-colors mb-1 line-clamp-2">
+                      {relatedUni.name}
+                    </h3>
+                    <p className="text-sm font-medium text-slate-500 flex items-center gap-1.5 opacity-90">
+                      <MapPin size={12} /> {relatedUni.city}
+                    </p>
+                  </Link>
+                ))
+              }
+            </div>
+          </section>
+
           {/* CTA Section */}
           <section className="bg-slate-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500 rounded-full blur-[100px] opacity-20 -mr-20 -mt-20"></div>

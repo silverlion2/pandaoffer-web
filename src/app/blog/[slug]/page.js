@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { getPostData, getAllPostSlugs } from '@/lib/markdown';
+import { getPostData, getAllPostSlugs, getSortedPostsData } from '@/lib/markdown';
 import Navbar from '@/components/layout/Navbar';
 
 export async function generateStaticParams() {
@@ -58,9 +58,25 @@ export async function generateMetadata({ params }) {
 export default async function BlogPost({ params }) {
   const { slug } = await params;
   let post;
+  let relatedPosts = [];
   
   try {
     post = await getPostData(slug);
+    const allPosts = getSortedPostsData();
+    
+    // Internal Linking Engine: Find 3 related posts based on tags and category
+    const otherPosts = allPosts.filter(p => p.slug !== slug);
+    
+    relatedPosts = otherPosts.map(p => {
+      let score = 0;
+      if (p.category === post.category) score += 2;
+      const commonTags = (p.tags || []).filter(t => (post.tags || []).includes(t));
+      score += commonTags.length * 3;
+      return { ...p, score };
+    })
+    .sort((a, b) => b.score - a.score || new Date(b.date) - new Date(a.date))
+    .slice(0, 3);
+    
   } catch (error) {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-8 text-center">
@@ -177,8 +193,28 @@ export default async function BlogPost({ params }) {
 
         <div className="prose prose-lg prose-emerald max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:text-slate-800 prose-h2:mt-10 prose-h2:mb-4 prose-p:text-slate-600 prose-p:leading-loose prose-a:text-emerald-600 hover:prose-a:text-emerald-700 prose-strong:text-slate-900" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
+        {/* Internal Linking Engine: Related Posts */}
+        {relatedPosts.length > 0 && (
+          <div className="mt-16 pt-12 border-t border-slate-200">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6 font-heading">Keep Reading</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedPosts.map(rp => (
+                <Link key={rp.slug} href={`/blog/${rp.slug}`} className="group block bg-white border border-slate-200 rounded-2xl p-5 hover:shadow-lg transition-all hover:-translate-y-1">
+                  <span className="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded inline-block mb-3">
+                    {rp.category}
+                  </span>
+                  <h4 className="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors line-clamp-2 mb-2">
+                    {rp.title}
+                  </h4>
+                  <p className="text-sm text-slate-500 line-clamp-2 mb-3 max-h-10 overflow-hidden">{rp.description}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Bottom CTA to AI Advisor */}
-        <div className="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
+        <div className="mt-16 bg-slate-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500 rounded-full blur-[100px] opacity-20 -mr-20 -mt-20"></div>
           <div className="relative z-10">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">Don't search for answers in the dark.</h3>

@@ -123,6 +123,29 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...blogRoutes, ...universityRoutes];
+  // Programmatic SEO Routes (Cities & Majors)
+  const uniqueCities = Array.from(new Set(
+    universities.map(u => u.city.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
+  ));
+  
+  const cityRoutes = uniqueCities.map(city => ({
+    url: `${baseUrl}/study-in-${city}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  }));
+
+  const uniqueMajors = Array.from(new Set(
+    universities.flatMap(u => (u.programs || []).map(p => p.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')))
+  ));
+
+  const majorRoutes = uniqueMajors.map(major => ({
+    url: `${baseUrl}/study-${major}-in-china`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...blogRoutes, ...universityRoutes, ...cityRoutes, ...majorRoutes];
 }
 

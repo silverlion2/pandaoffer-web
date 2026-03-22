@@ -312,6 +312,32 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
         </div>
       )}
 
+      {/* Social Sharing Hooks */}
+      {isUnlocked && topMatch && (
+        <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 text-center mt-6">
+          <h3 className="font-bold text-slate-800 mb-2">Share Your Results</h3>
+          <p className="text-sm text-slate-500 mb-4">Want to study in China with friends? Share your match!</p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`I just scored an ${topMatch.matchPercent}% match for ${topMatch.name} (${topMatch.city}) on PandaOffer! 🇨🇳🐼 Want to know your chances of studying in China? Check your profile for free: https://www.pandaoffer.top`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm"
+            >
+              Share on WhatsApp
+            </a>
+            <a
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`I just got an ${topMatch.matchPercent}% admission match for ${topMatch.name} on PandaOffer! 🎓🇨🇳 Find out your chances of studying in China for free:`)}&url=${encodeURIComponent('https://www.pandaoffer.top')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-black hover:bg-slate-800 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm"
+            >
+              Share on X (Twitter)
+            </a>
+          </div>
+        </div>
+      )}
+
       <div className="w-full bg-slate-100 h-20 flex flex-col items-center justify-center text-slate-400 text-xs rounded-xl border border-slate-200 border-dashed relative group overflow-hidden mt-6">
         <span className="font-bold text-slate-500 mb-1">Sponsored: Best VPN for Students in China 🇨🇳</span>
         <span>Stay connected with Google, WhatsApp, and YouTube. Get 70% off ExpressVPN today.</span>
