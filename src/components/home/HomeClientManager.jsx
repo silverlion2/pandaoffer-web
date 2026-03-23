@@ -6,6 +6,8 @@ import { HelpCircle } from 'lucide-react';
 import AiMatcherForm from './AiMatcherForm';
 import UnlockResults from './UnlockResults';
 import MedicalTourismBanner from './MedicalTourismBanner';
+import LifeHeroHeader from './LifeHeroHeader';
+import { useMode } from '@/components/providers/ModeProvider';
 
 export default function HomeClientManager({ 
   heroHeader, 
@@ -15,6 +17,9 @@ export default function HomeClientManager({
   socialProof, 
   premiumServices
 }) {
+  const { mode, isMounted } = useMode();
+  const [location, setLocation] = useState('Shanghai'); // Default setting for Life tools
+
   const [step, setStep] = useState('home'); 
   const [formData, setFormData] = useState({
     nationality: '',
@@ -54,15 +59,26 @@ export default function HomeClientManager({
     <div className="font-sans text-slate-800">
       {step === 'home' && (
         <div className="space-y-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="text-center space-y-8">
-            {heroHeader}
-            <AiMatcherForm onSubmit={handleMatch} defaultValues={formData} />
-            <p className="text-xs text-center text-slate-400 mt-4">
-              100% Free. Powered by Real Admission Data &amp; AI.
-            </p>
-          </div>
+          
+          {/* DYNAMIC HERO SECTION based on global Mode */}
+          {isMounted && mode === 'application' && (
+            <div className="text-center space-y-8">
+              {heroHeader}
+              <AiMatcherForm onSubmit={handleMatch} defaultValues={formData} />
+              <p className="text-xs text-center text-slate-400 mt-4">
+                100% Free. Powered by Real Admission Data &amp; AI.
+              </p>
+            </div>
+          )}
 
-          <div className="-mt-12">
+          {isMounted && mode === 'life' && (
+            <div className="text-center space-y-8">
+              <LifeHeroHeader location={location} setLocation={setLocation} />
+              {/* Optional: we can filter socialProof based on location later */}
+            </div>
+          )}
+
+          <div className="mt-12">
             {socialProof}
           </div>
 

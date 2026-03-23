@@ -6,17 +6,14 @@ import { usePathname } from 'next/navigation';
 import { MessageSquare, Menu, X, User, LogOut, BookMarked, History, ChevronDown } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import { useAuth } from '@/components/providers/AuthProvider';
+import { useMode } from '@/components/providers/ModeProvider';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const pathname = usePathname();
   const { user, profile, loading, signOut } = useAuth();
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-    setIsProfileMenuOpen(false);
-  };
+  const { mode, setMode, isMounted } = useMode();
 
   const handleSignOut = async () => {
     await signOut();
@@ -24,13 +21,22 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
-  const navLinks = [
+  const applicationLinks = [
     { name: 'Universities', href: '/universities' },
     { name: 'Tools & Calculators', href: '/tools' },
     { name: 'Blog & Guides', href: '/blog' },
     { name: 'Scholarships', href: '/scholarships' },
     { name: 'Pricing', href: '/pricing' },
   ];
+
+  const lifeLinks = [
+    { name: 'Career & Jobs', href: '/career' },
+    { name: 'Visa & Admin', href: '/visa' },
+    { name: 'Expat Tools', href: '/expat-tools' },
+    { name: 'Community', href: '/community' },
+  ];
+
+  const navLinks = mode === 'life' ? lifeLinks : applicationLinks;
 
   const accountLinks = [
     { name: 'My Profile', href: '/account', icon: User },
@@ -52,13 +58,31 @@ export default function Navbar() {
   return (
     <nav className="bg-white border-b border-slate-200 sticky top-0 z-50 relative">
       <div className="px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2" onClick={() => { setIsMobileMenuOpen(false); setIsProfileMenuOpen(false); }} aria-label="PandaOffer — Home">
             <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
               P
             </div>
             <span className="font-extrabold text-xl tracking-tight hidden sm:block">PandaOffer</span>
           </Link>
+          
+          {/* Mode Switcher */}
+          {isMounted && (
+            <div className="hidden sm:flex p-1 bg-slate-100 rounded-lg border border-slate-200">
+              <button 
+                onClick={() => setMode('application')}
+                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${mode === 'application' ? 'bg-white text-emerald-700 shadow-sm border border-slate-200/50' : 'text-slate-500 hover:text-slate-700'}`}
+              >
+                Study
+              </button>
+              <button 
+                onClick={() => setMode('life')}
+                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${mode === 'life' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+              >
+                Life
+              </button>
+            </div>
+          )}
         </div>
         
         {/* Desktop Menu */}
@@ -188,6 +212,25 @@ export default function Navbar() {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg p-4 flex flex-col gap-2">
+          
+          {/* Mobile Mode Switcher */}
+          {isMounted && (
+            <div className="flex p-1 bg-slate-100 rounded-lg mb-2">
+              <button 
+                onClick={() => { setMode('application'); setIsMobileMenuOpen(false); }}
+                className={`flex-1 py-2 text-sm font-semibold rounded-md transition-all ${mode === 'application' ? 'bg-white text-emerald-700 shadow-sm border border-slate-200/50' : 'text-slate-500'}`}
+              >
+                Study in China
+              </button>
+              <button 
+                onClick={() => { setMode('life'); setIsMobileMenuOpen(false); }}
+                className={`flex-1 py-2 text-sm font-semibold rounded-md transition-all ${mode === 'life' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500'}`}
+              >
+                Life & Career
+              </button>
+            </div>
+          )}
+
           {navLinks.map((link) => {
             const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
             return (

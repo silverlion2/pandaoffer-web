@@ -3,6 +3,7 @@ import '@fontsource-variable/outfit';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Toaster } from 'sonner';
 import AuthProvider from '@/components/providers/AuthProvider';
+import { ModeProvider } from '@/components/providers/ModeProvider';
 import "./globals.css";
 
 // Global SEO metadata (displayed in browser tabs and Google search results)
@@ -66,10 +67,12 @@ export default function RootLayout({ children }) {
         <meta name="google-site-verification" content="zLREZ7AR-fIkNCQu19gJE9hmMZZEAqMEedboCeo1zyE" />
       </head>
       <body className="font-sans">
-        <AuthProvider>
-        {/* 这里是你网站的所有页面内容 */}
-        {children}
-        </AuthProvider>
+        <ModeProvider>
+          <AuthProvider>
+            {/* 这里是你网站的所有页面内容 */}
+            {children}
+          </AuthProvider>
+        </ModeProvider>
         
         <Toaster position="bottom-right" richColors />
         

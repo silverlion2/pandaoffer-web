@@ -34,6 +34,7 @@ export default function AccountProfilePage() {
   const [resetLoading, setResetLoading] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [activeTab, setActiveTab] = useState('application'); // 'application' | 'life'
   const supabase = createClient();
 
   const [form, setForm] = useState({
@@ -43,6 +44,10 @@ export default function AccountProfilePage() {
     target_major: '',
     gpa_scale: 'percentage',
     gpa_value: '',
+    current_city: '',
+    hsk_level: '',
+    job_status: '',
+    visa_type: ''
   });
 
   // Populate form from profile
@@ -56,6 +61,10 @@ export default function AccountProfilePage() {
         target_major: p.target_major || '',
         gpa_scale: p.gpa_scale || 'percentage',
         gpa_value: p.gpa_value?.toString() || '',
+        current_city: p.current_city || '',
+        hsk_level: p.hsk_level || '',
+        job_status: p.job_status || '',
+        visa_type: p.visa_type || ''
       });
     }
   }, [profile]);
@@ -74,6 +83,10 @@ export default function AccountProfilePage() {
         target_major: form.target_major,
         gpa_scale: form.gpa_scale,
         gpa_value: parseFloat(form.gpa_value) || 0,
+        current_city: form.current_city || null,
+        hsk_level: form.hsk_level || null,
+        job_status: form.job_status || null,
+        visa_type: form.visa_type || null,
         updated_at: new Date().toISOString(),
       };
 
@@ -158,8 +171,28 @@ export default function AccountProfilePage() {
 
       {/* Profile Form */}
       <form onSubmit={handleSave} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-5">
-        <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wide">Profile Details</h2>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
+          <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wide">Profile Details</h2>
+          
+          <div className="flex bg-slate-100 p-1 rounded-lg">
+            <button
+              type="button"
+              onClick={() => setActiveTab('application')}
+              className={`px-4 py-1.5 text-sm font-bold rounded-md transition-all ${activeTab === 'application' ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+            >
+              Application Profile
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('life')}
+              className={`px-4 py-1.5 text-sm font-bold rounded-md transition-all ${activeTab === 'life' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+            >
+              Life in China Profile
+            </button>
+          </div>
+        </div>
 
+        {/* Global Name Fields (Visible on both) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-1.5">First Name</label>
@@ -188,7 +221,6 @@ export default function AccountProfilePage() {
           <select
             value={form.nationality}
             onChange={(e) => setForm({ ...form, nationality: e.target.value })}
-            required
             className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 bg-slate-50"
           >
             <option value="">Select nationality</option>
@@ -196,50 +228,125 @@ export default function AccountProfilePage() {
           </select>
         </div>
 
-        <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-1.5">Target Major</label>
-          <input
-            type="text"
-            value={form.target_major}
-            onChange={(e) => setForm({ ...form, target_major: e.target.value })}
-            placeholder="e.g. Computer Science, Medicine (MBBS)"
-            required
-            className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 bg-slate-50"
-          />
-        </div>
+        {/* Application Tab Specific Fields */}
+        {activeTab === 'application' && (
+          <div className="space-y-4 pt-2 border-t border-slate-100 animate-in fade-in duration-300">
+            <div>
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Target Major / Field of Study</label>
+              <input
+                type="text"
+                value={form.target_major}
+                onChange={(e) => setForm({ ...form, target_major: e.target.value })}
+                placeholder="e.g. Computer Science, Medicine (MBBS)"
+                className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 bg-slate-50"
+              />
+            </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1.5">GPA Scale</label>
-            <select
-              value={form.gpa_scale}
-              onChange={(e) => setForm({ ...form, gpa_scale: e.target.value })}
-              required
-              className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 bg-slate-50"
-            >
-              <option value="percentage">Percentage (0-100)</option>
-              <option value="four">4.0 Scale</option>
-              <option value="five">5.0 Scale</option>
-            </select>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Previous GPA Scale</label>
+                <select
+                  value={form.gpa_scale}
+                  onChange={(e) => setForm({ ...form, gpa_scale: e.target.value })}
+                  className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 bg-slate-50"
+                >
+                  <option value="percentage">Percentage (0-100)</option>
+                  <option value="four">4.0 Scale</option>
+                  <option value="five">5.0 Scale</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">GPA Value</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  value={form.gpa_value}
+                  onChange={(e) => setForm({ ...form, gpa_value: e.target.value })}
+                  placeholder={form.gpa_scale === 'percentage' ? 'e.g. 85' : form.gpa_scale === 'four' ? 'e.g. 3.5' : 'e.g. 4.2'}
+                  className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 bg-slate-50"
+                />
+              </div>
+            </div>
           </div>
-          <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-1.5">GPA Value</label>
-            <input
-              type="number"
-              step="0.01"
-              value={form.gpa_value}
-              onChange={(e) => setForm({ ...form, gpa_value: e.target.value })}
-              placeholder={form.gpa_scale === 'percentage' ? 'e.g. 85' : form.gpa_scale === 'four' ? 'e.g. 3.5' : 'e.g. 4.2'}
-              required
-              className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 bg-slate-50"
-            />
+        )}
+
+        {/* Life Tab Specific Fields */}
+        {activeTab === 'life' && (
+          <div className="space-y-4 pt-2 border-t border-slate-100 animate-in fade-in duration-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Current City in China</label>
+                <select
+                  value={form.current_city}
+                  onChange={(e) => setForm({ ...form, current_city: e.target.value })}
+                  className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 bg-slate-50"
+                >
+                  <option value="">Select City</option>
+                  <option value="Shanghai">Shanghai</option>
+                  <option value="Beijing">Beijing</option>
+                  <option value="Shenzhen">Shenzhen</option>
+                  <option value="Guangzhou">Guangzhou</option>
+                  <option value="Hangzhou">Hangzhou</option>
+                  <option value="Chengdu">Chengdu</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">HSK Level</label>
+                <select
+                  value={form.hsk_level}
+                  onChange={(e) => setForm({ ...form, hsk_level: e.target.value })}
+                  className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 bg-slate-50"
+                >
+                  <option value="">Select HSK Level</option>
+                  <option value="None">None</option>
+                  <option value="HSK 1">HSK 1</option>
+                  <option value="HSK 2">HSK 2</option>
+                  <option value="HSK 3">HSK 3</option>
+                  <option value="HSK 4">HSK 4</option>
+                  <option value="HSK 5">HSK 5</option>
+                  <option value="HSK 6">HSK 6</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Current Visa Type</label>
+                <select
+                  value={form.visa_type}
+                  onChange={(e) => setForm({ ...form, visa_type: e.target.value })}
+                  className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 bg-slate-50"
+                >
+                  <option value="">Select Visa Type</option>
+                  <option value="X1">X1 (Long-term Student)</option>
+                  <option value="X2">X2 (Short-term Student)</option>
+                  <option value="Z">Z (Work Visa)</option>
+                  <option value="Other">Other / Tourist</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Career Objective</label>
+                <select
+                  value={form.job_status}
+                  onChange={(e) => setForm({ ...form, job_status: e.target.value })}
+                  className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 bg-slate-50"
+                >
+                  <option value="">Select Status</option>
+                  <option value="Looking for Internship">Looking for Internship</option>
+                  <option value="Looking for Z-Visa Full Time">Looking for Z-Visa Full Time</option>
+                  <option value="Not Looking">Not Looking</option>
+                  <option value="Freelancing">Remote / Freelancing</option>
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
+        )}
 
         <button
           type="submit"
           disabled={saving}
-          className="bg-emerald-500 hover:bg-emerald-600 disabled:opacity-60 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-sm hover:shadow-md flex items-center gap-2"
+          className={`${activeTab === 'life' ? 'bg-indigo-600 hover:bg-indigo-700' : 'bg-emerald-500 hover:bg-emerald-600'} disabled:opacity-60 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-sm hover:shadow-md flex items-center gap-2 mt-4`}
         >
           {saving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}
           {saving ? 'Saving...' : 'Save Profile'}
