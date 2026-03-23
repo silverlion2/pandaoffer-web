@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { universities } from '@/data/universities';
-import { GraduationCap, ArrowRight, BookOpen, Building2 } from 'lucide-react';
+import { GraduationCap, ArrowRight, BookOpen, Building2, MapPin } from 'lucide-react';
 
 // Get unique majors and format them for URLs
 const getMajorsData = () => {

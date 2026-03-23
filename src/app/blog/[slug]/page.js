@@ -3,6 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { getPostData, getAllPostSlugs, getSortedPostsData } from '@/lib/markdown';
 import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs();
@@ -90,7 +91,7 @@ export default async function BlogPost({ params }) {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-800">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col">
       <Navbar />
       <script
         type="application/ld+json"
@@ -138,7 +139,7 @@ export default async function BlogPost({ params }) {
         }}
       />
       
-      <article className="max-w-3xl mx-auto px-6 py-16">
+      <article className="max-w-3xl mx-auto px-6 py-16 flex-grow">
         
         <nav aria-label="Breadcrumb" className="mb-10 text-sm font-medium text-slate-500">
           <ol className="flex items-center gap-2">
@@ -228,6 +229,7 @@ export default async function BlogPost({ params }) {
         </div>
 
       </article>
+      <Footer />
     </div>
   );
 }
