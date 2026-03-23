@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import { Users, Calendar, MapPin, MessageCircle, ExternalLink, QrCode, Construction } from 'lucide-react';
 
 export default function CommunityBoardClient({ events, groups }) {
@@ -20,7 +22,9 @@ export default function CommunityBoardClient({ events, groups }) {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 font-sans">
+    <div className="min-h-screen bg-slate-50 font-sans flex flex-col">
+      <Navbar />
+      <div className="flex-grow py-12">
       <div className="max-w-5xl mx-auto px-4 space-y-12">
 
         {/* Under Construction Banner */}
@@ -162,6 +166,8 @@ export default function CommunityBoardClient({ events, groups }) {
 
         </div>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }

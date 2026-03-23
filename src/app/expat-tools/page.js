@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import { ShieldAlert, Stethoscope, Home, CreditCard, Smartphone, Car, CheckCircle2, ChevronRight, FileText } from 'lucide-react';
 
 export const metadata = {
@@ -59,7 +61,9 @@ const TOOLS = [
 
 export default function ExpatTools() {
   return (
-    <div className="min-h-screen bg-slate-50 py-12 font-sans">
+    <div className="min-h-screen bg-slate-50 font-sans flex flex-col">
+      <Navbar />
+      <div className="flex-grow py-12">
       <div className="max-w-5xl mx-auto px-4 space-y-12">
         
         {/* Header */}
@@ -115,6 +119,8 @@ export default function ExpatTools() {
         </div>
 
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }

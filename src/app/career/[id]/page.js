@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { Building2, MapPin, CheckCircle2, ChevronLeft, Calendar, DollarSign, Briefcase, GraduationCap, Clock, ExternalLink, Share2, AlertCircle } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -22,7 +24,9 @@ export default async function JobPosting({ params }) {
   if (!job || error) return notFound();
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 font-sans pb-24">
+    <div className="min-h-screen bg-slate-50 font-sans flex flex-col">
+      <Navbar />
+      <div className="flex-grow py-12 pb-24">
       <div className="max-w-4xl mx-auto px-4 space-y-6">
         
         {/* Navigation */}
@@ -155,6 +159,8 @@ export default async function JobPosting({ params }) {
         </div>
 
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }

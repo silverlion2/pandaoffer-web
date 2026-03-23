@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import { Briefcase, MapPin, Building2, CheckCircle2, ChevronRight, Search, AlertCircle, Construction } from 'lucide-react';
 
 export default function CareerBoardClient({ jobs }) {
@@ -17,7 +19,9 @@ export default function CareerBoardClient({ jobs }) {
   });
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 font-sans">
+    <div className="min-h-screen bg-slate-50 font-sans flex flex-col">
+      <Navbar />
+      <div className="flex-grow py-12">
       <div className="max-w-5xl mx-auto px-4 space-y-12">
 
         {/* Under Construction Banner */}
@@ -169,6 +173,8 @@ export default function CareerBoardClient({ jobs }) {
         </div>
 
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }

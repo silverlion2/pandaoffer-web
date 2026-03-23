@@ -64,9 +64,9 @@ export default function UniversitiesPage() {
         {/* How We Choose Section */}
         <section className="bg-white border-b border-slate-100 py-12 px-6">
           <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 font-heading">The C9 League — China&apos;s Ivy League</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4 font-heading">China&apos;s C9 League &amp; Top 985 Universities</h2>
             <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed">
-              These 9 universities represent the absolute top tier of Chinese academia. They receive the most government funding, attract the best researchers, and offer the strongest CSC scholarship quotas for international students.
+              {universities.length} elite universities spanning the C9 League (China&apos;s Ivy League) and top 985 Project institutions. These schools receive the most government funding, attract leading researchers, and offer the strongest CSC scholarship quotas for international students.
             </p>
           </div>
         </section>
