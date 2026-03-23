@@ -173,6 +173,12 @@ export default async function BlogPost({ params }) {
             </span>
             <span>•</span>
             <span>{post.date}</span>
+            {post.readingTime && (
+              <>
+                <span>•</span>
+                <span>{post.readingTime} min read</span>
+              </>
+            )}
           </div>
         </header>
 

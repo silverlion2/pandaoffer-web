@@ -164,9 +164,12 @@ export default function BlogGrid({ posts }) {
                 </div>
               )}
 
-              <p className="text-emerald-500 font-medium text-sm mt-5 pt-4 border-t border-slate-50 flex items-center gap-1">
-                Read Article <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
-              </p>
+              <div className="flex items-center gap-3 text-emerald-500 font-medium text-sm mt-5 pt-4 border-t border-slate-50">
+                <span className="flex items-center gap-1">Read Article <span className="group-hover:translate-x-1 transition-transform">&rarr;</span></span>
+                {post.readingTime && (
+                  <span className="text-slate-400 text-xs font-normal ml-auto">{post.readingTime} min read</span>
+                )}
+              </div>
             </Link>
           );
         })}

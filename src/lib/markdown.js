@@ -32,9 +32,14 @@ export function getSortedPostsData() {
       // Use gray-matter to parse the post metadata section
       const matterResult = matter(fileContents);
 
+      // Calculate reading time (avg 200 words per minute)
+      const wordCount = matterResult.content.split(/\s+/).filter(Boolean).length;
+      const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
       // Combine the data with the slug
       return {
         slug,
+        readingTime,
         ...matterResult.data,
       };
     });
@@ -84,10 +89,15 @@ export async function getPostData(slug) {
     
   const contentHtml = processedContent.toString();
 
+  // Calculate reading time
+  const wordCount = matterResult.content.split(/\s+/).filter(Boolean).length;
+  const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
   // Combine the data with the slug and contentHtml
   return {
     slug,
     contentHtml,
+    readingTime,
     ...matterResult.data,
   };
 }

@@ -32,15 +32,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Study Guides */}
+          {/* Study By City */}
           <div>
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Study Guides</h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Study By City</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/blog/china-university-tiers-c9-985-211" className="hover:text-emerald-400 transition-colors">University Tiers Explained</Link></li>
-              <li><Link href="/blog/how-to-write-csc-study-plan" className="hover:text-emerald-400 transition-colors">CSC Study Plan Template</Link></li>
-              <li><Link href="/blog/documents-needed-study-china" className="hover:text-emerald-400 transition-colors">Document Checklist</Link></li>
-              <li><Link href="/blog/beijing-vs-hangzhou-where-to-study" className="hover:text-emerald-400 transition-colors">Beijing vs. Hangzhou</Link></li>
-              <li><Link href="/blog/first-30-days-china-survival" className="hover:text-emerald-400 transition-colors">First 30 Days Survival</Link></li>
+              <li><Link href="/study-in-china" className="hover:text-emerald-400 transition-colors">Study in China Guide</Link></li>
+              <li><Link href="/study-in-shanghai" className="hover:text-emerald-400 transition-colors">Study in Shanghai</Link></li>
+              <li><Link href="/study-in-beijing" className="hover:text-emerald-400 transition-colors">Study in Beijing</Link></li>
+              <li><Link href="/study-in-hangzhou" className="hover:text-emerald-400 transition-colors">Study in Hangzhou</Link></li>
+              <li><Link href="/study-in-wuhan" className="hover:text-emerald-400 transition-colors">Study in Wuhan</Link></li>
             </ul>
           </div>
 
