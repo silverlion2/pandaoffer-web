@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Users, Calendar, MapPin, MessageCircle, ExternalLink, QrCode } from 'lucide-react';
+import { Users, Calendar, MapPin, MessageCircle, ExternalLink, QrCode, Construction } from 'lucide-react';
 
 export default function CommunityBoardClient({ events, groups }) {
   const [cityFilter, setCityFilter] = useState('All');
@@ -22,6 +22,14 @@ export default function CommunityBoardClient({ events, groups }) {
   return (
     <div className="min-h-screen bg-slate-50 py-12 font-sans">
       <div className="max-w-5xl mx-auto px-4 space-y-12">
+
+        {/* Under Construction Banner */}
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-center gap-3 text-amber-800">
+          <Construction size={20} className="text-amber-500 shrink-0" />
+          <p className="text-sm font-medium">
+            <strong>🚧 Under Construction</strong> — Events and groups shown are sample data. Real community listings coming soon!
+          </p>
+        </div>
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-slate-200">

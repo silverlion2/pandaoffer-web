@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Briefcase, MapPin, Building2, CheckCircle2, ChevronRight, Search, AlertCircle } from 'lucide-react';
+import { Briefcase, MapPin, Building2, CheckCircle2, ChevronRight, Search, AlertCircle, Construction } from 'lucide-react';
 
 export default function CareerBoardClient({ jobs }) {
   const [search, setSearch] = useState('');
@@ -19,6 +19,14 @@ export default function CareerBoardClient({ jobs }) {
   return (
     <div className="min-h-screen bg-slate-50 py-12 font-sans">
       <div className="max-w-5xl mx-auto px-4 space-y-12">
+
+        {/* Under Construction Banner */}
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-center gap-3 text-amber-800">
+          <Construction size={20} className="text-amber-500 shrink-0" />
+          <p className="text-sm font-medium">
+            <strong>🚧 Under Construction</strong> — This board is being built out. Listings shown are sample data for preview purposes. Real job postings coming soon!
+          </p>
+        </div>
         
         {/* Header */}
         <div className="text-center space-y-6">
