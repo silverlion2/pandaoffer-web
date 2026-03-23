@@ -13,7 +13,7 @@ const TOOLS = [
     icon: <Stethoscope size={24} />,
     color: 'text-rose-600',
     bg: 'bg-rose-100',
-    link: '#',
+    link: '/blog/first-30-days-china-survival',
   },
   {
     title: 'Apartment Renting Checklist',
@@ -21,7 +21,7 @@ const TOOLS = [
     icon: <Home size={24} />,
     color: 'text-indigo-600',
     bg: 'bg-indigo-100',
-    link: '#',
+    link: '/blog/cost-of-living-china-2026',
   },
   {
     title: 'Banking & Payment Setup',
@@ -29,7 +29,7 @@ const TOOLS = [
     icon: <CreditCard size={24} />,
     color: 'text-emerald-600',
     bg: 'bg-emerald-100',
-    link: '#',
+    link: '/blog/cashless-survival-alipay-wechat',
   },
   {
     title: 'Digital Survival & VPNs',
@@ -37,15 +37,15 @@ const TOOLS = [
     icon: <ShieldAlert size={24} />,
     color: 'text-amber-600',
     bg: 'bg-amber-100',
-    link: '#',
+    link: '/blog/wechat-vpn-digital-survival-guide',
   },
   {
-    title: 'Police Registration Form Generator',
-    desc: 'Printable accommodation registration form required within 24hrs of arrival.',
+    title: 'Police Registration Guide',
+    desc: 'Accommodation registration required within 24hrs of arrival — step-by-step.',
     icon: <FileText size={24} />,
     color: 'text-slate-600',
     bg: 'bg-slate-200',
-    link: '#',
+    link: '/blog/first-30-days-china-survival',
   },
   {
     title: 'E-Bike & Transport Rules',
@@ -53,7 +53,7 @@ const TOOLS = [
     icon: <Car size={24} />,
     color: 'text-sky-600',
     bg: 'bg-sky-100',
-    link: '#',
+    link: '/blog/cost-of-living-china-2026',
   }
 ];
 

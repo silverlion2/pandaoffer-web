@@ -7,6 +7,9 @@ import AiMatcherForm from './AiMatcherForm';
 import UnlockResults from './UnlockResults';
 import MedicalTourismBanner from './MedicalTourismBanner';
 import LifeHeroHeader from './LifeHeroHeader';
+import LifeDiscoverGrid from './LifeDiscoverGrid';
+import LifeServicesPromo from './LifeServicesPromo';
+import EmergencyContacts from './EmergencyContacts';
 import { useMode } from '@/components/providers/ModeProvider';
 
 export default function HomeClientManager({ 
@@ -55,6 +58,8 @@ export default function HomeClientManager({
     }
   };
 
+  const isLife = isMounted && mode === 'life';
+
   return (
     <div className="font-sans text-slate-800">
       {step === 'home' && (
@@ -71,10 +76,9 @@ export default function HomeClientManager({
             </div>
           )}
 
-          {isMounted && mode === 'life' && (
+          {isLife && (
             <div className="text-center space-y-8">
               <LifeHeroHeader location={location} setLocation={setLocation} />
-              {/* Optional: we can filter socialProof based on location later */}
             </div>
           )}
 
@@ -91,11 +95,16 @@ export default function HomeClientManager({
             </div>
           </div>
 
+          {/* Life mode: Emergency Contacts */}
+          {isLife && <EmergencyContacts />}
+
           <MedicalTourismBanner />
 
-          {discoverChina}
+          {/* Mode-specific discover section */}
+          {isLife ? <LifeDiscoverGrid /> : discoverChina}
 
-          {premiumServices}
+          {/* Mode-specific promo section */}
+          {isLife ? <LifeServicesPromo /> : premiumServices}
 
           <div className="text-center py-8">
             <Link
@@ -137,3 +146,4 @@ export default function HomeClientManager({
     </div>
   );
 }
+

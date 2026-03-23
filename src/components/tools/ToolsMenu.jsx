@@ -1,6 +1,9 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import { FileText, TrendingDown, Calendar, Scale, Calculator, ArrowRight, Brain } from 'lucide-react';
+import { useMode } from '@/components/providers/ModeProvider';
 
 const TOOLS = [
   {
@@ -11,7 +14,8 @@ const TOOLS = [
     bg: 'bg-violet-50',
     border: 'border-violet-100',
     link: '/tools/advisor',
-    badge: 'BETA'
+    badge: 'BETA',
+    modes: ['application', 'life'],
   },
   {
     id: 'docs',
@@ -20,7 +24,8 @@ const TOOLS = [
     icon: <FileText size={28} className="text-blue-500" />,
     bg: 'bg-blue-50',
     border: 'border-blue-100',
-    link: '/tools/documents'
+    link: '/tools/documents',
+    modes: ['application'],
   },
   {
     id: 'roi',
@@ -29,7 +34,8 @@ const TOOLS = [
     icon: <TrendingDown size={28} className="text-emerald-500" />,
     bg: 'bg-emerald-50',
     border: 'border-emerald-100',
-    link: '/tools/roi'
+    link: '/tools/roi',
+    modes: ['application'],
   },
   {
     id: 'timeline',
@@ -38,7 +44,8 @@ const TOOLS = [
     icon: <Calendar size={28} className="text-indigo-500" />,
     bg: 'bg-indigo-50',
     border: 'border-indigo-100',
-    link: '/tools/timeline'
+    link: '/tools/timeline',
+    modes: ['application'],
   },
   {
     id: 'city',
@@ -47,7 +54,8 @@ const TOOLS = [
     icon: <Scale size={28} className="text-rose-500" />,
     bg: 'bg-rose-50',
     border: 'border-rose-100',
-    link: '/tools/city'
+    link: '/tools/city',
+    modes: ['application', 'life'],
   },
   {
     id: 'budget',
@@ -56,13 +64,17 @@ const TOOLS = [
     icon: <Calculator size={28} className="text-emerald-500" />,
     bg: 'bg-emerald-50',
     border: 'border-emerald-100',
-    link: '/tools/budget'
+    link: '/tools/budget',
+    modes: ['application', 'life'],
   },
 ];
 
 export default function ToolsMenu({ currentToolId }) {
-  // If we are showing this on the home page, we might want to hide the tool that is currently fully rendered (optional)
-  const visibleTools = currentToolId ? TOOLS.filter(t => t.id !== currentToolId) : TOOLS;
+  const { mode } = useMode();
+  const currentMode = mode || 'application';
+  const visibleTools = TOOLS
+    .filter(t => t.modes.includes(currentMode))
+    .filter(t => t.id !== currentToolId);
 
   return (
     <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">

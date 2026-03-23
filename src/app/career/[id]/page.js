@@ -1,34 +1,25 @@
 import Link from 'next/link';
 import { Building2, MapPin, CheckCircle2, ChevronLeft, Calendar, DollarSign, Briefcase, GraduationCap, Clock, ExternalLink, Share2, AlertCircle } from 'lucide-react';
+import { createClient } from '@/lib/supabase/server';
+import { notFound } from 'next/navigation';
 
-export default function JobPosting({ params }) {
-  // In a real app, you would fetch this from Supabase based on params.id
-  // This is a mocked detailed view based on the ID.
-  const job = {
-    id: params.id,
-    title: 'Cross-border E-commerce Operations Manager',
-    company: 'Shein',
-    location: 'Guangzhou',
-    salary: '15k - 25k RMB / month',
-    type: 'Full-time',
-    visaSponsored: true,
-    logo: 'S',
-    bg: 'bg-black',
-    postedAgo: 'Posted 2 days ago',
-    overview: "Shein is the world's leading fast-fashion e-commerce platform. We are seeking an international talent with native-level English to manage our cross-border logistics and global merchant operations. The ideal candidate already lives in China and understands the Chinese tech ecosystem.",
-    requirements: [
-      "Native English speaker (mandatory for this role).",
-      "HSK 4+ (Ability to communicate basically with Chinese product teams).",
-      "Bachelor's degree or higher from a recognized university.",
-      "2+ years of experience in e-commerce, marketing, or operations.",
-    ],
-    perks: [
-      "Full Z-Visa sponsorship (Class B processing).",
-      "Comprehensive Chinese social insurance (Wuxian Yijin).",
-      "Relocation support for moving to Guangzhou.",
-      "Annual flight allowance for trips back home."
-    ]
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const supabase = await createClient();
+  const { data: job } = await supabase.from('jobs').select('title, company, location').eq('id', id).single();
+  if (!job) return { title: 'Job Not Found | PandaOffer' };
+  return {
+    title: `${job.title} at ${job.company} | PandaOffer`,
+    description: `Apply for ${job.title} at ${job.company} in ${job.location}. Find expat jobs in China on PandaOffer.`,
   };
+}
+
+export default async function JobPosting({ params }) {
+  const { id } = await params;
+  const supabase = await createClient();
+  const { data: job, error } = await supabase.from('jobs').select('*').eq('id', id).single();
+
+  if (!job || error) return notFound();
 
   return (
     <div className="min-h-screen bg-slate-50 py-12 font-sans pb-24">
@@ -50,8 +41,8 @@ export default function JobPosting({ params }) {
           <div className="absolute top-0 right-0 p-8 w-64 h-64 bg-indigo-50 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2 opacity-50 pointer-events-none"></div>
           
           <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start">
-            <div className={`shrink-0 w-24 h-24 rounded-2xl flex items-center justify-center text-white text-4xl font-black shadow-lg ${job.bg}`}>
-              {job.logo}
+            <div className={`shrink-0 w-24 h-24 rounded-2xl flex items-center justify-center text-white text-4xl font-black shadow-lg ${job.logo_bg}`}>
+              {job.logo_letter}
             </div>
             
             <div className="flex-1 space-y-4">
@@ -70,13 +61,13 @@ export default function JobPosting({ params }) {
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Clock size={18} />
-                    {job.postedAgo}
+                    {job.type}
                   </span>
                 </div>
               </div>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                {job.visaSponsored && (
+                {job.visa_sponsored && (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 text-sm font-bold border border-emerald-200 shadow-sm">
                     <CheckCircle2 size={16} />
                     Z-Visa Sponsored
@@ -85,7 +76,7 @@ export default function JobPosting({ params }) {
                 <span className="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-semibold border border-slate-200">
                   {job.type}
                 </span>
-                <span className="hidden sm:inline-block px-3 py-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 text-sm font-semibold border border-indigo-100">
+                <span className="hidden sm:inline-block px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 text-sm font-semibold border border-indigo-100">
                   <DollarSign size={14} className="inline mr-1" />
                   {job.salary}
                 </span>
@@ -115,7 +106,7 @@ export default function JobPosting({ params }) {
                   <GraduationCap className="text-indigo-500" size={20} /> Requirements
                 </h2>
                 <ul className="space-y-3">
-                  {job.requirements.map((req, idx) => (
+                  {job.requirements?.map((req, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <CheckCircle2 className="text-indigo-400 shrink-0 mt-0.5" size={18} />
                       <span className="text-slate-600">{req}</span>
@@ -131,7 +122,7 @@ export default function JobPosting({ params }) {
                   <Calendar className="text-indigo-500" size={20} /> Perks & Benefits
                 </h2>
                 <ul className="space-y-3">
-                  {job.perks.map((perk, idx) => (
+                  {job.perks?.map((perk, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0"></div>
                       <span className="text-slate-600">{perk}</span>
