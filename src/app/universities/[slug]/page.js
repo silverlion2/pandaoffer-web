@@ -99,17 +99,26 @@ export default async function UniversityDetailPage({ params }) {
               </Link>
             </nav>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <div>
-                <span className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-white/30 text-white inline-block mb-4">
-                  {uni.tier}
-                </span>
-                <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-2">
-                  {uni.name}
-                </h1>
-                <p className="text-white/70 text-lg font-medium mb-1">{uni.chineseName} · {uni.code}</p>
-                <p className="text-white/60 flex items-center gap-2 text-sm">
-                  <MapPin size={14} /> {uni.city}, {uni.province} · QS #{uni.qsRank}
-                </p>
+              <div className="flex items-start gap-5">
+                {uni.logo && (
+                  <img
+                    src={uni.logo}
+                    alt={`${uni.name} logo`}
+                    className="w-16 h-16 md:w-20 md:h-20 object-contain bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/20 shrink-0"
+                  />
+                )}
+                <div>
+                  <span className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-white/30 text-white inline-block mb-4">
+                    {uni.tier}
+                  </span>
+                  <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-2">
+                    {uni.name}
+                  </h1>
+                  <p className="text-white/70 text-lg font-medium mb-1">{uni.chineseName} · {uni.code}</p>
+                  <p className="text-white/60 flex items-center gap-2 text-sm">
+                    <MapPin size={14} /> {uni.city}, {uni.province} · QS #{uni.qsRank}
+                  </p>
+                </div>
               </div>
               <div className="flex gap-3 shrink-0">
                 <SaveUniversityButton universityName={uni.name} />

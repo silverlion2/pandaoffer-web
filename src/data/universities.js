@@ -1,6 +1,7 @@
 export const universities = [
   {
     slug: "zhejiang-university",
+    logo: "/images/universities/zhejiang-university.svg",
     name: "Zhejiang University",
     code: "ZJU",
     chineseName: "浙江大学",
@@ -30,6 +31,7 @@ export const universities = [
   },
   {
     slug: "tsinghua-university",
+    logo: "/images/universities/tsinghua-university.png",
     name: "Tsinghua University",
     code: "THU",
     chineseName: "清华大学",
@@ -59,6 +61,7 @@ export const universities = [
   },
   {
     slug: "shanghai-jiao-tong-university",
+    logo: "/images/universities/shanghai-jiao-tong-university.png",
     name: "Shanghai Jiao Tong University",
     code: "SJTU",
     chineseName: "上海交通大学",
@@ -88,6 +91,7 @@ export const universities = [
   },
   {
     slug: "fudan-university",
+    logo: "/images/universities/fudan-university.png",
     name: "Fudan University",
     code: "FDU",
     chineseName: "复旦大学",
@@ -117,6 +121,7 @@ export const universities = [
   },
   {
     slug: "peking-university",
+    logo: "/images/universities/peking-university.png",
     name: "Peking University",
     code: "PKU",
     chineseName: "北京大学",
@@ -146,6 +151,7 @@ export const universities = [
   },
   {
     slug: "nanjing-university",
+    logo: "/images/universities/nanjing-university.png",
     name: "Nanjing University",
     code: "NJU",
     chineseName: "南京大学",
@@ -175,6 +181,7 @@ export const universities = [
   },
   {
     slug: "ustc",
+    logo: "/images/universities/ustc.png",
     name: "University of Science and Technology of China",
     code: "USTC",
     chineseName: "中国科学技术大学",
@@ -204,6 +211,7 @@ export const universities = [
   },
   {
     slug: "xian-jiaotong-university",
+    logo: "/images/universities/xian-jiaotong-university.png",
     name: "Xi'an Jiaotong University",
     code: "XJTU",
     chineseName: "西安交通大学",
@@ -233,6 +241,7 @@ export const universities = [
   },
   {
     slug: "wuhan-university",
+    logo: "/images/universities/wuhan-university.png",
     name: "Wuhan University",
     code: "WHU",
     chineseName: "武汉大学",
@@ -262,6 +271,7 @@ export const universities = [
   },
   {
     slug: "sun-yat-sen-university",
+    logo: "/images/universities/sun-yat-sen-university.png",
     name: "Sun Yat-sen University",
     code: "SYSU",
     chineseName: "中山大学",
@@ -291,6 +301,7 @@ export const universities = [
   },
   {
     slug: "sichuan-university",
+    logo: "/images/universities/sichuan-university.png",
     name: "Sichuan University",
     code: "SCU",
     chineseName: "四川大学",
@@ -320,6 +331,7 @@ export const universities = [
   },
   {
     slug: "tianjin-university",
+    logo: "/images/universities/tianjin-university.png",
     name: "Tianjin University",
     code: "TJU",
     chineseName: "天津大学",
@@ -349,6 +361,7 @@ export const universities = [
   },
   {
     slug: "dalian-university-of-technology",
+    logo: "/images/universities/dalian-university-of-technology.png",
     name: "Dalian University of Technology",
     code: "DUT",
     chineseName: "大连理工大学",
@@ -378,6 +391,7 @@ export const universities = [
   },
   {
     slug: "xiamen-university",
+    logo: "/images/universities/xiamen-university.png",
     name: "Xiamen University",
     code: "XMU",
     chineseName: "厦门大学",
@@ -407,6 +421,7 @@ export const universities = [
   },
   {
     slug: "central-south-university",
+    logo: "/images/universities/central-south-university.png",
     name: "Central South University",
     code: "CSU",
     chineseName: "中南大学",
@@ -436,6 +451,7 @@ export const universities = [
   },
   {
     slug: "tongji-university",
+    logo: "/images/universities/tongji-university.png",
     name: "Tongji University",
     code: "TJU-SH",
     chineseName: "同济大学",
@@ -465,6 +481,7 @@ export const universities = [
   },
   {
     slug: "harbin-institute-of-technology",
+    logo: "/images/universities/harbin-institute-of-technology.png",
     name: "Harbin Institute of Technology",
     code: "HIT",
     chineseName: "哈尔滨工业大学",
@@ -494,6 +511,7 @@ export const universities = [
   },
   {
     slug: "beihang-university",
+    logo: "/images/universities/beihang-university.png",
     name: "Beihang University",
     code: "BUAA",
     chineseName: "北京航空航天大学",
@@ -523,6 +541,7 @@ export const universities = [
   },
   {
     slug: "huazhong-university-of-science-and-technology",
+    logo: "/images/universities/huazhong-university-of-science-and-technology.png",
     name: "Huazhong University of Science and Technology",
     code: "HUST",
     chineseName: "华中科技大学",
@@ -552,6 +571,7 @@ export const universities = [
   },
   {
     slug: "beijing-normal-university",
+    logo: "/images/universities/beijing-normal-university.png",
     name: "Beijing Normal University",
     code: "BNU",
     chineseName: "北京师范大学",

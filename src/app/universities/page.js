@@ -79,6 +79,15 @@ export default function UniversitiesPage() {
                 <div key={uni.slug} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 flex flex-col group hover:shadow-lg transition-all">
                   <div className="h-48 relative overflow-hidden">
                     <div className={`absolute inset-0 bg-gradient-to-tr ${uni.gradient}`}></div>
+                    {uni.logo && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <img
+                          src={uni.logo}
+                          alt={`${uni.name} logo`}
+                          className="w-20 h-20 object-contain opacity-30"
+                        />
+                      </div>
+                    )}
                     <SaveUniversityButton universityName={uni.name} />
                     <div className="absolute bottom-4 left-4 text-white">
                       <span className="bg-white/20 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-white/30 mb-2 inline-block">{uni.tier}</span>
