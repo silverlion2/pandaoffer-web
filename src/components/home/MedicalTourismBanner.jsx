@@ -24,7 +24,7 @@ export default function MedicalTourismBanner() {
         
         <div className="flex-shrink-0 flex flex-col items-center sm:items-end gap-3">
           <a 
-            href="https://shanghaimed.help"
+            href="https://www.shanghaimed.help/"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex items-center gap-2 bg-slate-800 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-md hover:bg-slate-900 hover:shadow-lg hover:-translate-y-0.5"

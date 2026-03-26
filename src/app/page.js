@@ -8,6 +8,7 @@ import SocialProof from '@/components/home/SocialProof';
 import PremiumServices from '@/components/home/PremiumServices';
 
 import ToolsMenu from '@/components/tools/ToolsMenu';
+import MedicalTourismBanner from '@/components/home/MedicalTourismBanner';
 
 export default function PandaOfferApp() {
   return (
@@ -58,6 +59,7 @@ export default function PandaOfferApp() {
           premiumServices={<PremiumServices />}
 
         />
+        <MedicalTourismBanner />
       </main>
 
       <Footer />

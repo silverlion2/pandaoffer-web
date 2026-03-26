@@ -68,11 +68,25 @@ export default function Footer() {
               </li>
             </ul>
             <h4 className="text-white font-bold text-sm uppercase tracking-wider mt-6 mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm mb-6">
               <li><Link href="/pricing" className="hover:text-emerald-400 transition-colors">Pricing</Link></li>
               <li><Link href="/privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-emerald-400 transition-colors">Terms of Service</Link></li>
               <li><Link href="/refund" className="hover:text-emerald-400 transition-colors">Refund Policy</Link></li>
+            </ul>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Sister Sites</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a 
+                  href="https://www.shanghaimed.help/" 
+                  target="_blank" 
+                  rel="noopener" 
+                  className="hover:text-emerald-400 transition-colors flex items-center gap-1.5"
+                  title="Medical Tourism & Healthcare in Shanghai"
+                >
+                  <Heart size={14} className="text-emerald-400" /> ShanghaiMed.help
+                </a>
+              </li>
             </ul>
           </div>
         </div>
