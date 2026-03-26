@@ -373,22 +373,17 @@ export default function AccountProfilePage() {
         </div>
       </div>
 
-      {/* Affiliate & Referrals Section (Under Construction) */}
+      {/* Affiliate & Referrals Section */}
       <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl border border-indigo-100 shadow-sm p-6 space-y-4 relative overflow-hidden">
-        {/* Under Construction Overlay Badge */}
-        <div className="absolute top-4 right-4 flex items-center gap-1.5 text-amber-700 bg-amber-100 border border-amber-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm z-10">
-          <Construction size={14} />
-          Under Construction
-        </div>
 
         <div className="relative z-10">
           <h2 className="text-sm font-bold text-indigo-900 uppercase tracking-wide flex items-center gap-2 mb-2">
             <Users size={16} />
-            Affiliate Program
+            ShanghaiMedConnect Affiliate
           </h2>
           <h3 className="text-xl font-bold text-slate-900 font-heading mb-2">Refer Family & Friends</h3>
           <p className="text-sm text-slate-600 max-w-2xl mb-6">
-            Help your visiting parents or relatives access premium Medical Tourism experiences in China (VIP physicals, dentistry, TCM). Earn generous commissions for every successful referral.
+            Help your visiting parents or relatives access Shanghai's top-tier hospitals with dedicated concierge and medical interpreters. Earn generous commissions for every successful referral for specialized treatments (Cardiovascular, CAR-T Oncology, Neurology).
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white/60 p-4 rounded-xl border border-indigo-100">
@@ -398,10 +393,16 @@ export default function AccountProfilePage() {
                 <input 
                   type="text" 
                   readOnly 
-                  value="https://pandaoffer.top/ref/generating..." 
-                  className="w-full bg-slate-100 border border-slate-200 text-slate-400 text-sm px-4 py-2.5 rounded-l-lg outline-none cursor-not-allowed"
+                  value={`https://shanghaimed.help/?aff=${user?.id || 'generating'}`} 
+                  className="w-full bg-slate-100 border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-l-lg outline-none"
                 />
-                <button disabled className="bg-indigo-100 text-indigo-400 font-bold px-4 py-2.5 rounded-r-lg text-sm border border-l-0 border-indigo-200 cursor-not-allowed flex items-center gap-2">
+                <button 
+                  onClick={() => {
+                    navigator.clipboard.writeText(`https://shanghaimed.help/?aff=${user?.id || 'generating'}`);
+                    toast.success('Affiliate link copied to clipboard!');
+                  }}
+                  className="bg-indigo-600 hover:bg-indigo-700 transition-colors text-white font-bold px-4 py-2.5 rounded-r-lg text-sm border border-l-0 border-indigo-600 flex items-center gap-2"
+                >
                   <Copy size={16} />
                   Copy
                 </button>

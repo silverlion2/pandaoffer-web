@@ -12,28 +12,26 @@ export default function MedicalTourismBanner() {
         <div className="flex-1 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/50 text-emerald-700 text-xs font-bold uppercase tracking-wide border border-emerald-200">
             <HeartPulse size={14} />
-            Medical Tourism Partner
+            ShanghaiMedConnect Partner
           </div>
           <h3 className="text-2xl md:text-3xl font-bold text-slate-900 font-heading">
             Family Visiting China?
           </h3>
           <p className="text-slate-600 text-lg max-w-xl">
-            From high-end VIP physicals to advanced dental work and traditional medicinal retreats. Discover world-class healthcare options for your parents and relatives while they visit.
+            Help them access quality healthcare in Shanghai. Our concierge partner navigates top-tier hospitals for specialized treatments (cardiovascular, CAR-T oncology, neuroscience) with dedicated medical interpreters.
           </p>
         </div>
         
         <div className="flex-shrink-0 flex flex-col items-center sm:items-end gap-3">
-          <button 
-            disabled
-            className="group relative flex items-center gap-2 bg-slate-800 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-md opacity-60 cursor-not-allowed"
+          <a 
+            href="https://shanghaimed.help"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex items-center gap-2 bg-slate-800 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-md hover:bg-slate-900 hover:shadow-lg hover:-translate-y-0.5"
           >
             Access VIP Health Guide
-            <ArrowRight size={18} className="opacity-50" />
-          </button>
-          <div className="flex items-center gap-2 text-amber-700 text-sm font-bold bg-amber-100 px-3 py-1.5 rounded-lg border border-amber-200">
-            <Construction size={16} />
-            Under Construction
-          </div>
+            <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+          </a>
         </div>
       </div>
     </div>
