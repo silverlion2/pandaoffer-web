@@ -4,6 +4,13 @@ import CareerBoardClient from './CareerBoardClient';
 export const metadata = {
   title: 'Expat Jobs & Internships in China | PandaOffer',
   description: 'Find Z-Visa sponsored jobs and legal internships for international students and expats in China. Roles at ByteDance, Shein, DJI, Huawei, and more.',
+  openGraph: {
+    title: 'Expat Jobs & Internships in China | PandaOffer',
+    description: 'Find Z-Visa sponsored jobs and legal internships for international students and expats in China.',
+    url: 'https://www.pandaoffer.top/career',
+    type: 'website',
+  },
+  alternates: { canonical: 'https://www.pandaoffer.top/career' },
 };
 
 export default async function CareerBoard() {

@@ -4,7 +4,7 @@ description: "Complete guide for Ethiopian students — CSC scholarship, visa fr
 category: "Country Guide"
 date: "2026-03-19"
 author: "PandaOffer Team"
-tags: []
+tags: ["Country Guide", "Ethiopia", "CSC Scholarship", "Engineering"]
 ---
 
 ## Ethiopia & China: A Strong Partnership

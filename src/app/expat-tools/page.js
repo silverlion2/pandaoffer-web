@@ -6,6 +6,13 @@ import { ShieldAlert, Stethoscope, Home, CreditCard, Smartphone, Car, CheckCircl
 export const metadata = {
   title: 'Expat Survival Tools & Guides | PandaOffer',
   description: 'Essential tools and guides for international students living in China: VPNs, renting, banking, and medical.',
+  openGraph: {
+    title: 'Expat Survival Tools & Guides | PandaOffer',
+    description: 'Essential tools and guides for international students living in China: VPNs, renting, banking, and medical.',
+    url: 'https://www.pandaoffer.top/expat-tools',
+    type: 'website',
+  },
+  alternates: { canonical: 'https://www.pandaoffer.top/expat-tools' },
 };
 
 const TOOLS = [

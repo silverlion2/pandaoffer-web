@@ -4,6 +4,13 @@ import CommunityBoardClient from './CommunityBoardClient';
 export const metadata = {
   title: 'Community Hub | PandaOffer',
   description: 'Join verified WeChat groups, attend expat meetups, and connect with international students across China.',
+  openGraph: {
+    title: 'Community Hub | PandaOffer',
+    description: 'Join verified WeChat groups, attend expat meetups, and connect with international students across China.',
+    url: 'https://www.pandaoffer.top/community',
+    type: 'website',
+  },
+  alternates: { canonical: 'https://www.pandaoffer.top/community' },
 };
 
 export default async function CommunityBoard() {

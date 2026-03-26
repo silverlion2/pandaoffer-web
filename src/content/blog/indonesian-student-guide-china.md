@@ -4,7 +4,7 @@ description: "Complete guide for Indonesian students studying in China — LPDP 
 category: "Country Guide"
 date: "2026-03-19"
 author: "PandaOffer Team"
-tags: []
+tags: ["Country Guide", "Indonesia", "LPDP", "CSC Scholarship"]
 ---
 
 ## Indonesia & China: Growing Education Ties
