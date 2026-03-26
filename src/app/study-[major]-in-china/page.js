@@ -85,7 +85,16 @@ export default async function MajorLandingPage({ params }) {
               "@type": "CollectionPage",
               "name": `Study ${majorData.name} in China`,
               "description": `Comprehensive guide to studying ${majorData.name} in top Chinese universities.`,
-              "url": `https://www.pandaoffer.top/study-${majorSlug}-in-china`
+              "url": `https://www.pandaoffer.top/study-${majorSlug}-in-china`,
+              "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": sortedUnis.map((uni, index) => ({
+                  "@type": "ListItem",
+                  "position": index + 1,
+                  "name": uni.name,
+                  "url": `https://www.pandaoffer.top/universities/${uni.slug}`
+                }))
+              }
             },
             {
               "@context": "https://schema.org",

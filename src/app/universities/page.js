@@ -30,14 +30,32 @@ export default function UniversitiesPage() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pandaoffer.top" },
-                { "@type": "ListItem", "position": 2, "name": "Universities", "item": "https://www.pandaoffer.top/universities" }
-              ]
-            })
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pandaoffer.top" },
+                  { "@type": "ListItem", "position": 2, "name": "Universities", "item": "https://www.pandaoffer.top/universities" }
+                ]
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "name": "Top Universities in China",
+                "description": "Discover top-ranked Chinese universities for international students.",
+                "url": "https://www.pandaoffer.top/universities",
+                "mainEntity": {
+                  "@type": "ItemList",
+                  "itemListElement": universities.map((uni, index) => ({
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "name": uni.name,
+                    "url": `https://www.pandaoffer.top/universities/${uni.slug}`
+                  }))
+                }
+              }
+            ])
           }}
         />
         {/* Hero Section */}

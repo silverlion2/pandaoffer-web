@@ -86,7 +86,16 @@ export default async function CityLandingPage({ params }) {
               "@type": "CollectionPage",
               "name": `Study in ${cityData.name}`,
               "description": `Comprehensive guide to universities and student life in ${cityData.name}, China.`,
-              "url": `https://www.pandaoffer.top/study-in-${citySlug}`
+              "url": `https://www.pandaoffer.top/study-in-${citySlug}`,
+              "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": sortedUnis.map((uni, index) => ({
+                  "@type": "ListItem",
+                  "position": index + 1,
+                  "name": uni.name,
+                  "url": `https://www.pandaoffer.top/universities/${uni.slug}`
+                }))
+              }
             },
             {
               "@context": "https://schema.org",
