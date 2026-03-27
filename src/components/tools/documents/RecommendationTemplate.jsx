@@ -3,6 +3,13 @@
 import React, { useState, useMemo } from 'react';
 import { Copy, Download, Check, AlertTriangle } from 'lucide-react';
 
+const InputField = ({ label, value, field, placeholder, update }) => (
+    <div>
+      <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
+      <input type="text" value={value} onChange={(e) => update(field, e.target.value)} placeholder={placeholder} className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400 transition-all bg-white placeholder:text-slate-400" />
+    </div>
+);
+
 const RELATIONSHIP_OPTIONS = [
   { id: 'thesis_advisor', label: 'Thesis / Research Advisor' },
   { id: 'professor', label: 'Course Professor' },
@@ -127,7 +134,7 @@ export default function RecommendationTemplate() {
     lines.push(`Email: ${rEmail}`);
 
     return lines.join('\n');
-  }, [form, relationshipLabel]);
+  }, [form]);
 
   const handleCopy = async () => {
     try {
@@ -146,19 +153,6 @@ export default function RecommendationTemplate() {
     a.click();
     URL.revokeObjectURL(url);
   };
-
-  const InputField = ({ label, value, field, placeholder }) => (
-    <div>
-      <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => update(field, e.target.value)}
-        placeholder={placeholder}
-        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400 transition-all bg-white placeholder:text-slate-400"
-      />
-    </div>
-  );
 
   return (
     <div className="space-y-6">
@@ -183,14 +177,14 @@ export default function RecommendationTemplate() {
               Recommender Information
             </h3>
             <div className="grid grid-cols-2 gap-3">
-              <InputField label="Professor Name" value={form.recommenderName} field="recommenderName" placeholder="Prof. Li Ming" />
-              <InputField label="Title" value={form.recommenderTitle} field="recommenderTitle" placeholder="Associate Professor" />
+              <InputField update={update} label="Professor Name" value={form.recommenderName} field="recommenderName" placeholder="Prof. Li Ming" />
+              <InputField update={update} label="Title" value={form.recommenderTitle} field="recommenderTitle" placeholder="Associate Professor" />
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <InputField label="Department" value={form.recommenderDept} field="recommenderDept" placeholder="Dept. of Computer Science" />
-              <InputField label="University" value={form.recommenderUniversity} field="recommenderUniversity" placeholder="University of Lagos" />
+              <InputField update={update} label="Department" value={form.recommenderDept} field="recommenderDept" placeholder="Dept. of Computer Science" />
+              <InputField update={update} label="University" value={form.recommenderUniversity} field="recommenderUniversity" placeholder="University of Lagos" />
             </div>
-            <InputField label="Email" value={form.recommenderEmail} field="recommenderEmail" placeholder="professor@university.edu" />
+            <InputField update={update} label="Email" value={form.recommenderEmail} field="recommenderEmail" placeholder="professor@university.edu" />
           </div>
 
           {/* Student Info */}
@@ -199,11 +193,11 @@ export default function RecommendationTemplate() {
               <span className="w-6 h-6 rounded-full bg-emerald-500 text-white text-xs flex items-center justify-center font-bold">2</span>
               Student & Target Program
             </h3>
-            <InputField label="Student Name" value={form.studentName} field="studentName" placeholder="John Doe" />
-            <InputField label="Applying For" value={form.applyingFor} field="applyingFor" placeholder="Master's Degree" />
+            <InputField update={update} label="Student Name" value={form.studentName} field="studentName" placeholder="John Doe" />
+            <InputField update={update} label="Applying For" value={form.applyingFor} field="applyingFor" placeholder="Master's Degree" />
             <div className="grid grid-cols-2 gap-3">
-              <InputField label="Target University" value={form.targetUniversity} field="targetUniversity" placeholder="Zhejiang University" />
-              <InputField label="Target Program" value={form.targetProgram} field="targetProgram" placeholder="MSc Computer Science" />
+              <InputField update={update} label="Target University" value={form.targetUniversity} field="targetUniversity" placeholder="Zhejiang University" />
+              <InputField update={update} label="Target Program" value={form.targetProgram} field="targetProgram" placeholder="MSc Computer Science" />
             </div>
           </div>
 
@@ -231,13 +225,13 @@ export default function RecommendationTemplate() {
                 ))}
               </div>
             </div>
-            <InputField label="Duration" value={form.relationshipDuration} field="relationshipDuration" placeholder="2 years" />
+            <InputField update={update} label="Duration" value={form.relationshipDuration} field="relationshipDuration" placeholder="2 years" />
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-1.5">Context</label>
               <textarea
                 value={form.relationshipDetail}
                 onChange={(e) => update('relationshipDetail', e.target.value)}
-                placeholder="Describe the context of the relationship — which course, project, or role brought you together..."
+                placeholder="Describe the context of the relationship �?which course, project, or role brought you together..."
                 rows={3}
                 className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400 transition-all bg-white resize-none placeholder:text-slate-400"
               />
@@ -333,3 +327,4 @@ export default function RecommendationTemplate() {
     </div>
   );
 }
+

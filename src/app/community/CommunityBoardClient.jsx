@@ -117,7 +117,7 @@ export default function CommunityBoardClient({ events, groups }) {
             
             {/* Missing City */}
             <div className="bg-white border border-slate-200 border-dashed rounded-2xl p-8 text-center mt-6">
-              <p className="text-slate-500 font-medium mb-3">Don't see events in your city?</p>
+              <p className="text-slate-500 font-medium mb-3">Don&apos;t see events in your city?</p>
               <button className="text-indigo-600 font-bold hover:underline">Apply to be a City Ambassador</button>
             </div>
           </div>

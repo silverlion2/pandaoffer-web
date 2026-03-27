@@ -5,6 +5,7 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import { createClient } from '@/lib/supabase/client';
 import { toast } from 'sonner';
 import { BookMarked, Trash2, Loader2, MapPin, GraduationCap } from 'lucide-react';
+import Link from 'next/link';
 
 // University metadata (mirrors universities page data)
 const UNIVERSITY_DATA = {
@@ -25,19 +26,19 @@ export default function SavedUniversitiesPage() {
   const supabase = createClient();
 
   useEffect(() => {
+    const fetchSaved = async () => {
+      const { data, error } = await supabase
+        .from('saved_universities')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('saved_at', { ascending: false });
+
+      if (!error) setSaved(data || []);
+      setLoading(false);
+    };
+
     if (user) fetchSaved();
-  }, [user]);
-
-  const fetchSaved = async () => {
-    const { data, error } = await supabase
-      .from('saved_universities')
-      .select('*')
-      .eq('user_id', user.id)
-      .order('saved_at', { ascending: false });
-
-    if (!error) setSaved(data || []);
-    setLoading(false);
-  };
+  }, [user, supabase]);
 
   const handleRemove = async (id, name) => {
     const { error } = await supabase
@@ -75,7 +76,7 @@ export default function SavedUniversitiesPage() {
           </div>
           <h2 className="text-lg font-bold text-slate-900 mb-2">No saved universities yet</h2>
           <p className="text-sm text-slate-500 max-w-md mx-auto">
-            Browse the <a href="/universities" className="text-emerald-600 hover:underline font-semibold">Universities page</a> and click the heart icon to save your favorites.
+            Browse the <Link href="/universities" className="text-emerald-600 hover:underline font-semibold">Universities page</Link> and click the heart icon to save your favorites.
           </p>
         </div>
       ) : (

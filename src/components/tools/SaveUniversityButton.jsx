@@ -13,18 +13,18 @@ export default function SaveUniversityButton({ universityName }) {
   const supabase = createClient();
 
   useEffect(() => {
-    if (user) checkSaved();
-  }, [user]);
+    const checkSaved = async () => {
+      const { data } = await supabase
+        .from('saved_universities')
+        .select('id')
+        .eq('user_id', user.id)
+        .eq('university_name', universityName)
+        .maybeSingle();
+      setSaved(!!data);
+    };
 
-  const checkSaved = async () => {
-    const { data } = await supabase
-      .from('saved_universities')
-      .select('id')
-      .eq('user_id', user.id)
-      .eq('university_name', universityName)
-      .maybeSingle();
-    setSaved(!!data);
-  };
+    if (user) checkSaved();
+  }, [user, universityName, supabase]);
 
   const toggleSave = async (e) => {
     e.preventDefault();

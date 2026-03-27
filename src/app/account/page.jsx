@@ -383,7 +383,7 @@ export default function AccountProfilePage() {
           </h2>
           <h3 className="text-xl font-bold text-slate-900 font-heading mb-2">Refer Family & Friends</h3>
           <p className="text-sm text-slate-600 max-w-2xl mb-6">
-            Help your visiting parents or relatives access Shanghai's top-tier hospitals with dedicated concierge and medical interpreters. Earn generous commissions for every successful referral for specialized treatments (Cardiovascular, CAR-T Oncology, Neurology).
+            Help your visiting parents or relatives access Shanghai&apos;s top-tier hospitals with dedicated concierge and medical interpreters. Earn generous commissions for every successful referral for specialized treatments (Cardiovascular, CAR-T Oncology, Neurology).
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white/60 p-4 rounded-xl border border-indigo-100">

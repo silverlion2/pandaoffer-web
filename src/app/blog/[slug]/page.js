@@ -224,7 +224,7 @@ export default async function BlogPost({ params }) {
         <div className="mt-16 bg-slate-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500 rounded-full blur-[100px] opacity-20 -mr-20 -mt-20"></div>
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Don't search for answers in the dark.</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">Don&apos;t search for answers in the dark.</h3>
             <p className="text-slate-400 mb-8 max-w-xl mx-auto text-lg">
               Get instant, verified answers to all your study abroad questions. Our AI Study Advisor is trained on the latest admission policies, scholarship rules, and visa regulations.
             </p>

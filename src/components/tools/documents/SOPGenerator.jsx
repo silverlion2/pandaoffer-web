@@ -3,6 +3,33 @@
 import React, { useState, useMemo } from 'react';
 import { Copy, Download, Check, AlertCircle } from 'lucide-react';
 
+const TextArea = ({ label, value, field, placeholder, hint, rows = 4, update }) => (
+  <div>
+    <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
+    {hint && <p className="text-xs text-slate-400 mb-2">{hint}</p>}
+    <textarea
+      value={value}
+      onChange={(e) => update(field, e.target.value)}
+      placeholder={placeholder}
+      rows={rows}
+      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all bg-white resize-none placeholder:text-slate-400"
+    />
+  </div>
+);
+
+const InputField = ({ label, value, field, placeholder, update }) => (
+  <div>
+    <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
+    <input
+      type="text"
+      value={value}
+      onChange={(e) => update(field, e.target.value)}
+      placeholder={placeholder}
+      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all bg-white placeholder:text-slate-400"
+    />
+  </div>
+);
+
 export default function SOPGenerator() {
   const [copied, setCopied] = useState(false);
   const [form, setForm] = useState({
@@ -117,33 +144,6 @@ export default function SOPGenerator() {
     URL.revokeObjectURL(url);
   };
 
-  const TextArea = ({ label, value, field, placeholder, hint, rows = 4 }) => (
-    <div>
-      <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
-      {hint && <p className="text-xs text-slate-400 mb-2">{hint}</p>}
-      <textarea
-        value={value}
-        onChange={(e) => update(field, e.target.value)}
-        placeholder={placeholder}
-        rows={rows}
-        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all bg-white resize-none placeholder:text-slate-400"
-      />
-    </div>
-  );
-
-  const InputField = ({ label, value, field, placeholder }) => (
-    <div>
-      <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => update(field, e.target.value)}
-        placeholder={placeholder}
-        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all bg-white placeholder:text-slate-400"
-      />
-    </div>
-  );
-
   return (
     <div className="space-y-6">
       <div className="grid lg:grid-cols-2 gap-6">
@@ -156,10 +156,11 @@ export default function SOPGenerator() {
               Personal Introduction
             </h3>
             <div className="grid grid-cols-2 gap-3">
-              <InputField label="Full Name" value={form.fullName} field="fullName" placeholder="John Doe" />
-              <InputField label="Country" value={form.country} field="country" placeholder="Nigeria" />
+              <InputField update={update} label="Full Name" value={form.fullName} field="fullName" placeholder="John Doe" />
+              <InputField update={update} label="Country" value={form.country} field="country" placeholder="Nigeria" />
             </div>
             <TextArea
+              update={update}
               label="Current Situation"
               value={form.currentSituation}
               field="currentSituation"
@@ -175,6 +176,7 @@ export default function SOPGenerator() {
               Academic Journey
             </h3>
             <TextArea
+              update={update}
               label="Your Education & Achievements"
               value={form.academicJourney}
               field="academicJourney"
@@ -191,6 +193,7 @@ export default function SOPGenerator() {
               Why China?
             </h3>
             <TextArea
+              update={update}
               label="Why study in China?"
               value={form.whyChina}
               field="whyChina"
@@ -206,8 +209,9 @@ export default function SOPGenerator() {
               <span className="w-6 h-6 rounded-full bg-indigo-500 text-white text-xs flex items-center justify-center font-bold">4</span>
               Program & Career Goals
             </h3>
-            <InputField label="Target Program" value={form.targetProgram} field="targetProgram" placeholder="MSc Computer Science at Tsinghua University" />
+            <InputField update={update} label="Target Program" value={form.targetProgram} field="targetProgram" placeholder="MSc Computer Science at Tsinghua University" />
             <TextArea
+              update={update}
               label="Career Goals"
               value={form.careerGoals}
               field="careerGoals"
@@ -224,6 +228,7 @@ export default function SOPGenerator() {
               Unique Qualities
             </h3>
             <TextArea
+              update={update}
               label="What makes you stand out?"
               value={form.uniqueQualities}
               field="uniqueQualities"

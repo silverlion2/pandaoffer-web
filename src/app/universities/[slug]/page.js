@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -101,9 +102,11 @@ export default async function UniversityDetailPage({ params }) {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
               <div className="flex items-start gap-5">
                 {uni.logo && (
-                  <img
+                  <Image
                     src={uni.logo}
                     alt={`${uni.name} logo`}
+                    width={80}
+                    height={80}
                     className="w-16 h-16 md:w-20 md:h-20 object-contain bg-white/10 backdrop-blur-md rounded-xl p-2 border border-white/20 shrink-0"
                   />
                 )}

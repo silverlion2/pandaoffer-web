@@ -19,6 +19,15 @@ export default function AuthProvider({ children }) {
   const supabase = createClient();
 
   useEffect(() => {
+    const fetchProfile = async (userId) => {
+      const { data } = await supabase
+        .from('users')
+        .select('*, user_profiles(*)')
+        .eq('id', userId)
+        .single();
+      setProfile(data);
+    };
+
     // Get initial session
     const getSession = async () => {
       const { data: { user: currentUser } } = await supabase.auth.getUser();
@@ -46,16 +55,9 @@ export default function AuthProvider({ children }) {
     );
 
     return () => subscription.unsubscribe();
-  }, []);
+  }, [supabase]);
 
-  const fetchProfile = async (userId) => {
-    const { data } = await supabase
-      .from('users')
-      .select('*, user_profiles(*)')
-      .eq('id', userId)
-      .single();
-    setProfile(data);
-  };
+
 
   const signOut = async () => {
     await supabase.auth.signOut();

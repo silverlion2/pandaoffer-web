@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import SaveUniversityButton from '@/components/tools/SaveUniversityButton';
@@ -99,9 +100,11 @@ export default function UniversitiesPage() {
                     <div className={`absolute inset-0 bg-gradient-to-tr ${uni.gradient}`}></div>
                     {uni.logo && (
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <img
+                        <Image
                           src={uni.logo}
                           alt={`${uni.name} logo`}
+                          width={80}
+                          height={80}
                           className="w-20 h-20 object-contain opacity-30"
                         />
                       </div>

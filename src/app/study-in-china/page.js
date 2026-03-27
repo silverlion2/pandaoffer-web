@@ -84,7 +84,7 @@ export default function StudyInChinaPillarPage() {
               Study in China
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
-              Explore {universities.length} top-ranked universities across {cities.length} cities. Find your perfect program in one of the world's fastest-growing academic destinations.
+              Explore {universities.length} top-ranked universities across {cities.length} cities. Find your perfect program in one of the world&apos;s fastest-growing academic destinations.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/" className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg inline-flex items-center gap-2">

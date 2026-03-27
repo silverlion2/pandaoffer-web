@@ -70,7 +70,7 @@ export default function TermsOfService() {
               All payments for PandaOffer premium services are processed securely by <strong>Paddle</strong>, our Merchant of Record. Paddle handles all billing, payment processing, tax compliance, and receipt issuance on our behalf. By making a purchase, you agree to Paddle&apos;s terms and conditions in addition to ours.
             </p>
             <p className="mb-4">
-              We accept major credit cards, debit cards, PayPal, and other payment methods supported by Paddle. All prices are listed in USD and are inclusive of applicable taxes where required by law. For details on refunds, please see our <a href="/refund" className="text-emerald-600 hover:text-emerald-700 underline">Refund Policy</a>.
+              We accept major credit cards, debit cards, PayPal, and other payment methods supported by Paddle. All prices are listed in USD and are inclusive of applicable taxes where required by law. For details on refunds, please see our <Link href="/refund" className="text-emerald-600 hover:text-emerald-700 underline">Refund Policy</Link>.
             </p>
 
             <h2 className="text-xl font-bold text-slate-900 mt-8 mb-4">8. Contact Us</h2>

@@ -87,7 +87,7 @@ export default function ScholarshipsPage() {
                   <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={20} />
                   <div>
                     <strong className="block text-slate-800">Monthly Stipend</strong>
-                    <span className="text-sm text-slate-500">¥2,500 (UG) / ¥3,000 (Master's) / ¥3,500 (PhD)</span>
+                    <span className="text-sm text-slate-500">¥2,500 (UG) / ¥3,000 (Master&apos;s) / ¥3,500 (PhD)</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -157,7 +157,7 @@ export default function ScholarshipsPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">MOFCOM Scholarship</h3>
               <p className="text-slate-600 text-sm mb-6 pb-6 border-b border-slate-200">
-                Sponsored by the Ministry of Commerce for applicants from developing countries. Very high stipend (3600 RMB master's) + one-time settlement.
+                Sponsored by the Ministry of Commerce for applicants from developing countries. Very high stipend (3600 RMB master&apos;s) + one-time settlement.
               </p>
               <ul className="space-y-3 text-sm font-medium text-slate-700 mb-6">
                 <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-emerald-500"/> High competition</li>
@@ -223,7 +223,7 @@ export default function ScholarshipsPage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-blue-400 transition-colors">Document Checklist</h3>
-                  <p className="text-slate-400 text-sm">From physical examinations to JW forms, don't miss a single required document.</p>
+                  <p className="text-slate-400 text-sm">From physical examinations to JW forms, don&apos;t miss a single required document.</p>
                 </div>
               </Link>
 

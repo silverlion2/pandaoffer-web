@@ -25,7 +25,7 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
     if (user && matchResults && step !== 'unlocked') {
       setStep('unlocked');
     }
-  }, [user, matchResults, step]);
+  }, [user, matchResults, step, setStep]);
 
   // Auto-save match results for verified logged-in users (once)
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
         }
       });
     }
-  }, [user, matchResults]);
+  }, [user, matchResults, formData, supabase]);
 
   const onUnlock = async (data) => {
     try {

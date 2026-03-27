@@ -65,8 +65,8 @@ export default function VisaCalculator() {
                 onChange={(e) => setForm({...form, education: e.target.value})}
               >
                 <option value="0">Select Degree...</option>
-                <option value="10">Bachelor's Degree (10 pts)</option>
-                <option value="15">Master's Degree (15 pts)</option>
+                <option value="10">Bachelor&apos;s Degree (10 pts)</option>
+                <option value="15">Master&apos;s Degree (15 pts)</option>
                 <option value="20">Ph.D. or higher (20 pts)</option>
               </select>
             </div>

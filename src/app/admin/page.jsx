@@ -18,34 +18,34 @@ export default function AdminDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
+    const fetchAll = async () => {
+      setLoading(true);
+      const [usersRes, leadsRes, productsRes, savedRes] = await Promise.all([
+        supabase.from('users').select('*, user_profiles(*)').order('created_at', { ascending: false }),
+        supabase.from('leads').select('*').order('created_at', { ascending: false }),
+        supabase.from('products').select('*').order('created_at', { ascending: false }),
+        supabase.from('saved_universities').select('id', { count: 'exact', head: true }),
+      ]);
+
+      const allUsers = usersRes.data || [];
+      const now = new Date();
+      const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+      const newSignups = allUsers.filter(u => new Date(u.created_at) > sevenDaysAgo).length;
+
+      setUsers(allUsers);
+      setLeads(leadsRes.data || []);
+      setProducts(productsRes.data || []);
+      setStats({
+        totalUsers: allUsers.length,
+        newSignups,
+        activeLeads: (leadsRes.data || []).length,
+        totalSaved: savedRes.count || 0,
+      });
+      setLoading(false);
+    };
+
     fetchAll();
-  }, []);
-
-  const fetchAll = async () => {
-    setLoading(true);
-    const [usersRes, leadsRes, productsRes, savedRes] = await Promise.all([
-      supabase.from('users').select('*, user_profiles(*)').order('created_at', { ascending: false }),
-      supabase.from('leads').select('*').order('created_at', { ascending: false }),
-      supabase.from('products').select('*').order('created_at', { ascending: false }),
-      supabase.from('saved_universities').select('id', { count: 'exact', head: true }),
-    ]);
-
-    const allUsers = usersRes.data || [];
-    const now = new Date();
-    const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-    const newSignups = allUsers.filter(u => new Date(u.created_at) > sevenDaysAgo).length;
-
-    setUsers(allUsers);
-    setLeads(leadsRes.data || []);
-    setProducts(productsRes.data || []);
-    setStats({
-      totalUsers: allUsers.length,
-      newSignups,
-      activeLeads: (leadsRes.data || []).length,
-      totalSaved: savedRes.count || 0,
-    });
-    setLoading(false);
-  };
+  }, [supabase]);
 
   const updateUserRole = async (userId, newRole) => {
     const { error } = await supabase

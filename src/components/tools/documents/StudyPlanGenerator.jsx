@@ -3,6 +3,33 @@
 import React, { useState, useMemo } from 'react';
 import { Copy, Download, Check, AlertCircle } from 'lucide-react';
 
+const InputField = ({ label, value, field, placeholder, type = 'text', update }) => (
+  <div>
+    <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
+    <input
+      type={type}
+      value={value}
+      onChange={(e) => update(field, e.target.value)}
+      placeholder={placeholder}
+      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all bg-white placeholder:text-slate-400"
+    />
+  </div>
+);
+
+const TextArea = ({ label, value, field, placeholder, hint, rows = 4, update }) => (
+  <div>
+    <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
+    {hint && <p className="text-xs text-slate-400 mb-2">{hint}</p>}
+    <textarea
+      value={value}
+      onChange={(e) => update(field, e.target.value)}
+      placeholder={placeholder}
+      rows={rows}
+      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all bg-white resize-none placeholder:text-slate-400"
+    />
+  </div>
+);
+
 const DEGREE_TIMELINES = {
   bachelor: [
     { semester: 'Year 1 (Semesters 1-2)', focus: 'Core coursework, Chinese language foundation (HSK 4 target), cultural adaptation' },
@@ -157,33 +184,6 @@ export default function StudyPlanGenerator() {
     URL.revokeObjectURL(url);
   };
 
-  const InputField = ({ label, value, field, placeholder, type = 'text' }) => (
-    <div>
-      <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
-      <input
-        type={type}
-        value={value}
-        onChange={(e) => update(field, e.target.value)}
-        placeholder={placeholder}
-        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all bg-white placeholder:text-slate-400"
-      />
-    </div>
-  );
-
-  const TextArea = ({ label, value, field, placeholder, hint, rows = 4 }) => (
-    <div>
-      <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
-      {hint && <p className="text-xs text-slate-400 mb-2">{hint}</p>}
-      <textarea
-        value={value}
-        onChange={(e) => update(field, e.target.value)}
-        placeholder={placeholder}
-        rows={rows}
-        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all bg-white resize-none placeholder:text-slate-400"
-      />
-    </div>
-  );
-
   return (
     <div className="space-y-6">
       <div className="grid lg:grid-cols-2 gap-6">
@@ -196,15 +196,16 @@ export default function StudyPlanGenerator() {
               Academic Background
             </h3>
             <div className="grid grid-cols-2 gap-3">
-              <InputField label="Full Name" value={form.fullName} field="fullName" placeholder="John Doe" />
-              <InputField label="GPA" value={form.gpa} field="gpa" placeholder="3.7 / 4.0" />
+              <InputField update={update} label="Full Name" value={form.fullName} field="fullName" placeholder="John Doe" />
+              <InputField update={update} label="GPA" value={form.gpa} field="gpa" placeholder="3.7 / 4.0" />
             </div>
-            <InputField label="Current University" value={form.currentUniversity} field="currentUniversity" placeholder="University of Lagos" />
+            <InputField update={update} label="Current University" value={form.currentUniversity} field="currentUniversity" placeholder="University of Lagos" />
             <div className="grid grid-cols-2 gap-3">
-              <InputField label="Current Degree" value={form.currentDegree} field="currentDegree" placeholder="BSc" />
-              <InputField label="Major / Field" value={form.major} field="major" placeholder="Computer Science" />
+              <InputField update={update} label="Current Degree" value={form.currentDegree} field="currentDegree" placeholder="BSc" />
+              <InputField update={update} label="Major / Field" value={form.major} field="major" placeholder="Computer Science" />
             </div>
             <TextArea
+              update={update}
               label="Relevant Experience"
               value={form.relevantExperience}
               field="relevantExperience"
@@ -221,6 +222,7 @@ export default function StudyPlanGenerator() {
               Motivation
             </h3>
             <TextArea
+              update={update}
               label="Why this field?"
               value={form.motivation}
               field="motivation"
@@ -237,11 +239,12 @@ export default function StudyPlanGenerator() {
               Why This University?
             </h3>
             <div className="grid grid-cols-2 gap-3">
-              <InputField label="Target University" value={form.targetUniversity} field="targetUniversity" placeholder="Zhejiang University" />
-              <InputField label="Department" value={form.targetDepartment} field="targetDepartment" placeholder="School of Computer Science" />
+              <InputField update={update} label="Target University" value={form.targetUniversity} field="targetUniversity" placeholder="Zhejiang University" />
+              <InputField update={update} label="Department" value={form.targetDepartment} field="targetDepartment" placeholder="School of Computer Science" />
             </div>
-            <InputField label="Professor Name" value={form.professorName} field="professorName" placeholder="Prof. Zhang Wei" />
+            <InputField update={update} label="Professor Name" value={form.professorName} field="professorName" placeholder="Prof. Zhang Wei" />
             <TextArea
+              update={update}
               label="Professor's Research Area"
               value={form.professorResearch}
               field="professorResearch"
@@ -258,6 +261,7 @@ export default function StudyPlanGenerator() {
               Research Plan
             </h3>
             <TextArea
+              update={update}
               label="Your Research Plan"
               value={form.researchPlan}
               field="researchPlan"
@@ -312,6 +316,7 @@ export default function StudyPlanGenerator() {
               Post-Graduation Plans
             </h3>
             <TextArea
+              update={update}
               label="What will you do after graduating?"
               value={form.postGradPlans}
               field="postGradPlans"

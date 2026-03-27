@@ -117,7 +117,7 @@ export default function ExpatTools() {
           <div className="relative z-10 space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold">Lost in Translation?</h2>
             <p className="text-indigo-200 max-w-2xl mx-auto text-lg">
-              Our AI Assistant is trained on all of China's local regulations, from signing housing contracts to opening a local bank account.
+              Our AI Assistant is trained on all of China&apos;s local regulations, from signing housing contracts to opening a local bank account.
             </p>
             <button className="bg-white text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-indigo-50 transition-colors shadow-lg">
               Ask AI Assistant

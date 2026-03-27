@@ -5,6 +5,7 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import { createClient } from '@/lib/supabase/client';
 import { toast } from 'sonner';
 import { History, Trash2, Loader2, Brain, GraduationCap, BookOpen, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 
 export default function HistoryPage() {
   const { user } = useAuth();
@@ -15,29 +16,29 @@ export default function HistoryPage() {
   const supabase = createClient();
 
   useEffect(() => {
+    const fetchHistory = async () => {
+      const [matchRes, chatRes] = await Promise.all([
+        supabase
+          .from('match_history')
+          .select('*')
+          .eq('user_id', user.id)
+          .order('created_at', { ascending: false })
+          .limit(20),
+        supabase
+          .from('saved_chats')
+          .select('*')
+          .eq('user_id', user.id)
+          .order('saved_at', { ascending: false })
+          .limit(50),
+      ]);
+
+      setMatchHistory(matchRes.data || []);
+      setSavedChats(chatRes.data || []);
+      setLoading(false);
+    };
+
     if (user) fetchHistory();
-  }, [user]);
-
-  const fetchHistory = async () => {
-    const [matchRes, chatRes] = await Promise.all([
-      supabase
-        .from('match_history')
-        .select('*')
-        .eq('user_id', user.id)
-        .order('created_at', { ascending: false })
-        .limit(20),
-      supabase
-        .from('saved_chats')
-        .select('*')
-        .eq('user_id', user.id)
-        .order('saved_at', { ascending: false })
-        .limit(50),
-    ]);
-
-    setMatchHistory(matchRes.data || []);
-    setSavedChats(chatRes.data || []);
-    setLoading(false);
-  };
+  }, [user, supabase]);
 
   const deleteMatch = async (id) => {
     const { error } = await supabase.from('match_history').delete().eq('id', id);
@@ -108,7 +109,7 @@ export default function HistoryPage() {
               </div>
               <h2 className="text-lg font-bold text-slate-900 mb-2">No match history yet</h2>
               <p className="text-sm text-slate-500">
-                Use the <a href="/" className="text-emerald-600 hover:underline font-semibold">AI Matcher</a> to find your best-fit universities. Results are auto-saved when you&apos;re signed in.
+                Use the <Link href="/" className="text-emerald-600 hover:underline font-semibold">AI Matcher</Link> to find your best-fit universities. Results are auto-saved when you&apos;re signed in.
               </p>
             </div>
           ) : (
@@ -164,7 +165,7 @@ export default function HistoryPage() {
               </div>
               <h2 className="text-lg font-bold text-slate-900 mb-2">No saved Q&A yet</h2>
               <p className="text-sm text-slate-500">
-                Chat with the <a href="/tools#advisor" className="text-emerald-600 hover:underline font-semibold">AI Advisor</a> and click the 💾 save button on any answer to keep it here.
+                Chat with the <Link href="/tools#advisor" className="text-emerald-600 hover:underline font-semibold">AI Advisor</Link> and click the 💾 save button on any answer to keep it here.
               </p>
             </div>
           ) : (

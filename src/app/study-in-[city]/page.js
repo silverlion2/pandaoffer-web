@@ -121,7 +121,7 @@ export default async function CityLandingPage({ params }) {
               Study in {cityData.name}
             </h1>
             <p className="text-xl text-emerald-100 max-w-2xl mx-auto">
-              Everything you need to know about top universities, living costs, and student life in one of China's most dynamic cities.
+              Everything you need to know about top universities, living costs, and student life in one of China&apos;s most dynamic cities.
             </p>
           </div>
         </section>
