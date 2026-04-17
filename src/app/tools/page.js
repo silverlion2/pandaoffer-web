@@ -2,8 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import { FileText, TrendingDown, Calendar, Scale, Calculator, Sparkles, Brain, ArrowRight, Search, ClipboardCheck } from 'lucide-react';
-
+import { FileText, TrendingDown, Calendar, Scale, Calculator, Sparkles, Brain, ArrowRight, Search, ClipboardCheck, Mic, Gamepad2 } from 'lucide-react';
 export const metadata = {
   title: 'Tools & Calculators | PandaOffer',
   description: 'Free interactive tools for international students planning to study in China — organized by your journey stage. AI Advisor, calculators, timelines, and document generators.',
@@ -50,6 +49,15 @@ const JOURNEY_STAGES = [
         hoverBorder: 'hover:border-amber-400',
         link: '/tools/budget',
       },
+      {
+        title: 'Study in China Simulator',
+        desc: 'Experience life as an international student in China through our interactive web visual novel.',
+        icon: <Gamepad2 size={32} className="text-cyan-500" />,
+        bg: 'bg-cyan-50',
+        border: 'border-cyan-200',
+        hoverBorder: 'hover:border-cyan-400',
+        link: '/tools/simulator',
+      },
     ],
   },
   {
@@ -73,6 +81,22 @@ const JOURNEY_STAGES = [
         border: 'border-indigo-200',
         hoverBorder: 'hover:border-indigo-400',
         link: '/tools/timeline',
+      },
+    ],
+  },
+  {
+    stage: '🎯 Prepare',
+    subtitle: 'Practice for your university admissions and scholarship interviews.',
+    tools: [
+      {
+        title: 'Mock Interview Simulator',
+        isBeta: true,
+        desc: '4-stage AI interview simulator. Practice your pitch, handle pressure testing, and get real-time feedback on your answers.',
+        icon: <Mic size={32} className="text-purple-500" />,
+        bg: 'bg-purple-50',
+        border: 'border-purple-200',
+        hoverBorder: 'hover:border-purple-400',
+        link: '/tools/interview',
       },
     ],
   },
@@ -135,8 +159,11 @@ export default function ToolsPage() {
                   <div className="mb-4 bg-white w-14 h-14 rounded-xl shadow-sm flex items-center justify-center">
                     {tool.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-slate-900 transition-colors">
+                  <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-slate-900 transition-colors flex items-center gap-2">
                     {tool.title}
+                    {tool.isBeta && (
+                      <span className="text-[10px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full uppercase tracking-wider font-bold">BETA</span>
+                    )}
                   </h3>
                   <p className="text-sm text-slate-500 leading-relaxed mb-3">{tool.desc}</p>
                   <span className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600 group-hover:text-emerald-600 transition-colors">
