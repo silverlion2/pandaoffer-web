@@ -12,7 +12,7 @@ export default function SimulatorPage() {
       <Navbar />
       <main className="flex-1 w-full bg-slate-900 border-t border-slate-800">
         <iframe 
-          src="/simulator/index.html"
+          src="/tools/simulator/index.html"
           className="w-full h-full border-0"
           title="Study in China Simulator"
           allowFullScreen
