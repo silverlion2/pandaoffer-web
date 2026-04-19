@@ -51,7 +51,8 @@ const JOURNEY_STAGES = [
       },
       {
         title: 'Study in China Simulator',
-        desc: 'Experience life as an international student in China through our interactive web visual novel.',
+        isBeta: true,
+        desc: 'Experience life as an international student in China in our visual novel game. Balance your stats and navigate real-world decisions.',
         icon: <Gamepad2 size={32} className="text-cyan-500" />,
         bg: 'bg-cyan-50',
         border: 'border-cyan-200',

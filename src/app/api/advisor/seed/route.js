@@ -4,6 +4,375 @@ import { createClient } from '@supabase/supabase-js';
 // Visit in browser: https://pandaoffer.top/api/advisor/seed?secret=YOUR_DEEPSEEK_KEY
 
 const SEED_CHUNKS = [
+  // ── Batch 6 Chunks (Xiaoyuzhou podcasts) ──
+  { content: `# Overview
+This episode traces the origin of China's international student program from 1949 to 1956, including the founding of the first Chinese language training classes, early policies, and the establishment of management frameworks. Key reference: "History of International Education Exchange and Cooperation" (教育国际交流与合作史), published 2001.`, category: 'general', source_name: 'xiaoyuzhou_history_intl_students.md' },
+  { content: `# China's Starting Point in 1949
+**Economic Context:**
+- In 1949, 80%+ of China's 540 million people lived in rural areas
+- Agriculture was still manual/pre-industrial
+- Per capita grain: only 200kg/year (~400 jin)
+- Literacy rate: only ~20% — over 80% of the population was illiterate
+- In 1947: only 207 universities, 150,000 total students, only 50 schools had 1,000+ students
+- Total graduate students in ALL of China: just 424 people
+- Total university graduates from 1911-1947: only 360,000
+
+**This extreme talent shortage drove the need to both send students abroad AND attract foreign students to China.**`, category: 'general', source_name: 'xiaoyuzhou_history_intl_students.md' },
+  { content: `# First International Students Arrive (1950-1951)
+**How It Started:**
+- Poland and Czechoslovakia first expressed interest in student exchange
+- Premier Zhou Enlai personally directed the Education Ministry to prepare exchange plans
+- June 1950: Zhou Enlai chaired a meeting deciding to exchange students with 5 Eastern European countries
+
+**Initial Numbers (very small):**
+- Czechoslovakia: exchange 10 students each way
+- Poland: exchange 10 students each way
+- Romania, Hungary, Bulgaria: exchange 5 students each way
+- Subjects: language, history, some engineering and mining
+
+**November 1950:** China sent its first batch of students abroad
+**Late 1950:** Romania (5), Hungary (5), Bulgaria (5) = 15 students arrived in China
+**Early 1951:** Czechoslovakia (8), Poland (9), Hungary (1) = 18 more arrived`, category: 'general', source_name: 'xiaoyuzhou_history_intl_students.md' },
+  { content: `# Birth of Chinese Language Education for Foreigners
+**September 1950:** Education Ministry assigned **Tsinghua University (清华大学)** to establish the **Chinese Language Special Training Class (中国语文专修班)** — the first dedicated program for teaching Chinese to foreign students in New China.
+
+**Training Structure:**
+- 2-year program: Year 1 = basic Chinese + current affairs; Year 2 = advanced Chinese + cultural subjects
+- Students who passed exams after 2 years received completion certificates
+
+**1952 University Reorganization:** The Chinese Language Special Training Class transferred from Tsinghua to **Peking University (北京大学)**.
+
+**1954:** Due to the massive number of Vietnamese students, a separate **Chinese Language Special Training School was established in Guilin (桂林)** specifically for Vietnamese students.`, category: 'general', source_name: 'xiaoyuzhou_history_intl_students.md' },
+  { content: `# Vietnamese Students — The Largest Early Group
+**Vietnam sent the most students by far:**
+- 1953-1956: Vietnam sent **1,299 students** to China (1,219 noted in another count)
+- Mostly undergraduate students studying various professional fields
+- 88% of ALL international students in China (1949-1956) came from Vietnam + North Korea combined
+- Total from all countries 1949-1956: 1,858 international students
+
+**Special Arrangements for Vietnam:**
+- 1955: China and Vietnam signed a Cultural Cooperation Agreement
+- China agreed to let Vietnam establish schools on Chinese soil:
+  - 1 secondary vocational school in Nanning (南宁)
+  - 1 junior vocational school in Nanning
+  - 1 regular primary/secondary school in Nanning
+  - 1 Chinese language school in Nanning
+  - 1 school in Guilin (1,041 students + teachers)
+- All instruction in Vietnamese, Vietnamese teachers, Vietnamese administration
+- **Funded from China's foreign aid budget to Vietnam**`, category: 'general', source_name: 'xiaoyuzhou_history_intl_students.md' },
+  { content: `# Benefits Package for International Students (1950s)
+**Two categories of international students:**
+
+| Type | Living Expenses | International Travel | Tuition |
+|------|----------------|---------------------|---------|
+| **Exchange students** (交换留学生) | Paid by sending country | Paid by sending country | Free |
+| **Scholarship students** (奖学金留学生) | Paid by China | Paid by sending country | Free |
+
+**China's scholarship stipend (1950s):**
+- Undergraduate: 80 yuan/month
+- Graduate: 100 yuan/month
+- **This was MORE than what Chinese teachers earned at the time** (as noted by interviewee's teacher)
+- ALL international students: free tuition, free medical care, free housing
+
+**Additional covered expenses:** bedding, desk/chair supplies, clothing allowance, hygiene/medical, recreational activities, field trips, domestic travel for school transfers`, category: 'general', source_name: 'xiaoyuzhou_history_intl_students.md' },
+  { content: `# Management Framework — Multi-Ministry Coordination
+**1951:** Four agencies formed a joint working group:
+1. Ministry of Education (教育部)
+2. Ministry of Foreign Affairs (外交部)
+3. New Democratic Youth League Central Committee (团中央)
+4. All-China Students' Federation (全国学联)
+
+**Monthly coordination meetings** to review teaching plans, student conditions, and policy issues.
+
+**Key Management Principles (1954 regulation):**
+- "Strict in academics, considerate in daily life" (学习上严格要求，生活上适当照顾)
+- International students must obey school discipline
+- Serious disciplinary actions required Ministry of Education approval
+- Leave requests must go through: home country embassy → Chinese Foreign Ministry → Education Ministry → school
+- Organized trips require Education Ministry approval`, category: 'general', source_name: 'xiaoyuzhou_history_intl_students.md' },
+  { content: `# Challenges Already Visible in the 1950s
+**Problems noted as international student numbers grew:**
+1. Some students slackened due to academic difficulties; schools were too lenient with foreigners
+2. International students' relatively high living standards created management complications
+3. Chinese students noticed the disparity — early signs of the ongoing debate about "preferential treatment" (超国民待遇)
+
+**Response (1955):** Ministry issued guidelines requiring schools to maintain academic rigor while providing appropriate care — the same tension that exists today.`, category: 'general', source_name: 'xiaoyuzhou_history_intl_students.md' },
+  { content: `# Key Takeaways for Today's Students
+1. **China has 75+ years of experience hosting international students** — it's a mature, evolving system
+2. **The first Chinese language class for foreigners was at Tsinghua in 1950** — a landmark in Chinese language education
+3. **Government scholarships were the original model** — CSC scholarships continue this tradition
+4. **Vietnam has the deepest historical ties** — Vietnamese students were the backbone of early international enrollment
+5. **The "are foreigners treated too well?" debate started in the 1950s** — it's not new
+6. **International education was always viewed as serving national interests** — diplomatic, economic, and cultural
+7. **Beijing Language and Culture University (北京语言大学/BLCU)** traces its mission directly to these early Chinese language training programs`, category: 'general', source_name: 'xiaoyuzhou_history_intl_students.md' },
+  { content: `# Overview
+Guest: Dong Lili (董丽丽), Director of International Student Programs at BFSU International Business School (北外国际商学院). Has 10+ years in international education. Previously studied/taught at UC Berkeley, National Taiwan University, and Woosong University (Korea).`, category: 'universities', source_name: 'xiaoyuzhou_intl_education.md' },
+  { content: `# BFSU International Business School — Key Facts
+**Scale & Demographics:**
+- BFSU's International Business School is actually the LARGEST school within BFSU by enrollment (surprising for a foreign language university)
+- Total enrolled students: ~2,000+
+- International students: ~600 (30% of the school)
+- Students come from 100+ countries
+- International students span ALL levels: undergraduate, master's, and doctoral programs
+
+**This is one of the highest international student ratios in China**, and competitive even by global standards.`, category: 'universities', source_name: 'xiaoyuzhou_intl_education.md' },
+  { content: `# Programs Available for International Students
+**By Language of Instruction:**
+1. **Chinese-taught programs** (中文授课): Requires HSK-5 minimum
+2. **English-taught programs** (英文授课): IELTS/TOEFL requirements similar to mainstream universities
+
+**By Degree Level:**
+- **Undergraduate (本科)**: 4 years — Economics (国际经济、金融) and Management (国际商务、市场营销、会计)
+- **Master's (硕士)**: 2 years — Finance, International Business, Accounting, MBA
+- **Doctoral (博士)**: 3-5 years — Management Science, Regional Studies
+
+**Key Programs:**
+- International Business (国际商务) — fully English-taught, mixed Chinese + international students
+- Finance — primarily Chinese-taught with some English courses
+- Accounting — primarily Chinese-taught`, category: 'universities', source_name: 'xiaoyuzhou_intl_education.md' },
+  { content: `# Curriculum Design — Business Plus Model
+BFSU uses an innovative **"Business Plus"** (商科+) modular curriculum with 5 pillars:
+
+| Module | Description |
+|--------|-------------|
+| **1. Traditional Business** | Economics, management, marketing, finance fundamentals |
+| **2. China and the World** | Chinese market specifics — consumer behavior, regulatory environment, business culture |
+| **3. International Relations** | Joint program with BFSU's School of International Relations — diplomacy, geopolitics |
+| **4. Big Data & AI** | Partnership with Huawei Academy — online courses in data analytics and AI |
+| **5. Industry Immersion** | Company executives from automotive, tech, etc. give guest lectures before graduation |
+
+Students can customize by focusing on 1-2 modules based on career interests.`, category: 'universities', source_name: 'xiaoyuzhou_intl_education.md' },
+  { content: `# Admission & Academic Flexibility
+**Undergraduate Admission:**
+- Chinese program: HSK-5 required (high bar compared to other universities)
+- English program: Standard IELTS/TOEFL requirements
+- No entrance exam — application-based (主流的申请方式: portfolio, transcripts, recommendation letters)
+
+**Academic Flexibility:**
+- Years 1-2: Common foundation courses across all business majors
+- Year 3-4: Students can switch majors freely within the business school
+- International students have MORE flexibility than Chinese students in major selection
+- Chinese program students can take English courses and vice versa
+- Students can take courses from OTHER schools within BFSU (e.g., languages, international relations)
+
+**Pre-study Option:**
+- 6-month to 1-year preparatory program (预科) for students whose Chinese isn't strong enough
+- Can transition into degree program after language preparation`, category: 'universities', source_name: 'xiaoyuzhou_intl_education.md' },
+  { content: `# Teaching Approach for International Students
+**Language-Mixed Classrooms:**
+- Years 1-2: Separate classes for international students (teachers speak slower, avoid idioms)
+- Years 3-4: FULLY INTEGRATED with Chinese students — mixed classrooms
+- Heritage Chinese speakers (海外华人) can join Chinese student classes from Year 1
+- International Business program: Mixed from Day 1 — cross-national project teams
+
+**Accreditation:**
+- AACSB accredited (top ~6% of business schools globally)
+- BGA accredited
+- These international accreditations serve as quality shorthand when recruiting overseas — eliminates need to explain the school's reputation country by country`, category: 'universities', source_name: 'xiaoyuzhou_intl_education.md' },
+  { content: `# Career Prospects for International Graduates
+**Three Main Career Paths:**
+1. **Work for companies in home country** with China-related business
+2. **Work for Chinese companies expanding overseas** (出海企业) — e.g., BYD, OPPO, Geely, Transsion, Shein
+3. **Government/diplomatic positions** in home country
+
+**Dedicated Career Support:**
+- BFSU organized China's FIRST dedicated recruitment fair for international students (2023)
+- 20+ Chinese companies with international expansion needs participated
+- Plans to expand to 150+ companies in 2025
+- Open to international students from ALL universities in Beijing, not just BFSU
+- Companies specifically seek bilingual graduates who understand BOTH Chinese business culture AND local markets
+
+**Why Chinese Companies Want International Graduates:**
+- They understand local consumer preferences and regulations in their home countries
+- They can communicate with Chinese headquarters without cultural friction
+- Growing demand as Chinese companies accelerate overseas expansion`, category: 'universities', source_name: 'xiaoyuzhou_intl_education.md' },
+  { content: `# Community Integration — Study Buddy Program (学伴项目)
+**"X355" Cultural Exchange Program:**
+- Matches international students with local Beijing families
+- NOT a homestay — students live on campus but visit families on weekends/holidays
+- Families volunteer and are vetted (school employees get priority)
+- Typically bi-weekly activities: meals, cultural outings, festival celebrations
+- Sometimes pair one Western + one Asian student per family
+- Many relationships become lifelong friendships
+- Families apply at start of each semester via BFSU WeChat/Weibo accounts
+
+**Requirements for Host Families:**
+- Open-minded and culturally tolerant
+- At least one member with basic English (helpful but not required)
+- Stable employment (for student safety verification)
+- No formal income/property verification needed`, category: 'universities', source_name: 'xiaoyuzhou_intl_education.md' },
+  { content: `# Multicultural Events
+- **International Culture Festival** (多国文化节): Annual event open to public
+- Each country showcases food, performances, cultural displays
+- Families with children welcome — great for local community engagement
+- Anyone can enter BFSU's West Campus with ID registration`, category: 'universities', source_name: 'xiaoyuzhou_intl_education.md' },
+  { content: `# Key Takeaway for Prospective Students
+- BFSU offers a uniquely international business education in Beijing
+- 30% international student ratio creates genuine multicultural learning environment
+- Modular curriculum lets students customize their education path
+- Strong career pipeline into Chinese companies' overseas operations
+- AACSB accreditation provides globally recognized quality assurance
+- Industry lecture series helps students understand career options before graduation`, category: 'universities', source_name: 'xiaoyuzhou_intl_education.md' },
+  { content: `# About This Podcast
+Recorded by international students in Shanghai, sharing their personal stories and observations from a fresh perspective. Episodes cover cultural differences, social topics, and student life in China.`, category: 'general', source_name: 'xiaoyuzhou_student_culture.md' },
+  { content: `# Modern Dating Culture in China vs Western Countries
+**Key Observations from International Students:**
+- "Situationships" (暧昧关系) are increasingly common among young Chinese and international students
+- Dating apps and social media have dramatically changed how young people meet in China
+- "Ghosting" is a universal phenomenon discussed by both Chinese and international students
+- Long-distance relationships are especially challenging for international students`, category: 'general', source_name: 'xiaoyuzhou_student_culture.md' },
+  { content: `# Marriage Culture: China vs America
+**Chinese Marriage Culture Observations (from Duke students studying in Shanghai):**
+- China has a **30-day "cooling off period" (离婚冷静期)** before divorces are finalized — a policy unique to China since 2021
+- **Prenuptial agreements (婚前协议)** are becoming more common in China but still less prevalent than in Western countries  
+- **Hukou (户口) considerations** still play a role in marriage decisions — partner's household registration matters for children's education
+- **Marriage pressure (催婚)**: Chinese families often pressure children to marry by certain ages, typically before 30
+- Social attitudes toward divorce are shifting but still carry more stigma than in Western countries`, category: 'general', source_name: 'xiaoyuzhou_student_culture.md' },
+  { content: `# Why Young People in China Are Marrying Later
+**Contributing Factors:**
+- Rising housing costs, especially in first-tier cities
+- Career-focused mindset among millennials and Gen Z
+- Women gaining more economic independence
+- Changing social norms — single life becoming more accepted
+- Impact of COVID-19 pandemic on relationship formation`, category: 'general', source_name: 'xiaoyuzhou_student_culture.md' },
+  { content: `# Cross-Cultural Student Life Tips
+**For International Students in China:**
+- WeChat is essential — most social and dating interactions happen through it
+- Understanding "face culture" (面子文化) helps navigate relationships
+- Food sharing culture — Chinese dining is communal, not individual plates
+- Building both Chinese and international friend groups enriches the experience
+- Virtual worlds and social media differ significantly between China (WeChat, Douyin, Xiaohongshu) and Western countries (Instagram, TikTok, Facebook)`, category: 'general', source_name: 'xiaoyuzhou_student_culture.md' },
+  { content: `# Practical Student Life Insights
+- International student podcasts are a growing medium in China
+- Shanghai is especially popular for short-term exchange programs (e.g., Duke students)
+- Cross-cultural discussions help build cultural competence
+- Students recommend engaging with both Chinese media and international communities`, category: 'general', source_name: 'xiaoyuzhou_student_culture.md' },
+  { content: `# Overview
+Guest: Eva张, formerly in investment banking in Shanghai, now runs Chinese language training and study-in-China placement services in Vietnam. Host: 奥特快 (based in Vietnam since 2020).`, category: 'general', source_name: 'xiaoyuzhou_vietnam_students.md' },
+  { content: `# Vietnamese Students in China: Key Facts & Data
+**Application Scale & Competition:**
+- 每年1.5-2万越南人申请来华留学 (15,000-20,000 apply annually)
+- CSC (Chinese Government Scholarship) spots for Vietnam: only ~30/year
+- Competition ratio: approximately 500-600:1 for CSC from Vietnam
+- **Over 90% of Vietnamese students in China are self-funded (自费)**
+- Some universities and provinces offer partial scholarships (usually 1-year duration, lower amounts than CSC)
+
+**Who Studies Chinese in Vietnam:**
+- High school students: learning Chinese to qualify for undergraduate programs in China
+- University students: choosing Chinese as elective/minor for career advantage
+- White-collar workers (3-5 years experience): learning Chinese for career change or to serve Chinese clients
+- Generally from middle-class Vietnamese families — not the poorest (who go abroad for manual labor) and not the richest (who go to Europe/America)`, category: 'general', source_name: 'xiaoyuzhou_vietnam_students.md' },
+  { content: `# Cost Comparison: Study in Vietnam vs China
+| Item | Vietnam Public Uni | Vietnam Private Uni | China (2nd/3rd tier city) |
+|------|-------------------|--------------------|-----------------------|
+| Tuition/year | ~¥10,000 RMB | ¥20,000-30,000 RMB | ¥15,000-25,000 RMB |
+| Accommodation | Poor quality dorms | Better | Good dorms provided |
+| Total cost | Lower but poor facilities | Higher than China! | Often cheaper than Vietnam private schools |
+
+**Key insight**: Vietnam private university costs can EXCEED studying in a Chinese 2nd/3rd tier city. This is a major motivator — it's genuinely cheaper to study in China than at home for many Vietnamese.`, category: 'general', source_name: 'xiaoyuzhou_vietnam_students.md' },
+  { content: `# What Vietnamese Students Care About When Choosing Chinese Universities
+1. **Scholarship availability** — top priority, even partial tuition reduction matters
+2. **Living costs in the city** — prefer affordable 2nd/3rd tier cities
+3. **Campus environment** — they browse campus videos/photos online
+4. **NOT university ranking** — unlike Chinese students, Vietnamese don't obsess over 985/211 rankings; they care more about "going to China to learn Chinese"
+
+**Popular regions for Vietnamese students:**
+- Shanghai/Beijing: only for wealthier families, hard to get scholarships, self-funded
+- Shandong, Hunan, Hubei (2nd tier): popular for lower costs
+- Not necessarily Guangxi/Yunnan (geographic proximity) — they choose based on cost and programs
+
+**Concrete example from podcast**: A Vietnamese student with HSK-5, good IELTS score, and top-10% GPA from Vietnam's best medical school applied to SJTU (Shanghai Jiao Tong) medical program — still couldn't get a scholarship and had to self-fund.`, category: 'general', source_name: 'xiaoyuzhou_vietnam_students.md' },
+  { content: `# Career Value of Chinese Language in Vietnam
+**Salary Premium:**
+- **Chinese speakers earn 20-50% more** than English-only speakers
+- Starting salary comparison in Hanoi:
+  - Without Chinese: ~¥3,000 RMB/month
+  - With Chinese: ~¥3,600 RMB/month (+20%)
+  - With Chinese + China degree: ~¥4,500 RMB/month (+50%)
+  - In manufacturing zones (Bắc Ninh): up to ¥5,000+ RMB/month with Chinese skills
+- **Core reason**: Most Chinese investors in Vietnam don't speak English — Chinese is more scarce and thus more valuable than English
+
+**Why Chinese > English in Vietnam job market:**
+- English speakers are common → lower competitive advantage
+- Chinese speakers are scarce → higher demand from Chinese-invested companies
+- Chinese companies prefer direct Mandarin communication
+- Many English-speaking positions are already saturated`, category: 'general', source_name: 'xiaoyuzhou_vietnam_students.md' },
+  { content: `# Post-Graduation Career Paths
+- Most Vietnamese students return home after graduating in China
+- Primary employers: Chinese companies (中资企业) in Vietnam
+- Chinese factories and businesses in Vietnam prioritize hiring people with China education
+- Some students become intermediaries/agents helping other Vietnamese apply to Chinese universities
+- Vietnamese TikTok content creators: some students fund their China studies by doing TikTok/livestreaming`, category: 'general', source_name: 'xiaoyuzhou_vietnam_students.md' },
+  { content: `# Unique Vietnamese Student Characteristics
+**Motivations beyond career:**
+- Female students: many are motivated by Chinese pop culture (C-drama actors like 一样千预), specifically want to study in the same city as their favorite celebrities
+- "Learning English means working for someone; learning Chinese means you might become the boss" — actual quote from a Vietnamese student
+- Some students work 1-2 years, save money, then go to China for 1-year language program
+
+**Study patterns:**
+- Most popular: 1-year language short-term programs (非学历教育)
+- Second: 4-year undergraduate programs (often 1 year prep + 4 years)
+- Chinese language/education majors still most popular among Vietnamese
+- Engineering majors growing for male Vietnamese students`, category: 'general', source_name: 'xiaoyuzhou_vietnam_students.md' },
+  { content: `# Information Channels for Vietnamese Students
+- Vietnamese-run study-in-China agencies (unique vs other countries where Chinese agents dominate)
+- Facebook groups and communities
+- Vietnamese TikTok content from current Chinese university students
+- School-organized overseas recruitment events (increasingly common in 2024-2025)
+- Word of mouth from 学长学姐 (senior students) who already studied in China`, category: 'general', source_name: 'xiaoyuzhou_vietnam_students.md' },
+  { content: `# Vietnamese Education System Context
+- Vietnam has no equivalent of Gaokao — less academic pressure
+- Good job availability means less urgency to pursue higher education
+- Vietnamese public universities lack funding — professors often moonlight
+- International schools in Vietnam cost ¥200,000-300,000 RMB/year (comparable to Shanghai)
+- Vietnamese students are extremely competitive in math (奥林匹克 gold medalists) and chess`, category: 'general', source_name: 'xiaoyuzhou_vietnam_students.md' },
+  { content: `# Global Context
+- Total international students in China: approximately 500,000 globally
+- Growing at 10-15% annually
+- Major source countries in Southeast Asia: Indonesia, Malaysia, Thailand each send 10,000-20,000/year
+- Vietnam represents one of the most competitive application pools`, category: 'general', source_name: 'xiaoyuzhou_vietnam_students.md' },
+  { content: `# Zero-Threshold Application Pathways for International Students
+**Key Insight from 黑熊电台:**
+High school graduates can apply for Chinese university scholarships with relatively minimal requirements compared to Western universities.
+
+**What "Zero Threshold" Means:**
+- No entrance exam required for most programs (unlike Chinese students who must pass Gaokao)
+- High school diploma is sufficient to apply for undergraduate programs
+- No mandatory standardized test scores (SAT/ACT not required)
+- Basic health check and clean criminal record are the primary requirements
+- HSK (Chinese language test) may be required for Chinese-taught programs, but many English-taught programs waive this`, category: 'scholarships', source_name: 'xiaoyuzhou_zero_threshold_scholarships.md' },
+  { content: `# Scholarship Landscape for High School Graduates
+**Chinese Government Scholarship (CSC) for Undergraduates:**
+- Available but extremely competitive (varies by country quotas)
+- Covers: tuition, accommodation, stipend, medical insurance
+- Application typically goes through Chinese embassy in home country
+- Recommendation: Apply to multiple universities simultaneously
+
+**Provincial/Municipal Government Scholarships:**
+- Less competitive than CSC
+- Many provinces offer scholarships to attract international students
+- Often cover partial or full tuition
+- Examples: Beijing, Shanghai, Zhejiang, Jiangsu provincial scholarships
+
+**University-Specific Scholarships:**
+- Many universities offer their own scholarships for international students
+- Can sometimes be combined with government scholarships
+- Often easier to obtain than national-level scholarships
+- Some universities offer automatic scholarship screening during admission`, category: 'scholarships', source_name: 'xiaoyuzhou_zero_threshold_scholarships.md' },
+  { content: `# Strategy for Maximizing Scholarship Chances
+1. **Apply early** — many scholarships have limited quotas that fill quickly
+2. **Apply to multiple universities** — increases chances of at least one offer
+3. **Consider 2nd/3rd tier cities** — less competition, more scholarships available
+4. **Prepare a strong personal statement** — even without test scores, motivation matters
+5. **Get recommendation letters** — from teachers, community leaders, or professionals
+6. **Learn basic Chinese before applying** — shows commitment and can help with scholarship selection`, category: 'scholarships', source_name: 'xiaoyuzhou_zero_threshold_scholarships.md' },
+  { content: `# Target Regions for Scholarship Opportunities
+**Africa, Central Asia, and Southeast Asia Focus:**
+- China actively recruits students from developing regions
+- Belt & Road Initiative (一带一路) countries have more scholarship allocations
+- Embassy quotas are often larger for strategic partner countries
+- Chinese educational institutions are expanding in third-world countries
+- Growing opportunities for Chinese language education (汉语教育) abroad creates demand for Chinese-trained graduates`, category: 'scholarships', source_name: 'xiaoyuzhou_zero_threshold_scholarships.md' },
   // ── CSC Scholarship Deep Guide (from 12+ podcast sources) ──
   { content: `# CSC Scholarship Types
 - **Type A (Bilateral/Embassy)**: Apply through the Chinese embassy in your home country. Covers tuition, accommodation, monthly stipend, and medical insurance.

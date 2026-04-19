@@ -205,7 +205,7 @@ export default function ROICalculator() {
       <div className="mt-10 p-5 bg-blue-50/50 rounded-xl border border-blue-100 flex items-start gap-3">
         <Lightbulb size={24} className="text-blue-500 shrink-0 mt-0.5" />
         <p className="text-sm text-blue-900/80 leading-relaxed">
-          <strong className="text-blue-900">Did you know?</strong> China has 274 CSC-eligible universities offering fully funded scholarships covering tuition, dorm, monthly stipend (¥2,500–3,500/mo), and medical insurance. Student vloggers report comfortable monthly budgets of ¥2,500 in Tier 2 cities and ¥4,000 in Tier 1 — making China the highest ROI study destination globally.
+          <strong className="text-blue-900">Did you know?</strong> China has 274 CSC-eligible universities offering fully funded scholarships covering tuition, dorm, monthly stipend (¥2,500–3,500/mo), and medical insurance. Student vloggers report comfortable monthly budgets of ¥2,500 in Tier 2 cities and ¥4,000 in Tier 1. Real ROI is massive: Vietnamese grads with a China degree command a <strong>20-50% salary premium</strong> over their local peers. Plus, studying in a Chinese Tier 2/3 city (¥15k-25k/yr tuition) is often cheaper than domestic private universities in Southeast Asia!
         </p>
       </div>
 

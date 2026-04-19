@@ -26,6 +26,7 @@ export default function TimelineGenerator() {
           title: 'Document Preparation & Language Tests',
           desc: 'Get your passport, notarize diplomas/transcripts, and take the HSK or IELTS/TOEFL if required.',
           tip: '💡 Insider: Notarization takes 2-4 weeks in most countries. Start NOW. Some embassies also require authentication (apostille) — check your country\'s requirements.',
+          warning: '⚠️ Warning: Without an apostilled highest degree, your application will be automatically rejected by CSC.',
           icon: <FileCheck size={20} className="text-white" />,
           color: 'bg-indigo-500',
           bgColor: 'bg-indigo-50'
@@ -35,7 +36,8 @@ export default function TimelineGenerator() {
           period: `January - March ${targetYear}`,
           title: 'University & Scholarship Applications Open',
           desc: 'Submit your application to the university portal. If applying for CSC, submit through the embassy (Type A) or university (Type B) now.',
-          tip: '⚠️ Warning: Some top universities (ZJU, SJTU, HIT) close applications as early as February even though the national deadline is April. Apply to safety schools first, then reach schools.',
+          tip: '💡 Insider: Secure your CSC portal account early as the website frequently crashes near the deadline in March.',
+          warning: '⚠️ Warning: Some top universities (ZJU, SJTU, HIT) close applications as early as February even though the national deadline is April. Apply to safety schools first, then reach schools.',
           icon: <Building size={20} className="text-white" />,
           color: 'bg-blue-500',
           bgColor: 'bg-blue-50'
@@ -46,6 +48,7 @@ export default function TimelineGenerator() {
           title: 'Interviews & Initial Results',
           desc: 'Universities conduct online interviews. Conditional and unofficial admission offers begin rolling out. Contact supervisors directly (for Master\'s/PhD) — a pre-acceptance letter dramatically boosts your chances.',
           tip: '💡 Insider: Email professors with your CV + research interests. Response rate is ~20-30%. Follow up after 2 weeks if no reply. WeChat is often faster than email for Chinese professors.',
+          warning: '⚠️ Warning: Do not mass-email professors in the same department; they talk to each other and it will blacklist you.',
           icon: <Clock size={20} className="text-white" />,
           color: 'bg-amber-500',
           bgColor: 'bg-amber-50'
@@ -55,7 +58,8 @@ export default function TimelineGenerator() {
           period: `July - August ${targetYear}`,
           title: 'Official JW201/202 & Visa Application',
           desc: 'You receive the physical Admission Notice and JW201/202 form by mail or courier. Apply for your X1 (>180 days) or X2 (<180 days) student visa at your local Chinese embassy.',
-          tip: '⚠️ Warning: Visa processing takes 4-7 business days (regular) or 2-3 days (rush, costs extra). Book your flight AFTER receiving the visa, not before. Some embassies require appointments weeks in advance.',
+          tip: '💡 Insider: Universities now often send e-JW202 forms. You can print them out to apply for the visa without waiting for the physical mail.',
+          warning: '⚠️ Warning: Visa processing takes 4-7 business days (regular) or 2-3 days (rush, costs extra). Book your flight AFTER receiving the visa, not before. Some embassies require appointments weeks in advance.',
           icon: <CheckCircle2 size={20} className="text-white" />,
           color: 'bg-emerald-500',
           bgColor: 'bg-emerald-50'
@@ -66,6 +70,7 @@ export default function TimelineGenerator() {
           title: 'Fly to China & Registration',
           desc: 'Arrive in China, register at the police station within 24 hours, undergo the mandatory medical re-exam at a designated Chinese hospital (¥400-700), and start orientation.',
           tip: '💡 Insider: Arrive 3-5 days before classes start. Download Alipay + WeChat before landing (VPN too!). Bring ¥2,000-3,000 cash for first-week expenses. Your university\'s international office arranges group police registration.',
+          warning: '⚠️ Warning: Failure to register with the local police within 24 hours of moving into off-campus housing can result in a ¥2,000 fine.',
           icon: <Plane size={20} className="text-white" />,
           color: 'bg-red-500',
           bgColor: 'bg-red-50'
@@ -79,7 +84,8 @@ export default function TimelineGenerator() {
           period: `April - July ${priorYear}`,
           title: 'Document Preparation & Research',
           desc: 'March intake has fewer programs (~20% of universities). Research carefully and prepare all notarized documents and language scores.',
-          tip: '⚠️ Warning: March intake is mainly for language programs and select degree programs. Most CSC scholarships are NOT available for spring semester. Self-funded is more common.',
+          tip: '💡 Insider: Look for language programs and smaller provincial universities which are more likely to have rolling admissions.',
+          warning: '⚠️ Warning: March intake is mainly for language programs and select degree programs. Most CSC scholarships are NOT available for spring semester. Self-funded is more common.',
           icon: <FileCheck size={20} className="text-white" />,
           color: 'bg-indigo-500',
           bgColor: 'bg-indigo-50'
@@ -90,6 +96,7 @@ export default function TimelineGenerator() {
           title: 'Submit Applications',
           desc: 'Apply directly to the universities. Provincial scholarships (e.g., Beijing, Shanghai, Jiangsu Government Scholarships) may still be available for spring intake.',
           tip: '💡 Insider: Some universities have rolling March admissions — apply early for the best chance. Contact the international admissions office directly via email or WeChat.',
+          warning: '⚠️ Warning: Make sure you double-check the instruction language. Some Spring programs are only taught in Chinese.',
           icon: <Building size={20} className="text-white" />,
           color: 'bg-blue-500',
           bgColor: 'bg-blue-50'
@@ -100,6 +107,7 @@ export default function TimelineGenerator() {
           title: 'Admission Results & JW202',
           desc: 'Universities issue admission decisions and mail the JW201/202 form. Processing can be slow — follow up if you haven\'t received documents by mid-December.',
           tip: '💡 Insider: Ask for a scanned copy by email first so you can start your visa application while waiting for the physical documents.',
+          warning: '⚠️ Warning: Offices will practically shut down leading into the New Year. Bug them early December.',
           icon: <Clock size={20} className="text-white" />,
           color: 'bg-emerald-500',
           bgColor: 'bg-emerald-50'
@@ -109,7 +117,8 @@ export default function TimelineGenerator() {
           period: `January - February ${targetYear}`,
           title: 'Visa Application',
           desc: 'Apply for your X1/X2 visa at your local Chinese consulate or embassy. Chinese New Year (Spring Festival) may cause embassy closures — check holiday schedules.',
-          tip: '⚠️ Warning: Chinese embassies close for 1-2 weeks during Spring Festival (late Jan/early Feb). Submit your visa application BEFORE the holiday to avoid delays.',
+          tip: '💡 Insider: Check if your country has a visa-free agreement with China which might allow you to enter and convert to a student residence permit locally (rare, but happens).',
+          warning: '⚠️ Warning: Chinese embassies close for 1-2 weeks during Spring Festival (late Jan/early Feb). Submit your visa application BEFORE the holiday to avoid delays.',
           icon: <CheckCircle2 size={20} className="text-white" />,
           color: 'bg-amber-500',
           bgColor: 'bg-amber-50'
@@ -120,6 +129,7 @@ export default function TimelineGenerator() {
           title: 'Arrival & Registration',
           desc: 'Fly to China, settle into your dorm, register with police, and attend the spring semester orientation.',
           tip: '💡 Insider: Spring semester starts mid-March. Weather varies wildly by city — Beijing is still cold (5-10°C), while Kunming is already spring (15-22°C). Pack accordingly.',
+          warning: '⚠️ Warning: Do NOT bring drugs or sensitive products into the country. You will be drug-tested during your medical exam.',
           icon: <Plane size={20} className="text-white" />,
           color: 'bg-red-500',
           bgColor: 'bg-red-50'
@@ -173,11 +183,19 @@ export default function TimelineGenerator() {
               </span>
               <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
               <p className="text-slate-600 text-sm leading-relaxed">{step.desc}</p>
-              {step.tip && (
-                <p className="text-xs text-slate-500 mt-3 p-2 bg-white/80 rounded-lg border border-slate-100 leading-relaxed">
-                  {step.tip}
-                </p>
-              )}
+              
+              <div className="mt-3 space-y-2">
+                {step.tip && (
+                  <p className="text-xs text-emerald-700 bg-emerald-50/50 p-2 rounded-lg border border-emerald-100/50 leading-relaxed">
+                    {step.tip}
+                  </p>
+                )}
+                {step.warning && (
+                  <p className="text-xs text-amber-700 bg-amber-50/50 p-2 rounded-lg border border-amber-100/50 leading-relaxed">
+                    {step.warning}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         ))}
