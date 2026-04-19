@@ -3,6 +3,19 @@ const nextConfig = {
   // Ensure consistent URLs by not adding trailing slashes
   trailingSlash: false,
 
+  async rewrites() {
+    return [
+      {
+        source: '/tools/simulator',
+        destination: '/tools/simulator/index.html',
+      },
+      {
+        source: '/tools/simulator/',
+        destination: '/tools/simulator/index.html',
+      },
+    ];
+  },
+
   // Security and SEO headers
   async headers() {
     return [
