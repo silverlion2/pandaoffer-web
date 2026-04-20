@@ -16,7 +16,7 @@ const CITY_DATA = {
     weather: 'Hot Summers, Cold/Damp Winters (No Central Heating)',
     expatVibe: 'Most international city in China. Massive, diverse, very western-friendly.',
     topUnis: 'Fudan (10246), SJTU (10248), Tongji (10247)',
-    insiderTip: 'SJTU Minhang campus is 1hr from city center. Fudan Handan campus is downtown. Choose wisely!',
+    insiderTip: 'SJTU Minhang campus is 1hr from city center — Fudan is downtown. Hidden gem: BFSU Business School has 30% international students and AACSB accreditation!',
     color: 'emerald'
   },
   beijing: {
@@ -46,7 +46,7 @@ const CITY_DATA = {
     weather: 'Long Hot/Humid Summers, Mild Winters',
     expatVibe: 'International trade hub. Large African & SE Asian communities. Best Cantonese food.',
     topUnis: 'Sun Yat-sen/SYSU (10558), SCUT',
-    insiderTip: 'SYSU has campuses in 3 cities (Guangzhou, Zhuhai, Shenzhen). Confirm which one your program is on!',
+    insiderTip: 'Largest African & SE Asian student community in China. SYSU has campuses in 3 cities — confirm which one! Great for trade & cross-cultural networking.',
     color: 'amber'
   },
   chengdu: {

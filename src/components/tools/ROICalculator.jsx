@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import { TrendingDown, Lightbulb, Wallet, Calculator, Building2 } from 'lucide-react';
 
 const DURATION_OPTIONS = [
+  { id: 1, label: '1-Year Language Program' },
   { id: 4, label: '4-Year Bachelor' },
   { id: 2, label: '2-3 Year Master' },
   { id: 3, label: '3-4 Year PhD' },
@@ -18,6 +19,7 @@ const LIFESTYLE_OPTIONS = [
 const SCHOLARSHIP_OPTIONS = [
   { id: 'none', label: 'No Scholarship (Self-Funded)', tuitionDiscount: 0, livingStipend: 0 },
   { id: 'partial', label: 'Partial (Free Tuition Only)', tuitionDiscount: 1, livingStipend: 0 },
+  { id: 'confucius', label: 'Confucius/ICLTS (Tuition + Stipend)', tuitionDiscount: 1, livingStipend: 2500 }, // Confucius Institute scholarship
   { id: 'provincial', label: 'Provincial (Tuition + Dorm)', tuitionDiscount: 1, livingStipend: 1000 }, // ~¥1000/mo housing allowance
   { id: 'full', label: 'Full CSC (Tuition + Stipend)', tuitionDiscount: 1, livingStipend: 3000 }, // Master's ¥3000/mo, PhD ¥3500/mo
 ];
@@ -205,7 +207,7 @@ export default function ROICalculator() {
       <div className="mt-10 p-5 bg-blue-50/50 rounded-xl border border-blue-100 flex items-start gap-3">
         <Lightbulb size={24} className="text-blue-500 shrink-0 mt-0.5" />
         <p className="text-sm text-blue-900/80 leading-relaxed">
-          <strong className="text-blue-900">Did you know?</strong> China has 274 CSC-eligible universities offering fully funded scholarships covering tuition, dorm, monthly stipend (¥2,500–3,500/mo), and medical insurance. Student vloggers report comfortable monthly budgets of ¥2,500 in Tier 2 cities and ¥4,000 in Tier 1. Real ROI is massive: Vietnamese grads with a China degree command a <strong>20-50% salary premium</strong> over their local peers. Plus, studying in a Chinese Tier 2/3 city (¥15k-25k/yr tuition) is often cheaper than domestic private universities in Southeast Asia!
+          <strong className="text-blue-900">Did you know?</strong> China has hosted international students since <strong>1950</strong> — 75+ years of experience. Today, 274 CSC-eligible universities offer fully funded scholarships (tuition, dorm, ¥2,500–3,500/mo stipend, insurance). BFSU&apos;s Business School has a <strong>30% international student ratio</strong> and is AACSB-accredited — rivaling top Western schools. Vietnamese grads with a China degree earn <strong>20–50% more</strong> than local peers. And here&apos;s the kicker: studying in a Chinese Tier 2/3 city (¥15k–25k/yr tuition) is often <strong>cheaper than private universities in Vietnam or Indonesia</strong>.
         </p>
       </div>
 

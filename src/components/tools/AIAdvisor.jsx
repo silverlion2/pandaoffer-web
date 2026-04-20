@@ -8,15 +8,15 @@ import { toast } from 'sonner';
 
 const SUGGESTED_QUESTIONS = [
   "What scholarships can I apply for as a Master's student?",
-  "How much does it really cost to live in Beijing per month?",
-  "Are there really 'zero-threshold' scholarships for Asian/African students?",
-  "What's the visa process for studying in China in 2026?",
-  "Why do Vietnamese students say studying in China has a massive ROI?",
-  "What HSK level do I need for Tsinghua or Zhejiang University?",
-  "Cheapest cities to study in China with good 985 universities?",
-  "What apps do I need to survive in China? (WeChat, Alipay, VPN)",
-  "How do I find a supervisor and get a pre-acceptance letter?",
-  "CSC Type A vs Type B - which track should I choose?",
+  "Are there really 'zero-threshold' scholarships for Belt & Road countries?",
+  "Why do Vietnamese students say studying in China beats staying home?",
+  "Which universities have 30%+ international students? (BFSU, etc.)",
+  "How do I email a Chinese professor to get a pre-acceptance letter?",
+  "CSC Type A vs Type B — which track should I choose?",
+  "Cheapest cities with good 985 universities? (Wuhan, Xi'an, Harbin)",
+  "Can I work for Chinese tech companies after graduating? (BYD, OPPO, Shein)",
+  "What's the real monthly budget in a Tier 2 city? (¥ RMB breakdown)",
+  "What are the biggest scam red flags when using an agency?",
 ];
 
 const COMPARISON_TABLE = [

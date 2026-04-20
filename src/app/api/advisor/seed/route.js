@@ -3379,6 +3379,187 @@ FEES (country-specific):
 - Some developing nations: Reduced or waived fees for scholarship students
 
 Pro tip: Submit your visa application at least 6-8 weeks before departure. Express processing (2-3 days) available at higher cost in some countries.`, category: 'visa', source_name: 'new_visa_system_2025.md' },
+
+  // ── Batch 5: University Insider Profiles & Strategic Knowledge ──
+  { content: `# Tsinghua University Insider — What They Don't Tell You (CSC 10003)
+- Wudaokou area = "Center of the Universe" for students — bars, restaurants, international crowd
+- Academic pressure is INTENSE — Chinese students study 14-16 hours/day; international students feel the gap
+- Schwarzman Scholars program: elite English-taught Master's, but extremely competitive (acceptance rate <5%)
+- Pre-acceptance letter from a Tsinghua prof practically guarantees CSC success
+- Housing: International student dorm is on campus but aging — request Building 18 if possible
+- Insider: Tsinghua's English-taught programs in engineering are world-class but the social scene is limited vs Peking`, category: 'universities', source_name: 'tsinghua_insider.md' },
+
+  { content: `# Peking University Insider — What They Don't Tell You (CSC 10001)
+- Yenching Academy: fully funded 2-year interdisciplinary Master's — one of the best deals in global education
+- PKU has more academic freedom than Tsinghua — professors are more outspoken, debates encouraged
+- Wudaokou is shared with Tsinghua — you get the same student district benefits
+- PKU acceptance letters sometimes come later than other C9 — don't panic
+- The Weiming Lake campus is stunning but the dorms are old (built in the 1980s)
+- Insider: PKU's Chinese language program for international students is actually mediocre — go to BLCU for language`, category: 'universities', source_name: 'pku_insider.md' },
+
+  { content: `# Zhejiang University Insider — Hidden Gem (CSC 10335)
+- ZJU dual application hack: Apply to BOTH CSC and ZJU's own scholarship — you can get offers from both
+- Zijingang campus is the main hub for international students — far from downtown Hangzhou though
+- Alibaba connection: ZJU grads get preferential hiring at Alibaba (HQ is in Hangzhou)
+- ZJU has the EASIEST C9 admission for international students — lower application volume than Beijing/Shanghai schools
+- Interview is common for ZJU CSC — prepare for a 15-20 minute video call
+- Insider: ZJU's agriculture and food science programs are globally top 5 but overlooked by international applicants`, category: 'universities', source_name: 'zju_insider.md' },
+
+  { content: `# Fudan University Insider (CSC 10246)
+- Shanghai Government Scholarship (SGS) is a strong Plan B if CSC fails — Fudan has a good allocation
+- Fudan's journalism program is #1 in China — if you're interested in media, this is your school
+- Phase 1 application deadline is often in JANUARY — earlier than the national CSC deadline
+- Handan campus is downtown Shanghai — incredible location but noisy and crowded
+- Insider: Fudan's economics program is theory-heavy; for practical business, SJTU Antai is better`, category: 'universities', source_name: 'fudan_insider.md' },
+
+  { content: `# SJTU Insider (CSC 10248)
+- Minhang campus reality: it's 1 hour from downtown Shanghai by metro. The campus is huge but isolated
+- Antai College of Economics is one of the top business schools in Asia — triple accredited (AACSB, EQUIS, AMBA)
+- Dual admission: Apply for CSC through the embassy AND directly to SJTU — parallel applications allowed
+- Language requirements: SJTU is strict — HSK 5 for Chinese-taught, IELTS 6.5 for English-taught
+- Insider: SJTU's engineering labs are better funded than Fudan's. Choose SJTU for STEM, Fudan for humanities`, category: 'universities', source_name: 'sjtu_insider.md' },
+
+  { content: `# Nanjing University Insider — Most Underrated C9 (CSC 10284)
+- Astronomy program is #1 in China — if that's your field, NJU is the only choice
+- Xianlin campus is modern but far from the city center (40 minutes by metro)
+- Lower competition than Beijing/Shanghai schools: fewer internationals apply, so your CSC chances are HIGHER
+- Literature and Chinese studies programs are excellent for language learners
+- Insider: NJU professors are more responsive to cold emails than at Tsinghua/PKU — better chance of getting pre-acceptance`, category: 'universities', source_name: 'nanjing_insider.md' },
+
+  { content: `# USTC Hefei Insider — Young Genius School (CSC 10358)
+- Known as the "MIT of China" — pure sciences and physics are world-class
+- Hefei is a Tier 2/3 city — extremely affordable (1,500-2,500 RMB/month total)
+- Recent quantum computing breakthroughs put USTC on the global map
+- Very small international student population — true immersion but can be isolating
+- Insider: USTC's admission is easier than other C9 because Hefei is "unappealing" to most applicants — leverage this`, category: 'universities', source_name: 'ustc_insider.md' },
+
+  { content: `# HIT Insider — The Shenzhen Campus Hack (CSC 10213)
+- HIT's main campus in Harbin has brutal winters (-30°C) but the SHENZHEN campus offers the same degree in warm weather
+- Aerospace and robotics programs are among the best in China — HIT built actual satellites
+- The Shenzhen campus is newer, has better facilities, and is in China's tech capital
+- Insider: When applying, specifically request HIT Shenzhen campus — same CSC code (10213), completely different experience
+- Warning: HIT is on the US Entity List — may affect future US visa applications for some research fields`, category: 'universities', source_name: 'hit_insider.md' },
+
+  { content: `# Tongji University Insider — Architecture King (CSC 10247)
+- Architecture program is #1 in China — if that's your field, Tongji is the undisputed choice
+- Strong German tradition: Tongji was founded with German support, still has German-taught programs
+- Yangpu campus is in a great Shanghai neighborhood — better location than SJTU Minhang
+- Civil engineering and urban planning are also top-tier
+- Insider: Tongji's auto engineering program has partnerships with Volkswagen and BMW — good for industry connections`, category: 'universities', source_name: 'tongji_insider.md' },
+
+  { content: `# BLCU Insider — "Little United Nations" (CSC 10032)
+- Known as the "Little UN" — highest ratio of international students of ANY university in China
+- BEST place to learn Mandarin — this is literally what the university was built for
+- Chinese language instruction here is significantly better than at Tsinghua, PKU, or Fudan
+- Located in Wudaokou, Beijing — same student district as Tsinghua and PKU
+- 1-year language programs are popular as a stepping stone before applying to C9 universities
+- Insider: BLCU degree is not prestigious for non-language fields. Use it for Chinese study, then transfer`, category: 'universities', source_name: 'blcu_insider.md' },
+
+  { content: `# CSC Insider — What the Official Website Won't Tell You (CSC 内幕)
+- Embassy quotas are REAL — each embassy has a fixed number of CSC spots per year. Smaller countries = less competition
+- Professor power: A pre-acceptance letter from a well-known professor can override mediocre grades
+- Type A (embassy track) vs Type B (university track): Type B is often easier because universities have their own quotas
+- Double-dipping: You CAN apply for both Type A and Type B simultaneously — this is not disclosed but not prohibited
+- The CSC online system (campuschina.org) frequently crashes in March — submit EARLY, don't wait for the deadline
+- Priority categories: PhD applicants and joint-PhD programs have the highest acceptance rates
+- Diplomatic considerations: Students from Belt & Road countries genuinely get preference in the selection process`, category: 'scholarships', source_name: 'csc_insider.md' },
+
+  { content: `# How to Email a Chinese Professor — The Real Strategy
+- Subject line matters: "Prospective CSC/International Student Inquiry — [Your Field] — [Your Country]"
+- Keep the first email SHORT — 3 paragraphs max. Attach CV as PDF, not in the body
+- Response rate is only 20-30% — email at least 5-10 professors across different universities
+- Follow up after 2 weeks if no reply. One follow-up is acceptable, two is pushing it
+- WeChat trick: If you can find a professor's WeChat (through their students), a WeChat message gets faster replies than email
+- Best timing: Send emails in September-November, before the application rush (January-March)
+- Never mass-email professors in the SAME department — they talk to each other and it will get you blacklisted
+- Include 1-2 specific papers you've read from their lab — shows genuine interest`, category: 'scholarships', source_name: 'professor_email_insider.md' },
+
+  { content: `# Agency Red Flags — How to Spot Scams
+- "100% guaranteed admission" — NO agency can guarantee CSC or top university admission. This is always a lie
+- Upfront fees over $2,000 USD before any service — legitimate agencies charge reasonable fees or commission-based
+- No physical office or verifiable address — check Google Maps/Baidu Maps
+- Pressure to commit immediately — "this spot will be gone tomorrow" — classic high-pressure sales
+- They claim "special connections" with university admissions — CSC is centralized, not connection-based
+- Can't show you previous successful applications or testimonials with real names
+- They want your passport or original documents — a scammer move
+- Legitimate agencies: help with paperwork, translation, professor introductions. They do NOT control admission decisions`, category: 'scholarships', source_name: 'agency_scams.md' },
+
+  { content: `# Reality Check — What's Real vs What's Advertised
+- "Free accommodation" often means a shared 4-person dorm room with no AC — not a private studio
+- "Monthly stipend covers living expenses" — CSC stipend (¥2,500-3,500) is comfortable in Tier 2/3 cities but TIGHT in Beijing/Shanghai
+- "English-taught programs" — some are genuinely English, others use English textbooks but lectures are partly in Chinese
+- Bureaucracy is REAL: expect to spend days dealing with registration, police forms, health checks, and bank accounts
+- WeChat groups are your lifeline — join the international student WeChat group for your university BEFORE arriving
+- "Free medical insurance" covers basics but may not cover dental, vision, or pre-existing conditions
+- "Campus life" — many Chinese campuses have curfews (11pm lockout), limited weekend activities, and strict guest policies`, category: 'general', source_name: 'reality_check.md' },
+
+  { content: `# CSC Stipend Reality — Real Monthly Budget Breakdown
+**Master's student in Wuhan (Tier 2) on CSC — ¥3,000/month stipend:**
+- Canteen food: ¥600-800 (3 meals/day × 30 days)
+- Phone + internet: ¥50-80
+- Transport (metro/bus): ¥100-200
+- Groceries/snacks: ¥200-400
+- Social activities: ¥200-400
+- Savings: ¥300-800
+- Total: COMFORTABLE with ¥500+ left over
+
+**PhD student in Shanghai (Tier 1) on CSC — ¥3,500/month stipend:**
+- Same categories but 30-50% more expensive
+- Canteen food: ¥900-1,200
+- Transport: ¥200-350
+- Social: ¥400-600
+- Savings: TIGHT. Many PhD students supplement with tutoring (¥100-300/hour)
+
+**Lab stipend hack:** Many science/engineering professors give additional ¥500-2,000/month from lab funds. ASK about this during your professor interview`, category: 'costs', source_name: 'stipend_reality.md' },
+
+  { content: `# Scholarship Politics — Embassy Quotas and Provincial Gems
+- Diplomatic quotas are real: Pakistan, Thailand, Indonesia, Ethiopia typically get more CSC spots than developed countries
+- Provincial governments are DESPERATE for international students — their scholarships are often easier to get than CSC
+- Best provincial scholarships: Beijing Government Scholarship, Shanghai Government Scholarship, Jiangsu Jasmine, Zhejiang Provincial
+- Double-dipping IS possible: Apply for CSC AND a provincial scholarship simultaneously. If you get CSC, the provincial one is automatically withdrawn
+- University-specific scholarships: Many auto-screen all applicants — you don't even need to apply separately
+- Belt & Road bonus: If your country is a B&R partner, specifically mention this in your application — it matters`, category: 'scholarships', source_name: 'scholarship_politics.md' },
+
+  { content: `# Real Application Calendar — When Deadlines REALLY Matter
+**For September intake:**
+- September-November (prior year): Contact professors, prepare documents, take HSK/IELTS
+- December: Most university portals open (check EARLY — some open in November)
+- January: Fudan, SJTU, ZJU Phase 1 deadlines — these are REAL early deadlines
+- February: Chinese New Year break — offices closed 1-2 weeks. Plan around this
+- March: CSC portal often crashes. Submit early. Embassy applications due late March
+- April: Most university deadlines close. National CSC review begins
+- May-June: Results announced in waves. University results first, CSC results last
+- July-August: JW201/202 mailed. Visa application. Book flights AFTER visa is confirmed
+
+**Critical insight:** The "official" deadline is often LATER than the PRACTICAL deadline. Universities fill quotas on a rolling basis — applying late means competing for fewer remaining spots`, category: 'scholarships', source_name: 'deadline_insider.md' },
+
+  { content: `# Visa Insider — Embassy Tricks and Pitfalls
+- Health check in home country may be REJECTED in China — many students have to redo it at a Chinese hospital (¥400-700)
+- Bring 20+ passport photos — China uses them for EVERYTHING (bank, police, residence permit, gym membership)
+- Overstay consequences: Fines (¥500/day, up to ¥10,000), detention center, 5-year entry ban. Do NOT overstay
+- Embassy appointments: Some embassies require booking weeks in advance — check early
+- Visa-free transit: Some nationalities can enter China visa-free for 144 hours — this does NOT apply to students
+- Transfer between universities: You may need to exit China and re-enter on a new visa — this is university-dependent
+- Spring Festival trap: Chinese embassies close for 1-2 weeks during CNY. If your JW202 arrives in January, apply for visa IMMEDIATELY`, category: 'visa', source_name: 'visa_insider.md' },
+
+  { content: `# How Chinese Students View International Students (知乎 Zhihu Insights)
+Common sentiments from Zhihu threads:
+- "Why do foreign students get better dorms?" — The most common complaint. International dorms are indeed nicer
+- "Some foreign students don't study hard but still pass" — Grade inflation for internationals EXISTS at some universities
+- "I respect internationals who learn Chinese and integrate" — Language effort earns genuine respect
+- "The best international students in my lab work as hard as us" — Individual merit matters more than nationality
+- "CSC money could be spent on Chinese students" — A recurring debate, but the government views it as soft-power investment
+- Advice if you encounter hostility: Stay calm, show your academic commitment, learn Chinese, participate in group activities.
+- The VAST majority of Chinese students are friendly and curious. The negative voices are loud but not representative`, category: 'general', source_name: 'chinese_student_views.md' },
+
+  { content: `# Country-Specific Application Tips
+**Pakistan:** Largest CSC intake. Embassy route popular. HEC Pakistan helps with coordination. Medicine and engineering top choices.
+**Nigeria/Ghana/Ethiopia:** Growing numbers. Belt & Road priority. Provincial scholarships in Zhejiang, Jiangsu often more accessible than CSC.
+**Indonesia/Thailand/Vietnam:** Self-funded is common because CSC competition is fierce. Language programs popular as entry point.
+**Bangladesh:** Strong CSC competition. Medicine (MBBS) is the most popular program.
+**Central Asia (Kazakhstan, Uzbekistan, Kyrgyzstan):** Strong diplomatic ties = generous CSC quotas. Language + trade programs popular.
+**India:** Growing interest but complicated by geopolitics. MBBS extremely popular. CSC spots limited.
+**General tip:** Check if your country has a bilateral education agreement with China — it often means dedicated scholarship slots`, category: 'scholarships', source_name: 'country_tips.md' },
 ];
 
 
