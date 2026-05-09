@@ -16,7 +16,7 @@ const CITY_DATA = {
     weather: 'Hot Summers, Cold/Damp Winters (No Central Heating)',
     expatVibe: 'Most international city in China. Massive, diverse, very western-friendly.',
     topUnis: 'Fudan (10246), SJTU (10248), Tongji (10247)',
-    insiderTip: 'SJTU Minhang campus is 1hr from city center — Fudan is downtown. Hidden gem: BFSU Business School has 30% international students and AACSB accreditation!',
+    insiderTip: 'SJTU Minhang campus is 1hr from city center — Fudan is downtown. Shanghai is a major hub for short-term exchange programs (e.g., Duke students) and very international.',
     color: 'emerald'
   },
   beijing: {
@@ -31,7 +31,7 @@ const CITY_DATA = {
     weather: 'Hot Summers, Freezing/Dry Winters (Central Heating)',
     expatVibe: 'Academic & political capital. Wudaokou = "Center of the Universe" for students.',
     topUnis: 'Tsinghua (10003), Peking (10001), RUC (10002), BLCU (10032), Beihang (10006)',
-    insiderTip: 'Haidian district has 5+ top universities within walking distance. Best student district in Asia.',
+    insiderTip: 'Haidian district has 5+ top universities within walking distance. Hidden gem: BFSU Business School has 30% international students and AACSB accreditation!',
     color: 'rose'
   },
   guangzhou: {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import { ShieldAlert, Stethoscope, Home, CreditCard, Smartphone, Car, CheckCircle2, ChevronRight, FileText } from 'lucide-react';
+import { ShieldAlert, Stethoscope, Home, CreditCard, Smartphone, Car, CheckCircle2, ChevronRight, FileText, Heart } from 'lucide-react';
 
 export const metadata = {
   title: 'Expat Survival Tools & Guides | PandaOffer',
@@ -23,6 +23,14 @@ const TOOLS = [
     color: 'text-rose-600',
     bg: 'bg-rose-100',
     link: '/blog/first-30-days-china-survival',
+  },
+  {
+    title: 'Health & Visiting Parents',
+    desc: 'Medical tourism, VIP clinics, and green-channel access for expats and visiting parents.',
+    icon: <Heart size={24} />,
+    color: 'text-pink-600',
+    bg: 'bg-pink-100',
+    link: 'https://www.shanghaimed.help/',
   },
   {
     title: 'Apartment Renting Checklist',
@@ -88,12 +96,16 @@ export default function ExpatTools() {
 
         {/* Tools Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {TOOLS.map((tool, idx) => (
-            <Link 
-              href={tool.link} 
-              key={idx}
-              className="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all block relative"
-            >
+          {TOOLS.map((tool, idx) => {
+            const isExternal = tool.link.startsWith('http');
+            return (
+              <Link 
+                href={tool.link} 
+                key={idx}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                className="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all block relative"
+              >
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${tool.bg} ${tool.color}`}>
                 {tool.icon}
               </div>
@@ -108,7 +120,8 @@ export default function ExpatTools() {
                 Use Tool <ChevronRight size={16} className="ml-1" />
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
 
         {/* Promotion Banner */}

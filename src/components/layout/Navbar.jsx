@@ -33,6 +33,7 @@ export default function Navbar() {
     { name: 'Career & Jobs', href: '/career' },
     { name: 'Visa & Admin', href: '/visa' },
     { name: 'Expat Tools', href: '/expat-tools' },
+    { name: 'Health & Medical', href: 'https://www.shanghaimed.help/', external: true },
     { name: 'Community', href: '/community' },
   ];
 
@@ -89,12 +90,14 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+            const linkProps = link.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
             return (
               <Link 
                 key={link.name} 
                 href={link.href} 
+                {...linkProps}
                 className={`text-sm font-medium transition-colors ${
-                  isActive 
+                  isActive && !link.external
                     ? 'text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg font-bold' 
                     : 'text-slate-600 hover:text-emerald-600'
                 }`}
@@ -233,12 +236,14 @@ export default function Navbar() {
 
           {navLinks.map((link) => {
             const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+            const linkProps = link.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
             return (
               <Link 
                 key={link.name} 
                 href={link.href} 
+                {...linkProps}
                 className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                  isActive 
+                  isActive && !link.external
                     ? 'text-emerald-700 bg-emerald-50 font-bold' 
                     : 'text-slate-600 hover:bg-slate-50'
                 }`}
