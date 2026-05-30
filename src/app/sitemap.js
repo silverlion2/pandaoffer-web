@@ -1,5 +1,6 @@
 import { getSortedPostsData } from '@/lib/markdown';
 import { universities } from '@/data/universities';
+import { seoTourPages } from '@/data/studyTours';
 
 export default function sitemap() {
   const baseUrl = 'https://www.pandaoffer.top';
@@ -117,6 +118,13 @@ export default function sitemap() {
     },
   ];
 
+  const studyTourSeoRoutes = Object.values(seoTourPages).map((page) => ({
+    url: `${baseUrl}/${page.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.9,
+  }));
+
   // Dynamic routes (Blog Posts)
   const blogRoutes = posts.map((post) => {
     return {
@@ -158,5 +166,5 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...blogRoutes, ...universityRoutes, ...cityRoutes, ...majorRoutes];
+  return [...staticRoutes, ...studyTourSeoRoutes, ...blogRoutes, ...universityRoutes, ...cityRoutes, ...majorRoutes];
 }

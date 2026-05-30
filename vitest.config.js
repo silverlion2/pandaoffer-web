@@ -4,6 +4,14 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  oxc: {
+    include: /src[\\/].*\.js$/,
+    exclude: /node_modules/,
+    jsx: {
+      runtime: 'automatic',
+    },
+    lang: 'jsx',
+  },
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/__tests__/setup.js'],
