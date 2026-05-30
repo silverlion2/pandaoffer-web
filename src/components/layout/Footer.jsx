@@ -42,10 +42,10 @@ export default function Footer() {
             <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Study By City</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/study-in-china" className="hover:text-emerald-400 transition-colors">Study in China Guide</Link></li>
-              <li><Link href="/study-in-shanghai" className="hover:text-emerald-400 transition-colors">Study in Shanghai</Link></li>
-              <li><Link href="/study-in-beijing" className="hover:text-emerald-400 transition-colors">Study in Beijing</Link></li>
-              <li><Link href="/study-in-hangzhou" className="hover:text-emerald-400 transition-colors">Study in Hangzhou</Link></li>
-              <li><Link href="/study-in-wuhan" className="hover:text-emerald-400 transition-colors">Study in Wuhan</Link></li>
+              <li><Link href="/study-in/shanghai" className="hover:text-emerald-400 transition-colors">Study in Shanghai</Link></li>
+              <li><Link href="/study-in/beijing" className="hover:text-emerald-400 transition-colors">Study in Beijing</Link></li>
+              <li><Link href="/study-in/hangzhou" className="hover:text-emerald-400 transition-colors">Study in Hangzhou</Link></li>
+              <li><Link href="/study-in/wuhan" className="hover:text-emerald-400 transition-colors">Study in Wuhan</Link></li>
             </ul>
           </div>
 

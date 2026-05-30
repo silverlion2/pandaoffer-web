@@ -149,7 +149,7 @@ export default function sitemap() {
   ));
   
   const cityRoutes = uniqueCities.map(city => ({
-    url: `${baseUrl}/study-in-${city}`,
+    url: `${baseUrl}/study-in/${city}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,

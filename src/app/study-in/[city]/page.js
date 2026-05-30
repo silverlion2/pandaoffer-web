@@ -44,11 +44,11 @@ export async function generateMetadata({ params }) {
   return {
     title,
     description,
-    alternates: { canonical: `https://www.pandaoffer.top/study-in-${citySlug}` },
+    alternates: { canonical: `https://www.pandaoffer.top/study-in/${citySlug}` },
     openGraph: {
       title,
       description,
-      url: `https://www.pandaoffer.top/study-in-${citySlug}`,
+      url: `https://www.pandaoffer.top/study-in/${citySlug}`,
       type: 'article',
       images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: title }],
     },
@@ -86,7 +86,7 @@ export default async function CityLandingPage({ params }) {
               "@type": "CollectionPage",
               "name": `Study in ${cityData.name}`,
               "description": `Comprehensive guide to universities and student life in ${cityData.name}, China.`,
-              "url": `https://www.pandaoffer.top/study-in-${citySlug}`,
+              "url": `https://www.pandaoffer.top/study-in/${citySlug}`,
               "mainEntity": {
                 "@type": "ItemList",
                 "itemListElement": sortedUnis.map((uni, index) => ({
@@ -103,7 +103,7 @@ export default async function CityLandingPage({ params }) {
               "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pandaoffer.top" },
                 { "@type": "ListItem", "position": 2, "name": "Universities", "item": "https://www.pandaoffer.top/universities" },
-                { "@type": "ListItem", "position": 3, "name": `Study in ${cityData.name}`, "item": `https://www.pandaoffer.top/study-in-${citySlug}` },
+                { "@type": "ListItem", "position": 3, "name": `Study in ${cityData.name}`, "item": `https://www.pandaoffer.top/study-in/${citySlug}` },
               ]
             }
           ])

@@ -2,6 +2,7 @@ import '@fontsource-variable/inter';
 import '@fontsource-variable/outfit';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Toaster } from 'sonner';
+import RouteVoteWidget from '@/components/engagement/RouteVoteWidget';
 import AuthProvider from '@/components/providers/AuthProvider';
 import { ModeProvider } from '@/components/providers/ModeProvider';
 import "./globals.css";
@@ -71,6 +72,7 @@ export default function RootLayout({ children }) {
           <AuthProvider>
             {/* 这里是你网站的所有页面内容 */}
             {children}
+            <RouteVoteWidget />
           </AuthProvider>
         </ModeProvider>
         

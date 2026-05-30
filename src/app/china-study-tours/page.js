@@ -12,7 +12,6 @@ import {
   CircuitBoard,
   ClipboardCheck,
   Cpu,
-  Download,
   Factory,
   FileText,
   FlaskConical,
@@ -34,34 +33,11 @@ import {
   conversionPathway,
   pricingAnchors,
   productLineup,
+  routeBriefs,
   studyTourEmail,
   trustItems,
   visitOptionSets,
 } from '@/data/studyTours';
-
-const brochureDownloads = [
-  {
-    title: 'AI/Tech Study Tour Brochure',
-    href: '/brochures/pandaoffer-ai-tech-study-tour.pdf',
-    audience: 'MBA/EMBA groups, university teams, investors, and tech students',
-    description:
-      'AI applications, digital economy, robotics, smart hardware, enterprise software, and innovation park visit options.',
-  },
-  {
-    title: 'Healthcare Study Tour Brochure',
-    href: '/brochures/pandaoffer-healthcare-study-tour.pdf',
-    audience: 'Healthcare executives, medical educators, investors, and hospital managers',
-    description:
-      'Hospital operations, international departments, checkup centers, medtech, digital health, and doctor-led Q&A formats.',
-  },
-  {
-    title: 'School Study Tour Brochure',
-    href: '/brochures/pandaoffer-school-study-tour.pdf',
-    audience: 'Middle schools, high schools, agencies, families, and student groups',
-    description:
-      'Campus visits, Mandarin and culture modules, student safety operations, parent reporting, and study-abroad conversion support.',
-  },
-];
 
 const studyTourMailHref = `mailto:${studyTourEmail}?subject=${encodeURIComponent('China Study Tour Program')}&body=${encodeURIComponent(
   'Group size:\nAge/professional profile:\nPreferred dates:\nTarget cities:\nLearning theme:\nBudget level:\nPrimary visit interests:\n',
@@ -570,7 +546,7 @@ export default function ChinaStudyToursPage() {
               ['#product-system', 'Product system'],
               ['#content-system', 'Content system'],
               ['#pricing', 'Pricing'],
-              ['#brochures', 'Brochures'],
+              ['#route-briefs', 'Route briefs'],
               ['#trust', 'Trust'],
               ['#program-tracks', 'Program tracks'],
               ['#visit-options', 'Visit options'],
@@ -726,56 +702,40 @@ export default function ChinaStudyToursPage() {
           </div>
         </section>
 
-        <section id="brochures" className="bg-white border-y border-slate-200 scroll-mt-24">
+        <section id="route-briefs" className="bg-white border-y border-slate-200 scroll-mt-24">
           <div className="max-w-5xl mx-auto px-6 py-16">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
               <div>
-                <p className="text-sm font-bold uppercase tracking-wider text-sky-600 mb-2">Download Brochures</p>
+                <p className="text-sm font-bold uppercase tracking-wider text-sky-600 mb-2">Route Briefs</p>
                 <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
-                  Three PDF brochures for fast partner review
+                  Three starting points for custom route design
                 </h2>
               </div>
               <p className="text-slate-500 lg:max-w-md">
-                Share these with school leaders, parents, agency partners, MBA coordinators, or professional delegation sponsors. Contact PandaOffer at {studyTourEmail}.
+                Use these public briefs to start a proposal conversation. They are PandaOffer-owned route concepts, not uploaded PPT or PDF material. Contact PandaOffer at {studyTourEmail}.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {brochureDownloads.map((brochure) => (
-                <article
-                  key={brochure.href}
-                  className="border border-slate-200 rounded-2xl p-6 bg-slate-50"
+              {routeBriefs.map((brief) => (
+                <Link
+                  key={brief.href}
+                  href={brief.href}
+                  className="group block border border-slate-200 rounded-2xl p-6 bg-slate-50 transition-all hover:-translate-y-1 hover:border-sky-300 hover:bg-white hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
                 >
                   <div className="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4">
                     <FileText size={22} />
                   </div>
                   <h3 className="font-bold text-slate-900 mb-2 transition-colors group-hover:text-sky-700">
-                    {brochure.title}
+                    {brief.title}
                   </h3>
-                  <p className="text-xs font-semibold text-slate-500 mb-3">{brochure.audience}</p>
-                  <p className="text-sm leading-relaxed text-slate-500 mb-5">{brochure.description}</p>
-                  <div className="rounded-xl border border-slate-200 bg-white px-4 py-3 mb-5">
-                    <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Contact</p>
-                    <a href={studyTourMailHref} className="text-sm font-bold text-sky-700 hover:text-sky-800">
-                      {studyTourEmail}
-                    </a>
-                  </div>
-                  <div className="flex flex-col sm:flex-row gap-2">
-                    <a
-                      href={brochure.href}
-                      download
-                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-slate-800"
-                    >
-                      Download PDF <Download size={16} />
-                    </a>
-                    <a
-                      href={studyTourMailHref}
-                      className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition-colors hover:border-sky-300 hover:text-sky-700"
-                    >
-                      Email PandaOffer <Mail size={16} />
-                    </a>
-                  </div>
-                </article>
+                  <p className="text-xs font-semibold text-slate-500 mb-3">{brief.audience}</p>
+                  <p className="text-sm leading-relaxed text-slate-500 mb-5">{brief.description}</p>
+                  <span className="inline-flex items-center gap-2 text-sm font-bold text-sky-700">
+                    Open route brief
+                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
               ))}
             </div>
           </div>

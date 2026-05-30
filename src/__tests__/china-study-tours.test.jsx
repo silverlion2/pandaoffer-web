@@ -48,7 +48,7 @@ const validInternalRoutes = new Set([
   '/tools/advisor',
 ]);
 
-const validDynamicRoutes = [];
+const validDynamicRoutes = [/^\/study-in\/[a-z0-9-]+$/];
 
 function expectResolvableLinks(container) {
   const anchors = [...container.querySelectorAll('a[href]')];
@@ -150,12 +150,16 @@ describe('China study tours page', () => {
     expectResolvableLinks(container);
   });
 
-  it('shows contact details beside downloadable study-tour brochures', () => {
-    const { container, getAllByText } = render(<ChinaStudyToursPage />);
+  it('uses internal route briefs instead of downloadable brochure links', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const linkedText = getLinkedText(container);
 
-    expect(getAllByText('hello@pandaoffer.top').length).toBeGreaterThanOrEqual(3);
-    expect(container.querySelectorAll('a[href^="mailto:hello@pandaoffer.top"]').length).toBeGreaterThanOrEqual(3);
-    expect(container.querySelectorAll('a[download][href^="/brochures/"]').length).toBe(3);
+    ['AI/Tech Route Brief', 'Healthcare Route Brief', 'School Study Tour Route Brief'].forEach((title) => {
+      const matchingLinks = linkedText.filter((text) => new RegExp(escapeRegex(title), 'i').test(text));
+
+      expect(matchingLinks.length, `${title} should be rendered inside a link`).toBeGreaterThan(0);
+    });
+    expect(container.querySelectorAll('a[download][href^="/brochures/"]').length).toBe(0);
   });
 
   it('does not render unresolved SEO landing-page links', () => {
