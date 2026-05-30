@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPostData, getAllPostSlugs, getSortedPostsData } from '@/lib/markdown';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -19,7 +20,9 @@ export async function generateMetadata({ params }) {
     
     if (!post) return { title: 'Post Not Found | PandaOffer' };
     
-    const title = `${post.title} | PandaOffer Blog`;
+    const title = post.title;
+    const image = post.image || '/og-image.jpg';
+    const imageAlt = post.imageAlt || title;
     const description = post.description || `Read ${post.title} — expert advice for international students studying in China.`;
 
     return {
@@ -37,10 +40,10 @@ export async function generateMetadata({ params }) {
         authors: [post.author],
         images: [
           {
-            url: '/og-image.jpg',
+            url: image,
             width: 1200,
             height: 630,
-            alt: title,
+            alt: imageAlt,
           },
         ],
       },
@@ -48,7 +51,7 @@ export async function generateMetadata({ params }) {
         card: 'summary_large_image',
         title,
         description,
-        images: ['/og-image.jpg'],
+        images: [image],
       },
     };
   } catch (error) {
@@ -90,6 +93,12 @@ export default async function BlogPost({ params }) {
     );
   }
 
+  const articleImage = post.image || '/og-image.jpg';
+  const articleImageAlt = post.imageAlt || post.title;
+  const absoluteArticleImage = articleImage.startsWith('http')
+    ? articleImage
+    : `https://www.pandaoffer.top${articleImage}`;
+
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col">
       <Navbar />
@@ -101,10 +110,13 @@ export default async function BlogPost({ params }) {
               "@context": "https://schema.org",
               "@type": "Article",
               "headline": post.title,
+              "description": post.description,
               "image": [
-                "https://www.pandaoffer.top/og-image.jpg"
+                absoluteArticleImage
               ],
               "datePublished": post.date,
+              "dateModified": post.updated || post.date,
+              "mainEntityOfPage": `https://www.pandaoffer.top/blog/${slug}`,
               "author": [{
                 "@type": "Person",
                 "name": post.author,
@@ -180,6 +192,18 @@ export default async function BlogPost({ params }) {
               </>
             )}
           </div>
+          {post.image && (
+            <figure className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-slate-200 shadow-sm mt-8 bg-slate-100">
+              <Image
+                src={post.image}
+                alt={articleImageAlt}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
+              />
+            </figure>
+          )}
         </header>
 
         {/* Inline AI Advisor Callout */}

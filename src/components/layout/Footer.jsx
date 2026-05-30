@@ -24,6 +24,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/china-study-tours" className="hover:text-emerald-400 transition-colors">China Study Tours</Link></li>
               <li><Link href="/blog" className="hover:text-emerald-400 transition-colors">Blog & Guides</Link></li>
               <li><Link href="/blog/csc-scholarship-guide-2026" className="hover:text-emerald-400 transition-colors">CSC Scholarship Guide</Link></li>
               <li><Link href="/blog/mbbs-in-china-who-recognized" className="hover:text-emerald-400 transition-colors">MBBS Universities</Link></li>

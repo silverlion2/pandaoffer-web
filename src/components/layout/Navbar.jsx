@@ -22,6 +22,7 @@ export default function Navbar() {
   };
 
   const applicationLinks = [
+    { name: 'Study Tours', href: '/china-study-tours' },
     { name: 'Universities', href: '/universities' },
     { name: 'Tools & Calculators', href: '/tools' },
     { name: 'Blog & Guides', href: '/blog' },

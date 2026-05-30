@@ -13,6 +13,7 @@ import EmergencyContacts from './EmergencyContacts';
 import { useMode } from '@/components/providers/ModeProvider';
 
 export default function HomeClientManager({ 
+  studyTourLead,
   heroHeader, 
   toolsMenu,
   affiliates, 
@@ -67,12 +68,15 @@ export default function HomeClientManager({
           
           {/* DYNAMIC HERO SECTION based on global Mode */}
           {isMounted && mode === 'application' && (
-            <div className="text-center space-y-8">
-              {heroHeader}
-              <AiMatcherForm onSubmit={handleMatch} defaultValues={formData} />
-              <p className="text-xs text-center text-slate-400 mt-4">
-                100% Free. Powered by Real Admission Data &amp; AI.
-              </p>
+            <div className="space-y-14">
+              {studyTourLead}
+              <div className="text-center space-y-8">
+                {heroHeader}
+                <AiMatcherForm onSubmit={handleMatch} defaultValues={formData} />
+                <p className="text-xs text-center text-slate-400 mt-4">
+                  100% Free. Powered by Real Admission Data &amp; AI.
+                </p>
+              </div>
             </div>
           )}
 

@@ -20,6 +20,12 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/china-study-tours`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/scholarships`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -154,4 +160,3 @@ export default function sitemap() {
 
   return [...staticRoutes, ...blogRoutes, ...universityRoutes, ...cityRoutes, ...majorRoutes];
 }
-
