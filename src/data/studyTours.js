@@ -251,10 +251,30 @@ export const pricingAnchors = [
 ];
 
 export const tripFacts = [
-  ['Duration', 'Half day to 14 days'],
-  ['Group type', 'School, family, MBA, executive, or partner group'],
-  ['Languages', 'Bilingual coordination and interpretation'],
-  ['Confirmation', 'Primary host plus backup route before deposit'],
+  {
+    label: 'Program scope',
+    value: 'Built around the group profile',
+    detail:
+      'School, family, MBA, executive, and partner groups need different pacing, supervision, and visit assumptions.',
+  },
+  {
+    label: 'Route length',
+    value: 'Short modules or full campus routes',
+    detail:
+      'Half-day industry visits, 1-3 day professional modules, and 7-14 day student routes are scoped separately.',
+  },
+  {
+    label: 'On-trip support',
+    value: 'Bilingual coordination where needed',
+    detail:
+      'English/Chinese host communication, local coordination, and interpretation can be included in the proposal.',
+  },
+  {
+    label: 'Host access',
+    value: 'Primary plan plus backup route',
+    detail:
+      'Campus, hospital, and company visits depend on approval, so every serious route separates confirmed items from backups.',
+  },
 ];
 
 export const sampleRouteFlow = [

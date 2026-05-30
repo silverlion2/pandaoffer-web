@@ -589,12 +589,13 @@ export default function ChinaStudyToursPage() {
         </section>
 
         <section className="border-b border-slate-200 bg-white">
-          <div className="max-w-5xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {tripFacts.map(([label, value]) => (
-              <div key={label} className="py-3">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{label}</div>
-                <div className="text-lg font-extrabold text-slate-900 leading-snug">{value}</div>
-              </div>
+          <div className="max-w-5xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+            {tripFacts.map((item) => (
+              <article key={item.label} className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">{item.label}</div>
+                <h2 className="text-base font-extrabold text-slate-900 leading-snug">{item.value}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.detail}</p>
+              </article>
             ))}
           </div>
         </section>
@@ -775,11 +776,11 @@ export default function ChinaStudyToursPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 items-start">
               <div className="space-y-4">
-                {sampleRouteFlow.map((step, index) => (
+                {sampleRouteFlow.map((step) => (
                   <article key={step.title} className="bg-slate-50 border border-slate-200 rounded-lg p-5">
                     <div className="flex gap-4">
-                      <div className="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm font-extrabold shrink-0">
-                        {index + 1}
+                      <div className="w-10 h-10 rounded-full border border-amber-200 bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
+                        <Route size={18} />
                       </div>
                       <div>
                         <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-1">
@@ -800,11 +801,11 @@ export default function ChinaStudyToursPage() {
                 <h3 className="text-2xl font-extrabold font-heading mb-5">
                   How a custom route gets confirmed
                 </h3>
-                <ol className="space-y-4">
-                  {bookingPath.map((step, index) => (
+                <ul className="space-y-4">
+                  {bookingPath.map((step) => (
                     <li key={step.title} className="flex gap-3">
-                      <span className="w-7 h-7 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-xs font-extrabold shrink-0">
-                        {index + 1}
+                      <span className="w-7 h-7 rounded-full bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
+                        <CheckCircle2 size={15} className="text-emerald-300" />
                       </span>
                       <div>
                         <h4 className="font-bold text-white">{step.title}</h4>
@@ -812,7 +813,7 @@ export default function ChinaStudyToursPage() {
                       </div>
                     </li>
                   ))}
-                </ol>
+                </ul>
                 <a
                   href={studyTourMailHref}
                   className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-emerald-500 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-emerald-600"
@@ -877,7 +878,7 @@ export default function ChinaStudyToursPage() {
                   </div>
 
                   <div className="space-y-3">
-                    {availabilityWindows.map((item, index) => (
+                    {availabilityWindows.map((item) => (
                       <article
                         key={item.window}
                         data-testid="availability-window"
@@ -886,7 +887,7 @@ export default function ChinaStudyToursPage() {
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                           <div>
                             <div className="text-xs font-extrabold uppercase tracking-wider text-slate-400">
-                              Window {index + 1}
+                              Planning window
                             </div>
                             <h4 className="text-lg font-extrabold text-slate-900">{item.window}</h4>
                           </div>
@@ -1361,16 +1362,16 @@ export default function ChinaStudyToursPage() {
                   </span>
                 </div>
                 <p className="text-sm font-semibold text-slate-700 mb-4">{route.bestFor}</p>
-                <ol className="space-y-2.5">
-                  {route.flow.map((item, index) => (
+                <ul className="space-y-2.5">
+                  {route.flow.map((item) => (
                     <li key={item} className="flex gap-3 text-sm leading-relaxed text-slate-600">
-                      <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center text-xs font-bold shrink-0">
-                        {index + 1}
+                      <span className="w-6 h-6 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                        <CheckCircle2 size={14} />
                       </span>
                       <span>{item}</span>
                     </li>
                   ))}
-                </ol>
+                </ul>
                 <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-teal-700">
                   Request this route concept
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -1451,16 +1452,16 @@ export default function ChinaStudyToursPage() {
                     </span>
                   </div>
                   <p className="text-sm font-semibold text-slate-700 mb-4">{route.bestFor}</p>
-                  <ol className="space-y-2.5">
-                    {route.flow.map((item, index) => (
+                  <ul className="space-y-2.5">
+                    {route.flow.map((item) => (
                       <li key={item} className="flex gap-3 text-sm leading-relaxed text-slate-600">
-                        <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center text-xs font-bold shrink-0">
-                          {index + 1}
+                        <span className="w-6 h-6 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                          <CheckCircle2 size={14} />
                         </span>
                         <span>{item}</span>
                       </li>
                     ))}
-                  </ol>
+                  </ul>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-indigo-700">
                     Request this route concept
                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -1492,11 +1493,11 @@ export default function ChinaStudyToursPage() {
             </div>
 
             <div className="space-y-4">
-              {planningSteps.map((step, index) => (
+              {planningSteps.map((step) => (
                 <div key={step.title} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
                   <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-extrabold shrink-0">
-                      {index + 1}
+                    <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                      <ClipboardCheck size={18} />
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-900 mb-1">{step.title}</h3>
