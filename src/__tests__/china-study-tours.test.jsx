@@ -5,7 +5,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import ChinaStudyToursPage from '@/app/china-study-tours/page';
 import StudyTourSeoPage from '@/components/study-tours/StudyTourSeoPage';
-import { seoTourPages } from '@/data/studyTours';
+import { productLineup, seoTourPages } from '@/data/studyTours';
 
 vi.mock('next/link', () => ({
   default: ({ children, href, ...props }) =>
@@ -49,6 +49,13 @@ const validInternalRoutes = new Set([
 ]);
 
 const validDynamicRoutes = [/^\/study-in\/[a-z0-9-]+$/];
+const validExternalRoutes = [
+  /^https:\/\/www\.linkedin\.com\/sharing\/share-offsite\/\?/,
+  /^https:\/\/twitter\.com\/intent\/tweet\?/,
+  /^https:\/\/wa\.me\/\?/,
+  /^https:\/\/www\.facebook\.com\/sharer\/sharer\.php\?/,
+  /^https:\/\/t\.me\/share\/url\?/,
+];
 
 function expectResolvableLinks(container) {
   const anchors = [...container.querySelectorAll('a[href]')];
@@ -77,6 +84,12 @@ function expectResolvableLinks(container) {
       const isKnownRoute =
         validInternalRoutes.has(linkPath) || validDynamicRoutes.some((pattern) => pattern.test(linkPath));
       expect(isKnownRoute, `${href} should be a known internal route`).toBe(true);
+      return;
+    }
+
+    if (href.startsWith('http')) {
+      const isSupportedShareLink = validExternalRoutes.some((pattern) => pattern.test(href));
+      expect(isSupportedShareLink, `${href} should be a supported external share link`).toBe(true);
       return;
     }
 
@@ -150,16 +163,24 @@ describe('China study tours page', () => {
     expectResolvableLinks(container);
   });
 
-  it('uses internal route briefs instead of downloadable brochure links', () => {
+  it('renders downloadable original PDF brochures and share links', () => {
     const { container } = render(<ChinaStudyToursPage />);
     const linkedText = getLinkedText(container);
 
-    ['AI/Tech Route Brief', 'Healthcare Route Brief', 'School Study Tour Route Brief'].forEach((title) => {
+    [
+      'AI/Tech Study Tour Brochure',
+      'Healthcare Study Tour Brochure',
+      'School Study Tour Brochure',
+    ].forEach((title) => {
       const matchingLinks = linkedText.filter((text) => new RegExp(escapeRegex(title), 'i').test(text));
 
       expect(matchingLinks.length, `${title} should be rendered inside a link`).toBeGreaterThan(0);
     });
-    expect(container.querySelectorAll('a[download][href^="/brochures/"]').length).toBe(0);
+    expect(container.querySelectorAll('a[download][href^="/brochures/"]').length).toBe(3);
+    expect(container).toHaveTextContent('Share this study tour hub');
+    ['LinkedIn', 'X', 'WhatsApp', 'Facebook', 'Telegram', 'Email'].forEach((label) => {
+      expect(container).toHaveTextContent(label);
+    });
   });
 
   it('does not render unresolved SEO landing-page links', () => {
@@ -167,6 +188,122 @@ describe('China study tours page', () => {
       const { container, unmount } = render(<StudyTourSeoPage page={page} />);
       expectResolvableLinks(container);
       unmount();
+    });
+  });
+
+  it('renders route marketplace buying signals on the study tour catalog', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+
+    [
+      'Route Marketplace',
+      'Compare by fit, access, outcome, and operating risk',
+      'Buyer fit',
+      'Access level',
+      'Learning output',
+      'Primary access',
+      'Backup plan',
+      'Compare route',
+    ].forEach((text) => {
+      expect(container).toHaveTextContent(text);
+    });
+  });
+
+  it('renders route marketplace products with visual thumbnails', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const productSection = container.querySelector('#product-system');
+    const images = productSection.querySelectorAll('img');
+
+    expect(images.length).toBeGreaterThanOrEqual(productLineup.length);
+    productLineup.forEach((product) => {
+      expect(product.image).toMatch(/^\/.+\.(jpg|jpeg|png|webp|svg)$/i);
+      expect(product.imageAlt).toContain('study tour');
+    });
+  });
+
+  it('orders the study-tour catalog like a travel product page', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const sectionIds = [...container.querySelectorAll('main section[id]')].map((section) => section.id);
+
+    expect(sectionIds.indexOf('product-system')).toBeLessThan(sectionIds.indexOf('route-flow'));
+    expect(sectionIds.indexOf('route-flow')).toBeLessThan(sectionIds.indexOf('availability-fit'));
+    expect(sectionIds.indexOf('availability-fit')).toBeLessThan(sectionIds.indexOf('pricing'));
+    expect(sectionIds.indexOf('product-system')).toBeLessThan(sectionIds.indexOf('pricing'));
+    expect(sectionIds.indexOf('pricing')).toBeLessThan(sectionIds.indexOf('trust'));
+    expect(sectionIds.indexOf('trust')).toBeLessThan(sectionIds.indexOf('content-system'));
+    expect(sectionIds.indexOf('content-system')).toBeLessThan(sectionIds.indexOf('brochures'));
+    expect(sectionIds.indexOf('brochures')).toBeLessThan(sectionIds.indexOf('request-route'));
+  });
+
+  it('puts included and excluded scope next to pricing on the study-tour catalog', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const pricingSection = container.querySelector('#pricing');
+
+    ['What is included', 'Not automatically included'].forEach((text) => {
+      expect(pricingSection).toHaveTextContent(text);
+    });
+  });
+
+  it('renders a route flow and booking path before pricing', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const routeFlowSection = container.querySelector('#route-flow');
+
+    [
+      'Sample Route Flow',
+      'Before arrival',
+      'Arrival and orientation',
+      'Campus or industry access days',
+      'Final debrief and next step',
+      'Booking Path',
+      'Check availability',
+      'Host approval and backup route',
+    ].forEach((text) => {
+      expect(routeFlowSection).toHaveTextContent(text);
+    });
+  });
+
+  it('renders route flow as a visual itinerary board', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const routeFlowSection = container.querySelector('#route-flow');
+    const images = routeFlowSection.querySelectorAll('img');
+
+    expect(routeFlowSection).toHaveTextContent('Visual itinerary board');
+    expect(images.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('renders an availability and fit board before pricing', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const availabilitySection = container.querySelector('#availability-fit');
+
+    [
+      'Dates and fit',
+      'Availability windows',
+      'Open for private quote',
+      'Best fit',
+      'Group readiness',
+      'Host approval risk',
+      'Request these dates',
+    ].forEach((text) => {
+      expect(availabilitySection).toHaveTextContent(text);
+    });
+
+    expect(availabilitySection.querySelectorAll('[data-testid="availability-window"]').length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('renders a quote builder with concrete group fields on SEO route pages', () => {
+    const { container } = render(<StudyTourSeoPage page={seoTourPages.healthcare} />);
+
+    [
+      'Build a quote brief',
+      'Group size',
+      'Audience',
+      'Preferred dates',
+      'Route priority',
+      'Budget level',
+      'Send quote brief',
+      'Included in the proposal',
+      'Not automatically included',
+    ].forEach((text) => {
+      expect(container).toHaveTextContent(text);
     });
   });
 });

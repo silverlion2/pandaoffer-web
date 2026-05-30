@@ -12,7 +12,7 @@ import ToolsMenu from '@/components/tools/ToolsMenu';
 import MedicalTourismBanner from '@/components/home/MedicalTourismBanner';
 
 export const metadata = {
-  title: 'PandaOffer | China Study Tours, University Matching & AI Advisor',
+  title: 'China Study Tours & University Matching',
   description:
     'Plan China study tours with campus visits, healthcare industry routes, AI and tech company visits, plus AI-powered university matching and Study in China guidance.',
   keywords: [
@@ -25,13 +25,13 @@ export const metadata = {
     'CSC Scholarship',
   ],
   alternates: {
-    canonical: 'https://www.pandaoffer.top',
+    canonical: 'https://www.pandaoffer.top/',
   },
   openGraph: {
     title: 'PandaOffer | China Study Tours, University Matching & AI Advisor',
     description:
       'Custom China study tours, healthcare and AI/tech company routes, university matching, and Study in China guidance.',
-    url: 'https://www.pandaoffer.top',
+    url: 'https://www.pandaoffer.top/',
     type: 'website',
     images: [
       {
@@ -54,40 +54,6 @@ export const metadata = {
 export default function PandaOfferApp() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 flex flex-col">
-      {/* JSON-LD Structured Data for Website and Organization */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "PandaOffer",
-              "url": "https://www.pandaoffer.top/",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://www.pandaoffer.top/blog?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "PandaOffer",
-              "alternateName": ["Panda Offer", "pandaoffer.top", "PandaOffer.top"],
-              "url": "https://www.pandaoffer.top/",
-              "logo": "https://www.pandaoffer.top/og-image.jpg",
-              "description": "PandaOffer (Panda Offer) helps international students and professional groups explore China through study tours, university matching, CSC Scholarship guidance, healthcare industry routes, and AI/tech company visits.",
-              "sameAs": ["https://discord.gg/7bU9kb23"],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "email": "hello@pandaoffer.top",
-                "contactType": "customer service"
-              }
-            }
-          ])
-        }}
-      />
       <Navbar />
 
       <main className="max-w-5xl mx-auto px-4 py-12 flex-1 w-full">

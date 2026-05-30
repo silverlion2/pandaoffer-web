@@ -6,11 +6,11 @@ import { universities } from '@/data/universities';
 import { MapPin, GraduationCap, Building2, ArrowRight, Globe2 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Study in China — Complete City & Major Guide for International Students',
+  title: 'Study in China City & Major Guide',
   description: 'Explore top Chinese universities by city and major. Find the perfect program in Shanghai, Beijing, Hangzhou, Chengdu, Wuhan, and more. CSC scholarships available.',
   alternates: { canonical: 'https://www.pandaoffer.top/study-in-china' },
   openGraph: {
-    title: 'Study in China — Complete City & Major Guide',
+    title: 'Study in China City & Major Guide',
     description: 'Explore top Chinese universities by city and major.',
     url: 'https://www.pandaoffer.top/study-in-china',
     type: 'website',

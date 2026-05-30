@@ -63,7 +63,7 @@ export default function RouteVoteWidget() {
   return (
     <aside
       aria-label="Page popularity"
-      className="fixed bottom-3 left-3 z-40 sm:bottom-4 sm:left-4"
+      className="fixed bottom-4 right-4 z-40 sm:left-4 sm:right-auto"
     >
       <button
         type="button"
@@ -71,7 +71,7 @@ export default function RouteVoteWidget() {
         disabled={isVoting}
         aria-pressed={stats.userHasVoted}
         aria-label={stats.userHasVoted ? 'Remove vote for this page' : 'Vote for this page'}
-        className={`group flex items-center gap-2 rounded-full border px-3 py-2 text-left shadow-lg shadow-slate-900/10 backdrop-blur transition-all hover:-translate-y-0.5 hover:shadow-xl disabled:cursor-wait disabled:opacity-70 sm:gap-3 sm:px-4 sm:py-3 ${
+        className={`group relative flex h-12 w-12 items-center justify-center rounded-full border p-0 text-left shadow-lg shadow-slate-900/10 backdrop-blur transition-all hover:-translate-y-0.5 hover:shadow-xl disabled:cursor-wait disabled:opacity-70 sm:h-auto sm:w-auto sm:gap-3 sm:px-4 sm:py-3 ${
           stats.userHasVoted
             ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
             : 'border-slate-200 bg-white/95 text-slate-700 hover:border-emerald-300 hover:text-emerald-700'
@@ -85,12 +85,16 @@ export default function RouteVoteWidget() {
           <ThumbsUp size={18} fill={stats.userHasVoted ? 'currentColor' : 'none'} />
         </span>
         <span className="flex flex-col leading-none">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+          <span className="hidden text-[10px] font-bold uppercase tracking-wider text-slate-500 sm:block">
             Popular
           </span>
-          <span className="mt-1 flex items-baseline gap-1">
-            <strong className="text-base font-extrabold text-slate-900">{stats.displayCount}</strong>
-            <span className="text-xs font-semibold text-slate-500">votes</span>
+          <span
+            className={`absolute -right-1.5 -top-1.5 flex min-w-6 items-center justify-center rounded-full px-1.5 py-0.5 text-[10px] font-extrabold shadow-sm sm:static sm:mt-1 sm:min-w-0 sm:justify-start sm:gap-1 sm:rounded-none sm:bg-transparent sm:p-0 sm:text-base sm:shadow-none ${
+              stats.userHasVoted ? 'bg-emerald-600 text-white sm:text-slate-900' : 'bg-slate-950 text-white sm:text-slate-900'
+            }`}
+          >
+            <strong>{stats.displayCount}</strong>
+            <span className="sr-only text-xs font-semibold text-slate-500 sm:not-sr-only">votes</span>
           </span>
         </span>
       </button>

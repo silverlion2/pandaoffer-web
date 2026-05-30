@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
   const uni = getUniversityBySlug(slug);
   if (!uni) return { title: 'University Not Found | PandaOffer' };
 
-  const title = `${uni.name} (${uni.code}) — Admission Guide for International Students | PandaOffer`;
+  const title = `${uni.code} Admissions Guide`;
   const description = `Everything you need to know about ${uni.name}: admission requirements, CSC scholarship, tuition, programs, campus life, and insider tips for international students.`;
 
   return {

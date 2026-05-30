@@ -108,7 +108,7 @@ const FAQ_CATEGORIES = [
       },
       {
         question: "Can PandaOffer guarantee my admission?",
-        answer: "While no consultant can 100% guarantee admission to a specific university, we guarantee that our Done-For-You service will secure you an offer from at least one of your matched universities, or we provide a full refund of our service fee. Our AI Matcher gives you realistic probability scores before you commit."
+        answer: "No service can guarantee admission to a specific university, scholarship, visa, or host decision. PandaOffer helps you choose realistic targets, prepare stronger documents, manage deadlines, and understand refund terms for eligible service fees before you commit."
       },
     ]
   },

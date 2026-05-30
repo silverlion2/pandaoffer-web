@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 
 export const metadata = {
-  title: 'Study in China Simulator | PandaOffer',
+  title: 'Study in China Simulator',
   description: 'Experience what it is like to study in China through our interactive life simulator.',
 };
 

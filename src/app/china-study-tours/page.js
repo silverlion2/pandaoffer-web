@@ -12,6 +12,7 @@ import {
   CircuitBoard,
   ClipboardCheck,
   Cpu,
+  Download,
   Factory,
   FileText,
   FlaskConical,
@@ -24,17 +25,27 @@ import {
   MapPinned,
   Route,
   ShieldCheck,
+  Share2,
   Sparkles,
   Stethoscope,
   Users,
 } from 'lucide-react';
 import {
+  availabilityWindows,
+  fitBoardSignals,
   contentPillars,
   conversionPathway,
   pricingAnchors,
+  proposalExclusions,
+  proposalIncludes,
   productLineup,
-  routeBriefs,
+  bookingPath,
+  sampleRouteFlow,
+  routeFlowVisuals,
+  studyTourBrochures,
   studyTourEmail,
+  studyTourShareLinks,
+  tripFacts,
   trustItems,
   visitOptionSets,
 } from '@/data/studyTours';
@@ -44,9 +55,9 @@ const studyTourMailHref = `mailto:${studyTourEmail}?subject=${encodeURIComponent
 )}`;
 
 export const metadata = {
-  title: 'China Study Tour Programs: Campus, Healthcare, AI & Tech',
+  title: 'China Study Tours: AI, Healthcare & School',
   description:
-    'Custom China study tour programs for schools, agencies, families, and professional groups: university visits, Mandarin learning, healthcare, AI, tech companies, business, and safety support.',
+    'Plan China study tours for schools, MBA groups, and families with AI/tech, healthcare, campus routes, PDF brochures, host approval, and admissions follow-up.',
   keywords: [
     'China study tour',
     'China healthcare study tour',
@@ -56,12 +67,29 @@ export const metadata = {
     'MBA China study tour',
     'EMBA China study tour',
   ],
-  alternates: { canonical: 'https://www.pandaoffer.top/china-study-tours' },
+  alternates: {
+    canonical: 'https://www.pandaoffer.top/china-study-tours',
+    languages: {
+      'x-default': 'https://www.pandaoffer.top/china-study-tours',
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: 'China Study Tour Programs: Campus, Healthcare, AI & Tech | PandaOffer',
+    title: 'China Study Tours: AI, Healthcare & School | PandaOffer',
     description:
-      'Build a safe, practical China study tour with campus visits, healthcare industry visits, AI and tech company routes, academic workshops, and local logistics handled by PandaOffer.',
+      'Build a China study tour with AI and tech routes, healthcare visits, campus experiences, PDF brochures, pricing anchors, trust details, and admissions follow-up.',
     url: 'https://www.pandaoffer.top/china-study-tours',
+    siteName: 'PandaOffer',
+    locale: 'en_US',
     type: 'website',
     images: [
       {
@@ -74,10 +102,12 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'China Study Tour Programs: Campus, Healthcare, AI & Tech',
+    title: 'China Study Tours: AI, Healthcare & School',
     description:
-      'Custom China study tours with campus visits, healthcare industry visits, AI companies, tech companies, and local logistics.',
+      'Custom China study tours with AI/tech, healthcare, school routes, PDF brochures, pricing anchors, host approval, and admissions follow-up.',
     images: ['/images/study-tours/ai-tech-company-study-tour.jpg'],
+    site: '@pandaoffer',
+    creator: '@pandaoffer',
   },
 };
 
@@ -453,16 +483,50 @@ export default function ChinaStudyToursPage() {
               areaServed: 'China',
               serviceType: 'Study tour planning and education travel support',
               description:
-                'Custom China study tour programs for schools, agencies, families, student groups, and professional delegations, including campus, healthcare, AI, and tech company routes.',
+                'Custom China study tour programs for schools, agencies, families, student groups, and professional delegations, including campus, healthcare, AI, tech company routes, downloadable brochures, host approval safeguards, and admissions follow-up.',
               hasOfferCatalog: {
                 '@type': 'OfferCatalog',
                 name: 'China Study Tour Route Catalog',
                 itemListElement: [
-                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'University Discovery Study Tour' } },
-                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Healthcare Industry Study Tour' } },
-                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI and Tech Company Study Tour' } },
+                  {
+                    '@type': 'Offer',
+                    price: '1899',
+                    priceCurrency: 'USD',
+                    description: 'From $1,899/student. Final quote depends on group size and route design.',
+                    itemOffered: { '@type': 'Service', name: 'School and University Discovery Study Tour' },
+                  },
+                  {
+                    '@type': 'Offer',
+                    description: 'Quoted by group size with primary and backup visit options.',
+                    itemOffered: { '@type': 'Service', name: 'Healthcare Industry Study Tour' },
+                  },
+                  {
+                    '@type': 'Offer',
+                    description: 'Quoted by group size with company visits subject to host approval.',
+                    itemOffered: { '@type': 'Service', name: 'AI and Tech Company Study Tour' },
+                  },
                 ],
               },
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'WebPage',
+              name: 'China Study Tour Programs',
+              url: 'https://www.pandaoffer.top/china-study-tours',
+              description:
+                'China study tour route marketplace with AI/tech, healthcare, school study tour brochures, trust details, pricing anchors, and admissions pathway support.',
+              publisher: {
+                '@type': 'Organization',
+                name: 'PandaOffer',
+                url: 'https://www.pandaoffer.top',
+              },
+              hasPart: studyTourBrochures.map((brochure) => ({
+                '@type': 'DigitalDocument',
+                name: brochure.title,
+                url: `https://www.pandaoffer.top${brochure.href}`,
+                encodingFormat: 'application/pdf',
+                description: brochure.description,
+              })),
             },
             {
               '@context': 'https://schema.org',
@@ -526,15 +590,10 @@ export default function ChinaStudyToursPage() {
 
         <section className="border-b border-slate-200 bg-white">
           <div className="max-w-5xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              ['6', 'product lines'],
-              ['4', 'SEO landing pages'],
-              ['3', 'PDF brochures'],
-              ['2-layer', 'visit options'],
-            ].map(([value, label]) => (
+            {tripFacts.map(([label, value]) => (
               <div key={label} className="py-3">
-                <div className="text-3xl font-extrabold text-slate-900">{value}</div>
-                <div className="text-sm font-medium text-slate-500">{label}</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{label}</div>
+                <div className="text-lg font-extrabold text-slate-900 leading-snug">{value}</div>
               </div>
             ))}
           </div>
@@ -543,11 +602,13 @@ export default function ChinaStudyToursPage() {
         <nav className="bg-white border-b border-slate-200" aria-label="Study tour page sections">
           <div className="max-w-5xl mx-auto px-6 py-5 flex flex-wrap gap-3">
             {[
-              ['#product-system', 'Product system'],
-              ['#content-system', 'Content system'],
-              ['#pricing', 'Pricing'],
-              ['#route-briefs', 'Route briefs'],
+              ['#product-system', 'Route marketplace'],
+              ['#route-flow', 'Route flow'],
+              ['#availability-fit', 'Dates and fit'],
+              ['#pricing', 'Pricing + included'],
               ['#trust', 'Trust'],
+              ['#content-system', 'Decision materials'],
+              ['#brochures', 'Brochures'],
               ['#program-tracks', 'Program tracks'],
               ['#visit-options', 'Visit options'],
               ['#healthcare-routes', 'Healthcare routes'],
@@ -570,13 +631,13 @@ export default function ChinaStudyToursPage() {
         <section id="product-system" className="max-w-5xl mx-auto px-6 py-16 scroll-mt-24">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
             <div>
-              <p className="text-sm font-bold uppercase tracking-wider text-emerald-600 mb-2">Product System</p>
+              <p className="text-sm font-bold uppercase tracking-wider text-emerald-600 mb-2">Route Marketplace</p>
               <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
-                Package scarce access into six sellable products
+                Compare by fit, access, outcome, and operating risk
               </h2>
             </div>
             <p className="text-slate-500 lg:max-w-md">
-              The crowded market is generic culture travel. PandaOffer should lead with routes that require real host access, sector framing, safety operations, and a post-tour admissions path.
+              Each route is displayed like a product: who it fits, what access it tries to secure, what the group leaves with, and what backup keeps the trip useful if host approval changes.
             </p>
           </div>
 
@@ -588,39 +649,73 @@ export default function ChinaStudyToursPage() {
                 <Link
                   key={product.title}
                   href={product.href}
-                  className="group block bg-white border border-slate-200 rounded-2xl p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-emerald-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+                  className="group block overflow-hidden bg-white border border-slate-200 rounded-lg shadow-sm transition-all hover:-translate-y-1 hover:border-emerald-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
                 >
-                  <div className="flex items-start gap-4 mb-5">
-                    <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                      <Icon size={24} />
+                  <figure className="relative aspect-[16/9] overflow-hidden bg-slate-200">
+                    <Image
+                      src={product.image}
+                      alt={product.imageAlt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 512px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.08),rgba(15,23,42,0.78))]" />
+                    <div className="absolute left-4 top-4 max-w-[calc(100%-2rem)] rounded-md bg-white/92 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-emerald-700 shadow-sm">
+                      {product.priority}
                     </div>
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-1">
-                        {product.priority}
-                      </p>
-                      <h3 className="text-xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-700">
-                        {product.title}
-                      </h3>
-                      <p className="text-sm font-semibold text-slate-500 mt-1">{product.audience}</p>
+                    <div className="absolute inset-x-4 bottom-4 flex flex-wrap items-end justify-between gap-2">
+                      <span className="rounded-md bg-white px-3 py-2 text-sm font-extrabold text-slate-950 shadow-sm">
+                        {product.price}
+                      </span>
+                      <span className="rounded-md border border-white/25 bg-slate-950/70 px-3 py-2 text-xs font-bold text-white backdrop-blur">
+                        {product.duration}
+                      </span>
                     </div>
-                  </div>
-                  <p className="text-sm leading-relaxed text-slate-600 mb-4">{product.offer}</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
-                    <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
-                      <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Market signal</p>
-                      <p className="text-xs leading-relaxed text-slate-600">{product.marketSignal}</p>
+                  </figure>
+
+                  <div className="p-5">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-11 h-11 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                        <Icon size={24} />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-700">
+                          {product.title}
+                        </h3>
+                        <p className="text-sm font-semibold text-slate-500 mt-1">{product.audience}</p>
+                      </div>
                     </div>
-                    <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
-                      <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Scarce resource</p>
-                      <p className="text-xs leading-relaxed text-slate-600">{product.scarceResource}</p>
+                    <p className="text-sm leading-relaxed text-slate-600 mb-5">{product.offer}</p>
+
+                    <dl className="divide-y divide-slate-100 border-y border-slate-100 mb-5">
+                      {[
+                        ['Buyer fit', product.buyerFit],
+                        ['Access level', product.accessLevel],
+                        ['Learning output', product.learningOutput],
+                        ['Primary access', product.primaryAccess],
+                        ['Backup plan', product.backupPlan],
+                      ].map(([label, value]) => (
+                        <div key={label} className="grid grid-cols-1 sm:grid-cols-[128px_1fr] gap-1 sm:gap-4 py-3">
+                          <dt className="text-xs font-bold uppercase tracking-wider text-slate-400">{label}</dt>
+                          <dd className="text-sm leading-relaxed text-slate-600">{value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                      <div className="flex flex-wrap gap-2">
+                        {[product.marketSignal, product.scarceResource].map((item) => (
+                          <span key={item} className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
+                            <ShieldCheck size={13} className="text-emerald-500 shrink-0" />
+                            <span className="line-clamp-1">{item}</span>
+                          </span>
+                        ))}
+                      </div>
+                      <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700 shrink-0">
+                        Compare route
+                        <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                      </span>
                     </div>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                    <p className="text-xs leading-relaxed text-slate-500 sm:max-w-md">{product.contentAngle}</p>
-                    <span className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700">
-                      {product.cta}
-                      <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                    </span>
                   </div>
                 </Link>
               );
@@ -628,17 +723,318 @@ export default function ChinaStudyToursPage() {
           </div>
         </section>
 
+        <section id="route-flow" className="bg-white border-y border-slate-200 scroll-mt-24">
+          <div className="max-w-5xl mx-auto px-6 py-16">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-wider text-amber-600 mb-2">Sample Route Flow</p>
+                <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
+                  Show the trip rhythm before asking for a quote
+                </h2>
+              </div>
+              <p className="text-slate-500 lg:max-w-md">
+                Mature tour pages make the sequence legible. PandaOffer keeps the route flexible, but every proposal follows a clear planning and delivery path.
+              </p>
+            </div>
+
+            <div className="mb-8 overflow-hidden rounded-lg border border-slate-200 bg-slate-950 shadow-sm">
+              <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr]">
+                <div className="p-5 md:p-6 text-white">
+                  <p className="text-sm font-bold uppercase tracking-wider text-amber-300 mb-2">
+                    Visual itinerary board
+                  </p>
+                  <h3 className="text-2xl font-extrabold font-heading mb-3">
+                    See the route before reading the details
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-300">
+                    A custom China route should feel tangible: arrival context, access days, and final debrief all need a visible place in the product story.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3">
+                  {routeFlowVisuals.map((item) => (
+                    <figure key={item.title} className="relative min-h-[180px] overflow-hidden border-t border-white/10 sm:border-l sm:border-t-0">
+                      <Image
+                        src={item.image}
+                        alt={item.imageAlt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 320px"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.08),rgba(15,23,42,0.78))]" />
+                      <figcaption className="absolute inset-x-4 bottom-4">
+                        <span className="inline-flex rounded-md bg-white/90 px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider text-slate-900">
+                          {item.label}
+                        </span>
+                        <p className="mt-2 text-sm font-bold leading-snug text-white">{item.title}</p>
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 items-start">
+              <div className="space-y-4">
+                {sampleRouteFlow.map((step, index) => (
+                  <article key={step.title} className="bg-slate-50 border border-slate-200 rounded-lg p-5">
+                    <div className="flex gap-4">
+                      <div className="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm font-extrabold shrink-0">
+                        {index + 1}
+                      </div>
+                      <div>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-1">
+                          <h3 className="font-extrabold text-slate-900">{step.title}</h3>
+                          <span className="text-xs font-bold text-amber-700 bg-amber-50 rounded-full px-3 py-1 w-fit">
+                            {step.timing}
+                          </span>
+                        </div>
+                        <p className="text-sm leading-relaxed text-slate-600">{step.detail}</p>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <aside className="bg-slate-950 text-white rounded-lg p-6 shadow-sm">
+                <p className="text-sm font-bold uppercase tracking-wider text-emerald-300 mb-2">Booking Path</p>
+                <h3 className="text-2xl font-extrabold font-heading mb-5">
+                  How a custom route gets confirmed
+                </h3>
+                <ol className="space-y-4">
+                  {bookingPath.map((step, index) => (
+                    <li key={step.title} className="flex gap-3">
+                      <span className="w-7 h-7 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-xs font-extrabold shrink-0">
+                        {index + 1}
+                      </span>
+                      <div>
+                        <h4 className="font-bold text-white">{step.title}</h4>
+                        <p className="mt-1 text-sm leading-relaxed text-slate-300">{step.detail}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+                <a
+                  href={studyTourMailHref}
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-emerald-500 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-emerald-600"
+                >
+                  Request availability <Mail size={17} />
+                </a>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <section id="availability-fit" className="bg-slate-100 border-b border-slate-200 scroll-mt-24">
+          <div className="max-w-5xl mx-auto px-6 py-16">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-wider text-emerald-600 mb-2">Dates and fit</p>
+                <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
+                  Make availability feel concrete before the price conversation
+                </h2>
+              </div>
+              <p className="text-slate-500 lg:max-w-md">
+                Travel marketplaces reduce hesitation with date windows, status chips, capacity cues, and fit signals. PandaOffer uses the same logic for custom China routes.
+              </p>
+            </div>
+
+            <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+              <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr]">
+                <aside className="bg-slate-950 p-6 md:p-7 text-white">
+                  <div className="inline-flex items-center gap-2 rounded-md border border-emerald-300/25 bg-emerald-300/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-emerald-200">
+                    <CalendarDays size={14} />
+                    Live planning board
+                  </div>
+                  <h3 className="mt-5 text-3xl font-extrabold font-heading leading-tight">
+                    Open for private quote
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                    Pick a preferred window, then PandaOffer checks host availability, backup visit quality, city routing, and supervision needs before issuing the written proposal.
+                  </p>
+
+                  <div className="mt-7 grid grid-cols-2 gap-3">
+                    {[
+                      ['3', 'planning windows'],
+                      ['48h', 'initial route read'],
+                      ['2x', 'primary + backup'],
+                      ['1', 'written proposal'],
+                    ].map(([value, label]) => (
+                      <div key={label} className="rounded-lg border border-white/10 bg-white/5 p-4">
+                        <div className="text-2xl font-extrabold text-white">{value}</div>
+                        <div className="mt-1 text-xs font-bold uppercase tracking-wider text-slate-400">{label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </aside>
+
+                <div className="p-5 md:p-6">
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <div>
+                      <p className="text-sm font-bold uppercase tracking-wider text-slate-400">Availability windows</p>
+                      <h3 className="text-xl font-extrabold text-slate-900">Choose a realistic departure lane</h3>
+                    </div>
+                    <Route size={24} className="text-emerald-600 shrink-0" />
+                  </div>
+
+                  <div className="space-y-3">
+                    {availabilityWindows.map((item, index) => (
+                      <article
+                        key={item.window}
+                        data-testid="availability-window"
+                        className="rounded-lg border border-slate-200 bg-slate-50 p-4"
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                          <div>
+                            <div className="text-xs font-extrabold uppercase tracking-wider text-slate-400">
+                              Window {index + 1}
+                            </div>
+                            <h4 className="text-lg font-extrabold text-slate-900">{item.window}</h4>
+                          </div>
+                          <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-extrabold text-emerald-700">
+                            <CheckCircle2 size={14} />
+                            {item.status}
+                          </span>
+                        </div>
+                        <div className="mt-4 grid grid-cols-1 sm:grid-cols-[1fr_150px] gap-3">
+                          <div>
+                            <p className="text-sm font-bold text-slate-900">{item.route}</p>
+                            <p className="mt-1 text-sm leading-relaxed text-slate-600">{item.signal}</p>
+                          </div>
+                          <div className="rounded-md border border-slate-200 bg-white p-3">
+                            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                              <Users size={14} />
+                              Capacity
+                            </div>
+                            <div className="mt-1 text-sm font-extrabold text-slate-900">{item.capacity}</div>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
+              {fitBoardSignals.map((item) => (
+                <article key={item.title} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+                  <div className="flex items-center gap-2 mb-3">
+                    <ShieldCheck size={18} className="text-emerald-600" />
+                    <h3 className="text-sm font-extrabold uppercase tracking-wider text-slate-500">{item.title}</h3>
+                  </div>
+                  <p className="text-lg font-extrabold leading-snug text-slate-900">{item.value}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.detail}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-lg border border-emerald-200 bg-emerald-50 p-5">
+              <p className="text-sm leading-relaxed text-emerald-900">
+                Send your preferred window and group profile first. The quote can then separate fixed operating costs from host-dependent items.
+              </p>
+              <a
+                href={studyTourMailHref}
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md bg-emerald-600 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-emerald-700"
+              >
+                Request these dates <Mail size={17} />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing" className="max-w-5xl mx-auto px-6 py-16 scroll-mt-24">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-wider text-emerald-600 mb-2">Pricing Anchor</p>
+              <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
+                Clear starting point, then quote by group size
+              </h2>
+            </div>
+            <p className="text-slate-500 lg:max-w-md">
+              Final pricing depends on group size, dates, city count, accommodation level, host fees, interpreter needs, and supervision model.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {pricingAnchors.map((item) => (
+              <article key={item.title} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <p className="text-sm font-bold text-slate-500 mb-2">{item.title}</p>
+                <p className="text-3xl font-extrabold text-slate-900 mb-4">{item.price}</p>
+                <p className="text-sm leading-relaxed text-slate-500">{item.detail}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <article className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm">
+              <div className="flex items-center gap-2 mb-4">
+                <CheckCircle2 size={20} className="text-emerald-600" />
+                <h3 className="text-lg font-extrabold text-slate-900">What is included</h3>
+              </div>
+              <ul className="space-y-3">
+                {proposalIncludes.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm leading-relaxed text-slate-600">
+                    <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="bg-slate-50 border border-slate-200 rounded-lg p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <ShieldCheck size={20} className="text-slate-600" />
+                <h3 className="text-lg font-extrabold text-slate-900">Not automatically included</h3>
+              </div>
+              <ul className="space-y-3">
+                {proposalExclusions.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm leading-relaxed text-slate-600">
+                    <ShieldCheck size={16} className="text-slate-500 shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="trust" className="max-w-5xl mx-auto px-6 py-16 scroll-mt-24">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-wider text-amber-600 mb-2">Trust Module</p>
+              <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
+                Confirm the operating details before payment
+              </h2>
+            </div>
+            <p className="text-slate-500 lg:max-w-md">
+              We keep commercial, safety, visa, and supervision assumptions visible before a school or family pays a deposit.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {trustItems.map((item) => (
+              <article key={item.title} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <ShieldCheck size={18} className="text-emerald-500 shrink-0" />
+                  <h3 className="font-bold text-slate-900">{item.title}</h3>
+                </div>
+                <p className="text-sm leading-relaxed text-slate-500">{item.detail}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="content-system" className="bg-white border-y border-slate-200 scroll-mt-24">
           <div className="max-w-5xl mx-auto px-6 py-16">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
               <div>
-                <p className="text-sm font-bold uppercase tracking-wider text-indigo-600 mb-2">Content System</p>
+                <p className="text-sm font-bold uppercase tracking-wider text-indigo-600 mb-2">Decision Materials</p>
                 <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
-                  Turn each product into pages, route guides, and trust content
+                  Give buyers the materials they need before deposit
                 </h2>
               </div>
               <p className="text-slate-500 lg:max-w-md">
-                Content should prove access and reduce purchase risk, not just describe China. Each pillar has a sales job and an SEO job.
+                The best study tour pages reduce risk before the first call: route options, city logic, trust details, and the post-tour path are all visible.
               </p>
             </div>
 
@@ -678,92 +1074,70 @@ export default function ChinaStudyToursPage() {
           </div>
         </section>
 
-        <section id="pricing" className="max-w-5xl mx-auto px-6 py-16 scroll-mt-24">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-wider text-emerald-600 mb-2">Pricing Anchor</p>
-              <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
-                Clear starting point, then quote by group size
-              </h2>
-            </div>
-            <p className="text-slate-500 lg:max-w-md">
-              Final pricing depends on group size, dates, city count, accommodation level, host fees, interpreter needs, and supervision model.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {pricingAnchors.map((item) => (
-              <article key={item.title} className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                <p className="text-sm font-bold text-slate-500 mb-2">{item.title}</p>
-                <p className="text-3xl font-extrabold text-slate-900 mb-4">{item.price}</p>
-                <p className="text-sm leading-relaxed text-slate-500">{item.detail}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="route-briefs" className="bg-white border-y border-slate-200 scroll-mt-24">
+        <section id="brochures" className="bg-white border-b border-slate-200 scroll-mt-24">
           <div className="max-w-5xl mx-auto px-6 py-16">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
               <div>
-                <p className="text-sm font-bold uppercase tracking-wider text-sky-600 mb-2">Route Briefs</p>
+                <p className="text-sm font-bold uppercase tracking-wider text-sky-600 mb-2">Download Brochures</p>
                 <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
-                  Three starting points for custom route design
+                  Three original PDFs for partner review
                 </h2>
               </div>
               <p className="text-slate-500 lg:max-w-md">
-                Use these public briefs to start a proposal conversation. They are PandaOffer-owned route concepts, not uploaded PPT or PDF material. Contact PandaOffer at {studyTourEmail}.
+                Share the AI/Tech, Healthcare, or School Study Tour brochure with faculty, parents, agencies, or sponsors before the first planning call.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {routeBriefs.map((brief) => (
-                <Link
-                  key={brief.href}
-                  href={brief.href}
+              {studyTourBrochures.map((brochure) => (
+                <a
+                  key={brochure.href}
+                  href={brochure.href}
+                  download
                   className="group block border border-slate-200 rounded-2xl p-6 bg-slate-50 transition-all hover:-translate-y-1 hover:border-sky-300 hover:bg-white hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
                 >
                   <div className="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4">
                     <FileText size={22} />
                   </div>
                   <h3 className="font-bold text-slate-900 mb-2 transition-colors group-hover:text-sky-700">
-                    {brief.title}
+                    {brochure.title}
                   </h3>
-                  <p className="text-xs font-semibold text-slate-500 mb-3">{brief.audience}</p>
-                  <p className="text-sm leading-relaxed text-slate-500 mb-5">{brief.description}</p>
+                  <p className="text-xs font-semibold text-slate-500 mb-3">{brochure.audience}</p>
+                  <p className="text-sm leading-relaxed text-slate-500 mb-5">{brochure.description}</p>
                   <span className="inline-flex items-center gap-2 text-sm font-bold text-sky-700">
-                    Open route brief
-                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                    Download PDF
+                    <Download size={16} className="transition-transform group-hover:translate-y-0.5" />
                   </span>
-                </Link>
+                </a>
               ))}
             </div>
-          </div>
-        </section>
 
-        <section id="trust" className="max-w-5xl mx-auto px-6 py-16 scroll-mt-24">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-wider text-amber-600 mb-2">Trust Module</p>
-              <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
-                Confirm the operating details before payment
-              </h2>
-            </div>
-            <p className="text-slate-500 lg:max-w-md">
-              We keep commercial, safety, visa, and supervision assumptions visible before a school or family pays a deposit.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {trustItems.map((item) => (
-              <article key={item.title} className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                <div className="flex items-center gap-2 mb-3">
-                  <ShieldCheck size={18} className="text-emerald-500 shrink-0" />
-                  <h3 className="font-bold text-slate-900">{item.title}</h3>
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2 text-slate-900 font-extrabold">
+                    <Share2 size={18} className="text-sky-600" />
+                    Share this study tour hub
+                  </div>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-500">
+                    Use these share links for LinkedIn groups, school partner chats, parent communities, and agency outreach.
+                  </p>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-500">{item.detail}</p>
-              </article>
-            ))}
+                <div className="flex flex-wrap gap-2">
+                  {studyTourShareLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target={link.href.startsWith('mailto:') ? undefined : '_blank'}
+                      rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                      className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-sky-300 hover:text-sky-700"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -361,8 +361,8 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
           </div>
           <div className="bg-slate-900 text-white p-6 rounded-2xl shadow-md flex flex-col justify-center items-center text-center">
             <ShieldCheck size={32} className="mb-3 text-emerald-400" />
-            <h3 className="font-bold text-lg mb-1">Want guaranteed admission?</h3>
-            <p className="text-sm text-slate-400 mb-4">Book a 1v1 strategy call with our admission experts.</p>
+            <h3 className="font-bold text-lg mb-1">Want expert application support?</h3>
+            <p className="text-sm text-slate-400 mb-4">Book a 1v1 strategy call to review school fit, document risks, and next steps.</p>
             <a
               href={siteConfig.links.discord}
               target="_blank"

@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
   
   if (!cityData) return { title: 'City Not Found | PandaOffer' };
 
-  const title = `Study in ${cityData.name}, China - Top Universities & Scholarships`;
+  const title = `Study in ${cityData.name}, China`;
   const description = `Looking to study in ${cityData.name}? Discover top-ranked universities, living costs, CSC scholarships, and student life in ${cityData.name}, ${cityData.province}.`;
 
   return {

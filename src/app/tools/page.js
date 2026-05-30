@@ -4,7 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { FileText, TrendingDown, Calendar, Scale, Calculator, Sparkles, Brain, ArrowRight, Search, ClipboardCheck, Mic, Gamepad2 } from 'lucide-react';
 export const metadata = {
-  title: 'Tools & Calculators | PandaOffer',
+  title: 'Tools & Calculators',
   description: 'Free interactive tools for international students planning to study in China — organized by your journey stage. AI Advisor, calculators, timelines, and document generators.',
   openGraph: {
     title: 'Tools & Calculators | PandaOffer',

@@ -7,7 +7,6 @@ export default function Footer() {
     <footer className="bg-slate-900 text-slate-400 mt-auto">
       <div className="max-w-5xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-7 h-7 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
@@ -20,7 +19,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
@@ -37,7 +35,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Study By City */}
           <div>
             <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Study By City</h4>
             <ul className="space-y-2 text-sm">
@@ -49,14 +46,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Community & Legal */}
           <div>
             <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Community</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a 
-                  href={siteConfig.links.discord} 
-                  target="_blank" 
+                <a
+                  href={siteConfig.links.discord}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-emerald-400 transition-colors flex items-center gap-1.5"
                 >
@@ -64,8 +60,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="mailto:hello@pandaoffer.top" 
+                <a
+                  href="mailto:hello@pandaoffer.top"
                   className="hover:text-emerald-400 transition-colors flex items-center gap-1.5"
                 >
                   <Mail size={14} /> hello@pandaoffer.top
@@ -82,10 +78,10 @@ export default function Footer() {
             <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Sister Sites</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a 
-                  href="https://www.shanghaimed.help/" 
-                  target="_blank" 
-                  rel="noopener" 
+                <a
+                  href="https://www.shanghaimed.help/"
+                  target="_blank"
+                  rel="noopener"
                   className="hover:text-emerald-400 transition-colors flex items-center gap-1.5"
                   title="Medical Tourism & Healthcare in Shanghai"
                 >
@@ -96,9 +92,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-3">
-          <p>© {new Date().getFullYear()} PandaOffer. All rights reserved.</p>
+          <p>Copyright {new Date().getFullYear()} PandaOffer. All rights reserved.</p>
           <p className="flex items-center gap-1">
             Made with <Heart size={12} className="text-red-400" /> for international students worldwide
           </p>

@@ -30,6 +30,19 @@ describe('RouteVoteWidget', () => {
     expect(screen.getByText(String(getRouteVoteBaseCount('/tools/roi')))).toBeInTheDocument();
   });
 
+  it('uses a compact mobile layout so it does not cover page content', () => {
+    vi.spyOn(global, 'fetch').mockResolvedValue({
+      ok: false,
+      json: async () => ({}),
+    });
+
+    render(<RouteVoteWidget />);
+
+    expect(screen.getByLabelText('Page popularity')).toHaveClass('right-4', 'sm:left-4');
+    expect(screen.getByRole('button', { name: /vote for this page/i })).toHaveClass('h-12', 'w-12', 'sm:w-auto');
+    expect(screen.getByText('Popular')).toHaveClass('hidden', 'sm:block');
+  });
+
   it('loads real vote totals and posts a route vote', async () => {
     const baseCount = getRouteVoteBaseCount('/tools/roi');
     const fetchMock = vi.spyOn(global, 'fetch');
