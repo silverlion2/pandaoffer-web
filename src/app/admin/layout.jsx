@@ -6,7 +6,7 @@ import { Loader2, ShieldAlert } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AdminLayout({ children }) {
-  const { user, profile, loading } = useAuth();
+  const { profile, loading } = useAuth();
 
   if (loading) {
     return (
@@ -31,7 +31,7 @@ export default function AdminLayout({ children }) {
             <h1 className="text-2xl font-bold text-slate-900 mb-2">Access Denied</h1>
             <p className="text-slate-500 mb-6">You don&apos;t have admin privileges.</p>
             <Link href="/" className="text-emerald-600 hover:underline font-semibold">
-              ← Go back home
+              Go back home
             </Link>
           </div>
         </div>

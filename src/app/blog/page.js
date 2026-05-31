@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import BlogGrid from '@/components/home/BlogGrid';
 
 export const metadata = {
-  title: 'Blog & Guides — Study in China Tips & Scholarships',
+  title: 'Study in China Blog & Guides',
   description: 'Expert guides on CSC Scholarships, MBBS in China, student visas, cost of living, and survival tips for international students planning to study in China.',
   openGraph: {
     title: 'Blog & Guides — Study in China Tips & Scholarships',

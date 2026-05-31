@@ -1,6 +1,6 @@
 import { getSortedPostsData } from '@/lib/markdown';
 import { universities } from '@/data/universities';
-import { seoTourPages } from '@/data/studyTours';
+import { seoTourPages, studyTourBrochures } from '@/data/studyTours';
 
 export default function sitemap() {
   const baseUrl = 'https://www.pandaoffer.top';
@@ -24,7 +24,7 @@ export default function sitemap() {
       url: `${baseUrl}/china-study-tours`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.95,
+      priority: 0.98,
     },
     {
       url: `${baseUrl}/scholarships`,
@@ -122,7 +122,14 @@ export default function sitemap() {
     url: `${baseUrl}/${page.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
-    priority: 0.9,
+    priority: 0.92,
+  }));
+
+  const brochureRoutes = studyTourBrochures.map((brochure) => ({
+    url: `${baseUrl}${brochure.href}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.45,
   }));
 
   // Dynamic routes (Blog Posts)
@@ -149,7 +156,7 @@ export default function sitemap() {
   ));
   
   const cityRoutes = uniqueCities.map(city => ({
-    url: `${baseUrl}/study-in-${city}`,
+    url: `${baseUrl}/study-in/${city}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
@@ -166,5 +173,13 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...studyTourSeoRoutes, ...blogRoutes, ...universityRoutes, ...cityRoutes, ...majorRoutes];
+  return [
+    ...staticRoutes,
+    ...studyTourSeoRoutes,
+    ...brochureRoutes,
+    ...blogRoutes,
+    ...universityRoutes,
+    ...cityRoutes,
+    ...majorRoutes,
+  ];
 }

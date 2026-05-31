@@ -5,7 +5,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import ChinaStudyToursPage from '@/app/china-study-tours/page';
 import StudyTourSeoPage from '@/components/study-tours/StudyTourSeoPage';
-import { seoTourPages } from '@/data/studyTours';
+import { productLineup, seoTourPages } from '@/data/studyTours';
 
 vi.mock('next/link', () => ({
   default: ({ children, href, ...props }) =>
@@ -41,6 +41,7 @@ const validInternalRoutes = new Set([
   '/blog/mbbs-in-china-who-recognized',
   '/china-ai-company-visits',
   '/china-healthcare-study-tour',
+  '/china-school-study-tour',
   '/china-study-tours',
   '/china-tech-company-study-tour',
   '/mba-china-innovation-tour',
@@ -48,7 +49,14 @@ const validInternalRoutes = new Set([
   '/tools/advisor',
 ]);
 
-const validDynamicRoutes = [];
+const validDynamicRoutes = [/^\/study-in\/[a-z0-9-]+$/];
+const validExternalRoutes = [
+  /^https:\/\/www\.linkedin\.com\/sharing\/share-offsite\/\?/,
+  /^https:\/\/twitter\.com\/intent\/tweet\?/,
+  /^https:\/\/wa\.me\/\?/,
+  /^https:\/\/www\.facebook\.com\/sharer\/sharer\.php\?/,
+  /^https:\/\/t\.me\/share\/url\?/,
+];
 
 function expectResolvableLinks(container) {
   const anchors = [...container.querySelectorAll('a[href]')];
@@ -80,41 +88,23 @@ function expectResolvableLinks(container) {
       return;
     }
 
+    if (href.startsWith('http')) {
+      const isSupportedShareLink = validExternalRoutes.some((pattern) => pattern.test(href));
+      expect(isSupportedShareLink, `${href} should be a supported external share link`).toBe(true);
+      return;
+    }
+
     expect(href.startsWith('mailto:'), `${href} should be a supported external link`).toBe(true);
   });
 }
 
 const clickableContentTitles = [
-  'University Discovery',
-  'Mandarin & Culture',
-  'Future China',
-  'MBBS & Health Preview',
-  'Healthcare Industry Study',
-  'AI & Tech Company Visits',
-  'Beijing Academic Route',
-  'Shanghai + Hangzhou Innovation Route',
-  'Chengdu Culture + Campus Route',
-  'Hospital Operations',
-  'Doctor-Led Clinical Visit',
-  'Medical Service Innovation',
-  'Biopharma & Devices',
-  'Market Insight',
-  'Half-Day Hospital Deep Visit',
-  'One-Day Healthcare Operations Route',
-  'Shanghai + Hangzhou Digital Health Route',
-  'Guangzhou + Shenzhen MedTech Route',
-  'Beijing Policy + Hospital Management Route',
-  "Xi'an + Wuhan Central China Medical Ecosystem",
-  'AI Applications',
-  'Digital Platforms',
-  'Smart Hardware',
-  'Industrial Tech',
-  'Shanghai AI + Enterprise Tech Route',
-  'Hangzhou Digital Economy Route',
-  'Shenzhen Robotics + Hardware Route',
-  'Guangzhou + Shenzhen Cross-Border Tech Route',
-  'Beijing AI Policy + Research Route',
-  "Wuhan + Xi'an Central China Tech Route",
+  'Study-in-China Preview Tour',
+  'China Healthcare Study Tour',
+  'China AI Company Visits',
+  'China Tech Company Study Tour',
+  'MBA China Innovation Tour',
+  'White-Label Study Tour Operations',
 ];
 
 describe('China study tours page', () => {
@@ -145,17 +135,47 @@ describe('China study tours page', () => {
     });
   });
 
+  it('renders a dedicated school study tour SEO landing page', () => {
+    const page = seoTourPages.schoolStudy;
+    const { container } = render(<StudyTourSeoPage page={page} />);
+    const linkedText = getLinkedText(container);
+    const expectedTitles = [
+      ...page.modules.map((module) => module.title),
+      ...page.sampleRoutes.map((route) => route.title),
+    ];
+
+    expect(container).toHaveTextContent('China School Study Tour');
+    expect(container).toHaveTextContent('Build a quote brief');
+    expectedTitles.forEach((title) => {
+      const matchingLinks = linkedText.filter((text) => new RegExp(escapeRegex(title), 'i').test(text));
+
+      expect(matchingLinks.length, `${title} should be rendered inside a link`).toBeGreaterThan(0);
+    });
+  });
+
   it('does not render unresolved study-tour page links', () => {
     const { container } = render(<ChinaStudyToursPage />);
     expectResolvableLinks(container);
   });
 
-  it('shows contact details beside downloadable study-tour brochures', () => {
-    const { container, getAllByText } = render(<ChinaStudyToursPage />);
+  it('renders downloadable original PDF brochures and share links', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const linkedText = getLinkedText(container);
 
-    expect(getAllByText('hello@pandaoffer.top').length).toBeGreaterThanOrEqual(3);
-    expect(container.querySelectorAll('a[href^="mailto:hello@pandaoffer.top"]').length).toBeGreaterThanOrEqual(3);
+    [
+      'AI/Tech Study Tour Brochure',
+      'Healthcare Study Tour Brochure',
+      'School Study Tour Brochure',
+    ].forEach((title) => {
+      const matchingLinks = linkedText.filter((text) => new RegExp(escapeRegex(title), 'i').test(text));
+
+      expect(matchingLinks.length, `${title} should be rendered inside a link`).toBeGreaterThan(0);
+    });
     expect(container.querySelectorAll('a[download][href^="/brochures/"]').length).toBe(3);
+    expect(container).toHaveTextContent('Share this study tour hub');
+    ['LinkedIn', 'X', 'WhatsApp', 'Facebook', 'Telegram', 'Email'].forEach((label) => {
+      expect(container).toHaveTextContent(label);
+    });
   });
 
   it('does not render unresolved SEO landing-page links', () => {
@@ -163,6 +183,145 @@ describe('China study tours page', () => {
       const { container, unmount } = render(<StudyTourSeoPage page={page} />);
       expectResolvableLinks(container);
       unmount();
+    });
+  });
+
+  it('renders route marketplace buying signals on the study tour catalog', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+
+    [
+      'Route Marketplace',
+      'Compare by fit, access, outcome, and operating risk',
+      'Buyer fit',
+      'Access level',
+      'Learning output',
+      'Primary access',
+      'Backup plan',
+      'Compare route',
+    ].forEach((text) => {
+      expect(container).toHaveTextContent(text);
+    });
+  });
+
+  it('renders route marketplace products with visual thumbnails', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const productSection = container.querySelector('#product-system');
+    const images = productSection.querySelectorAll('img');
+
+    expect(images.length).toBeGreaterThanOrEqual(productLineup.length);
+    productLineup.forEach((product) => {
+      expect(product.image).toMatch(/^\/.+\.(jpg|jpeg|png|webp|svg)$/i);
+      expect(product.imageAlt).toContain('study tour');
+    });
+  });
+
+  it('keeps the hub focused and sends deep route detail to dedicated pages', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const linkedHrefs = [...container.querySelectorAll('#product-system a[href]')].map((link) =>
+      link.getAttribute('href')
+    );
+
+    expect(container.querySelector('#program-tracks')).toBeNull();
+    expect(container.querySelector('#city-routes')).toBeNull();
+    expect(container.querySelector('#healthcare-routes')).toBeNull();
+    expect(container.querySelector('#ai-tech-routes')).toBeNull();
+    expect(container.querySelector('#operating-model')).toBeNull();
+    expect(container.querySelectorAll('main section[id]').length).toBeLessThanOrEqual(8);
+    [
+      '/china-school-study-tour',
+      '/china-healthcare-study-tour',
+      '/china-ai-company-visits',
+      '/china-tech-company-study-tour',
+      '/mba-china-innovation-tour',
+    ].forEach((href) => {
+      expect(linkedHrefs).toContain(href);
+    });
+  });
+
+  it('orders the study-tour catalog like a travel product page', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const sectionIds = [...container.querySelectorAll('main section[id]')].map((section) => section.id);
+
+    expect(sectionIds.indexOf('product-system')).toBeLessThan(sectionIds.indexOf('route-flow'));
+    expect(sectionIds.indexOf('route-flow')).toBeLessThan(sectionIds.indexOf('availability-fit'));
+    expect(sectionIds.indexOf('availability-fit')).toBeLessThan(sectionIds.indexOf('pricing'));
+    expect(sectionIds.indexOf('product-system')).toBeLessThan(sectionIds.indexOf('pricing'));
+    expect(sectionIds.indexOf('pricing')).toBeLessThan(sectionIds.indexOf('trust'));
+    expect(sectionIds.indexOf('trust')).toBeLessThan(sectionIds.indexOf('content-system'));
+    expect(sectionIds.indexOf('content-system')).toBeLessThan(sectionIds.indexOf('brochures'));
+    expect(sectionIds.indexOf('brochures')).toBeLessThan(sectionIds.indexOf('request-route'));
+  });
+
+  it('puts included and excluded scope next to pricing on the study-tour catalog', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const pricingSection = container.querySelector('#pricing');
+
+    ['What is included', 'Not automatically included'].forEach((text) => {
+      expect(pricingSection).toHaveTextContent(text);
+    });
+  });
+
+  it('renders a route flow and booking path before pricing', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const routeFlowSection = container.querySelector('#route-flow');
+
+    [
+      'Sample Route Flow',
+      'Before arrival',
+      'Arrival and orientation',
+      'Campus or industry access days',
+      'Final debrief and next step',
+      'Booking Path',
+      'Check availability',
+      'Host approval and backup route',
+    ].forEach((text) => {
+      expect(routeFlowSection).toHaveTextContent(text);
+    });
+  });
+
+  it('renders route flow as a visual itinerary board', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const routeFlowSection = container.querySelector('#route-flow');
+    const images = routeFlowSection.querySelectorAll('img');
+
+    expect(routeFlowSection).toHaveTextContent('Visual itinerary board');
+    expect(images.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('renders an availability and fit board before pricing', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const availabilitySection = container.querySelector('#availability-fit');
+
+    [
+      'Dates and fit',
+      'Availability windows',
+      'Open for private quote',
+      'Best fit',
+      'Group readiness',
+      'Host approval risk',
+      'Request these dates',
+    ].forEach((text) => {
+      expect(availabilitySection).toHaveTextContent(text);
+    });
+
+    expect(availabilitySection.querySelectorAll('[data-testid="availability-window"]').length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('renders a quote builder with concrete group fields on SEO route pages', () => {
+    const { container } = render(<StudyTourSeoPage page={seoTourPages.healthcare} />);
+
+    [
+      'Build a quote brief',
+      'Group size',
+      'Audience',
+      'Preferred dates',
+      'Route priority',
+      'Budget level',
+      'Send quote brief',
+      'Included in the proposal',
+      'Not automatically included',
+    ].forEach((text) => {
+      expect(container).toHaveTextContent(text);
     });
   });
 });

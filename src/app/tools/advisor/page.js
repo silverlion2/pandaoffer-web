@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata = {
-  title: 'AI Study Advisor | PandaOffer Tools',
+  title: 'AI Study Advisor',
   description: 'Get expert answers about studying in China powered by hundreds of real sources — not generic AI.',
   openGraph: {
     title: 'AI Study Advisor | PandaOffer Tools',
@@ -43,6 +43,7 @@ export default function AdvisorPage() {
         }}
       />
       <main className="max-w-5xl mx-auto px-4 py-12 flex-1 w-full space-y-8">
+        <h1 className="sr-only">AI Study Advisor</h1>
         <Link href="/tools" className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-emerald-600 transition-colors">
           <ArrowLeft size={16} /> Back to All Tools
         </Link>

@@ -6,11 +6,11 @@ import { universities } from '@/data/universities';
 import { MapPin, GraduationCap, Building2, ArrowRight, Globe2 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Study in China — Complete City & Major Guide for International Students',
+  title: 'Study in China City & Major Guide',
   description: 'Explore top Chinese universities by city and major. Find the perfect program in Shanghai, Beijing, Hangzhou, Chengdu, Wuhan, and more. CSC scholarships available.',
   alternates: { canonical: 'https://www.pandaoffer.top/study-in-china' },
   openGraph: {
-    title: 'Study in China — Complete City & Major Guide',
+    title: 'Study in China City & Major Guide',
     description: 'Explore top Chinese universities by city and major.',
     url: 'https://www.pandaoffer.top/study-in-china',
     type: 'website',
@@ -130,7 +130,7 @@ export default function StudyInChinaPillarPage() {
             <p className="text-slate-500 mb-6">Choose your city and discover the top universities there.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {cities.map(city => (
-                <Link key={city.slug} href={`/study-in-${city.slug}`} className="group bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-xl transition-all hover:-translate-y-1 hover:border-emerald-300">
+                <Link key={city.slug} href={`/study-in/${city.slug}`} className="group bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-xl transition-all hover:-translate-y-1 hover:border-emerald-300">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">{city.name}</h3>
                     <span className="text-xs bg-emerald-50 text-emerald-700 font-semibold px-2 py-1 rounded-md">{city.count} unis</span>

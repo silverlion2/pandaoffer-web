@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata = {
-  title: 'Budget Calculator | PandaOffer Tools',
+  title: 'Budget Calculator',
   description: 'See which Chinese cities match your target monthly living budget as an international student.',
   openGraph: {
     title: 'Budget Calculator | PandaOffer Tools',
@@ -43,6 +43,7 @@ export default function BudgetPage() {
         }}
       />
       <main className="max-w-5xl mx-auto px-4 py-12 flex-1 w-full space-y-8">
+        <h1 className="sr-only">China Study Budget Calculator</h1>
         <Link href="/tools" className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-emerald-600 transition-colors">
           <ArrowLeft size={16} /> Back to All Tools
         </Link>

@@ -8,7 +8,7 @@ import { universities } from '@/data/universities';
 import { Building2, Globe2, BookOpen, GraduationCap, ArrowRight, ExternalLink, MapPin } from 'lucide-react';
 
 export const metadata = {
-  title: 'Top Chinese Universities | PandaOffer',
+  title: 'Top Chinese Universities',
   description: 'Explore the best universities in China for international students. Comprehensive guide to C9, 985, 211 and Double First-Class institutions.',
   openGraph: {
     title: 'Top Chinese Universities | PandaOffer',

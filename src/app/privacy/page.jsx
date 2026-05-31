@@ -3,7 +3,7 @@ import { Shield } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Privacy Policy | PandaOffer',
+  title: 'Privacy Policy',
   description: 'Learn how PandaOffer protects your privacy and handles your data.',
   openGraph: {
     title: 'Privacy Policy | PandaOffer',

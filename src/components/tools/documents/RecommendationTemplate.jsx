@@ -231,7 +231,7 @@ export default function RecommendationTemplate() {
               <textarea
                 value={form.relationshipDetail}
                 onChange={(e) => update('relationshipDetail', e.target.value)}
-                placeholder="Describe the context of the relationship �?which course, project, or role brought you together..."
+                placeholder="Describe the context of the relationship: which course, project, or role brought you together..."
                 rows={3}
                 className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400 transition-all bg-white resize-none placeholder:text-slate-400"
               />

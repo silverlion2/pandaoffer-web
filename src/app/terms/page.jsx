@@ -3,7 +3,7 @@ import { FileText } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Terms of Service | PandaOffer',
+  title: 'Terms of Service',
   description: 'Terms and conditions for using the PandaOffer service.',
   openGraph: {
     title: 'Terms of Service | PandaOffer',

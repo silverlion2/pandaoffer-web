@@ -59,6 +59,7 @@ export default function HomeClientManager({
     }
   };
 
+  const isApplication = !isMounted || mode === 'application';
   const isLife = isMounted && mode === 'life';
 
   return (
@@ -67,7 +68,7 @@ export default function HomeClientManager({
         <div className="space-y-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
           
           {/* DYNAMIC HERO SECTION based on global Mode */}
-          {isMounted && mode === 'application' && (
+          {isApplication && (
             <div className="space-y-14">
               {studyTourLead}
               <div className="text-center space-y-8">

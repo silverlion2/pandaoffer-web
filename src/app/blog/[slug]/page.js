@@ -6,6 +6,18 @@ import { getPostData, getAllPostSlugs, getSortedPostsData } from '@/lib/markdown
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
+function compactTitle(title, maxLength = 44) {
+  const withoutYear = title.replace(/\s*\(2026\)\s*$/i, '').trim();
+  const beforeColon = withoutYear.split(':')[0].trim();
+  const candidate = beforeColon.length >= 24 ? beforeColon : withoutYear;
+
+  if (candidate.length <= maxLength) {
+    return candidate;
+  }
+
+  return `${candidate.slice(0, maxLength - 3).replace(/\s+\S*$/, '')}...`;
+}
+
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs();
   return slugs.map((post) => ({
@@ -20,9 +32,10 @@ export async function generateMetadata({ params }) {
     
     if (!post) return { title: 'Post Not Found | PandaOffer' };
     
-    const title = post.title;
+    const title = compactTitle(post.title);
+    const shareTitle = post.title;
     const image = post.image || '/og-image.jpg';
-    const imageAlt = post.imageAlt || title;
+    const imageAlt = post.imageAlt || shareTitle;
     const description = post.description || `Read ${post.title} — expert advice for international students studying in China.`;
 
     return {
@@ -32,7 +45,7 @@ export async function generateMetadata({ params }) {
         canonical: `https://www.pandaoffer.top/blog/${slug}`,
       },
       openGraph: {
-        title,
+        title: shareTitle,
         description,
         url: `https://www.pandaoffer.top/blog/${slug}`,
         type: 'article',
@@ -49,7 +62,7 @@ export async function generateMetadata({ params }) {
       },
       twitter: {
         card: 'summary_large_image',
-        title,
+        title: shareTitle,
         description,
         images: [image],
       },

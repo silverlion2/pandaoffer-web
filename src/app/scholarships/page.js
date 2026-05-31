@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Award, Briefcase, Globe2, BookOpen, CheckCircle2, ChevronRight, Calculator, FileText } from 'lucide-react';
 
 export const metadata = {
-  title: 'Fully Funded Scholarships in China | PandaOffer',
+  title: 'Fully Funded Scholarships in China',
   description: 'Complete guide to the CSC Scholarship, Provincial Scholarships, and University grants in China for international students in 2026.',
   openGraph: {
     title: 'Fully Funded Scholarships in China | PandaOffer',

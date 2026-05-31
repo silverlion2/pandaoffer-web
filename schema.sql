@@ -122,6 +122,19 @@ CREATE TABLE IF NOT EXISTS public.feedbacks (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS public.route_votes (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  route_path TEXT NOT NULL CHECK (route_path ~ '^/'),
+  voter_key TEXT NOT NULL CHECK (voter_key ~ '^[a-f0-9]{64}$'),
+  user_id UUID REFERENCES public.users(id) ON DELETE SET NULL,
+  user_agent TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+  UNIQUE(route_path, voter_key)
+);
+
+CREATE INDEX IF NOT EXISTS route_votes_route_path_idx ON public.route_votes(route_path);
+CREATE INDEX IF NOT EXISTS route_votes_created_at_idx ON public.route_votes(created_at DESC);
+
 -- 6. Dynamic Content (Cities, Universities & Programs)
 CREATE TABLE IF NOT EXISTS public.cities (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -198,6 +211,7 @@ ALTER TABLE public.purchases ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.user_profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.feedbacks ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.route_votes ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.cities ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.universities ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.programs ENABLE ROW LEVEL SECURITY;
@@ -285,6 +299,13 @@ CREATE POLICY "Admins can update feedbacks" ON public.feedbacks FOR UPDATE USING
 
 DROP POLICY IF EXISTS "Admins can delete feedbacks" ON public.feedbacks;
 CREATE POLICY "Admins can delete feedbacks" ON public.feedbacks FOR DELETE USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
+
+-- route_votes: tracked through the server API, admins can inspect/delete
+DROP POLICY IF EXISTS "Admins can view route votes" ON public.route_votes;
+CREATE POLICY "Admins can view route votes" ON public.route_votes FOR SELECT USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
+
+DROP POLICY IF EXISTS "Admins can delete route votes" ON public.route_votes;
+CREATE POLICY "Admins can delete route votes" ON public.route_votes FOR DELETE USING (EXISTS (SELECT 1 FROM public.users WHERE id = auth.uid() AND role = 'admin'));
 
 -- cities: anyone can read, admins modify
 DROP POLICY IF EXISTS "Anyone can view cities" ON public.cities;

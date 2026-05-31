@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata = {
-  title: 'Document Generator & Templates | PandaOffer Tools',
+  title: 'Document Generator & Templates',
   description: 'Free document tools for studying in China — application checklist, CSC study plan generator, statement of purpose builder, recommendation letter template, and application tracker.',
   openGraph: {
     title: 'Document Generator & Templates | PandaOffer Tools',
@@ -43,6 +43,7 @@ export default function DocumentsPage() {
         }}
       />
       <main className="max-w-5xl mx-auto px-4 py-12 flex-1 w-full space-y-8">
+        <h1 className="sr-only">Document Generator and Templates</h1>
         <Link href="/tools" className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-emerald-600 transition-colors">
           <ArrowLeft size={16} /> Back to All Tools
         </Link>
