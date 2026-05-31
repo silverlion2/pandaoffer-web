@@ -34,6 +34,15 @@ function withShareTracking(url) {
 }
 
 const themeStyles = {
+  emerald: {
+    eyebrow: 'text-emerald-100 border-emerald-300/25 bg-emerald-300/10',
+    accentText: 'text-emerald-600',
+    accentBg: 'bg-emerald-50',
+    accentSoft: 'bg-emerald-50 text-emerald-700',
+    cta: 'bg-emerald-500 hover:bg-emerald-600 shadow-emerald-950/30',
+    icon: 'text-emerald-500',
+    darkIcon: 'text-emerald-300',
+  },
   teal: {
     eyebrow: 'text-teal-200 border-teal-300/25 bg-teal-300/10',
     accentText: 'text-teal-600',

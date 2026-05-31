@@ -23,6 +23,7 @@ export default function Footer() {
             <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/china-study-tours" className="hover:text-emerald-400 transition-colors">China Study Tours</Link></li>
+              <li><Link href="/china-school-study-tour" className="hover:text-emerald-400 transition-colors">School Study Tour</Link></li>
               <li><Link href="/china-healthcare-study-tour" className="hover:text-emerald-400 transition-colors">Healthcare Study Tour</Link></li>
               <li><Link href="/china-ai-company-visits" className="hover:text-emerald-400 transition-colors">AI Company Visits</Link></li>
               <li><Link href="/china-tech-company-study-tour" className="hover:text-emerald-400 transition-colors">Tech Company Study Tour</Link></li>

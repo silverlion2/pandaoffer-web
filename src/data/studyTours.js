@@ -75,7 +75,7 @@ export const routeBriefs = [
   },
   {
     title: 'School Study Tour Route Brief',
-    href: '/china-study-tours#study-abroad-pathway',
+    href: '/china-school-study-tour',
     audience: 'Middle schools, high schools, agencies, families, and student groups',
     description:
       'Campus visits, Mandarin and culture modules, student safety operations, parent reporting, and study-abroad conversion support.',
@@ -85,7 +85,7 @@ export const routeBriefs = [
 export const productLineup = [
   {
     title: 'Study-in-China Preview Tour',
-    href: '/china-study-tours#study-abroad-pathway',
+    href: '/china-school-study-tour',
     priority: 'Core admissions funnel',
     duration: '7-10 days',
     price: 'from $1,899/student',
@@ -530,6 +530,7 @@ export const contentPillars = [
       'Open a focused route page when the buyer already knows the theme: healthcare, AI, technology, MBA innovation, or school study tour.',
     assets: [
       'China Study Tour Programs',
+      'China School Study Tour',
       'China Healthcare Study Tour',
       'China AI Company Visits',
       'China Tech Company Study Tour',
@@ -580,6 +581,84 @@ export const contentPillars = [
 ];
 
 export const seoTourPages = {
+  schoolStudy: {
+    slug: 'china-school-study-tour',
+    title: 'China School Study Tour',
+    metaTitle: 'China School Study Tour',
+    description:
+      'Plan a China school study tour with campus visits, Mandarin and culture modules, STEM tasks, student supervision, parent reporting, and post-tour admissions support.',
+    canonical: 'https://www.pandaoffer.top/china-school-study-tour',
+    label: 'School and university preview route',
+    price: 'from $1,899/student',
+    duration: '7 to 14 days',
+    audience: 'middle schools, high schools, education agencies, families, student groups, and parent-child cohorts',
+    image: '/tools/simulator/images/simulator/hub_bg.png',
+    imageAlt:
+      'China school study tour with campus visits, student life preview, Mandarin culture modules and parent-ready route planning',
+    brochureHref: '/brochures/pandaoffer-school-study-tour.pdf',
+    theme: 'emerald',
+    keywords: [
+      'China school study tour',
+      'China university visit tour',
+      'China campus study tour',
+      'China student group tour',
+      'study in China preview tour',
+    ],
+    heroBullets: [
+      'Campus, dorm, canteen, admissions, and student-life walkthroughs',
+      'Mandarin, culture, STEM, city context, and reflection modules',
+      'Student supervision, parent reporting, safety notes, and emergency contacts',
+      'Post-tour university matching, CSC planning, and application support options',
+    ],
+    modules: [
+      {
+        title: 'Campus Discovery',
+        text: 'Compare university settings through campus walks, admissions context, dorm and canteen previews, student ambassador Q&A, and city-life interpretation.',
+      },
+      {
+        title: 'Mandarin and Culture',
+        text: 'Add practical Chinese tasks, food market missions, museum or heritage modules, high-speed rail practice, and daily reflection prompts.',
+      },
+      {
+        title: 'STEM and Future China',
+        text: 'Use university labs, innovation centers, maker spaces, or backup workshops to connect the trip to technology, medicine, business, or major choice.',
+      },
+      {
+        title: 'Admissions Follow-Up',
+        text: 'Turn the trip into a shortlist, parent decision notes, scholarship timeline, document plan, and optional PandaOffer application support.',
+      },
+    ],
+    sampleRoutes: [
+      {
+        title: 'Beijing Academic Preview',
+        cities: 'Beijing',
+        duration: '7-8 days',
+        bestFor: 'Schools and families comparing elite academic environments, history, and scholarship positioning',
+        primary: 'Campus-area visits near Tsinghua, Peking University, BFSU, or other approved institutions, plus admissions and student-life interpretation.',
+        backup: 'PandaOffer study-in-China workshop, student Q&A, university-area academic walk, and parent scholarship briefing.',
+        outcomes: ['Campus-fit notes', 'Parent risk checklist', 'University shortlist'],
+      },
+      {
+        title: 'Shanghai + Hangzhou Campus and Innovation Route',
+        cities: 'Shanghai, Hangzhou',
+        duration: '8-10 days',
+        bestFor: 'Student groups interested in business, AI, digital economy, modern China, and future degree options',
+        primary: 'Campus visits, city comparison, innovation park or company-facing module subject to host approval, and structured reflection tasks.',
+        backup: 'Digital economy case workshop, university matching session, and city-life field assignments.',
+        outcomes: ['City comparison memo', 'Major-interest map', 'Post-tour application path'],
+      },
+      {
+        title: 'Mandarin and Culture Immersion',
+        cities: 'Beijing, Shanghai, Chengdu, Hangzhou, Xian, or custom city pair',
+        duration: '10-14 days',
+        bestFor: 'Younger groups needing lighter pacing, culture tasks, Mandarin practice, and clear supervision',
+        primary: 'Language practice, campus tasters, museum and food culture modules, student-life interpretation, and parent-ready daily reporting.',
+        backup: 'Indoor culture workshops, guided reflection sessions, and alternative campus-area learning tasks if host access changes.',
+        outcomes: ['Daily reflection log', 'Culture task portfolio', 'Family decision notes'],
+      },
+    ],
+    visitOptions: visitOptionSets[2],
+  },
   healthcare: {
     slug: 'china-healthcare-study-tour',
     title: 'China Healthcare Study Tour',

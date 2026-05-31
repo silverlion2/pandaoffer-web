@@ -31,7 +31,7 @@ export default function Navbar() {
         { name: 'AI Company Visits', href: '/china-ai-company-visits', description: 'AI demos, labs, innovation parks, and case workshops.' },
         { name: 'Tech Company Study Tour', href: '/china-tech-company-study-tour', description: 'Robotics, hardware, platforms, and supply-chain routes.' },
         { name: 'MBA Innovation Tour', href: '/mba-china-innovation-tour', description: 'Executive China innovation routes for MBA/EMBA groups.' },
-        { name: 'School & University Tour', href: '/china-study-tours#study-abroad-pathway', description: 'Campus discovery and post-tour admissions support.' },
+        { name: 'School & University Tour', href: '/china-school-study-tour', description: 'Campus discovery and post-tour admissions support.' },
       ],
     },
     {

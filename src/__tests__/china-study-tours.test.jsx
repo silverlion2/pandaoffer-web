@@ -41,6 +41,7 @@ const validInternalRoutes = new Set([
   '/blog/mbbs-in-china-who-recognized',
   '/china-ai-company-visits',
   '/china-healthcare-study-tour',
+  '/china-school-study-tour',
   '/china-study-tours',
   '/china-tech-company-study-tour',
   '/mba-china-innovation-tour',
@@ -98,36 +99,12 @@ function expectResolvableLinks(container) {
 }
 
 const clickableContentTitles = [
-  'University Discovery',
-  'Mandarin & Culture',
-  'Future China',
-  'MBBS & Health Preview',
-  'Healthcare Industry Study',
-  'AI & Tech Company Visits',
-  'Beijing Academic Route',
-  'Shanghai + Hangzhou Innovation Route',
-  'Chengdu Culture + Campus Route',
-  'Hospital Operations',
-  'Doctor-Led Clinical Visit',
-  'Medical Service Innovation',
-  'Biopharma & Devices',
-  'Market Insight',
-  'Half-Day Hospital Deep Visit',
-  'One-Day Healthcare Operations Route',
-  'Shanghai + Hangzhou Digital Health Route',
-  'Guangzhou + Shenzhen MedTech Route',
-  'Beijing Policy + Hospital Management Route',
-  "Xi'an + Wuhan Central China Medical Ecosystem",
-  'AI Applications',
-  'Digital Platforms',
-  'Smart Hardware',
-  'Industrial Tech',
-  'Shanghai AI + Enterprise Tech Route',
-  'Hangzhou Digital Economy Route',
-  'Shenzhen Robotics + Hardware Route',
-  'Guangzhou + Shenzhen Cross-Border Tech Route',
-  'Beijing AI Policy + Research Route',
-  "Wuhan + Xi'an Central China Tech Route",
+  'Study-in-China Preview Tour',
+  'China Healthcare Study Tour',
+  'China AI Company Visits',
+  'China Tech Company Study Tour',
+  'MBA China Innovation Tour',
+  'White-Label Study Tour Operations',
 ];
 
 describe('China study tours page', () => {
@@ -151,6 +128,24 @@ describe('China study tours page', () => {
       ...page.sampleRoutes.map((route) => route.title),
     ];
 
+    expectedTitles.forEach((title) => {
+      const matchingLinks = linkedText.filter((text) => new RegExp(escapeRegex(title), 'i').test(text));
+
+      expect(matchingLinks.length, `${title} should be rendered inside a link`).toBeGreaterThan(0);
+    });
+  });
+
+  it('renders a dedicated school study tour SEO landing page', () => {
+    const page = seoTourPages.schoolStudy;
+    const { container } = render(<StudyTourSeoPage page={page} />);
+    const linkedText = getLinkedText(container);
+    const expectedTitles = [
+      ...page.modules.map((module) => module.title),
+      ...page.sampleRoutes.map((route) => route.title),
+    ];
+
+    expect(container).toHaveTextContent('China School Study Tour');
+    expect(container).toHaveTextContent('Build a quote brief');
     expectedTitles.forEach((title) => {
       const matchingLinks = linkedText.filter((text) => new RegExp(escapeRegex(title), 'i').test(text));
 
@@ -217,6 +212,29 @@ describe('China study tours page', () => {
     productLineup.forEach((product) => {
       expect(product.image).toMatch(/^\/.+\.(jpg|jpeg|png|webp|svg)$/i);
       expect(product.imageAlt).toContain('study tour');
+    });
+  });
+
+  it('keeps the hub focused and sends deep route detail to dedicated pages', () => {
+    const { container } = render(<ChinaStudyToursPage />);
+    const linkedHrefs = [...container.querySelectorAll('#product-system a[href]')].map((link) =>
+      link.getAttribute('href')
+    );
+
+    expect(container.querySelector('#program-tracks')).toBeNull();
+    expect(container.querySelector('#city-routes')).toBeNull();
+    expect(container.querySelector('#healthcare-routes')).toBeNull();
+    expect(container.querySelector('#ai-tech-routes')).toBeNull();
+    expect(container.querySelector('#operating-model')).toBeNull();
+    expect(container.querySelectorAll('main section[id]').length).toBeLessThanOrEqual(8);
+    [
+      '/china-school-study-tour',
+      '/china-healthcare-study-tour',
+      '/china-ai-company-visits',
+      '/china-tech-company-study-tour',
+      '/mba-china-innovation-tour',
+    ].forEach((href) => {
+      expect(linkedHrefs).toContain(href);
     });
   });
 
