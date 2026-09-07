@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "project": "pandaoffer",
+  "profile": "next",
+  "adoptedAt": "2026-09-08",
+  "adoptionMethod": "manual-equivalent",
+  "reason": "web-sop CLI was unavailable in the execution environment",
+  "movedExistingFiles": false
+}

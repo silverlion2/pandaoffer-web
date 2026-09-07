@@ -1,4 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
+import { aiMatcherSchema } from '@/lib/schema';
+import { createLocalMatch, isUsableAiMatch, normalizeGpa } from '@/lib/matcher';
 
 const DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions';
 
@@ -25,7 +27,7 @@ async function getUniversityKnowledge(major) {
     const keywords = majorKeywords[major] || ['university'];
 
     // Get university chunks
-    const { data: uniData } = await sb
+    const universityQuery = sb
       .from('laihua_knowledge')
       .select('content, source_name')
       .eq('category', 'universities')
@@ -33,7 +35,7 @@ async function getUniversityKnowledge(major) {
       .limit(10);
 
     // Get scholarship chunks
-    const { data: scholData } = await sb
+    const scholarshipQuery = sb
       .from('laihua_knowledge')
       .select('content, source_name')
       .eq('category', 'scholarships')
@@ -41,13 +43,18 @@ async function getUniversityKnowledge(major) {
       .limit(5);
 
     // Get cost chunks
-    const { data: costData } = await sb
+    const costQuery = sb
       .from('laihua_knowledge')
       .select('content, source_name')
       .eq('category', 'costs')
       .order('created_at', { ascending: false })
       .limit(3);
 
+    const [{ data: uniData }, { data: scholData }, { data: costData }] = await Promise.all([
+      universityQuery,
+      scholarshipQuery,
+      costQuery,
+    ]);
     const all = [...(uniData || []), ...(scholData || []), ...(costData || [])];
     return all.map(r => r.content).join('\n\n---\n\n');
   } catch (e) {
@@ -57,27 +64,24 @@ async function getUniversityKnowledge(major) {
 }
 
 export async function POST(request) {
+  let localMatch = null;
   try {
-    const { nationality, major, gpa } = await request.json();
+    const parsed = aiMatcherSchema.safeParse(await request.json());
+    if (!parsed.success) return Response.json({ error: 'Invalid student profile' }, { status: 400 });
 
-    if (!nationality || !major || !gpa?.value) {
-      return Response.json({ error: 'Missing required fields' }, { status: 400 });
-    }
+    const { nationality, major, gpa } = parsed.data;
+    localMatch = createLocalMatch(parsed.data);
 
     // Normalize GPA to percentage
-    const numGpa = parseFloat(gpa.value);
-    let gpaPercent;
-    if (gpa.scale === 'percentage') gpaPercent = numGpa;
-    else if (gpa.scale === 'four') gpaPercent = (numGpa / 4.0) * 100;
-    else if (gpa.scale === 'five') gpaPercent = (numGpa / 5.0) * 100;
-    else gpaPercent = numGpa;
+    const gpaPercent = normalizeGpa(gpa);
 
     // Get RAG knowledge
     const ragContext = await getUniversityKnowledge(major);
 
     const DEEPSEEK_KEY = process.env.DEEPSEEK_KEY;
     if (!DEEPSEEK_KEY) {
-      return Response.json({ error: 'AI service unavailable' }, { status: 503 });
+      if (localMatch) return Response.json(localMatch);
+      return Response.json({ error: 'Matching data unavailable' }, { status: 503 });
     }
 
     const systemPrompt = `You are a university matching engine for international students studying in China. You MUST respond ONLY with valid JSON, no markdown, no explanation.
@@ -138,11 +142,13 @@ Return the JSON matching result.`;
         temperature: 0.4,
         max_tokens: 1200,
       }),
+      signal: AbortSignal.timeout(12000),
     });
 
     if (!res.ok) {
       console.error('Deepseek matcher error:', res.status);
-      return Response.json({ error: 'AI matching failed' }, { status: 502 });
+      if (localMatch) return Response.json(localMatch);
+      return Response.json({ error: 'Matching failed' }, { status: 502 });
     }
 
     const data = await res.json();
@@ -156,12 +162,22 @@ Return the JSON matching result.`;
       result = JSON.parse(content);
     } catch (parseErr) {
       console.error('JSON parse error:', parseErr.message, 'Content:', content.substring(0, 200));
-      return Response.json({ error: 'AI returned invalid format' }, { status: 502 });
+      if (localMatch) return Response.json(localMatch);
+      return Response.json({ error: 'Matching failed' }, { status: 502 });
     }
 
-    return Response.json(result);
+    if (!isUsableAiMatch(result)) {
+      if (localMatch) return Response.json(localMatch);
+      return Response.json({ error: 'Matching failed' }, { status: 502 });
+    }
+
+    return Response.json({
+      ...result,
+      meta: { source: 'ai', isPartial: false },
+    });
   } catch (err) {
     console.error('Matcher API error:', err);
+    if (localMatch) return Response.json(localMatch);
     return Response.json({ error: 'Something went wrong' }, { status: 500 });
   }
 }

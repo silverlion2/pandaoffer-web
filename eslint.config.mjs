@@ -10,6 +10,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored browser distributions used by the static simulator.
+    "public/tools/simulator/lib/**",
   ]),
 ]);
 

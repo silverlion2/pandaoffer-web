@@ -123,9 +123,9 @@ export default function HomeClientManager({
       )}
 
       {step === 'analyzing' && (
-        <div className="text-center space-y-6 py-20 animate-pulse">
+        <div className="text-center space-y-6 py-20 animate-pulse" role="status" aria-live="polite">
           <div className="w-16 h-16 border-4 border-slate-200 border-t-emerald-500 rounded-full animate-spin mx-auto"></div>
-          <h2 className="text-2xl font-bold text-slate-800 font-heading">AI is analyzing your profile...</h2>
+          <h2 className="text-2xl font-bold text-slate-800 font-heading">Building your university shortlist...</h2>
           
           <div className="text-slate-500 relative h-6 overflow-hidden">
              <div className="animate-[slideUp_4s_ease-in-out_infinite] flex flex-col items-center">

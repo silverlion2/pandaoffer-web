@@ -1,0 +1,37 @@
+version: 1
+project:
+  name: pandaoffer
+  profile: next
+  packageManager: npm
+  workspaceKind: single
+  sourceRoots:
+    - src
+commands:
+  install: npm ci
+  dev: npm run dev
+  lint: npm run lint
+  typecheck: null
+  test: npm run test:ci -- --pool=threads --maxWorkers=1
+  build: npm run build
+  e2e: null
+  audit: npm audit --omit=dev --audit-level=high
+  verify: null
+quality:
+  enforcement: warn
+  requiredDocs:
+    - docs/product-spec.md
+    - docs/architecture.md
+    - docs/design-system.md
+    - docs/test-matrix.md
+    - docs/release-checklist.md
+  requiredStates:
+    - loading
+    - empty
+    - error
+    - success
+    - partial
+release:
+  requireRollbackEvidence: true
+  requireProductionSmokeTest: true
+plugins:
+  - build-web-apps:react-best-practices

@@ -4,6 +4,17 @@ All notable changes to PandaOffer will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+- Credential-independent curated fallback for the homepage university matcher
+- Public-page proxy fallback when Supabase is not configured, while protected routes remain closed
+- Result provenance, partial and empty states, and matcher resilience tests
+
+### Changed
+- Server-side matcher validation and concurrent optional knowledge lookups
+- Accessible matcher form errors, loading status, recovery actions, and fallback guidance
+
 ## [1.2.0] - 2026-03-22
 
 ### Added

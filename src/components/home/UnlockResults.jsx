@@ -61,6 +61,7 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
   const unis = matchResults?.universities || [];
   const topMatch = unis[0];
   const cscProb = matchResults?.cscProbability || 0;
+  const isPartial = Boolean(matchResults?.meta?.isPartial);
 
   // Error state
   if (matchError && !matchResults) {
@@ -69,19 +70,35 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
         <div className="flex justify-start">
           <button 
             onClick={() => setStep('home')}
-            className="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200"
+            className="min-h-11 flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
           >
             <ArrowLeft size={16} /> Try Again
           </button>
         </div>
         <div className="text-center space-y-4 py-12">
           <AlertTriangle className="w-12 h-12 text-amber-500 mx-auto" />
-          <h2 className="text-2xl font-bold text-slate-900 font-heading">AI Matching Unavailable</h2>
+          <h2 className="text-2xl font-bold text-slate-900 font-heading">Matching Unavailable</h2>
           <p className="text-slate-500 max-w-md mx-auto">
             Our AI engine is temporarily busy. Please try again in a moment, or use our{' '}
             <Link href="/tools#advisor" className="text-emerald-600 hover:underline font-bold">AI Study Advisor</Link> for personalized guidance.
           </p>
         </div>
+      </div>
+    );
+  }
+
+  if (!topMatch) {
+    return (
+      <div className="text-center space-y-4 py-12" role="status">
+        <GraduationCap className="w-12 h-12 text-slate-400 mx-auto" />
+        <h2 className="text-2xl font-bold text-slate-900 font-heading">No matches yet</h2>
+        <p className="text-slate-500 max-w-md mx-auto">We could not build a useful shortlist for this profile. Adjust your choices and try again.</p>
+        <button
+          onClick={() => setStep('home')}
+          className="min-h-11 inline-flex items-center gap-2 rounded-lg bg-slate-900 px-5 py-3 font-bold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+        >
+          <ArrowLeft size={16} /> Adjust profile
+        </button>
       </div>
     );
   }
@@ -93,19 +110,31 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
       <div className="flex justify-start">
         <button 
           onClick={() => setStep('home')}
-          className="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200"
+          className="min-h-11 flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
         >
           <ArrowLeft size={16} /> Back to Search
         </button>
       </div>
 
       <div className="text-center space-y-2">
-        <span className="bg-emerald-100 text-emerald-800 text-sm font-bold px-3 py-1 rounded-full">Analysis Complete</span>
+        <span className="bg-emerald-100 text-emerald-800 text-sm font-bold px-3 py-1 rounded-full">
+          {isPartial ? 'Curated shortlist ready' : 'Analysis complete'}
+        </span>
         <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
-          {topMatch ? `We found your ${topMatch.matchPercent}% Match!` : 'Your AI Results'}
+          {isPartial ? 'Three options to start your research' : `We found your ${topMatch.matchPercent}% Match!`}
         </h2>
         <p className="text-slate-500">Based on your {formData.nationality} nationality and {formData.gpa?.value} GPA.</p>
       </div>
+
+      {isPartial && (
+        <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900" role="status" aria-live="polite">
+          <AlertTriangle className="mt-0.5 shrink-0" size={18} aria-hidden="true" />
+          <div>
+            <p className="font-bold">Curated-data fallback</p>
+            <p>{matchResults.meta.notice} Treat match percentages and scholarship ranges as planning guidance, not admission guarantees.</p>
+          </div>
+        </div>
+      )}
 
       {/* Top University Match Card */}
       {topMatch && (
@@ -156,7 +185,7 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
           {/* Locked Area */}
           <div className="relative">
             {!isUnlocked && (
-              <div className="absolute inset-0 z-10 backdrop-blur-md bg-white/60 flex flex-col items-center justify-center p-6 text-center border-t border-slate-100">
+              <div className="relative z-10 bg-white p-4 text-center border-t border-slate-100 md:absolute md:inset-0 md:flex md:flex-col md:items-center md:justify-center md:bg-white/60 md:p-6 md:backdrop-blur-md">
                 <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-md w-full animate-in zoom-in-95">
                   {/* Logged-out: show sign-in prompt first, then email gate as fallback */}
                   {!user ? (
@@ -230,7 +259,7 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
               </div>
             )}
 
-            <div className={`p-6 md:p-8 bg-slate-50 ${!isUnlocked ? 'blur-sm select-none opacity-50' : ''}`}>
+            <div className={`p-6 md:p-8 bg-slate-50 ${!isUnlocked ? 'hidden md:block md:blur-sm md:select-none md:opacity-50' : ''}`}>
               <h3 className="font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">Critical Application Data</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
@@ -254,9 +283,9 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
                 {/* CSC Probability */}
                 <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
                   <div className="absolute top-0 right-0 bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded-bl-lg">
-                    AI Prediction
+                    {isPartial ? 'Planning estimate' : 'AI prediction'}
                   </div>
-                  <p className="text-sm text-slate-500 font-bold uppercase mb-1">CSC Scholarship Probability</p>
+                  <p className="text-sm text-slate-500 font-bold uppercase mb-1">{isPartial ? 'CSC Planning Range' : 'CSC Scholarship Probability'}</p>
                   <div className="mt-2">
                     <div className="flex items-end gap-2">
                       <span className="text-4xl font-extrabold text-slate-800">

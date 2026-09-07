@@ -1,0 +1,50 @@
+# Architecture
+
+## Components
+
+- `AiMatcherForm`: accessible profile collection and client validation.
+- `proxy`: public-route pass-through without Supabase configuration and fail-closed handling for protected routes.
+- `HomeClientManager`: request orchestration and loading/result transition.
+- `app/api/matcher`: server validation, optional knowledge lookup, AI call, output validation, and failover.
+- `lib/matcher`: pure GPA normalization and deterministic curated-data matching.
+- `data/universities`: source-controlled university facts used by pages and fallback matching.
+- `UnlockResults`: success, partial, empty, and error presentation plus the existing unlock flow.
+
+## Data flow
+
+```text
+visitor form
+  -> client schema validation
+  -> POST /api/matcher
+  -> server schema validation
+  -> build local fallback from curated repository data
+  -> optional Supabase context + DeepSeek request
+  -> validate AI response
+  -> AI result or labeled local fallback
+  -> result UI -> existing sign-in/email unlock
+```
+
+Before this flow, the proxy checks whether Supabase URL and anonymous key are both configured. When either is absent, public requests pass through without constructing an SDK client; `/account` and `/admin` continue to redirect to login.
+
+Independent Supabase knowledge queries run concurrently. The local result is prepared before the external call so missing credentials, timeouts, non-2xx responses, malformed JSON, and structurally incomplete AI responses can recover without another request.
+
+## Trust boundaries and authorization
+
+The browser payload and external AI response are untrusted. The API validates GPA ranges and caps text fields before any optional external call, then accepts AI output only when it contains exactly three minimally usable university records. Environment credentials remain server-side. The public matcher performs no privileged mutation; existing result-history and lead writes retain their current authenticated/best-effort boundaries.
+
+## Failure, retry, and data-loss behavior
+
+- Invalid profile: HTTP 400; client-side validation normally prevents submission.
+- Supabase missing/failing: continue without RAG context.
+- Supabase configuration missing at the proxy: public pages pass; protected pages remain closed.
+- AI missing, timeout, non-2xx, invalid JSON, or unusable shape: return curated partial result.
+- Curated dataset cannot produce three relevant records: explicit matcher error and profile retry.
+- No matcher path writes user input, so failover creates no data-loss risk.
+
+## Observability and rollback
+
+Existing server error logs distinguish knowledge lookup, AI HTTP, AI JSON, and route failures without logging credentials. `meta.source` distinguishes `ai` from `curated-local` for future privacy-safe aggregation. Rollback is one commit: revert the resilient-matcher commit to restore the prior AI-only route and result UI.
+
+## Architecture decision
+
+See `docs/adr/0001-resilient-local-matcher.md`. This adds a pure local decision service but does not change framework, persistence, authentication, deployment, or dependencies.

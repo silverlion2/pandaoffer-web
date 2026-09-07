@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const aiMatcherSchema = z.object({
-  nationality: z.string().min(1, { message: "Nationality is required." }),
-  major: z.string().min(1, { message: "Target Major is required." }),
+  nationality: z.string().min(1, { message: "Nationality is required." }).max(80),
+  major: z.string().min(1, { message: "Target Major is required." }).max(80),
   gpa: z.object({
     scale: z.enum(["percentage", "four", "five"], { required_error: "Scale is required" }),
     value: z.string().min(1, { message: "Score is required" }),
