@@ -1,5 +1,14 @@
 # Project Log
 
+## 2026-09-09 — Duplicate worktree reconciliation
+
+- Both delayed dependency-remediation setup receipts eventually materialized as clean worktrees without formal task handles. Compared them read-only before selecting a writer.
+- Retained `C:\Users\T480S\.codex\worktrees\e43e\pandaoffer` on `codex/dependency-security-baseline` because it starts from the delivered matcher milestone, contains the full project governance/evidence update, and exactly matched `origin/main` at `c67423e` before this log entry.
+- Marked `C:\Users\T480S\.codex\worktrees\bf58\pandaoffer` as the duplicate to retire after project and portfolio records are current. Its clean commit `57fd10d` starts from stale baseline `2b3008e`; the branch is preserved for traceability, but the worktree must not remain a second writer.
+- The Website SOP CLI is now available in this host. `web-sop doctor` completed with warn-mode findings for the current SOP version plus unconfigured standalone typecheck/E2E commands. `web-sop check --mode fast` passed lint, 7 files / 30 tests, and the Next.js 16.3.4 production build with 100 generated pages; type checking remains covered by the Next.js build.
+- Fresh official-registry production-only and full `npm audit` runs both reported zero vulnerabilities. Lint retains three pre-existing internal-navigation warnings and no errors.
+- No product code, dependency versions, provider configuration, credentials, deployment, payment flow, or external message changed during reconciliation.
+
 ## 2026-09-09 — Dependency security baseline
 
 - Confirmed this Codex worktree was clean and isolated, fetched `origin/main`, and moved the detached worktree baseline from `2b3008e` to the latest remote commit `1e8933c`. The separate `D:\workspace\pandaoffer` checkout was not modified.
