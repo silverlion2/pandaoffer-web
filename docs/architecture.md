@@ -48,3 +48,9 @@ Existing server error logs distinguish knowledge lookup, AI HTTP, AI JSON, and r
 ## Architecture decision
 
 See `docs/adr/0001-resilient-local-matcher.md`. This adds a pure local decision service but does not change framework, persistence, authentication, deployment, or dependencies.
+
+## Dependency security baseline
+
+The application, lint configuration, and third-party integration package are kept on the same Next.js patch line. The September 2026 security baseline is Next.js 16.3.4 with `@next/third-parties` and `eslint-config-next` 16.3.4. This retains the App Router, React 19.2, proxy, authentication, persistence, and deployment architecture while picking up framework fixes for request handling, Server Components, proxy authorization bypasses, cache behavior, image optimization, and bundled image/CSS processing.
+
+Transitive packages remain governed by their existing parent dependency ranges rather than repository-level overrides. The lockfile pins patched `js-yaml`, `nanoid`, `ws`, PostCSS, Sharp, and development-tooling versions, and CI must continue to install with `npm ci`. Audit evidence is produced against the official npm advisory endpoint because the configured npm mirror does not implement the audit API.

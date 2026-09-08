@@ -16,3 +16,4 @@
 | Responsive | Form, notice, result, and unlock panel fit desktop and mobile widths | Browser screenshots |
 | Keyboard/accessibility | Labels, focus indicators, live regions, and 44px actions are present | Component tests + browser inspection |
 | Regression | Existing homepage, SEO, schema, and study-tour tests remain green | Full test suite |
+| Dependency security | Production and full dependency graphs contain no known vulnerabilities | Official-registry `npm audit` and configured production audit |

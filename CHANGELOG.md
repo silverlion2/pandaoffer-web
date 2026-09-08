@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Security
+- Upgrade Next.js and its aligned packages from 16.1.6 to 16.3.4.
+- Refresh vulnerable transitive production and development dependencies within their existing compatibility ranges; the full npm audit now reports zero known vulnerabilities.
+
 ### Added
 - Credential-independent curated fallback for the homepage university matcher
 - Public-page proxy fallback when Supabase is not configured, while protected routes remain closed

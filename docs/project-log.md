@@ -1,5 +1,19 @@
 # Project Log
 
+## 2026-09-09 — Dependency security baseline
+
+- Confirmed this Codex worktree was clean and isolated, fetched `origin/main`, and moved the detached worktree baseline from `2b3008e` to the latest remote commit `1e8933c`. The separate `D:\workspace\pandaoffer` checkout was not modified.
+- Read the repository SOP contract. `.gemini` is not present, so the Session Manager workflow does not apply; this project log is the durable task record.
+- `web-sop doctor` remained unavailable because the CLI is not installed. The configured project-native equivalent gates were used, matching the repository's manual SOP adoption record.
+- The initial official-registry production audit reported six high-severity paths: `next`, its `postcss` and `sharp` dependencies, plus transitive `js-yaml`, `nanoid`, and `ws`.
+- Upgraded `next`, `@next/third-parties`, and `eslint-config-next` from 16.1.6 to 16.3.4. Refreshed vulnerable transitive packages only within existing parent semver ranges; no dependency override, provider, credential, schema, API, or product behavior was added.
+- Clean `npm ci` completed and the full official-registry audit reported zero vulnerabilities. The configured production-only audit also reported zero vulnerabilities.
+- Equivalent fast gate: ESLint passed with zero errors and three pre-existing navigation warnings; 7 Vitest files / 30 tests passed with one single-worker cold-start timeout passing on isolated reproduction and the immediate full-suite rerun; Next.js 16.3.4 production build completed with 100 static pages.
+- Browser smoke against the local production server: the homepage loaded, an India / Engineering / 85 profile returned a labeled three-school curated fallback without Supabase or AI credentials, the result unlock entry was visible, and `/account` redirected to `/auth/login?redirect=%2Faccount`.
+- Codex Security diff scan `71de1876-d49a-4d20-806e-fa01c8116b30` completed with full declared coverage and no candidate or reportable findings. TAC status was `not_granted`, so protected report display may be unavailable; this did not gate the local review.
+- Final `web-sop check --mode fast` could not start because the CLI remains unavailable. Its configured equivalents passed: lint (0 errors, 3 existing navigation warnings), 30/30 tests, production build with 100 static pages, production audit 0 vulnerabilities, and full audit 0 vulnerabilities.
+- Production deployment, cloud configuration, credentials, payments, and external messages remained out of scope and unchanged.
+
 ## 2026-09-08 — Resilient matcher slice
 
 - Verified the worktree was clean and isolated; the separate `D:\workspace\pandaoffer` worktree contains user changes and was not modified.
