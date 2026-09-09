@@ -1,4 +1,62 @@
 export const studyTourEmail = 'hello@pandaoffer.top';
+export const studyTourUrl = 'https://www.pandaoffer.top/china-study-tours';
+export const studyTourTrackedShareUrl =
+  'https://www.pandaoffer.top/china-study-tours?utm_source=social&utm_medium=share&utm_campaign=study_tours';
+
+export const studyTourBrochures = [
+  {
+    title: 'AI/Tech Study Tour Brochure',
+    href: '/brochures/pandaoffer-ai-tech-study-tour.pdf',
+    audience: 'MBA, EMBA, university innovation teams, investors, founders, and tech students',
+    description:
+      'Original PandaOffer PDF covering AI applications, tech company visits, university labs, startup ecosystems, pricing anchors, host approval policy, and admissions follow-up.',
+  },
+  {
+    title: 'Healthcare Study Tour Brochure',
+    href: '/brochures/pandaoffer-healthcare-study-tour.pdf',
+    audience: 'Healthcare executives, medical educators, investors, hospital managers, and medical students',
+    description:
+      'Original PandaOffer PDF covering hospital operations, medtech, digital health, non-clinical visit boundaries, trust details, safety notes, and application pathway support.',
+  },
+  {
+    title: 'School Study Tour Brochure',
+    href: '/brochures/pandaoffer-school-study-tour.pdf',
+    audience: 'Middle schools, high schools, education agencies, families, and student groups',
+    description:
+      'Original PandaOffer PDF covering school exchange, campus tasters, culture and STEM modules, supervision, emergency planning, parent reporting, and study-abroad conversion.',
+  },
+];
+
+const studyTourShareTitle = 'China Study Tour Programs by PandaOffer';
+const studyTourShareText =
+  'China study tours with AI/tech, healthcare, school routes, PDF brochures, host-approval planning, and admissions follow-up.';
+
+export const studyTourShareLinks = [
+  {
+    label: 'LinkedIn',
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(studyTourTrackedShareUrl)}`,
+  },
+  {
+    label: 'X',
+    href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(studyTourShareText)}&url=${encodeURIComponent(studyTourTrackedShareUrl)}`,
+  },
+  {
+    label: 'WhatsApp',
+    href: `https://wa.me/?text=${encodeURIComponent(`${studyTourShareTitle}: ${studyTourTrackedShareUrl}`)}`,
+  },
+  {
+    label: 'Facebook',
+    href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(studyTourTrackedShareUrl)}`,
+  },
+  {
+    label: 'Telegram',
+    href: `https://t.me/share/url?url=${encodeURIComponent(studyTourTrackedShareUrl)}&text=${encodeURIComponent(studyTourShareText)}`,
+  },
+  {
+    label: 'Email',
+    href: `mailto:?subject=${encodeURIComponent(studyTourShareTitle)}&body=${encodeURIComponent(`${studyTourShareText}\n\n${studyTourTrackedShareUrl}`)}`,
+  },
+];
 
 export const routeBriefs = [
   {
@@ -17,7 +75,7 @@ export const routeBriefs = [
   },
   {
     title: 'School Study Tour Route Brief',
-    href: '/china-study-tours#study-abroad-pathway',
+    href: '/china-school-study-tour',
     audience: 'Middle schools, high schools, agencies, families, and student groups',
     description:
       'Campus visits, Mandarin and culture modules, student safety operations, parent reporting, and study-abroad conversion support.',
@@ -27,9 +85,18 @@ export const routeBriefs = [
 export const productLineup = [
   {
     title: 'Study-in-China Preview Tour',
-    href: '/china-study-tours#study-abroad-pathway',
+    href: '/china-school-study-tour',
     priority: 'Core admissions funnel',
+    duration: '7-10 days',
+    price: 'from $1,899/student',
+    image: '/tools/simulator/images/simulator/hub_bg.png',
+    imageAlt: 'China campus study tour planning scene for school and family route design',
     audience: 'schools, education agencies, families, and students comparing China degree options',
+    buyerFit: 'Schools, agencies, parents, and students who need a campus decision tour before applying.',
+    accessLevel: 'Campus, dorm, canteen, admissions, student ambassador, and city-life access subject to approval.',
+    learningOutput: 'University shortlist, city-fit notes, parent risk checklist, and post-tour application path.',
+    primaryAccess: 'Campus visits, admissions or international office briefing, student-life walkthrough, and city comparison.',
+    backupPlan: 'Campus-area academic walk, online student Q&A, and PandaOffer study-in-China workshop.',
     offer:
       'A 7-10 day campus-led route that helps families compare cities, universities, majors, costs, student life, safety, and scholarship paths before committing to an application.',
     marketSignal:
@@ -44,7 +111,16 @@ export const productLineup = [
     title: 'China Healthcare Study Tour',
     href: '/china-healthcare-study-tour',
     priority: 'Differentiated industry route',
+    duration: 'Half day-3 days',
+    price: 'quote by group size',
+    image: '/images/study-tours/healthcare-industry-study-tour.jpg',
+    imageAlt: 'China healthcare study tour with hospital operations and expert visit planning',
     audience: 'healthcare executives, hospital managers, medical educators, doctors, investors, and MBA groups',
+    buyerFit: 'Healthcare executives, medical educators, investors, hospital managers, MBA groups, and doctors.',
+    accessLevel: 'Hospital, checkup center, medtech, digital health, and doctor/operator access subject to approval.',
+    learningOutput: 'Service-flow map, market briefing, expert Q&A notes, and healthcare operations checklist.',
+    primaryAccess: 'Hospital department, international department, checkup center, medtech, or digital health visit.',
+    backupPlan: 'Doctor or operator roundtable, healthcare market case workshop, or university public health session.',
     offer:
       'A half-day to 3-day healthcare route covering hospital operations, international departments, checkup centers, service flow, medtech, AI healthcare, digital health, and expert Q&A.',
     marketSignal:
@@ -59,7 +135,16 @@ export const productLineup = [
     title: 'China AI Company Visits',
     href: '/china-ai-company-visits',
     priority: 'High-demand professional module',
+    duration: '1-3 days',
+    price: 'quote by group size',
+    image: '/images/study-tours/ai-tech-company-study-tour.jpg',
+    imageAlt: 'China AI company study tour with technology demos and innovation route planning',
     audience: 'MBA/EMBA cohorts, tech students, investors, founders, and corporate innovation teams',
+    buyerFit: 'MBA/EMBA cohorts, investors, tech students, founders, and corporate innovation teams.',
+    accessLevel: 'AI application, enterprise software, university lab, incubator, or operator access subject to approval.',
+    learningOutput: 'AI commercialization map, product critique, adoption notes, and market-entry discussion.',
+    primaryAccess: 'AI application company, product demo, university lab, incubator, or operator briefing.',
+    backupPlan: 'AI adoption case workshop, innovation-center visit, founder roundtable, or product teardown.',
     offer:
       'A 1-3 day AI route with application demos, enterprise software, product commercialization, university labs, incubators, and operator roundtables subject to host approval.',
     marketSignal:
@@ -74,7 +159,16 @@ export const productLineup = [
     title: 'China Tech Company Study Tour',
     href: '/china-tech-company-study-tour',
     priority: 'City-based ecosystem route',
+    duration: '1-3 days',
+    price: 'quote by group size',
+    image: '/tools/simulator/images/simulator/shanghai_bg.png',
+    imageAlt: 'China technology study tour city route for company visits and digital economy learning',
     audience: 'engineering schools, founders, investors, university teams, and corporate strategy groups',
+    buyerFit: 'Engineering schools, founders, investors, university teams, and corporate strategy groups.',
+    accessLevel: 'Robotics, hardware, platform, supply-chain, logistics, and innovation park access subject to approval.',
+    learningOutput: 'Ecosystem map, prototype-to-production checklist, supply-chain notes, and team presentation.',
+    primaryAccess: 'Robotics, smart hardware, e-commerce, logistics, industrial tech, or innovation park visit.',
+    backupPlan: 'Hardware ecosystem briefing, supplier map, product teardown, or operator Q&A workshop.',
     offer:
       'A technology route around robotics, smart hardware, digital platforms, cross-border e-commerce, logistics, industrial technology, and innovation parks.',
     marketSignal:
@@ -89,7 +183,16 @@ export const productLineup = [
     title: 'MBA China Innovation Tour',
     href: '/mba-china-innovation-tour',
     priority: 'Premium executive product',
+    duration: '5-10 days',
+    price: 'quote by group size',
+    image: '/images/study-tours/ai-tech-company-study-tour.jpg',
+    imageAlt: 'MBA China innovation study tour with AI technology and executive route planning',
     audience: 'MBA, EMBA, executive education, investor, and corporate strategy groups',
+    buyerFit: 'MBA, EMBA, executive education, investor, and corporate strategy groups.',
+    accessLevel: 'Senior host, founder/operator, AI, healthcare, tech, and market-entry access subject to approval.',
+    learningOutput: 'Market-entry memo, sector risk matrix, innovation audit, and board-style debrief.',
+    primaryAccess: 'AI, healthcare, tech, founder/operator, incubator, and executive market briefing route.',
+    backupPlan: 'Sector case workshop, expert roundtable, policy briefing, or company simulation session.',
     offer:
       'A 5-10 day executive route combining AI, healthcare, tech, market entry, founder/operator roundtables, case workshops, and a final board-style debrief.',
     marketSignal:
@@ -104,7 +207,16 @@ export const productLineup = [
     title: 'White-Label Study Tour Operations',
     href: '/china-study-tours#request-route',
     priority: 'Partner channel product',
+    duration: 'Custom dates',
+    price: 'partner quote',
+    image: '/tools/simulator/images/simulator/dali_bg.png',
+    imageAlt: 'White-label China study tour operations route for partner groups and local coordination',
     audience: 'overseas agencies, schools, training firms, and tour operators that need a China operating partner',
+    buyerFit: 'Overseas agencies, schools, training firms, and tour operators that need China-side execution.',
+    accessLevel: 'Host outreach, local coordination, bilingual operation, safety materials, and partner-branded delivery.',
+    learningOutput: 'Partner route concept, quote assumptions, safety SOP, parent/sponsor materials, and handover pack.',
+    primaryAccess: 'Local route design, host approval management, bilingual logistics, and on-trip coordination.',
+    backupPlan: 'Alternative hosts, classroom briefings, online expert Q&A, and revised local operating schedule.',
     offer:
       'Behind-the-scenes route design, host outreach, bilingual coordination, safety checklists, parent or sponsor materials, and local operations for partner-branded programs.',
     marketSignal:
@@ -136,6 +248,181 @@ export const pricingAnchors = [
     detail:
       'Executive route design for MBA, EMBA, corporate innovation, and investor groups, with market briefings, case workshops, and primary/backup visit options.',
   },
+];
+
+export const tripFacts = [
+  {
+    label: 'Program scope',
+    value: 'Built around the group profile',
+    detail:
+      'School, family, MBA, executive, and partner groups need different pacing, supervision, and visit assumptions.',
+  },
+  {
+    label: 'Route length',
+    value: 'Short modules or full campus routes',
+    detail:
+      'Half-day industry visits, 1-3 day professional modules, and 7-14 day student routes are scoped separately.',
+  },
+  {
+    label: 'On-trip support',
+    value: 'Bilingual coordination where needed',
+    detail:
+      'English/Chinese host communication, local coordination, and interpretation can be included in the proposal.',
+  },
+  {
+    label: 'Host access',
+    value: 'Primary plan plus backup route',
+    detail:
+      'Campus, hospital, and company visits depend on approval, so every serious route separates confirmed items from backups.',
+  },
+];
+
+export const sampleRouteFlow = [
+  {
+    title: 'Before arrival',
+    timing: '2-6 weeks before',
+    detail:
+      'Confirm group profile, route goal, host outreach list, safety assumptions, visa needs, and backup learning format.',
+  },
+  {
+    title: 'Arrival and orientation',
+    timing: 'Day 1',
+    detail:
+      'Airport or station transfer where quoted, welcome briefing, China context session, city orientation, and daily communication setup.',
+  },
+  {
+    title: 'Campus or industry access days',
+    timing: 'Days 2-5+',
+    detail:
+      'Run university, healthcare, AI, tech, culture, or company-visit modules with prepared questions and bilingual facilitation.',
+  },
+  {
+    title: 'Final debrief and next step',
+    timing: 'Final day',
+    detail:
+      'Close with reflection, route findings, parent or sponsor notes, admissions pathway, and optional application or partner follow-up.',
+  },
+];
+
+export const routeFlowVisuals = [
+  {
+    title: 'Campus and city orientation',
+    image: '/tools/simulator/images/simulator/hub_bg.png',
+    imageAlt: 'China study tour campus and city orientation visual itinerary board',
+    label: 'Orientation',
+  },
+  {
+    title: 'Industry access and expert sessions',
+    image: '/images/study-tours/ai-tech-company-study-tour.jpg',
+    imageAlt: 'China study tour AI and technology industry access visual itinerary board',
+    label: 'Access days',
+  },
+  {
+    title: 'Healthcare, culture, and final debrief',
+    image: '/images/study-tours/healthcare-industry-study-tour.jpg',
+    imageAlt: 'China healthcare study tour final debrief visual itinerary board',
+    label: 'Debrief',
+  },
+];
+
+export const availabilityWindows = [
+  {
+    window: 'Mar-May 2027',
+    status: 'Open for private quote',
+    route: 'School campus and culture route',
+    capacity: '12-32 students',
+    signal: 'Best window for spring break, pre-summer camps, and parent-facing school proposals.',
+  },
+  {
+    window: 'Jun-Aug 2027',
+    status: 'Host approval needed',
+    route: 'AI, tech, and healthcare modules',
+    capacity: '8-24 delegates',
+    signal: 'High-demand period: shortlist primary hosts early and confirm backup workshops before deposit.',
+  },
+  {
+    window: 'Sep-Dec 2027',
+    status: 'Open for private quote',
+    route: 'MBA and executive China innovation route',
+    capacity: '10-28 professionals',
+    signal: 'Strong fit for semester modules, corporate innovation weeks, and sponsor-funded delegations.',
+  },
+];
+
+export const fitBoardSignals = [
+  {
+    title: 'Best fit',
+    value: 'Groups with a clear learning theme',
+    detail:
+      'The strongest routes start with a defined audience, city preference, visit theme, and intended learning output.',
+  },
+  {
+    title: 'Group readiness',
+    value: 'Dates, size, budget, and supervision model',
+    detail:
+      'PandaOffer can scope faster when the brief includes traveler count, age or professional profile, budget level, and mobility limits.',
+  },
+  {
+    title: 'Host approval risk',
+    value: 'Primary access plus backup route',
+    detail:
+      'University, hospital, and company visits depend on host approval, so every serious proposal separates confirmed items from assumptions.',
+  },
+];
+
+export const bookingPath = [
+  {
+    title: 'Check availability',
+    detail: 'Send group size, dates, age or professional profile, city preference, budget level, and must-have visit themes.',
+  },
+  {
+    title: 'Host approval and backup route',
+    detail: 'PandaOffer checks primary hosts, prepares acceptable alternatives, and separates confirmed items from assumptions.',
+  },
+  {
+    title: 'Proposal and deposit',
+    detail: 'The written proposal states price band, inclusion scope, operating entity, payment method, and risk notes.',
+  },
+  {
+    title: 'Final trip details',
+    detail: 'Before travel, the group receives timing, contacts, preparation tasks, emergency routing, and final visit status.',
+  },
+];
+
+export const quoteBriefFields = [
+  {
+    label: 'Group size',
+    placeholder: '12 students / 24 executives',
+  },
+  {
+    label: 'Audience',
+    placeholder: 'MBA, hospital managers, high school students',
+  },
+  {
+    label: 'Preferred dates',
+    placeholder: 'March 2027 / 5 working days / flexible',
+  },
+  {
+    label: 'Route priority',
+    placeholder: 'AI demos, hospital operations, campus visits',
+  },
+  {
+    label: 'Budget level',
+    placeholder: 'Economy / standard / executive',
+  },
+];
+
+export const proposalIncludes = [
+  'Route concept with primary and backup visit options',
+  'Group-fit assumptions and timing risks',
+  'Budget band with host-fee and logistics assumptions',
+  'Learning outcomes, workshop outputs, and required preparation',
+];
+
+export const proposalExclusions = [
+  'Guaranteed access to a named company, hospital, or university before host approval',
+  'International flights, personal insurance, and visa fees unless separately quoted',
+  'Medical, legal, investment, or immigration advice outside the agreed tour scope',
 ];
 
 export const trustItems = [
@@ -238,23 +525,24 @@ export const conversionPathway = [
 
 export const contentPillars = [
   {
-    title: 'Commercial Landing Pages',
+    title: 'Focused Route Pages',
     purpose:
-      'Capture high-intent searches for healthcare, AI, tech company visits, MBA innovation tours, and China study tour planning.',
+      'Open a focused route page when the buyer already knows the theme: healthcare, AI, technology, MBA innovation, or school study tour.',
     assets: [
       'China Study Tour Programs',
+      'China School Study Tour',
       'China Healthcare Study Tour',
       'China AI Company Visits',
       'China Tech Company Study Tour',
       'MBA China Innovation Tour',
     ],
     primaryLink: '/china-study-tours',
-    cta: 'Use as paid or organic entry pages',
+    cta: 'Compare route pages',
   },
   {
-    title: 'Route Guides',
+    title: 'City and Sector Logic',
     purpose:
-      'Turn scarce visit resources into concrete routes by city, sector, duration, audience, primary host type, and backup plan.',
+      'Choose city pairs by what the group needs to learn, not by sightseeing order.',
     assets: [
       'Shanghai + Hangzhou AI and digital economy',
       'Shenzhen robotics and hardware',
@@ -262,12 +550,12 @@ export const contentPillars = [
       'Beijing healthcare policy and AI research',
     ],
     primaryLink: '/blog/china-study-tours-healthcare-ai-tech-company-visits',
-    cta: 'Publish as long-form SEO articles',
+    cta: 'Read route guide',
   },
   {
-    title: 'Trust and Operations Content',
+    title: 'Trust and Operations Pack',
     purpose:
-      'Answer the questions that block group purchase: company identity, host approval, payment, safety, insurance, supervision, visas, and emergency support.',
+      'Answer the questions that block approval: host confirmation, payment, safety, insurance, supervision, visas, and emergency support.',
     assets: [
       'What is confirmed before deposit',
       'Primary and backup visit options',
@@ -275,12 +563,12 @@ export const contentPillars = [
       'Payment and quotation assumptions',
     ],
     primaryLink: '/china-study-tours#trust',
-    cta: 'Use in sales follow-up',
+    cta: 'Review trust details',
   },
   {
-    title: 'Admissions Conversion Content',
+    title: 'Post-Tour Admissions Pathway',
     purpose:
-      'Connect short-term study tours to PandaOffer core business: university matching, applications, CSC planning, visas, and parent consultation.',
+      'Turn a short visit into a practical next step for students and families considering long-term study in China.',
     assets: [
       'Post-tour university matching',
       'CSC scholarship planning after the tour',
@@ -288,17 +576,95 @@ export const contentPillars = [
       'Parent decision checklist',
     ],
     primaryLink: '/study-in-china',
-    cta: 'Convert tour interest into applications',
+    cta: 'Open study pathway',
   },
 ];
 
 export const seoTourPages = {
+  schoolStudy: {
+    slug: 'china-school-study-tour',
+    title: 'China School Study Tour',
+    metaTitle: 'China School Study Tour',
+    description:
+      'Plan a China school study tour with campus visits, Mandarin and culture modules, STEM tasks, student supervision, parent reporting, and post-tour admissions support.',
+    canonical: 'https://www.pandaoffer.top/china-school-study-tour',
+    label: 'School and university preview route',
+    price: 'from $1,899/student',
+    duration: '7 to 14 days',
+    audience: 'middle schools, high schools, education agencies, families, student groups, and parent-child cohorts',
+    image: '/tools/simulator/images/simulator/hub_bg.png',
+    imageAlt:
+      'China school study tour with campus visits, student life preview, Mandarin culture modules and parent-ready route planning',
+    brochureHref: '/brochures/pandaoffer-school-study-tour.pdf',
+    theme: 'emerald',
+    keywords: [
+      'China school study tour',
+      'China university visit tour',
+      'China campus study tour',
+      'China student group tour',
+      'study in China preview tour',
+    ],
+    heroBullets: [
+      'Campus, dorm, canteen, admissions, and student-life walkthroughs',
+      'Mandarin, culture, STEM, city context, and reflection modules',
+      'Student supervision, parent reporting, safety notes, and emergency contacts',
+      'Post-tour university matching, CSC planning, and application support options',
+    ],
+    modules: [
+      {
+        title: 'Campus Discovery',
+        text: 'Compare university settings through campus walks, admissions context, dorm and canteen previews, student ambassador Q&A, and city-life interpretation.',
+      },
+      {
+        title: 'Mandarin and Culture',
+        text: 'Add practical Chinese tasks, food market missions, museum or heritage modules, high-speed rail practice, and daily reflection prompts.',
+      },
+      {
+        title: 'STEM and Future China',
+        text: 'Use university labs, innovation centers, maker spaces, or backup workshops to connect the trip to technology, medicine, business, or major choice.',
+      },
+      {
+        title: 'Admissions Follow-Up',
+        text: 'Turn the trip into a shortlist, parent decision notes, scholarship timeline, document plan, and optional PandaOffer application support.',
+      },
+    ],
+    sampleRoutes: [
+      {
+        title: 'Beijing Academic Preview',
+        cities: 'Beijing',
+        duration: '7-8 days',
+        bestFor: 'Schools and families comparing elite academic environments, history, and scholarship positioning',
+        primary: 'Campus-area visits near Tsinghua, Peking University, BFSU, or other approved institutions, plus admissions and student-life interpretation.',
+        backup: 'PandaOffer study-in-China workshop, student Q&A, university-area academic walk, and parent scholarship briefing.',
+        outcomes: ['Campus-fit notes', 'Parent risk checklist', 'University shortlist'],
+      },
+      {
+        title: 'Shanghai + Hangzhou Campus and Innovation Route',
+        cities: 'Shanghai, Hangzhou',
+        duration: '8-10 days',
+        bestFor: 'Student groups interested in business, AI, digital economy, modern China, and future degree options',
+        primary: 'Campus visits, city comparison, innovation park or company-facing module subject to host approval, and structured reflection tasks.',
+        backup: 'Digital economy case workshop, university matching session, and city-life field assignments.',
+        outcomes: ['City comparison memo', 'Major-interest map', 'Post-tour application path'],
+      },
+      {
+        title: 'Mandarin and Culture Immersion',
+        cities: 'Beijing, Shanghai, Chengdu, Hangzhou, Xian, or custom city pair',
+        duration: '10-14 days',
+        bestFor: 'Younger groups needing lighter pacing, culture tasks, Mandarin practice, and clear supervision',
+        primary: 'Language practice, campus tasters, museum and food culture modules, student-life interpretation, and parent-ready daily reporting.',
+        backup: 'Indoor culture workshops, guided reflection sessions, and alternative campus-area learning tasks if host access changes.',
+        outcomes: ['Daily reflection log', 'Culture task portfolio', 'Family decision notes'],
+      },
+    ],
+    visitOptions: visitOptionSets[2],
+  },
   healthcare: {
     slug: 'china-healthcare-study-tour',
     title: 'China Healthcare Study Tour',
-    metaTitle: 'China Healthcare Study Tour: Hospitals, MedTech & Operations',
+    metaTitle: 'China Healthcare Study Tour',
     description:
-      'Plan a China healthcare study tour with hospital operations, international departments, medtech, digital health, doctor-led Q&A, and backup visit options.',
+      'Plan a China healthcare study tour with hospital operations, medtech, digital health, doctor-led Q&A, backup visits, safety, and admissions support for groups.',
     canonical: 'https://www.pandaoffer.top/china-healthcare-study-tour',
     label: 'Healthcare industry route',
     price: 'quote by group size',
@@ -307,6 +673,7 @@ export const seoTourPages = {
     image: '/images/study-tours/healthcare-industry-study-tour.jpg',
     imageAlt:
       'China healthcare study tour with hospital operations, international department visit, medtech and digital health route options',
+    brochureHref: '/brochures/pandaoffer-healthcare-study-tour.pdf',
     theme: 'teal',
     keywords: [
       'China healthcare study tour',
@@ -373,9 +740,9 @@ export const seoTourPages = {
   aiCompanies: {
     slug: 'china-ai-company-visits',
     title: 'China AI Company Visits',
-    metaTitle: 'China AI Company Visits for Study Tours, MBA & Student Groups',
+    metaTitle: 'China AI Company Visits',
     description:
-      'Design China AI company visits with AI application demos, enterprise software, robotics, university innovation labs, and backup visit options subject to host approval.',
+      'Design China AI company visits with demos, enterprise software, robotics, university labs, backup options, host approval, and admissions follow-up for cohorts.',
     canonical: 'https://www.pandaoffer.top/china-ai-company-visits',
     label: 'AI company visit planning',
     price: 'quote by group size',
@@ -384,6 +751,7 @@ export const seoTourPages = {
     image: '/images/study-tours/ai-tech-company-study-tour.jpg',
     imageAlt:
       'China AI company visit route for study tours covering product demos, innovation parks, university labs and market briefings',
+    brochureHref: '/brochures/pandaoffer-ai-tech-study-tour.pdf',
     theme: 'indigo',
     keywords: [
       'China AI company visits',
@@ -450,9 +818,9 @@ export const seoTourPages = {
   techCompanies: {
     slug: 'china-tech-company-study-tour',
     title: 'China Tech Company Study Tour',
-    metaTitle: 'China Tech Company Study Tour: Robotics, Hardware & Digital Economy',
+    metaTitle: 'China Tech Company Study Tour',
     description:
-      'Build a China tech company study tour with robotics, smart hardware, digital platforms, cross-border e-commerce, innovation parks, and primary/backup visit options.',
+      'Build a China tech company study tour with robotics, hardware, digital platforms, e-commerce, innovation parks, host approval, and backup visits for cohorts.',
     canonical: 'https://www.pandaoffer.top/china-tech-company-study-tour',
     label: 'Technology company route',
     price: 'quote by group size',
@@ -461,6 +829,7 @@ export const seoTourPages = {
     image: '/images/study-tours/ai-tech-company-study-tour.jpg',
     imageAlt:
       'China technology company study tour route with robotics, smart hardware, manufacturing, platforms and innovation parks',
+    brochureHref: '/brochures/pandaoffer-ai-tech-study-tour.pdf',
     theme: 'sky',
     keywords: [
       'China tech company study tour',
@@ -527,9 +896,9 @@ export const seoTourPages = {
   mbaInnovation: {
     slug: 'mba-china-innovation-tour',
     title: 'MBA China Innovation Tour',
-    metaTitle: 'MBA China Innovation Tour: AI, Healthcare, Tech & Market Entry',
+    metaTitle: 'MBA China Innovation Tour',
     description:
-      'Plan an MBA China innovation tour with AI, healthcare, tech, digital economy, market-entry briefings, company visits subject to host approval, and backup roundtables.',
+      'Plan an MBA China innovation tour with AI, healthcare, tech, market-entry briefings, company visits subject to host approval, and backup roundtables for executives.',
     canonical: 'https://www.pandaoffer.top/mba-china-innovation-tour',
     label: 'MBA and EMBA innovation route',
     price: 'quote by group size',
@@ -538,6 +907,7 @@ export const seoTourPages = {
     image: '/images/study-tours/ai-tech-company-study-tour.jpg',
     imageAlt:
       'MBA China innovation tour with AI, healthcare, technology, market entry and executive roundtable modules',
+    brochureHref: '/brochures/pandaoffer-ai-tech-study-tour.pdf',
     theme: 'amber',
     keywords: [
       'MBA China innovation tour',
@@ -608,11 +978,28 @@ export function getStudyTourMetadata(page) {
     title: page.metaTitle,
     description: page.description,
     keywords: page.keywords,
-    alternates: { canonical: page.canonical },
+    alternates: {
+      canonical: page.canonical,
+      languages: {
+        'x-default': page.canonical,
+      },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     openGraph: {
       title: `${page.metaTitle} | PandaOffer`,
       description: page.description,
       url: page.canonical,
+      siteName: 'PandaOffer',
+      locale: 'en_US',
       type: 'website',
       images: [
         {
@@ -628,6 +1015,8 @@ export function getStudyTourMetadata(page) {
       title: page.metaTitle,
       description: page.description,
       images: [page.image],
+      site: '@pandaoffer',
+      creator: '@pandaoffer',
     },
   };
 }

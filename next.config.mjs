@@ -1,7 +1,34 @@
+const studyCitySlugs = [
+  'beijing',
+  'changsha',
+  'chengdu',
+  'dalian',
+  'guangzhou',
+  'hangzhou',
+  'harbin',
+  'hefei',
+  'nanjing',
+  'shanghai',
+  'tianjin',
+  'wuhan',
+  'xi-an',
+  'xiamen',
+];
+
+const cityRedirects = studyCitySlugs.map((city) => ({
+  source: `/study-in-${city}`,
+  destination: `/study-in/${city}`,
+  permanent: true,
+}));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Ensure consistent URLs by not adding trailing slashes
   trailingSlash: false,
+
+  async redirects() {
+    return cityRedirects;
+  },
 
   async rewrites() {
     return [

@@ -1,22 +1,30 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import Link from 'next/link';
 import { useAuth } from '@/components/providers/AuthProvider';
 import { createClient } from '@/lib/supabase/client';
 import { toast } from 'sonner';
-import { History, Trash2, Loader2, Brain, GraduationCap, BookOpen, Sparkles } from 'lucide-react';
-import Link from 'next/link';
+import { Trash2, Loader2, Brain, GraduationCap, BookOpen, Sparkles } from 'lucide-react';
 
 export default function HistoryPage() {
   const { user } = useAuth();
+  const supabase = useMemo(() => createClient(), []);
   const [matchHistory, setMatchHistory] = useState([]);
   const [savedChats, setSavedChats] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('matches');
-  const supabase = createClient();
 
   useEffect(() => {
-    const fetchHistory = async () => {
+    let isActive = true;
+
+    async function fetchHistory() {
+      if (!user?.id) {
+        setLoading(false);
+        return;
+      }
+
+      setLoading(true);
       const [matchRes, chatRes] = await Promise.all([
         supabase
           .from('match_history')
@@ -32,18 +40,28 @@ export default function HistoryPage() {
           .limit(50),
       ]);
 
+      if (!isActive) return;
+
+      if (matchRes.error || chatRes.error) {
+        toast.error('Failed to load history.');
+      }
+
       setMatchHistory(matchRes.data || []);
       setSavedChats(chatRes.data || []);
       setLoading(false);
-    };
+    }
 
-    if (user) fetchHistory();
-  }, [user, supabase]);
+    fetchHistory();
+
+    return () => {
+      isActive = false;
+    };
+  }, [supabase, user?.id]);
 
   const deleteMatch = async (id) => {
     const { error } = await supabase.from('match_history').delete().eq('id', id);
     if (!error) {
-      setMatchHistory(matchHistory.filter(m => m.id !== id));
+      setMatchHistory((items) => items.filter((match) => match.id !== id));
       toast.success('Match result removed.');
     }
   };
@@ -51,7 +69,7 @@ export default function HistoryPage() {
   const deleteChat = async (id) => {
     const { error } = await supabase.from('saved_chats').delete().eq('id', id);
     if (!error) {
-      setSavedChats(savedChats.filter(c => c.id !== id));
+      setSavedChats((items) => items.filter((chat) => chat.id !== id));
       toast.success('Saved Q&A removed.');
     }
   };
@@ -76,7 +94,6 @@ export default function HistoryPage() {
         <p className="text-sm text-slate-500 mt-1">Your saved AI Matcher results and AI Advisor Q&A pairs.</p>
       </div>
 
-      {/* Tabs */}
       <div className="flex gap-2">
         {tabs.map((tab) => (
           <button
@@ -92,14 +109,14 @@ export default function HistoryPage() {
             {tab.label}
             <span className={`text-xs px-1.5 py-0.5 rounded-full ${
               activeTab === tab.id ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'
-            }`}>
+            }`}
+            >
               {tab.count}
             </span>
           </button>
         ))}
       </div>
 
-      {/* Match History Tab */}
       {activeTab === 'matches' && (
         <>
           {matchHistory.length === 0 ? (
@@ -118,17 +135,22 @@ export default function HistoryPage() {
                 const results = match.results || {};
                 const unis = results.universities || [];
                 const formData = match.form_data || {};
+
                 return (
                   <div key={match.id} className="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
                     <div className="flex justify-between items-start mb-3">
                       <div>
                         <p className="text-xs text-slate-500">
-                          {new Date(match.created_at).toLocaleDateString('en-US', { 
-                            year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                          {new Date(match.created_at).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
                           })}
                         </p>
                         <p className="text-sm text-slate-600 mt-1">
-                          <strong>{formData.nationality}</strong> · {formData.target_major} · GPA: {formData.gpa?.value}
+                          <strong>{formData.nationality}</strong> - {formData.target_major} - GPA: {formData.gpa?.value}
                         </p>
                       </div>
                       <button onClick={() => deleteMatch(match.id)} className="text-slate-300 hover:text-red-500 p-1">
@@ -136,8 +158,8 @@ export default function HistoryPage() {
                       </button>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {unis.map((uni, i) => (
-                        <span key={i} className="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded-lg font-medium">
+                      {unis.map((uni) => (
+                        <span key={uni.name} className="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded-lg font-medium">
                           {uni.name} ({uni.matchPercent}%)
                         </span>
                       ))}
@@ -155,7 +177,6 @@ export default function HistoryPage() {
         </>
       )}
 
-      {/* Saved Chats Tab */}
       {activeTab === 'chats' && (
         <>
           {savedChats.length === 0 ? (
@@ -165,7 +186,7 @@ export default function HistoryPage() {
               </div>
               <h2 className="text-lg font-bold text-slate-900 mb-2">No saved Q&A yet</h2>
               <p className="text-sm text-slate-500">
-                Chat with the <Link href="/tools#advisor" className="text-emerald-600 hover:underline font-semibold">AI Advisor</Link> and click the 💾 save button on any answer to keep it here.
+                Chat with the <Link href="/tools#advisor" className="text-emerald-600 hover:underline font-semibold">AI Advisor</Link> and click the save button on any answer to keep it here.
               </p>
             </div>
           ) : (
@@ -188,9 +209,9 @@ export default function HistoryPage() {
                           <BookOpen size={10} /> Sources:
                         </p>
                         <div className="flex flex-wrap gap-1">
-                          {chat.sources.map((s, j) => (
-                            <span key={j} className="text-xs bg-violet-50 text-violet-700 px-2 py-0.5 rounded-full border border-violet-100">
-                              {s}
+                          {chat.sources.map((source) => (
+                            <span key={source} className="text-xs bg-violet-50 text-violet-700 px-2 py-0.5 rounded-full border border-violet-100">
+                              {source}
                             </span>
                           ))}
                         </div>

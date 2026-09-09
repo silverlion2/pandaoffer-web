@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import { ShieldAlert, Stethoscope, Home, CreditCard, Smartphone, Car, CheckCircle2, ChevronRight, FileText, Heart } from 'lucide-react';
 
 export const metadata = {
-  title: 'Expat Survival Tools & Guides | PandaOffer',
+  title: 'Expat Survival Tools & Guides',
   description: 'Essential tools and guides for international students living in China: VPNs, renting, banking, and medical.',
   openGraph: {
     title: 'Expat Survival Tools & Guides | PandaOffer',

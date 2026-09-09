@@ -43,10 +43,10 @@ export default function StudyTourLead() {
               View Study Tour Plans <ArrowRight size={18} />
             </Link>
             <Link
-              href="/china-study-tours#product-system"
+              href="/china-study-tours#brochures"
               className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 text-white font-bold px-6 py-3.5 rounded-xl transition-colors"
             >
-              View Product System <ArrowRight size={18} />
+              Download Brochures <ArrowRight size={18} />
             </Link>
           </div>
 

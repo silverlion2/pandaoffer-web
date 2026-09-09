@@ -30,6 +30,14 @@ const getMajorsData = () => {
   return Array.from(majorMap.values());
 };
 
+function compactMajorName(name, maxLength = 34) {
+  if (name.length <= maxLength) {
+    return name;
+  }
+
+  return `${name.slice(0, maxLength - 3).replace(/\s+\S*$/, '')}...`;
+}
+
 export function generateStaticParams() {
   const majors = getMajorsData();
   return majors.map((major) => ({
@@ -44,7 +52,7 @@ export async function generateMetadata({ params }) {
   
   if (!majorData) return { title: 'Major Not Found | PandaOffer' };
 
-  const title = `Study ${majorData.name} in China - Top Universities for International Students`;
+  const title = `Study ${compactMajorName(majorData.name)} in China`;
   const description = `Looking to study ${majorData.name} in China? Compare the best Chinese universities offering ${majorData.name} programs, tuition costs, and CSC scholarships in English.`;
 
   return {

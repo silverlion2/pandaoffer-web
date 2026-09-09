@@ -22,11 +22,39 @@ export default function Navbar() {
   };
 
   const applicationLinks = [
-    { name: 'Study Tours', href: '/china-study-tours' },
-    { name: 'Universities', href: '/universities' },
-    { name: 'Tools & Calculators', href: '/tools' },
-    { name: 'Blog & Guides', href: '/blog' },
-    { name: 'Scholarships', href: '/scholarships' },
+    {
+      name: 'Study Tours',
+      href: '/china-study-tours',
+      children: [
+        { name: 'All Study Tours', href: '/china-study-tours', description: 'Compare school, campus, AI, tech, and healthcare routes.' },
+        { name: 'Healthcare Study Tour', href: '/china-healthcare-study-tour', description: 'Hospital operations, medtech, and healthcare Q&A.' },
+        { name: 'AI Company Visits', href: '/china-ai-company-visits', description: 'AI demos, labs, innovation parks, and case workshops.' },
+        { name: 'Tech Company Study Tour', href: '/china-tech-company-study-tour', description: 'Robotics, hardware, platforms, and supply-chain routes.' },
+        { name: 'MBA Innovation Tour', href: '/mba-china-innovation-tour', description: 'Executive China innovation routes for MBA/EMBA groups.' },
+        { name: 'School & University Tour', href: '/china-school-study-tour', description: 'Campus discovery and post-tour admissions support.' },
+      ],
+    },
+    {
+      name: 'Study in China',
+      href: '/study-in-china',
+      activePrefixes: ['/study-in/', '/study-'],
+      children: [
+        { name: 'Study in China Guide', href: '/study-in-china', description: 'City, major, cost, and application planning hub.' },
+        { name: 'Universities', href: '/universities', description: 'Browse Chinese universities and program options.' },
+        { name: 'Scholarships', href: '/scholarships', description: 'CSC, provincial, university, and language scholarships.' },
+        { name: 'Blog & Guides', href: '/blog', description: 'Practical guides for applications and student life.' },
+      ],
+    },
+    {
+      name: 'Tools',
+      href: '/tools',
+      children: [
+        { name: 'All Tools', href: '/tools', description: 'Calculators, timelines, documents, and planning tools.' },
+        { name: 'AI Study Advisor', href: '/tools/advisor', description: 'Ask China study questions with instant guidance.' },
+        { name: 'Document Generator', href: '/tools/documents', description: 'Study plans, SOPs, rec letters, and trackers.' },
+        { name: 'ROI Calculator', href: '/tools/roi', description: 'Compare study costs and scholarship scenarios.' },
+      ],
+    },
     { name: 'Pricing', href: '/pricing' },
   ];
 
@@ -46,6 +74,20 @@ export default function Navbar() {
     { name: 'History', href: '/account/history', icon: History },
   ];
 
+  const getHrefPath = (href) => href.split('#')[0].split('?')[0];
+
+  const isLinkActive = (link) => {
+    if (link.external) return false;
+    if (link.href.includes('#')) return false;
+
+    const linkPath = getHrefPath(link.href);
+    const matchesSelf = pathname === linkPath || pathname.startsWith(`${linkPath}/`);
+    const matchesPrefix = link.activePrefixes?.some((prefix) => pathname.startsWith(prefix));
+    const matchesChild = link.children?.some((child) => isLinkActive(child));
+
+    return Boolean(matchesSelf || matchesPrefix || matchesChild);
+  };
+
   // Get user initials for avatar
   const getInitial = () => {
     if (profile?.user_profiles?.first_name) {
@@ -61,7 +103,7 @@ export default function Navbar() {
     <nav className="bg-white border-b border-slate-200 sticky top-0 z-50 relative">
       <div className="px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2" onClick={() => { setIsMobileMenuOpen(false); setIsProfileMenuOpen(false); }} aria-label="PandaOffer — Home">
+          <Link href="/" className="flex items-center gap-2" onClick={() => { setIsMobileMenuOpen(false); setIsProfileMenuOpen(false); }} aria-label="PandaOffer Home">
             <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
               P
             </div>
@@ -88,10 +130,62 @@ export default function Navbar() {
         </div>
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+            const isActive = isLinkActive(link);
+            const hasChildren = link.children?.length;
             const linkProps = link.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+
+            if (hasChildren) {
+              return (
+                <div key={link.name} className="group relative">
+                  <Link
+                    href={link.href}
+                    {...linkProps}
+                    aria-haspopup="true"
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
+                      isActive && !link.external
+                        ? 'bg-emerald-50 text-emerald-700 font-bold'
+                        : 'text-slate-600 hover:bg-slate-50 hover:text-emerald-600'
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown size={14} className="text-current transition-transform group-hover:rotate-180" />
+                  </Link>
+                  <div className="pointer-events-none absolute left-0 top-full z-50 pt-3 opacity-0 translate-y-1 transition-all duration-150 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                    <div className="w-80 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl shadow-slate-900/10">
+                      <div className="p-2" aria-label={`${link.name} submenu`}>
+                        {link.children.map((child) => {
+                          const childActive = isLinkActive(child);
+                          const childProps = child.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+
+                          return (
+                            <Link
+                              key={child.name}
+                              href={child.href}
+                              {...childProps}
+                              className={`block rounded-lg px-3 py-2.5 transition-colors ${
+                                childActive
+                                  ? 'bg-emerald-50 text-emerald-700'
+                                  : 'text-slate-700 hover:bg-slate-50 hover:text-emerald-700'
+                              }`}
+                            >
+                              <span className="block text-sm font-bold">{child.name}</span>
+                              {child.description ? (
+                                <span className="mt-0.5 block text-xs leading-relaxed text-slate-500">
+                                  {child.description}
+                                </span>
+                              ) : null}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <Link 
                 key={link.name} 
@@ -183,7 +277,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Toggle Button */}
-        <div className="md:hidden flex items-center gap-3">
+        <div className="lg:hidden flex items-center gap-3">
           {/* Mobile Auth */}
           {!loading && user && (
             <Link
@@ -215,7 +309,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg p-4 flex flex-col gap-2">
+        <div className="lg:hidden absolute top-full left-0 right-0 max-h-[calc(100vh-73px)] overflow-y-auto bg-white border-b border-slate-200 shadow-lg p-4 pb-24 flex flex-col gap-2">
           
           {/* Mobile Mode Switcher */}
           {isMounted && (
@@ -236,8 +330,52 @@ export default function Navbar() {
           )}
 
           {navLinks.map((link) => {
-            const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+            const isActive = isLinkActive(link);
+            const hasChildren = link.children?.length;
             const linkProps = link.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+
+            if (hasChildren) {
+              return (
+                <div key={link.name} className="rounded-lg border border-slate-100 bg-slate-50/70 p-2">
+                  <Link
+                    href={link.href}
+                    {...linkProps}
+                    className={`flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-bold transition-colors ${
+                      isActive && !link.external
+                        ? 'text-emerald-700 bg-white'
+                        : 'text-slate-800 hover:bg-white'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                    <ChevronDown size={16} className="text-slate-400" />
+                  </Link>
+                  <div className="mt-1 space-y-1">
+                    {link.children.map((child) => {
+                      const childActive = isLinkActive(child);
+                      const childProps = child.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+
+                      return (
+                        <Link
+                          key={child.name}
+                          href={child.href}
+                          {...childProps}
+                          className={`block rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
+                            childActive
+                              ? 'bg-emerald-50 text-emerald-700'
+                              : 'text-slate-600 hover:bg-white hover:text-emerald-700'
+                          }`}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {child.name}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <Link 
                 key={link.name} 

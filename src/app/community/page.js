@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import CommunityBoardClient from './CommunityBoardClient';
 
 export const metadata = {
-  title: 'Community Hub | PandaOffer',
+  title: 'Community Hub',
   description: 'Join verified WeChat groups, attend expat meetups, and connect with international students across China.',
   openGraph: {
     title: 'Community Hub | PandaOffer',

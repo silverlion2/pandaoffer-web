@@ -2,14 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import StudyTourQuoteBuilder from '@/components/study-tours/StudyTourQuoteBuilder';
 import {
   ArrowRight,
   CheckCircle2,
+  Download,
   FileText,
   Mail,
   MapPinned,
   Route,
   ShieldCheck,
+  Share2,
   Sparkles,
   Users,
 } from 'lucide-react';
@@ -18,10 +21,28 @@ import {
   pricingAnchors,
   routeBriefs,
   studyTourEmail,
+  studyTourBrochures,
   trustItems,
 } from '@/data/studyTours';
 
+function withShareTracking(url) {
+  const shareUrl = new URL(url);
+  shareUrl.searchParams.set('utm_source', 'social');
+  shareUrl.searchParams.set('utm_medium', 'share');
+  shareUrl.searchParams.set('utm_campaign', 'study_tours');
+  return shareUrl.toString();
+}
+
 const themeStyles = {
+  emerald: {
+    eyebrow: 'text-emerald-100 border-emerald-300/25 bg-emerald-300/10',
+    accentText: 'text-emerald-600',
+    accentBg: 'bg-emerald-50',
+    accentSoft: 'bg-emerald-50 text-emerald-700',
+    cta: 'bg-emerald-500 hover:bg-emerald-600 shadow-emerald-950/30',
+    icon: 'text-emerald-500',
+    darkIcon: 'text-emerald-300',
+  },
   teal: {
     eyebrow: 'text-teal-200 border-teal-300/25 bg-teal-300/10',
     accentText: 'text-teal-600',
@@ -63,9 +84,34 @@ const themeStyles = {
 export default function StudyTourSeoPage({ page }) {
   const theme = themeStyles[page.theme] || themeStyles.indigo;
   const routeBrief = routeBriefs.find((item) => item.href === `/${page.slug}`) || routeBriefs[0];
+  const brochure = studyTourBrochures.find((item) => item.href === page.brochureHref);
   const mailHref = `mailto:${studyTourEmail}?subject=${encodeURIComponent(page.title)}&body=${encodeURIComponent(
     'Group size:\nAge/professional profile:\nPreferred dates:\nTarget cities:\nLearning theme:\nBudget level:\nPrimary visit interests:\n',
   )}`;
+  const shareText = `${page.title} by PandaOffer: ${page.description}`;
+  const trackedShareUrl = withShareTracking(page.canonical);
+  const shareLinks = [
+    {
+      label: 'LinkedIn',
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(trackedShareUrl)}`,
+    },
+    {
+      label: 'X',
+      href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(trackedShareUrl)}`,
+    },
+    {
+      label: 'WhatsApp',
+      href: `https://wa.me/?text=${encodeURIComponent(`${page.title}: ${trackedShareUrl}`)}`,
+    },
+    {
+      label: 'Facebook',
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(trackedShareUrl)}`,
+    },
+    {
+      label: 'Telegram',
+      href: `https://t.me/share/url?url=${encodeURIComponent(trackedShareUrl)}&text=${encodeURIComponent(shareText)}`,
+    },
+  ];
 
   const jsonLd = [
     {
@@ -87,6 +133,35 @@ export default function StudyTourSeoPage({ page }) {
         description: page.price,
         availability: 'https://schema.org/LimitedAvailability',
       },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: page.title,
+      url: page.canonical,
+      description: page.description,
+      mainEntity: {
+        '@type': 'Service',
+        name: page.title,
+        provider: {
+          '@type': 'Organization',
+          name: 'PandaOffer',
+          url: 'https://www.pandaoffer.top',
+        },
+        areaServed: 'China',
+        serviceType: 'China study tour planning',
+      },
+      ...(brochure
+        ? {
+            hasPart: {
+              '@type': 'DigitalDocument',
+              name: brochure.title,
+              url: `https://www.pandaoffer.top${brochure.href}`,
+              encodingFormat: 'application/pdf',
+              description: brochure.description,
+            },
+          }
+        : {}),
     },
     {
       '@context': 'https://schema.org',
@@ -152,12 +227,21 @@ export default function StudyTourSeoPage({ page }) {
                 >
                   Request a Quote <Mail size={18} />
                 </a>
+              <a
+                href="#route-brief"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 text-white font-bold px-6 py-3.5 rounded-xl transition-colors"
+              >
+                View Route Brief <FileText size={18} />
+              </a>
+              {brochure ? (
                 <a
-                  href="#route-brief"
+                  href={brochure.href}
+                  download
                   className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 text-white font-bold px-6 py-3.5 rounded-xl transition-colors"
                 >
-                  View Route Brief <FileText size={18} />
+                  Download PDF <Download size={18} />
                 </a>
+              ) : null}
               </div>
             </div>
           </div>
@@ -375,7 +459,53 @@ export default function StudyTourSeoPage({ page }) {
               </a>
             </div>
           </div>
+
+          <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-2 font-extrabold text-slate-900">
+                  <Share2 size={18} className={theme.icon} />
+                  Share this route page
+                </div>
+                <p className="mt-1 text-sm leading-relaxed text-slate-500">
+                  Use this focused page for cohort planning, partner outreach, faculty review, and parent or sponsor conversations.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {shareLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center justify-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-bold transition-colors hover:bg-white ${theme.accentText}`}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                {brochure ? (
+                  <a
+                    href={brochure.href}
+                    download
+                    className={`inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-bold transition-colors hover:bg-white ${theme.accentText}`}
+                  >
+                    PDF <Download size={15} />
+                  </a>
+                ) : null}
+              </div>
+            </div>
+          </div>
         </section>
+
+        <StudyTourQuoteBuilder
+          pageTitle={page.title}
+          routeOptions={[
+            ...page.modules.map((module) => module.title),
+            ...page.sampleRoutes.map((route) => route.title),
+          ]}
+          accentTextClassName={theme.accentText}
+          ctaClassName={theme.cta}
+        />
 
         <section className="bg-white border-y border-slate-200">
           <div className="max-w-5xl mx-auto px-6 py-16">

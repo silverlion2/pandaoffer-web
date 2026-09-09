@@ -4,7 +4,7 @@ export default function robots() {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/auth/', '/api/'],
+        disallow: ['/account/', '/admin/', '/auth/', '/api/'],
       },
     ],
     sitemap: 'https://www.pandaoffer.top/sitemap.xml',

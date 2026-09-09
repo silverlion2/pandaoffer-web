@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import FAQSection from '@/components/home/FAQSection';
 
 export const metadata = {
-  title: 'Frequently Asked Questions | PandaOffer',
+  title: 'Frequently Asked Questions',
   description: 'Answers to common questions about studying in China, CSC Scholarships, student visas, costs, and the PandaOffer admission process.',
   openGraph: {
     title: 'Frequently Asked Questions | PandaOffer',
@@ -23,6 +23,7 @@ export default function FAQPage() {
       <Navbar />
 
       <main className="max-w-5xl mx-auto px-4 py-12 flex-1 w-full">
+        <h1 className="sr-only">PandaOffer Frequently Asked Questions</h1>
         <FAQSection />
       </main>
 

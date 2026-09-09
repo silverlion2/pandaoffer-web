@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata = {
-  title: 'City Comparator | PandaOffer Tools',
+  title: 'City Comparator',
   description: 'Side-by-side comparison of life and costs in top Chinese cities for international students.',
   openGraph: {
     title: 'City Comparator | PandaOffer Tools',
@@ -43,6 +43,7 @@ export default function CityPage() {
         }}
       />
       <main className="max-w-5xl mx-auto px-4 py-12 flex-1 w-full space-y-8">
+        <h1 className="sr-only">China City Comparator</h1>
         <Link href="/tools" className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-emerald-600 transition-colors">
           <ArrowLeft size={16} /> Back to All Tools
         </Link>
