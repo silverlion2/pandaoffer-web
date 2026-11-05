@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAuth } from '@/components/providers/AuthProvider';
 import { createClient } from '@/lib/supabase/client';
 import { toast } from 'sonner';
@@ -37,37 +37,17 @@ export default function AccountProfilePage() {
   const [activeTab, setActiveTab] = useState('application'); // 'application' | 'life'
   const supabase = createClient();
 
-  const [form, setForm] = useState({
-    first_name: '',
-    last_name: '',
-    nationality: '',
-    target_major: '',
-    gpa_scale: 'percentage',
-    gpa_value: '',
-    current_city: '',
-    hsk_level: '',
-    job_status: '',
-    visa_type: ''
-  });
-
-  // Populate form from profile
-  useEffect(() => {
-    if (profile?.user_profiles) {
-      const p = profile.user_profiles;
-      setForm({
-        first_name: p.first_name || '',
-        last_name: p.last_name || '',
-        nationality: p.nationality || '',
-        target_major: p.target_major || '',
-        gpa_scale: p.gpa_scale || 'percentage',
-        gpa_value: p.gpa_value?.toString() || '',
-        current_city: p.current_city || '',
-        hsk_level: p.hsk_level || '',
-        job_status: p.job_status || '',
-        visa_type: p.visa_type || ''
-      });
-    }
-  }, [profile]);
+  // Keep edits owned by this account; profile refreshes must not erase a draft.
+  const [draft, setDraft] = useState(null);
+  const p = profile?.user_profiles || {};
+  const form = draft && draft.userId === user?.id ? draft.values : {
+    first_name: p.first_name || '', last_name: p.last_name || '',
+    nationality: p.nationality || '', target_major: p.target_major || '',
+    gpa_scale: p.gpa_scale || 'percentage', gpa_value: p.gpa_value?.toString() || '',
+    current_city: p.current_city || '', hsk_level: p.hsk_level || '',
+    job_status: p.job_status || '', visa_type: p.visa_type || '',
+  };
+  const setForm = values => setDraft({ userId: user?.id, values });
 
   const handleSave = async (e) => {
     e.preventDefault();

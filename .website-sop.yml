@@ -1,4 +1,4 @@
-version: 1
+version: "1.0.0"
 project:
   name: pandaoffer
   profile: next
@@ -13,8 +13,8 @@ commands:
   typecheck: null
   test: npm run test:ci -- --pool=threads --maxWorkers=1
   build: npm run build
-  e2e: null
-  audit: npm audit --omit=dev --audit-level=high
+  e2e: npm run test:e2e:prod
+  audit: npm audit --omit=dev --audit-level=high --registry=https://registry.npmjs.org
   verify: null
 quality:
   enforcement: warn

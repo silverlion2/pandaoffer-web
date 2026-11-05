@@ -36,3 +36,7 @@ Prospective students need a credible shortlist they can act on immediately. They
 ### Risks and metrics
 
 The principal risk is over-trust in estimates, mitigated by provenance and guarantee disclaimers. Useful production metrics for a later consented analytics slice are matcher completion rate, fallback rate, unlock conversion, and retry rate; this slice adds no tracking dependency.
+
+## Matching reliability — 2026-11-06
+
+Each shortlist belongs to one submitted profile. Editing/retrying retains inputs but never reuses an old result after failure. Pending matching is cancellable and expires after 20 seconds. Malformed or unavailable responses offer recovery; empty and curated responses remain distinct. Progress and estimates must describe actual behavior. No email-PDF action is offered until a real delivery implementation exists.

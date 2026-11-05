@@ -132,11 +132,4 @@ export function createLocalMatch({ nationality, major, gpa }) {
   };
 }
 
-export function isUsableAiMatch(result) {
-  return Boolean(
-    result
-      && Array.isArray(result.universities)
-      && result.universities.length === 3
-      && result.universities.every((university) => university?.name && university?.program),
-  );
-}
+export { isUsableAiMatch } from './matcher-response';

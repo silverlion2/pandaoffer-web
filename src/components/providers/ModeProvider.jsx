@@ -11,15 +11,16 @@ export function ModeProvider({ children }) {
 
   useEffect(() => {
     setIsMounted(true);
-    const savedMode = localStorage.getItem("pandaoffer_mode");
-    if (savedMode === "life" || savedMode === "application") {
-      setModeState(savedMode);
-    }
+    try {
+      const savedMode = localStorage.getItem("pandaoffer_mode");
+      if (savedMode === "life" || savedMode === "application") setModeState(savedMode);
+    } catch { /* Storage is optional in restricted browsers. */ }
   }, []);
 
   const setMode = (newMode) => {
+    if (newMode !== 'life' && newMode !== 'application') return;
     setModeState(newMode);
-    localStorage.setItem("pandaoffer_mode", newMode);
+    try { localStorage.setItem("pandaoffer_mode", newMode); } catch { /* Keep the current session usable. */ }
   };
 
   return (

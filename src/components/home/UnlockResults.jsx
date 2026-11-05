@@ -64,7 +64,7 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
   const isPartial = Boolean(matchResults?.meta?.isPartial);
 
   // Error state
-  if (matchError && !matchResults) {
+  if (matchError) {
     return (
       <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
         <div className="flex justify-start">
@@ -79,8 +79,8 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
           <AlertTriangle className="w-12 h-12 text-amber-500 mx-auto" />
           <h2 className="text-2xl font-bold text-slate-900 font-heading">Matching Unavailable</h2>
           <p className="text-slate-500 max-w-md mx-auto">
-            Our AI engine is temporarily busy. Please try again in a moment, or use our{' '}
-            <Link href="/tools#advisor" className="text-emerald-600 hover:underline font-bold">AI Study Advisor</Link> for personalized guidance.
+            We could not complete this request. Your profile is saved for retry. Please try again, or visit our{' '}
+            <Link href="/tools/advisor" className="text-emerald-600 hover:underline font-bold">AI Study Advisor</Link>.
           </p>
         </div>
       </div>
@@ -124,6 +124,7 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
           {isPartial ? 'Three options to start your research' : `We found your ${topMatch.matchPercent}% Match!`}
         </h2>
         <p className="text-slate-500">Based on your {formData.nationality} nationality and {formData.gpa?.value} GPA.</p>
+        <p className="text-sm text-slate-500">Match and scholarship estimates are planning guidance, not admission or funding guarantees.</p>
       </div>
 
       {isPartial && (
@@ -213,7 +214,8 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
                       <form onSubmit={handleSubmit(onUnlock)} className="space-y-3 mt-4">
                         <div>
                           <input 
-                            type="email" 
+                            type="email"
+                            aria-label="Email address to unlock report"
                             placeholder="Your email address" 
                             {...register('email')}
                             className={`w-full p-3 bg-slate-50 border ${errors.email ? 'border-red-500' : 'border-slate-200'} rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none`}
@@ -241,21 +243,10 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
                           {isSubmitting ? "Unlocking Data..." : "Reveal with Email Only"}
                         </button>
                       </form>
-                      <p className="text-xs text-slate-400 mt-4">Bank-level encryption. No spam ever.</p>
+                      <p className="text-xs text-slate-400 mt-4">Review our Privacy Policy before sharing your email.</p>
                     </>
                   ) : null}
                 </div>
-              </div>
-            )}
-
-            {isUnlocked && (
-              <div className="absolute top-4 right-4 z-20 animate-in fade-in slide-in-from-top-2">
-                <button 
-                  onClick={() => toast.success("PDF has been sent to your email!")}
-                  className="bg-slate-900 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-slate-800 transition-colors shadow-lg"
-                >
-                  📥 Email me a PDF copy
-                </button>
               </div>
             )}
 
@@ -291,7 +282,7 @@ export default function UnlockResults({ step, setStep, formData, matchResults, m
                       <span className="text-4xl font-extrabold text-slate-800">
                         {cscProb}%
                       </span>
-                      <span className="text-sm text-slate-500 mb-1">Success Rate</span>
+                      <span className="text-sm text-slate-500 mb-1">Planning estimate</span>
                     </div>
                     <div className="w-full bg-slate-100 h-2 rounded-full mt-3 overflow-hidden">
                       <div 

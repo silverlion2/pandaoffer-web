@@ -31,3 +31,7 @@ On mobile, the locked-detail preview is hidden and the unlock card stays in norm
 Form labels bind to controls; invalid controls expose `aria-invalid` and described errors; errors use `role=alert`; loading and fallback notices use polite live regions; retry actions have visible focus rings; decorative status icons are hidden from assistive technology where appropriate.
 
 Image generation was intentionally skipped because this is a narrow state and reliability fix inside an existing design system, as allowed by the frontend implementation skill.
+
+## Matching state transitions
+
+Keep entered choices on retry, provide a 44px cancellation action and move focus/viewport to the active matching flow. Verify pending/error headings in the actual viewport, including 390px layouts. Show a common guidance disclaimer for both AI and curated estimates. Storage denial should preserve in-session mode switching.

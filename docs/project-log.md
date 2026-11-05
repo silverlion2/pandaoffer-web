@@ -42,3 +42,7 @@
 - Implementation commit: `49a7e81` (`Make university matching resilient without credentials`).
 - Integration check: `origin/main` remained `af7e725`; the implementation branch was one commit ahead and zero behind, so no merge or rebase was required.
 - Evidence commit and final remote SHA: completed during push handoff and reported in the task result.
+
+## 2026-11-06 — matcher and automated browser reliability candidate
+
+See [implementation and validation record](matcher-browser-quality-2026-11-06.md). Isolated from current remote main, with original owner changes retained. Adds request ownership and shared response validation, bounded optional retrieval, storage-denial recovery, account draft preservation, supported city/major route segments and an isolated CI browser gate. Dependency audit reduced from 17 entries (including one critical) to zero against the official registry. Final local/CI evidence is recorded with the candidate; no production release or real service writes.

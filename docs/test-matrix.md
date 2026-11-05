@@ -17,3 +17,10 @@
 | Keyboard/accessibility | Labels, focus indicators, live regions, and 44px actions are present | Component tests + browser inspection |
 | Regression | Existing homepage, SEO, schema, and study-tour tests remain green | Full test suite |
 | Dependency security | Production and full dependency graphs contain no known vulnerabilities | Official-registry `npm audit` and configured production audit |
+
+## November 6 reliability gate
+
+- `npm run test:e2e:prod`: fresh credential-free production build and 20 Chromium desktop/mobile cases covering validation, actual fallback, retry, stale results, cancellation, deadline, malformed/empty payloads, storage denial, protected account redirect and all four footer city guides.
+- `node scripts/check-browser-runner.mjs`: direct invocation, occupied-port preservation, external artifact-path enforcement and failing-invocation cleanup.
+- `matcher-attempts`, `matcher-boundaries`, `mode-storage`, `account-draft` and `dependency-consumer` tests cover request ownership, unmount, non-cooperative deadlines, rendered fields, bounded optional retrieval and patched parser semantics.
+- Runtime evidence and screenshots stay outside the repository. CI uploads the browser artifact for seven days.

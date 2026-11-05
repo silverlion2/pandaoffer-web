@@ -9,13 +9,28 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      PANDA_BROWSER_OUTPUT: ${{ runner.temp }}/pandaoffer-browser
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: 'npm'
-      - run: npm ci
+      - run: npm ci --registry=https://registry.npmjs.org
       - run: npm run lint
-      - run: npm run test:ci
-      - run: npm run build
+      - run: npm run test:ci -- --pool=threads --maxWorkers=1
+      - run: npm audit --audit-level=moderate --registry=https://registry.npmjs.org
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/check-browser-runner.mjs
+      - run: npm run test:e2e:prod
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pandaoffer-browser
+          path: ${{ runner.temp }}/pandaoffer-browser
+          retention-days: 7
+          if-no-files-found: ignore

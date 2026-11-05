@@ -89,7 +89,7 @@ export default function AiMatcherForm({ onSubmit, defaultValues }) {
           type="submit" 
           className="w-full min-h-11 bg-slate-900 border border-slate-800 hover:bg-slate-800 text-white font-bold py-4 rounded-lg flex justify-center items-center gap-2 transition-all shadow-lg hover:shadow-emerald-500/20 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
         >
-          Unlock My Free AI Report <ArrowRight size={20} />
+          Build my free shortlist <ArrowRight size={20} />
         </button>
       </form>
     </div>
