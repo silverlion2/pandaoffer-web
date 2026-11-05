@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { HelpCircle } from 'lucide-react';
 import AiMatcherForm from './AiMatcherForm';
@@ -11,6 +11,7 @@ import LifeDiscoverGrid from './LifeDiscoverGrid';
 import LifeServicesPromo from './LifeServicesPromo';
 import EmergencyContacts from './EmergencyContacts';
 import { useMode } from '@/components/providers/ModeProvider';
+import { isUsableMatch } from '@/lib/matcher-response';
 
 export default function HomeClientManager({ 
   studyTourLead,
@@ -32,37 +33,87 @@ export default function HomeClientManager({
   });
   const [matchResults, setMatchResults] = useState(null);
   const [matchError, setMatchError] = useState(null);
+  const activeAttempt = useRef(null);
+  const mounted = useRef(false);
+  const flowRef = useRef(null);
+  const previousStep = useRef('home');
+
+  useEffect(() => {
+    if (previousStep.current === step) return;
+    previousStep.current = step;
+    flowRef.current?.focus({ preventScroll: true });
+    flowRef.current?.scrollIntoView?.({ block: 'start' });
+  }, [step]);
+
+  useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+      const attempt = activeAttempt.current;
+      activeAttempt.current = null;
+      if (attempt) {
+        clearTimeout(attempt.timer);
+        attempt.controller.abort();
+      }
+    };
+  }, []);
+
+  const cancelMatch = () => {
+    const attempt = activeAttempt.current;
+    activeAttempt.current = null;
+    if (attempt) {
+      clearTimeout(attempt.timer);
+      attempt.controller.abort();
+    }
+    setStep('home');
+  };
 
   const handleMatch = async (data) => {
+    if (!mounted.current || activeAttempt.current) return;
+    const attempt = { controller: new AbortController(), timer: null };
+    activeAttempt.current = attempt;
     setFormData(data);
+    setMatchResults(null);
     setMatchError(null);
     setStep('analyzing');
+    attempt.timer = setTimeout(() => {
+      if (activeAttempt.current !== attempt) return;
+      activeAttempt.current = null;
+      attempt.controller.abort();
+      setMatchError('Matching timed out. Please try again.');
+      setStep('results');
+    }, 20000);
 
     try {
       const res = await fetch('/api/matcher', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
+        signal: attempt.controller.signal,
       });
 
       if (!res.ok) throw new Error('Matching failed');
 
       const result = await res.json();
-      if (result.error) throw new Error(result.error);
+      if (!isUsableMatch(result)) throw new Error('Invalid matching response');
+      if (activeAttempt.current !== attempt) return;
 
       setMatchResults(result);
       setStep('results');
     } catch (err) {
-      console.error('Matcher error:', err);
+      if (activeAttempt.current !== attempt) return;
       setMatchError(err.message);
       setStep('results');
+    } finally {
+      clearTimeout(attempt.timer);
+      if (activeAttempt.current === attempt) activeAttempt.current = null;
     }
   };
 
   const isLife = isMounted && mode === 'life';
 
   return (
-    <div className="font-sans text-slate-800">
+    <div ref={flowRef} tabIndex={-1} className="font-sans text-slate-800 scroll-mt-24 focus:outline-none">
       {step === 'home' && (
         <div className="space-y-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
           
@@ -74,7 +125,7 @@ export default function HomeClientManager({
                 {heroHeader}
                 <AiMatcherForm onSubmit={handleMatch} defaultValues={formData} />
                 <p className="text-xs text-center text-slate-400 mt-4">
-                  100% Free. Powered by Real Admission Data &amp; AI.
+                  Free planning guidance from curated data, with AI assistance when available.
                 </p>
               </div>
             </div>
@@ -127,14 +178,12 @@ export default function HomeClientManager({
           <div className="w-16 h-16 border-4 border-slate-200 border-t-emerald-500 rounded-full animate-spin mx-auto"></div>
           <h2 className="text-2xl font-bold text-slate-800 font-heading">Building your university shortlist...</h2>
           
-          <div className="text-slate-500 relative h-6 overflow-hidden">
-             <div className="animate-[slideUp_4s_ease-in-out_infinite] flex flex-col items-center">
-               <span className="h-6 leading-6">Cross-referencing 50+ Top Chinese Universities...</span>
-               <span className="h-6 leading-6">Checking WHO/NMC Medical Councils data...</span>
-               <span className="h-6 leading-6">Calculating CSC Scholarship probability...</span>
-               <span className="h-6 leading-6">Finalizing your perfect match...</span>
-             </div>
-          </div>
+          <p className="text-slate-500 max-w-md mx-auto px-4">
+            Checking your profile and available university data to prepare options for your research.
+          </p>
+          <button type="button" onClick={cancelMatch} className="min-h-11 rounded-lg border border-slate-300 px-5 py-3 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500">
+            Cancel matching
+          </button>
         </div>
       )}
 

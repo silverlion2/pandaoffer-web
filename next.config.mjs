@@ -5,6 +5,8 @@ const nextConfig = {
 
   async rewrites() {
     return [
+      { source: "/study-in-:city", destination: "/study-in/:city" },
+      { source: "/study-:major-in-china", destination: "/study/:major" },
       {
         source: '/tools/simulator',
         destination: '/tools/simulator/index.html',

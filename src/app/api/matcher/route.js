@@ -15,51 +15,26 @@ function getSupabase() {
   return _supabase;
 }
 
-async function getUniversityKnowledge(major) {
-  const sb = getSupabase();
-  if (!sb) return '';
+async function getUniversityKnowledge() {
+  const controller = new AbortController();
+  let timer;
   try {
-    const majorKeywords = {
-      'MBBS': ['mbbs', 'medicine', 'medical', 'WHO'],
-      'STEM': ['engineering', 'computer', 'science', 'technology', 'stem', 'physics', 'math'],
-      'Business': ['business', 'economics', 'finance', 'mba', 'management'],
-    };
-    const keywords = majorKeywords[major] || ['university'];
-
-    // Get university chunks
-    const universityQuery = sb
-      .from('laihua_knowledge')
-      .select('content, source_name')
-      .eq('category', 'universities')
-      .order('created_at', { ascending: false })
-      .limit(10);
-
-    // Get scholarship chunks
-    const scholarshipQuery = sb
-      .from('laihua_knowledge')
-      .select('content, source_name')
-      .eq('category', 'scholarships')
-      .order('created_at', { ascending: false })
-      .limit(5);
-
-    // Get cost chunks
-    const costQuery = sb
-      .from('laihua_knowledge')
-      .select('content, source_name')
-      .eq('category', 'costs')
-      .order('created_at', { ascending: false })
-      .limit(3);
-
-    const [{ data: uniData }, { data: scholData }, { data: costData }] = await Promise.all([
-      universityQuery,
-      scholarshipQuery,
-      costQuery,
+    const sb = getSupabase();
+    if (!sb) return '';
+    const queries = [['universities', 10], ['scholarships', 5], ['costs', 3]].map(([category, limit]) =>
+      sb.from('laihua_knowledge').select('content, source_name').eq('category', category)
+        .order('created_at', { ascending: false }).limit(limit).abortSignal(controller.signal));
+    // Bound the wait even if an adapter ignores cancellation.
+    const rows = await Promise.race([
+      Promise.all(queries),
+      new Promise(resolve => { timer = setTimeout(() => resolve([]), 3000); }),
     ]);
-    const all = [...(uniData || []), ...(scholData || []), ...(costData || [])];
-    return all.map(r => r.content).join('\n\n---\n\n');
-  } catch (e) {
-    console.error('Matcher RAG error:', e.message);
+    return rows.flatMap(({ data }) => data || []).map(row => row.content).join('\n\n---\n\n');
+  } catch {
     return '';
+  } finally {
+    clearTimeout(timer);
+    controller.abort();
   }
 }
 
@@ -75,14 +50,13 @@ export async function POST(request) {
     // Normalize GPA to percentage
     const gpaPercent = normalizeGpa(gpa);
 
-    // Get RAG knowledge
-    const ragContext = await getUniversityKnowledge(major);
-
     const DEEPSEEK_KEY = process.env.DEEPSEEK_KEY;
     if (!DEEPSEEK_KEY) {
       if (localMatch) return Response.json(localMatch);
       return Response.json({ error: 'Matching data unavailable' }, { status: 503 });
     }
+
+    const ragContext = await getUniversityKnowledge();
 
     const systemPrompt = `You are a university matching engine for international students studying in China. You MUST respond ONLY with valid JSON, no markdown, no explanation.
 
